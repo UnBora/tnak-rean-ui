@@ -1,0 +1,9 @@
+
+/* Tailwindcss */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    @apply font-montserrat;
+}
