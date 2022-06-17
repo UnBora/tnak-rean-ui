@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../assets/images/logo/TnakRean.png";
 import "../App.css";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Navbar() {
   return (
@@ -18,31 +19,31 @@ export default function Navbar() {
 
           <ul className="items-stretch hidden font-semibold space-x-50px md:flex text-mygreen">
             <li className="flex">
-              <a
+              <NavLink
                 rel="noopener noreferrer"
-                href="#"
+                as={Link} to="/index"
                 className="flex items-center mylink"
               >
                 Home
-              </a>
+              </NavLink>
             </li>
             <li className="flex">
-              <a
+              <NavLink
                 rel="noopener noreferrer"
-                href="#"
+                as={Link} to="/about"
                 className="flex items-center mylink"
               >
                 About
-              </a>
+              </NavLink>
             </li>
             <li className="flex">
-              <a
+              <NavLink
                 rel="noopener noreferrer"
-                href="#"
+                as={Link} to="/register"
                 className="flex items-center mylink"
               >
                 Register
-              </a>
+              </NavLink>
             </li>
           </ul>
 

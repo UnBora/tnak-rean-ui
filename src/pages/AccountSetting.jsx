@@ -1,9 +1,11 @@
 import React from "react";
 import { BsPerson } from 'react-icons/bs';
-import { FaBeer } from 'react-icons/fa';
+import { Link, NavLink } from "react-router-dom";
 export default function AccountSetting() {
   return (
+    
     <div>
+    {/* const style = { color : "white", fontSize: "1.5em"} */}
       <div class="ml-52 mt-14">
         <div class="font-semibold text-4xl">Account Setting</div>
         <div class="text-2xl font-light mt-5">
@@ -20,19 +22,15 @@ export default function AccountSetting() {
           />
           <div class="ml-5 mt-4 font-medium">
           <p class="text-2xl"> Dayan</p>
-          <a href="#" class="text-blue-600 font-normal text-xl">Change Profile Photo</a>
+          <NavLink as={Link} to="#" class="text-blue-600 font-normal text-xl">Change Profile Photo</NavLink>
           </div>
           </div>
-          <div class="mt-10">
+          <div class="mt-10 text-xl ml-3">
            <div class="flex"> 
-           <a href="#"><BsPerson/></a> 
-           <a href="#">Account</a>
-           
+           <NavLink class="mt-1" as={Link} to="/accountsetting"><BsPerson/></NavLink> 
+           <NavLink class="ml-5 font-medium " as={Link} to="/index" >Account</NavLink>
            </div>
-           <div class="flex"> 
-           <a href="#"><BsPerson/></a> 
-           <a href="#">Account</a>
-           </div>
+          
           </div>
         </div>
         
