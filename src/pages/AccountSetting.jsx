@@ -27,6 +27,11 @@ export default function AccountSetting() {
            <div class="flex"> 
            <a href="#"><BsPerson/></a> 
            <a href="#">Account</a>
+           
+           </div>
+           <div class="flex"> 
+           <a href="#"><BsPerson/></a> 
+           <a href="#">Account</a>
            </div>
           </div>
         </div>
