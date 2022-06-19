@@ -23,6 +23,22 @@
   .mylink:hover::before{
     transform: scaleX(1);
   }
-  .myUnderline{
-    
-  }
+.myhr{
+  border-bottom: solid 3px  ;
+  border-color: #EE8F49;
+  
+}
+
+.registerPopup{
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.371);
+  z-index: 1;
+  top: 0%;
+
+}
+
+h1{
+  line-height: 100px;
+}
+
+

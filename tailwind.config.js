@@ -11,21 +11,21 @@ module.exports = {
       },
       spacing: {
         "100px": "100px",
-        "50px": "50px",
-        mynav: "90px",
-        "474px":"474px",
+        "25px": "25px",
+        mynav: "70px",
+        "350px":"350px",
       },
       width: {
         "420px":"420px",
       },
 
       maxWidth: {
-        "730px": "730px",
+        "600px": "600px",
       },
 
       fontSize: {
-        Welcome: ["74px"],
-        Quote: ["34px"],
+        Welcome: ["80px"],
+        Quote: ["25px"],
       },
 
       fontFamily: {
@@ -46,5 +46,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins:[require("daisyui")],
 };

@@ -1,5 +1,7 @@
 import React from "react";
 import TnakRean from "../assets/images/logo/TnakRean.jpg";
+import Register from "../components/Register";
+import RegisterV2 from "../components/RegisterV2";
 
 export default function AboutUs() {
   return (
@@ -417,6 +419,7 @@ export default function AboutUs() {
       <div class="text-center text-gray-500 mb-10 mt-10">
         Copyright 2022 TnakRean. All right reserved.
       </div>
+      <RegisterV2/>
     </div>
   );
 }
