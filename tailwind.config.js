@@ -36,10 +36,12 @@ module.exports = {
       maxWidth: {
         "600px": "600px",
       },
-
+      
       fontSize: {
         Welcome: ["80px"],
         Quote: ["25px"],
+        AccountIcon:["22px"],
+        AboutIcon:["25px"],
       },
 
       fontFamily: {
