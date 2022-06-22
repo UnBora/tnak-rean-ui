@@ -10,9 +10,10 @@ function App() {
     <div>
       <Navbar />
       <Routes>
+      <Route path="/" element={<IndexV2 />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/accountsetting" element={<AccountSetting />} />
-        <Route path="/" element={<IndexV2 />} />
+       
         <Route path="/register" element={<Register />} />
       </Routes>
     </div>

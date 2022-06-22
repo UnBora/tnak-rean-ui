@@ -1,12 +1,26 @@
+const withMT = require("@material-tailwind/react/utils/withMT");
+ 
+module.exports = withMT({
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  theme: {
+    extend: {}
+  },
+  plugins: []
+});
+
+
 module.exports = {
+  
   purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
 
   theme: {
     extend: {
       colors: {
         mygreen: "#48AD9B",
+        myhovergreen: "#3a9988",
         smoke: "#FAFAFA",
         myorange: "#EE8F49",
+        myhoverorange:"#e08440",
         mygray: "#EBEBEB",
       },
       spacing: {

@@ -23,7 +23,7 @@ export default function IndexV2() {
                 className="space-y-12 ng-untouched ng-pristine ng-valid "
               >
                 <div className="space-y-4">
-                  <div> 
+                  <div>
                     <input
                       type="email"
                       name="email"
@@ -33,12 +33,13 @@ export default function IndexV2() {
                     />
                   </div>
                   <div className="pb-2">
-                    
                     <input
                       type="password"
                       name="password"
                       id="password"
-                      placeholder={"*****"}
+                      placeholder={
+                       "Password"
+                      }
                       className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
                     />
                   </div>
@@ -93,7 +94,7 @@ export default function IndexV2() {
       </div>
       {/* ========== */}
 
-     <RegisterV2/>
+      <RegisterV2 />
       {/* =============== */}
     </div>
   );

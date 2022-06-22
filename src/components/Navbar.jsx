@@ -8,6 +8,16 @@ import Register from "./Register";
 export default function Navbar() {
   // const [isShowingRegister, setIsShowingRegister] = useState(false); old pop up
 
+  const current = localStorage.getItem("currentTab");
+  const [currentTab, setCurrentTab] = useState(current);
+
+  const handleSetCurrentTab = (tabName) => {
+    localStorage.setItem("currentTab", tabName);
+    setCurrentTab(tabName);
+  };
+
+
+
   return (
     <div>
       <header className="border-b border-mygray">
@@ -23,20 +33,30 @@ export default function Navbar() {
           <ul className="items-stretch hidden font-semibold space-x-25px md:flex text-mygreen">
             <li className="flex">
               <NavLink
+                onClick={() => handleSetCurrentTab("home")}
                 rel="noopener noreferrer"
                 as={Link}
-                to="/index"
-                className="flex items-center mylink"
+                to="/"
+                className={
+                  currentTab === "home"
+                    ? "flex items-center border-b-2 border-myorange"
+                    : "flex items-center mylink"
+                }
               >
                 Home
               </NavLink>
             </li>
             <li className="flex">
               <NavLink
+                onClick={() => handleSetCurrentTab("about")}
                 rel="noopener noreferrer"
                 as={Link}
                 to="/about"
-                className="flex items-center mylink"
+                className={
+                  currentTab === "about"
+                    ? "flex items-center border-b-2 border-myorange"
+                    : "flex items-center mylink"
+                }
               >
                 About
               </NavLink>
