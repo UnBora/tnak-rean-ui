@@ -1,6 +1,5 @@
 import React from "react";
-import { useState } from "react";
-import { BiUser } from "react-icons";
+
 
 export default function Index() {
   return (

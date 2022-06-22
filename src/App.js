@@ -10,6 +10,7 @@ import DeactivateAccount from "./components/SettingAcc/DeactivateAccount";
 import DeleteAccount from "./components/SettingAcc/DeleteAccount";
 import ChangePassword from "./components/SettingAcc/ChangePassword";
 import Account from "./components/SettingAcc/Account";
+import Index from "./pages/Index";
 
 function App() {
   return (
