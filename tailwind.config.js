@@ -22,10 +22,12 @@ module.exports = {
       maxWidth: {
         "730px": "730px",
       },
-
+      
       fontSize: {
         Welcome: ["74px"],
         Quote: ["34px"],
+        AccountIcon:["22px"],
+        AboutIcon:["25px"],
       },
 
       fontFamily: {

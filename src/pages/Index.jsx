@@ -1,5 +1,5 @@
 import React from "react";
-import {BiUser} from 'react-icons'
+// import {BiUser} from 'react-icons'
 
 
 export default function Index() {

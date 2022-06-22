@@ -23,6 +23,7 @@
   .mylink:hover::before{
     transform: scaleX(1);
   }
-  .myUnderline{
-    
+  .myhr{
+    border-bottom:solid 3px;
+    border-color:#EE8F49;
   }
