@@ -48,7 +48,7 @@ export default function DeactivateAccount() {
           <div className="mt-5 mb-4">
             <button
               type="button"
-              className="py-2 text-sm font-medium text-center text-white bg-red-500 rounded-full shadow-md w-28"
+              className="py-2 text-sm font-medium text-center text-white rounded-full shadow-md bg-myred w-28"
             >
               Deactivate
             </button>

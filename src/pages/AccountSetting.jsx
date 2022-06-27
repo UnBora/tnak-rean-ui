@@ -32,22 +32,23 @@ export default function AccountSetting() {
                   class="block w-full text-sm 
                   file:bg-white file:border-0 file:text-sm file:font-semibold file:text-blue-600  hover:file:bg-violet-100"
                 /> */}
-               {/* <input id="file-upload" name="file-upload" type="file" className="text-xs sr-only " />Choose profile photo */}
+                {/* <input id="file-upload" name="file-upload" type="file" className="text-xs sr-only " />Choose profile photo */}
               </label>
-              
+
               <div className="flex text-sm text-gray-600">
-                          <label
-                            htmlFor="file-upload"
-                            className="relative font-medium text-indigo-600 bg-white rounded-md cursor-pointer hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
-                          >
-                            <span>Choose profile photo</span>
-                            <input id="file-upload" name="file-upload" type="file" className="sr-only" />
-                          </label>
-                        
-                        </div>
-                        
-              
-              
+                <label
+                  htmlFor="file-upload"
+                  className="relative font-medium text-indigo-600 bg-white rounded-md cursor-pointer hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+                >
+                  <span>Choose profile photo</span>
+                  <input
+                    id="file-upload"
+                    name="file-upload"
+                    type="file"
+                    className="sr-only"
+                  />
+                </label>
+              </div>
             </div>
           </div>
           <div className="mt-10 ml-6 text-xl">

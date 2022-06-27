@@ -22,6 +22,8 @@ module.exports = {
         myorange: "#EE8F49",
         myhoverorange:"#e08440",
         mygray: "#EBEBEB",
+        myred: "#FF3E3E",
+        bordergray:"#BCBCBC",
       },
       spacing: {
         "100px": "100px",
@@ -62,5 +64,8 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins:[require("daisyui")],
+  plugins:[
+    require("daisyui"),
+    require('@tailwindcss/line-clamp'),
+  ],
 };
