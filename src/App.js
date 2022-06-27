@@ -11,6 +11,9 @@ import DeleteAccount from "./components/SettingAcc/DeleteAccount";
 import ChangePassword from "./components/SettingAcc/ChangePassword";
 import Account from "./components/SettingAcc/Account";
 import Index from "./pages/Index";
+import Classwork from "./pages/student/Classwork";
+import Course from "./pages/student/Course";
+import ViewFiles from "./pages/student/ViewFiles";
 
 function App() {
   return (
@@ -36,6 +39,9 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/formsubmit" element={<FormSubmit />} />
         <Route path="/work-submit" element={<ViewWorkForSub/>}/>
+        <Route path="/stu-classwork" element={<Classwork/>}/>
+        <Route path="/stu-course" element={<Course/>}/>
+        <Route path="/files" element={<ViewFiles/>}/>
       </Routes>
     </div>
   );
