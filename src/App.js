@@ -1,23 +1,20 @@
 import { Routes, Route } from "react-router-dom";
 import AboutUs from "./pages/AboutUs";
 import Register from "./components/Register";
-import Classwork from "./pages/teacher/ManageClass";
-import Course from "./pages/teacher/Course";
-import Home from "./pages/teacher/Home";
+import ManageClass from "./pages/teacher/ManageClass";
+import ManageCourse from "./pages/teacher/Course";
 import NavbarT from "./components/NavbarT";
-import AllStudent from "./pages/teacher/AllStudent";
-import StudentRequest from "./pages/teacher/StudentRequest";
 import FormSubmit from "./pages/student/FormSubmit";
 import ViewWorkForSub from "./pages/student/ViewWorkForSub";
 import DeactivateAccount from "./components/SettingAcc/DeactivateAccount";
 import DeleteAccount from "./components/SettingAcc/DeleteAccount";
 import ChangePassword from "./components/SettingAcc/ChangePassword";
 import Account from "./components/SettingAcc/Account";
-import Index from "./pages/Login";
 import Classwork from "./pages/student/Classwork";
 import Course from "./pages/student/Course";
 import ViewFiles from "./pages/student/ViewFiles";
 import Login from "./pages/Login";
+import AccountSetting from "./pages/AccountSetting";
 
 function App() {
   return (
@@ -27,9 +24,9 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/about" element={<AboutUs />} />
-        <Route path="/classwork" element={<Classwork />} />
-        <Route path="/course" element={<Course />} />
-        <Route path="/setting" element={<AccountSetting />}>
+        <Route path="/classwork" element={<ManageClass />} />
+        <Route path="/course" element={<ManageCourse />} />
+        <Route path="/setting" element={<AccountSetting/>}>
           <Route path="account" element={<Account />}></Route>
           <Route path="change-password" element={<ChangePassword />}></Route>
           <Route
