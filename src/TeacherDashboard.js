@@ -1,21 +1,24 @@
 import { Routes, Route } from "react-router-dom";
-import Classwork from "./components/teacher/Classwork";
-import Course from "./components/teacher/Course";
+import NavbarT from "./components/NavbarT";
+import Classwork from "./pages/teacher/ManageClass";
+import Course from "./pages/teacher/Course";
 
-import NavbarT from "./components/teacher/NavbarT";
+
+
+
 import Home from "./pages/teacher/Home";
 
-function App2() {
+function TeacherDashboard() {
   return (
     <div>
       <NavbarT />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/classwork" element={<Classwork/>} />
+        <Route path="/classwork" element={<Classwork />} />
         <Route path="/course" element={<Course/>} />
       </Routes>
     </div>
   );
 }
 
-export default App2;
+export default TeacherDashboard;

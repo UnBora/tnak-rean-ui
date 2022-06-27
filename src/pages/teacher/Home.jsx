@@ -2,18 +2,21 @@ import React from "react";
 import "../../App.css";
 import { useState } from "react";
 import Calendar from "react-calendar";
-import NavbarT from "../../components/teacher/NavbarT";
+import NavbarT from "../../components/NavbarT";
 import ClassCard from "../../components/teacher/ClassCard";
 import CreateClass from "../../components/teacher/CreateClass";
+import Stepper from "../../components/Stepper";
+import { useAuth } from "../../components/auth";
 
 export default function Testing() {
   const [date, setDate] = useState(new Date());
+  const auth=useAuth()
   return (
-    <div>
+    <div className=" mx-100px md:flex">
       {" "}
-      <div class="grid grid-cols-4 gap-4  mx-100px mt-6 ">
-        <div className="grid gap-y-4">
-          <div className="p-2 rounded-lg bg-smoke h-52 ">
+      <div class="   mt-6 ">
+        <div className="max-w-md space-y-3">
+          <div className="p-2 rounded-lg bg-smoke h-52">
             <h2 className="text-2xl font-medium text-mygreen">Schedule</h2>
             <p className="mb-2 myhr"></p>
             <select
@@ -36,7 +39,7 @@ export default function Testing() {
               <span>KSHRD</span>
             </div>
           </div>
-          <div className="grid p-2 rounded-lg bg-smoke">
+          <div className="p-2 rounded-lg bg-smoke">
             <div className="mx-1 calendar-container">
               <h2 className="text-2xl font-medium text-mygreen">Calendar</h2>
               <p className="myhr"></p>
@@ -49,17 +52,17 @@ export default function Testing() {
             </div>
           </div>
         </div>
-
-        <div className="col-span-3 pt-5 rounded-lg bg-smoke">
-          <div className="flex justify-between mx-5 my-4">
-            <label
-              className="px-5 ml-1 border-none rounded-full btn btn-sm bg-mygreen hover:bg-myhovergreen"
-              for="my-modal-3"
-            >
-              Create
-            </label>
-
-            <div class="flex justify-center">
+      </div>
+      <div className="w-full h-full mt-6 ml-3">
+        <div className="pt-5 rounded-lg bg-smoke">
+          <div className="mx-5 my-4 ">
+            <div className="flex justify-between">
+              <label
+                className="px-5 ml-1 border-none rounded-full btn btn-sm bg-mygreen hover:bg-myhovergreen"
+                for="my-modal-3"
+              >
+                Create
+              </label>
               <div class=" flex justify-start items-center  relative">
                 <input
                   class="text-sm leading-none text-left text-gray-600 px-4 py-2 w-full border rounded-full border-gray-300  outline-none"
@@ -93,14 +96,13 @@ export default function Testing() {
             </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-5 mx-6 scroll-smooth ">
+          <div className="flex flex-no-wrap flex-wrap sm:flex-wrap md:flex-wrap lg:flex-no-wrap xl:flex-wrap md:justify-center sm:justify-center">
             <ClassCard />
             <ClassCard />
             <ClassCard />
             <ClassCard />
             <ClassCard />
             <ClassCard />
-
             <CreateClass />
           </div>
         </div>

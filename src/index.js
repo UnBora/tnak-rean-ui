@@ -1,19 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App2 from "./App2";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
-import Mystepper from "./Mystepper";
-import Home from "./pages/teacher/Home";
-import Testing from "./pages/teacher/Testing";
 import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-    <App2/>
+    <App/>
     </BrowserRouter>
   </React.StrictMode>
 );

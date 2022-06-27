@@ -3,8 +3,8 @@ import { FcGoogle } from "react-icons/fc";
 import logo from "../assets/images/logo/TnakRean2.png";
 import swal from "sweetalert";
 export default function RegisterV2() {
-  const classcreated = () => {
-    swal("Classroom was created successfully", "", "success");
+  const register = () => {
+    swal("register successfully", "", "success");
   };
   return (
     <div>
@@ -142,8 +142,9 @@ export default function RegisterV2() {
                 <button
                   type="button"
                   className="py-1 space-x-2 text-xl font-medium text-white rounded-full bg-mygreen w-350px"
+                  onClick={() => register() }
                 >
-                  <label for="">Register</label>
+                 Register
                 </button>
               </div>
               <h2 className="py-1 font-semibold text-center">OR</h2>

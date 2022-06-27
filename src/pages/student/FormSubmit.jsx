@@ -11,9 +11,7 @@ export default function FormSubmit() {
   //   setTextarea(event.target.value);
   // };
   return (
-    
     <div className="mx-32 mt-10 mb-40">
-
       <div className="flex">
         <NavLink to="/work-submit" className="text-AboutIcon text-mygreen">
           <IoChevronBackCircle />
@@ -52,7 +50,6 @@ export default function FormSubmit() {
        
             </div> */}
         <div className="flex mt-6">
-        
           {/* <textarea
             className="
         form-control
@@ -92,7 +89,6 @@ export default function FormSubmit() {
             Cancel
           </button>
         </div>
-       
       </div>
     </div>
   );

@@ -7,17 +7,17 @@ export default function ProfileCard() {
         <p className="text-lg font-medium text-mygreen">Notification</p>
         <p className="myhr"></p>
        
-      <div >
-      <div class="avatar m-1">
-        <div class="w-5 rounded-full ring ring-primary ring-offset-base-100 ring-offset-1">
-          <img src="https://api.lorem.space/image/face?hash=3174" />
-        </div>
-      </div>
-      <div>
-      <span className="p-1 text-sm font-semibold">Bora</span><span className="p-2 text-sm">requested to join KPS classroom</span>
-      </div>
-       
-      </div>
+        <div class="flex items-center space-x-3">
+            <div class="avatar">
+              <div class="mask mask-squircle w-8 h-8 rounded-full">
+              <img src="https://api.lorem.space/image/face?hash=53273" />
+              </div>
+            </div>
+            <div>
+              <div class="font-bold">Hart Hagerty</div>
+              
+            </div>
+          </div><span>requested to join Phnom Penh classroom</span>
       </div>
       
     </div>

@@ -4,7 +4,7 @@ import { FiMoreVertical } from "react-icons/fi";
 import { ImUsers } from "react-icons/im";
 import { useState } from "react";
 import Calendar from "react-calendar";
-import NavbarT from "../../components/teacher/NavbarT";
+import NavbarT from "../../components/NavbarT";
 import ClassCard from "../../components/teacher/ClassCard";
 
 export default function Testing() {

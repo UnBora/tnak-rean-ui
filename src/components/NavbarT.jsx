@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import logo from "../../assets/images/logo/TnakRean.png";
+import logo from "../assets/images/logo/TnakRean.png";
 import { MdOutlineArrowDropDownCircle } from "react-icons/md";
 import { IoMdNotificationsOutline } from "react-icons/io";
-import "../../App.css";
-import ClassCard from "./ClassCard";
-import ProfileCard from "../ProfileCard";
-import Notification from "../Notification";
-import AccountDropdown from "../AccountDropdown";
+import "../App.css";
+import ClassCard from "./teacher/ClassCard";
+import ProfileCard from "./ProfileCard";
+import Notification from "./Notification";
+import AccountDropdown from "./AccountDropdown";
 import { Link, NavLink } from "react-router-dom";
 const NavbarT = () => {
   const current = localStorage.getItem("currentTab");
