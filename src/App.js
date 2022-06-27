@@ -15,11 +15,12 @@ import Course from "./pages/student/Course";
 import ViewFiles from "./pages/student/ViewFiles";
 import Login from "./pages/Login";
 import AccountSetting from "./pages/AccountSetting";
+import Navbar  from "./components/Navbar";
 
 function App() {
   return (
     <div>
-      <NavbarT />
+      <Navbar/>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

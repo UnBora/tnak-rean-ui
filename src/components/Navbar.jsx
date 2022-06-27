@@ -1,10 +1,7 @@
 import React from "react";
-import logo from "../../assets/images/logo/TnakRean.png";
-import "../../App.css";
+import logo from "../assets/images/logo/TnakRean.png";
+import "../App.css";
 import { Link, NavLink } from "react-router-dom";
-import { useState } from "react";
-import Register from "../../components/Register";
-import { useAuth } from "../../components/auth";
 
 export default function Navbar() {
 

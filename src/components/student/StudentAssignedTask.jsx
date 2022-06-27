@@ -2,7 +2,6 @@ import React from "react";
 import StudentComment from "./StudentComment";
 import { MdOutlineAssignment } from "react-icons/md";
 import { NavLink } from "react-router-dom";
-// import { NavLink } from "react-router-dom";
 
 export default function StudentAssignedTask() {
   return (
