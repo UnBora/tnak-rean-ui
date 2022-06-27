@@ -5,7 +5,7 @@ import { useAuth } from "../components/auth";
 import RegisterV2 from "../components/RegisterV2";
 
 
-export default function IndexV2() {
+export default function Login() {
   const [user,setUser]= useState('')
   const auth=useAuth()
   const navigate=useNavigate()
