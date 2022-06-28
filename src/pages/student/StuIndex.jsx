@@ -1,20 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
+
 import "../../App.css";
-import { useState } from "react";
+
 import Calendar from "react-calendar";
-import NavbarT from "../../components/NavbarT";
+
 import ClassCard from "../../components/teacher/ClassCard";
 import CreateClass from "../../components/teacher/CreateClass";
-import Stepper from "../../components/Stepper";
-import { useAuth } from "../../components/auth";
+import StudentAssignedTask from "../../components/student/StudentAssignedTask";
+import ResultList from "../teacher/ResultList";
+import ShowResult from "../../components/student/ShowResult";
 
-export default function Home() {
+function StuIndex() {
   const [date, setDate] = useState(new Date());
- 
   return (
     <div className=" mx-100px md:flex">
       {" "}
-      <div className="mt-6 ">
+      <div class="   mt-6 ">
         <div className="max-w-md space-y-3">
           <div className="p-2 rounded-lg bg-smoke h-52">
             <h2 className="text-2xl font-medium text-mygreen">Schedule</h2>
@@ -54,59 +55,25 @@ export default function Home() {
         </div>
       </div>
       <div className="w-full h-full mt-6 ml-3">
-        <div className="pt-5 rounded-lg bg-smoke">
+        <div className="pt-1 rounded-lg bg-smoke">
           <div className="mx-5 my-4 ">
-            <div className="flex justify-between">
-              <label
-                className="px-5 ml-1 border-none rounded-full btn btn-sm bg-mygreen hover:bg-myhovergreen"
-                for="my-modal-3"
-              >
-                Create
-              </label>
-              <div className="relative flex items-center justify-start ">
-                <input
-                  className="w-full px-4 py-2 text-sm leading-none text-left text-gray-600 border border-gray-300 rounded-full outline-none"
-                  type="text"
-                  placeholder="Find classroom"
-                />
-                <svg
-                  className="absolute z-10 w-6 h-6 p-1 text-white rounded-full cursor-pointer right-1 bg-mygreen"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M10 17C13.866 17 17 13.866 17 10C17 6.13401 13.866 3 10 3C6.13401 3 3 6.13401 3 10C3 13.866 6.13401 17 10 17Z"
-                    stroke="#4B5563"
-                    stroke-width="1.66667"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M21 21L15 15"
-                    stroke="#4B5563"
-                    stroke-width="1.66667"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
+            <div className="flex justify-between ">
+              <p className="pt-2 mt-2 text-2xl font-semibold">Upcoming</p>
             </div>
+            <p className="mt-2 border-b"></p>
           </div>
 
           <div className="flex flex-no-wrap flex-wrap sm:flex-wrap md:flex-wrap lg:flex-no-wrap xl:flex-wrap md:justify-center sm:justify-center">
-            <ClassCard />
-            <ClassCard />
-            <ClassCard />
-            <ClassCard />
-            <ClassCard />
-            <ClassCard />
-            <CreateClass />
+            <StudentAssignedTask />
+            <StudentAssignedTask />
+            <StudentAssignedTask />
+            <StudentAssignedTask />
           </div>
+         <ShowResult/>
         </div>
       </div>
     </div>
   );
 }
+
+export default StuIndex;

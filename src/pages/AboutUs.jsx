@@ -1,7 +1,7 @@
 import React from "react";
 import TnakRean from "../assets/images/logo/TnakRean.jpg";
 import Register from "../components/Register";
-import RegisterV2 from "../components/RegisterV2";
+import RegisterV2 from "../components/Register";
 import {
   AiFillGitlab,
   AiFillGoogleCircle,

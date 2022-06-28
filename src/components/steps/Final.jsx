@@ -29,10 +29,10 @@ export default function Final() {
         <div className="text-lg font-semibold text-gray-500">
           New password has been created.
         </div>
-        <a className="mt-10" href="/user/dashboard">
-          <button className="h-10 px-5 transition-colors duration-150 border border-gray-300 rounded-lg text-mygreen focus:shadow-outline hover:bg-mygreen hover:text-green-100">
+        <a className="mt-10">
+          <label for="my-modal-4" className="h-10 px-5 transition-colors duration-150 border border-gray-300 rounded-lg text-mygreen focus:shadow-outline hover:bg-mygreen hover:text-green-100">
             Close
-          </button>
+          </label>
         </a>
       </div>
     </div>

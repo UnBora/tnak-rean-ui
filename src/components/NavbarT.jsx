@@ -35,7 +35,7 @@ const NavbarT = () => {
                 onClick={() => handleSetCurrentTab("/")}
                 rel="noopener noreferrer"
                 as={Link}
-                to="/"
+                to="/index"
                 className={
                   currentTab === "/"
                     ? "flex items-center font-medium  border-b-2 border-myorange"
@@ -51,7 +51,7 @@ const NavbarT = () => {
               onClick={() => handleSetCurrentTab("/classroom")}
                 rel="noopener noreferrer"
                 as={Link}
-                to="/classwork"
+                to="/all-classwork"
                 className={
                   currentTab === "/classroom"
                     ? "flex items-center font-medium  border-b-2 border-myorange"
@@ -66,7 +66,7 @@ const NavbarT = () => {
                 onClick={() => handleSetCurrentTab("/course")}
                 rel="noopener noreferrer"
                 as={Link}
-                to="/course"
+                to="/all-course"
                 className={
                   currentTab === "/course"
                     ? "flex items-center font-medium  border-b-2 border-myorange"

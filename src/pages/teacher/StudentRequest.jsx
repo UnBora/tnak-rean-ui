@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ProfileCard from "../../components/ProfileCard";
 import { decline } from "../../components/swal/warning";
-
+import { FaUser } from "react-icons/fa";
 export default function StudentRequest() {
   const [accept, setAccept] = useState("Accept");
 
@@ -10,6 +10,12 @@ export default function StudentRequest() {
   }
   return (
     <div>
+      <div className="flex space-x-2">
+        <div className="w-8 h-8 rounded-full bg-mygreen">
+          <FaUser className="flex m-auto mt-2 text-white align-middle" />
+        </div>
+        <p className="mb-3 text-2xl font-semibold">Student request</p>
+      </div>
       <div class="alert  shadow-lg my-4">
         <div>
           <div className="dropdown dropdown-right dropdown-hover">
@@ -21,11 +27,11 @@ export default function StudentRequest() {
               </div>
             </label>
             <div
-                tabindex="0"
-                className="p-1 dropdown-content mt-9 rounded-box "
-              >
-                <ProfileCard />
-              </div>
+              tabindex="0"
+              className="p-1 dropdown-content mt-9 rounded-box "
+            >
+              <ProfileCard />
+            </div>
           </div>
           <p className="font-medium">Bora</p>
           <span>request to join</span> <span>Phnom Penh classroom</span>

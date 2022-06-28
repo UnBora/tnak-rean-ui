@@ -8,7 +8,7 @@ export default function Navbar() {
   return (
     <div>
       <header className="border-b border-mygray">
-        <div className="flex justify-between h-mynav mx-100px">
+        <div className="justify-center h-mynav mx-100px md:flex md:justify-between">
           <a
             rel="noopener noreferrer"
             aria-label="Back to homepage"
@@ -16,7 +16,7 @@ export default function Navbar() {
           >
             <img src={logo} alt="" className="scale-75 " />
           </a>
-          <ul className="items-stretch hidden font-semibold space-x-25px md:flex text-mygreen">
+          <ul className="flex items-stretch font-semibold space-x-25px text-mygreen ">
             <li className="flex">
               <NavLink
                 rel="noopener noreferrer"
@@ -38,12 +38,9 @@ export default function Navbar() {
               </NavLink>
             </li>
             <li className="flex">
-              <button
-                rel="noopener noreferrer"
-                className="flex items-center mylink"
-              >
-                <label for="my-modal-3">Register</label>
-              </button>
+           
+                <label for="my-modal-3"  className="flex items-center cursor-pointer mylink">Register</label>
+           
             </li>
           </ul>
         </div>

@@ -1,6 +1,7 @@
 export default function StepperControl({ handleClick, currentStep, steps }) {
     return (
       <div className="container flex justify-center mb-8 space-x-10">
+        <label className="px-10 py-2 font-semibold text-white rounded-full btn btn-error"  for="my-modal-4">Cancel</label>
         
         <button
           onClick={() => handleClick()}
@@ -17,6 +18,8 @@ export default function StepperControl({ handleClick, currentStep, steps }) {
         >
           {currentStep === steps.length - 1 ? "Confirm" : "Next"}
         </button>
+
+        
       </div>
     );
   }

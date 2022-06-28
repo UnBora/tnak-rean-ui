@@ -5,12 +5,14 @@ import { removeStudent } from "../../components/swal/warning";
 
 const AllStudent = () => {
   return (
-    <div >
+    <div>
       <div className="flex space-x-2">
-      <div className="w-8 h-8 rounded-full bg-mygreen"><FaUserFriends className="flex m-auto mt-2 text-white align-middle"/></div>
-      <p className="mb-3 text-xl font-semibold">All student</p>
+        <div className="w-8 h-8 rounded-full bg-mygreen">
+          <FaUserFriends className="flex m-auto mt-2 text-white align-middle" />
+        </div>
+        <p className="mb-3 text-2xl font-semibold">All student</p>
       </div>
-     
+
       <div class="flex ">
         <div class=" flex justify-start items-center  relative">
           <input
@@ -63,7 +65,12 @@ const AllStudent = () => {
               <td>chanthaamengg@gmail.com</td>
               <td>Male</td>
               <td className="text-right w-52">
-                <button class="btn btn-sm bg-red-500 border-none gap-2 text-xs hover:bg-red-600" onClick={()=>{removeStudent()}}>
+                <button
+                  class="btn btn-sm bg-red-500 border-none gap-2 text-xs hover:bg-red-600"
+                  onClick={() => {
+                    removeStudent();
+                  }}
+                >
                   Remove
                   <MdDelete />
                 </button>

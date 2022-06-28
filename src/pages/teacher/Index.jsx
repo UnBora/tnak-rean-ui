@@ -1,5 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 export default function Index() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  let signin=()=>{
+    let user={
+      username:username,
+      password:password,
+      
+    }
+    Login(user).then(()=>{console.log();})
+  }
   return (
     <section className="flex justify-between my-5 mx-100px">
       <div className="grid gap-6 text-right lg:grid-cols-2 ">
@@ -36,6 +46,7 @@ export default function Index() {
             <div className="space-y-4">
               <div>
                 <input
+                  onChange={(e) => setUsername(e.target.value)}
                   type="email"
                   name="email"
                   id="email"
@@ -45,6 +56,7 @@ export default function Index() {
               </div>
               <div className="pb-2">
                 <input
+                  onChange={(e) => setPassword(e.target.value)}
                   type="password"
                   name="password"
                   id="password"
@@ -63,6 +75,7 @@ export default function Index() {
 
             <div>
               <button
+              onClick={signin}
                 type="button"
                 className="w-full px-8 py-2 space-x-2 font-semibold text-white rounded-full text-md bg-mygreen"
               >
@@ -79,7 +92,6 @@ export default function Index() {
           </form>
         </div>
       </div>
-      
     </section>
   );
 }

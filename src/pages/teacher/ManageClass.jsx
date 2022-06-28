@@ -3,12 +3,7 @@ import { FaUserFriends } from "react-icons/fa";
 import { FaUser, FaClipboardList } from "react-icons/fa";
 import { MdWork, MdLibraryBooks } from "react-icons/md";
 import { GiBookCover } from "react-icons/gi";
-import { Link, NavLink } from "react-router-dom";
-import AllStudent from "./AllStudent";
-import StudentRequest from "./StudentRequest";
-import Classwork from "./ResultList";
-import { Result } from "postcss";
-import ResultList from "./ResultList";
+import { Link, NavLink, Outlet } from "react-router-dom";
 
 export default function ManageClass() {
   return (
@@ -25,9 +20,8 @@ export default function ManageClass() {
             <nav className="mt-8 ">
               <NavLink
                 className="flex items-center p-2 my-1 text-gray-600 transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 dark:hover:text-white dark:hover:bg-gray-600 dark:text-gray-400 "
-                href="#"
                 as={Link}
-                to="/"
+                to="/classroom/students"
               >
                 <FaUserFriends className="text-lg" />
                 <span className="mx-4 text-lg font-normal">All student</span>
@@ -36,9 +30,8 @@ export default function ManageClass() {
 
               <NavLink
                 className="flex items-center p-2 my-1 text-gray-600 transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 dark:hover:text-white dark:hover:bg-gray-600 dark:text-gray-400 "
-                href="#"
                 as={Link}
-                to="#"
+                to="/classroom/requests"
               >
                 <FaUser />
                 <span className="mx-4 text-lg font-normal">Request</span>
@@ -53,9 +46,8 @@ export default function ManageClass() {
               </NavLink>
               <NavLink
                 className="flex items-center p-2 text-gray-800 transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 dark:hover:text-white dark:hover:bg-gray-600 dark:text-gray-100 dark:bg-gray-600"
-              
                 as={Link}
-                to="#"
+                to="/classroom/classworks"
               >
                 <MdWork />
                 <span className="mx-4 text-lg font-normal">Classwork</span>
@@ -63,9 +55,8 @@ export default function ManageClass() {
               </NavLink>
               <NavLink
                 className="flex items-center p-2 text-gray-600 transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 dark:hover:text-white dark:hover:bg-gray-600 dark:text-gray-400 "
-                href="#"
                 as={Link}
-                to="#"
+                to="/classroom/courses"
               >
                 <GiBookCover />
                 <span className="mx-4 text-lg font-normal">Course</span>
@@ -73,9 +64,8 @@ export default function ManageClass() {
               </NavLink>
               <NavLink
                 className="flex items-center p-2 text-gray-600 transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 dark:hover:text-white dark:hover:bg-gray-600 dark:text-gray-400 "
-                href="#"
                 as={Link}
-                to="#"
+                to="/classroom/results"
               >
                 <FaClipboardList />
                 <span className="mx-4 text-lg font-normal">Result</span>
@@ -87,7 +77,7 @@ export default function ManageClass() {
       </div>
 
       <div className="mt-10 ml-20 ">
-        <ResultList/>
+        <Outlet />
       </div>
     </div>
   );

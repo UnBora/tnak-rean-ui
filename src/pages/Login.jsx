@@ -2,16 +2,11 @@ import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../components/auth";
-import RegisterV2 from "../components/RegisterV2";
-
+import RegisterV2 from "../components/Register";
+import ForgetPassword from "../components/ForgetPassword";
 
 export default function Login() {
-  const [user,setUser]= useState('')
-  const auth=useAuth()
-  const navigate=useNavigate()
-  const handleLogin=()=>{
-    auth.login(user)
-  }
+
   return (
     <div>
       <div class="hero ">
@@ -21,7 +16,13 @@ export default function Login() {
               <div className="object-cover mb-8 text-center rounded-md xl:col-span-3 ">
                 <h1 className="flex my-3 text-4xl font-semibold">Login</h1>
                 <p className="flex pt-1 text-md dark:text-gray-400">
-                  Don't have an account? Register
+                  Don't have an account?{" "}
+                  <label
+                    for="my-modal-3"
+                    className="flex items-center ml-3 cursor-pointer mylink"
+                  >
+                    Register
+                  </label>
                 </p>
               </div>
               <form
@@ -48,20 +49,19 @@ export default function Login() {
                       className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
                     />
                   </div>
-                  <a
-                    rel="noopener noreferrer"
-                    href="#"
-                    className="text-md hover:underline dark:text-gray-400"
+                  <label
+                 for="my-modal-4"
+                    className="cursor-pointer text-md hover:underline dark:text-gray-400"
                   >
                     Forgot password
-                  </a>
+                  </label>
                 </div>
 
                 <div>
                   <button
                     type="button"
                     className="w-full px-8 py-2 space-x-2 font-semibold text-white rounded-full text-md bg-mygreen"
-                    onClick={handleLogin}
+                   
                   >
                     Login
                   </button>
@@ -99,7 +99,7 @@ export default function Login() {
         </div>
       </div>
       {/* ========== */}
-
+      <ForgetPassword />
       <RegisterV2 />
 
       {/* =============== */}

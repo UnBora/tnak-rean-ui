@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { IoChevronBackCircle } from "react-icons/io5";
+import Ckeditor from "../../components/Ckeditor"
 
 export default function ViewFiles() {
   return (
@@ -14,9 +15,10 @@ export default function ViewFiles() {
         </NavLink>
       </div>
       <div className=""> 
-        <p className="mt-6 text-2xl font-bold ml-7 text-mygreen">React JS</p>
-        <p className="w-16 mt-1 ml-7 myhr"></p>  
+        <p className="mt-6 text-2xl font-bold text-mygreen">React JS</p>
+        <p className="w-16 mt-1 mb-4 myhr"></p>  
       </div>
+      <Ckeditor />
     </div>
   );
 }
