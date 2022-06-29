@@ -11,9 +11,7 @@ export default function StudentAssignedTask() {
           <MdOutlineAssignment />
           <span className="ml-2 text-lg font-medium">JAVA assignment 1</span>
         </div>
-        {/* <div className="mt-1">
-        <FaEllipsisV />
-      </div> */}
+        
       </div>
       <div className="mt-2 text-base font-medium">
         <p className="max-w-[22rem] truncate">

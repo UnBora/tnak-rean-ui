@@ -10,7 +10,7 @@ export default function ManageClass() {
     <div className="flex mx-100px">
       <div className="bg-white dark:bg-gray-800 ">
         <div className="flex sm:flex-row ">
-          <div className="w-72 ">
+          <div className="w-72">
             <div className="flex items-center justify-start mt-10">
               <span className="text-2xl font-bold text-gray-600 dark:text-gray-300">
                 PP classroom

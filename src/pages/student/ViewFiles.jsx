@@ -7,10 +7,10 @@ export default function ViewFiles() {
   return (
     <div className="mt-10 mb-40 lg:mx-32 sm:mx-5 md:mx-12">
       <div className="flex">
-        <NavLink to="/stu-classwork" className="text-AboutIcon text-mygreen">
+        <NavLink to="/stu-course" className="text-AboutIcon text-mygreen">
           <IoChevronBackCircle />
         </NavLink>
-        <NavLink to="/stu-classwork" className="ml-2 font-medium">
+        <NavLink to="/stu-course" className="ml-2 font-medium">
           Back
         </NavLink>
       </div>

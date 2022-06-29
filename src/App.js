@@ -30,7 +30,7 @@ function App() {
     <div>
       <Navbar/>
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/index" element={<Home />} />

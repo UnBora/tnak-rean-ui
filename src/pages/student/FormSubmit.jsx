@@ -16,7 +16,7 @@ export default function FormSubmit() {
         <NavLink to="/work-submit" className="text-AboutIcon text-mygreen">
           <IoChevronBackCircle />
         </NavLink>
-        <NavLink to="/classwork" className="ml-2 font-medium">
+        <NavLink to="/work-submit" className="ml-2 font-medium">
           Back
         </NavLink>
       </div>

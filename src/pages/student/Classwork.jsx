@@ -1,8 +1,5 @@
 import React from "react";
 import { VscNotebook } from "react-icons/vsc";
-// import { FaEllipsisV, FaFolderMinus } from "react-icons/fa";
-// import { MdOutlineAssignment } from "react-icons/md";
-// import StudentComment from "../../components/student/StudentComment";
 import StudentFolder from "../../components/student/StudentFolder";
 import StudentAssignedTask from "../../components/student/StudentAssignedTask";
 import Folders from "../../components/teacher/Folders";
@@ -28,7 +25,7 @@ export default function Classwork() {
         <div className="flex flex-wrap col-span-12">
         {/* card */}
          <StudentFolder/>
-         <Folders/>
+         <StudentFolder/>
          <StudentFolder/>
          <StudentFolder/>
         </div>
