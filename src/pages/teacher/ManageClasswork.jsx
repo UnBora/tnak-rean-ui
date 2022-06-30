@@ -16,7 +16,7 @@ import AssignClasswork from "../../components/teacher/AssignClasswork";
 
 function ManageClasswork() {
   return (
-    <div>
+    <div className="">
       <div className="flex space-x-2">
         <div className="w-8 h-8 rounded-full bg-mygreen">
           <MdWork className="flex m-auto mt-2 text-white align-middle" />
@@ -25,7 +25,6 @@ function ManageClasswork() {
       </div>
       <div className="text-sm breadcrumbs">
         <ul>
-      
           <li>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +43,6 @@ function ManageClasswork() {
           </li>
         </ul>
       </div>
-
       <div className="dropdown dropdown-right">
         <label
           tabindex="0"
@@ -82,7 +80,7 @@ function ManageClasswork() {
           </li>
         </ul>
       </div>
-      <p className="ml-1 text-lg font-bold ">Folder</p>
+      <p className="mt-3 ml-1 text-xl font-semibold">Folder</p>
       <p className="mb-2 border-b"></p>
       <div className="flex flex-wrap">
         <Link to="#">
@@ -96,7 +94,7 @@ function ManageClasswork() {
         </Link>
       </div>
 
-      <p className="ml-1​​ mt-4 text-lg font-bold">Assigned task</p>
+      <p className="ml-1​​ mt-12 text-xl font-semibold">Assigned task</p>
       <p className="mb-4 border-b"></p>
       <div className="flex flex-wrap">
         <AssignedTask />

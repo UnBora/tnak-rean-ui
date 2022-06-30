@@ -6,7 +6,7 @@ const AddLink = () => {
       {/* Add link */}
       <input type="checkbox" id="my-modal-link" className="modal-toggle" />
       <div className="modal modal-bottom sm:modal-middle">
-        <div className="relative max-w-sm p-6 rounded-md  bg-smoke">
+        <div className="relative max-w-sm p-6 rounded-md bg-smoke">
           <label
             for="my-modal-link"
             className="absolute btn btn-xs btn-circle right-2 top-2"
@@ -19,8 +19,8 @@ const AddLink = () => {
             <input
               id="username"
               type="text"
-              placeholder="Enter folder name"
-              className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring focus:ring-opacity-75 focus:mygreen dark:border-gray-700 focus:outline-none focus:bg-white"
+              placeholder="Add link"
+              className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:mygreen dark:border-gray-700 focus:outline-none focus:bg-white"
             />
           </div>
           <div className="modal-action">

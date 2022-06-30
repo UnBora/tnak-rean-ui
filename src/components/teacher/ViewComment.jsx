@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function StudentComment() {
+export default function ViewComment() {
   return (
     <div className="z-50 p-3 bg-white border shadow-md border-mygray w-max card">
       <div className="flex mb-2">
@@ -30,11 +30,11 @@ export default function StudentComment() {
             <p className="mt-1 ml-3 text-xs">just now</p>
           </div>
           <label className="block text-sm">
-            Noted
+            Teacher did you have an Chapter2 slide teacher.
           </label>
         </div>
       </div>
-      <div className="flex">
+      {/* <div className="flex">
         <img
           className="flex object-cover rounded-full h-9 w-9 jsutify-left"
           src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
@@ -68,7 +68,7 @@ export default function StudentComment() {
             </svg>
           </svg>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
