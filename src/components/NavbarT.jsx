@@ -80,8 +80,8 @@ const NavbarT = () => {
 
           <div className="items-center flex-shrink-0 hidden space-x-5 lg:flex">
             {/* Profile */}
-            <div className="dropdown dropdown-left dropdown-hover ">
-              <label tabindex="0" className="flex m-1 space-x-4">
+            <div className="dropdown ">
+              <label tabindex="0" className="flex m-1 space-x-4 cursor-pointer">
                 <div className="avatar online">
                   <div className="rounded-full w-9 ">
                     <img src="https://api.lorem.space/image/face?hash=28212" />
@@ -110,13 +110,13 @@ const NavbarT = () => {
               </div>
             </div>
 
-            <div className="dropdown dropdown-left">
+            <div className="dropdown dropdown-left ">
               <label tabindex="0">
-                <MdOutlineArrowDropDownCircle className="text-2xl" />
+                <MdOutlineArrowDropDownCircle className="text-2xl cursor-pointer" />
               </label>
               <div
                 tabindex="0"
-                className="p-1 dropdown-content mt-9 rounded-box "
+                className="p-1 mt-8 dropdown-content rounded-box "
               >
                 <AccountDropdown />
               </div>

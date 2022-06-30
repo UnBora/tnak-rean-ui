@@ -71,3 +71,27 @@ export const declineStu = () =>{
     }
   });
 }
+
+//folder
+export const deleteFolder= () => {
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    iconColor:'danger',
+    title: 'Folder have been deleted',
+    showConfirmButton: false,
+    timer: 1500
+  })
+};
+
+//taskwork
+export const deleteClasswork= () => {
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    iconColor:'danger',
+    title: 'Classwork have been deleted',
+    showConfirmButton: false,
+    timer: 1500
+  })
+};

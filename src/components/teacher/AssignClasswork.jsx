@@ -14,7 +14,7 @@ const AssignClasswork = () => {
           <div className="flex-shrink-0 w-screen h-screen overflow-y-scroll shadow-xl card bg-smoke ">
             <label
               for="my-modal-2"
-              className="absolute z-10 btn btn-sm btn-circle right-3 top-3"
+              className="absolute z-10 btn btn-sm btn-circle right-4 top-4"
             >
               ✕
             </label>
@@ -30,7 +30,7 @@ const AssignClasswork = () => {
                 <div className="flex flex-wrap mb-6 -mx-3">
                   <div className="w-full px-3">
                     <input
-                      className="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 border rounded shadow-md appearance-none focus:outline-none focus:border-gray-500"
+                      className="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 border rounded shadow-sm appearance-none focus:outline-none focus:border-gray-500 bg-smoke"
                       id="grid-password"
                       type="text"
                       placeholder="Tittle"

@@ -1,19 +1,18 @@
 import React from "react";
 import { MdOutlineAddLink, MdOutlineHomeWork } from "react-icons/md";
 import ReactPlayer from "react-player";
-import { upload } from "../swal/Success";
 import AddLink from "./AddLink";
 
 function UploadCourse() {
   return (
     <div>
       <div>
-        <input type="checkbox" id="my-modal-upload" className="modal-toggle " />
-        <div className="modal ">
-          <div className="flex-shrink-0 w-screen h-screen overflow-y-scroll shadow-xl card bg-smoke ">
+        <input type="checkbox" id="my-modal-upload" class="modal-toggle  " />
+        <div class="modal  ">
+          <div class="card flex-shrink-0  shadow-xl bg-smoke w-screen h-screen overflow-y-scroll   ">
             <label
               for="my-modal-upload"
-              className="absolute z-10 btn btn-sm btn-circle right-3 top-3"
+              class="btn btn-sm btn-circle absolute right-3 top-3 z-10"
             >
               ✕
             </label>
@@ -26,12 +25,12 @@ function UploadCourse() {
               </p>
               <div className="pt-1 myhr"></div>
               {/* ====================== */}
-              <form className="w-full max-w-3xl p-5 m-auto mt-3 bg-white border rounded-lg">
-                <div className="flex flex-wrap mb-4 -mx-3">
-                  <div className="w-full px-3">
+              <form class="w-full max-w-3xl mt-3 bg-white p-5 rounded-lg m-auto border">
+                <div class="flex flex-wrap -mx-3 mb-4">
+                  <div class="w-full px-3">
                     <p className="font-medium ">Tittle</p>
                     <input
-                      className="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 border rounded shadow-md appearance-none focus:outline-none focus:border-gray-500"
+                      class="appearance-none block w-full  text-gray-700 shadow-md border  rounded py-3 px-4 mb-3 leading-tight focus:outline-none  focus:border-gray-500"
                       id="grid-password"
                       type="text"
                       placeholder="Tittle"
@@ -39,8 +38,8 @@ function UploadCourse() {
                   </div>
                 </div>
 
-                <div className="flex flex-wrap mb-6 -mx-3">
-                  <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0 ">
+                <div class="flex flex-wrap -mx-3 mb-6">
+                  <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0 ">
                     <p className="font-medium ">School</p>
                     <select
                       id="school"
@@ -54,7 +53,7 @@ function UploadCourse() {
                     </select>
                   </div>
 
-                  <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0 ">
+                  <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0 ">
                     <p className="font-medium ">Class</p>
                     <select
                       id="school"
@@ -68,18 +67,18 @@ function UploadCourse() {
                       <option className="p-6 text-xl ">Setec</option>
                     </select>
                   </div>
-                  <div className="w-full px-3 mt-6">
-                    <label className="flex flex-col items-center py-1 mb-3 tracking-wide uppercase border rounded shadow-lg cursor-pointer ">
+                  <div class="w-full  px-3 mt-6">
+                    <label class=" flex flex-col items-center  rounded shadow-lg tracking-wide uppercase border cursor-pointer   py-1  mb-3 ">
                       <svg
-                        className="w-4 h-4"
+                        class="w-4 h-4"
                         fill="currentColor"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20"
                       >
                         <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
                       </svg>
-                      <span className="text-sm font-normal ">Upload File</span>
-                      <input type="file" className="hidden" />
+                      <span class=" text-sm font-normal">Upload File</span>
+                      <input type="file" class="hidden" />
                     </label>
                     <div className="flex space-x-2">
                       <MdOutlineAddLink className="text-2xl" />
@@ -89,13 +88,10 @@ function UploadCourse() {
                       <AddLink />
                     </div>
                   </div>
-                  
                 </div>
 
-                <div className="flex flex-wrap mb-6 -mx-3">
-                  <div className="w-full px-3">
-                  
-
+                <div class="flex flex-wrap -mx-3 mb-6">
+                  <div class="w-full px-3">
                     <div className="mt-3 player-wrapper">
                       <ReactPlayer
                         className="react-player"
@@ -120,16 +116,11 @@ function UploadCourse() {
                         height="100%"
                       />
                     </div>
-
-                    <div className="flex justify-end"> <label
-                      className="px-5 mt-3 ml-1 border-none rounded-full btn btn-sm bg-mygreen hover:bg-myhovergreen"
-                      onClick={() => {
-                        upload();
-                      }}
-                      for="my-modal-upload"
-                    >
-                      Upload
-                    </label></div>
+                    <div className="flex justify-end">
+                      <button className="mt-3 border-none rounded-full btn bg-mygreen hover:bg-myhovergreen">
+                        Upload
+                      </button>
+                    </div>
                   </div>
                 </div>
               </form>

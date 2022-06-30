@@ -2,6 +2,7 @@ import React from "react";
 import { AiFillSetting } from "react-icons/ai"; 
 import { MdFeedback } from "react-icons/md";
 import { RiLogoutBoxFill } from "react-icons/ri";
+import {Link} from "react-router-dom"
 import App from "../App";
 export default function AccountDropdown() {
   return (
@@ -15,9 +16,9 @@ export default function AccountDropdown() {
           <span className="mt-1 font-medium">Dayan</span>
         </div>
         <p className="myhr"></p>
-        <ul className="z-auto font-medium rounded-md  menu w-52">
+        <ul className="z-auto font-medium rounded-md menu w-52">
           <li>
-            <label ><AiFillSetting/>Accound Setting</label>
+            <Link to="/setting/account" ><AiFillSetting/>Accound Setting</Link>
           </li>
           <li >
             <button><MdFeedback/> <a href = "mailto: abc@example.com">Give feedback</a></button>

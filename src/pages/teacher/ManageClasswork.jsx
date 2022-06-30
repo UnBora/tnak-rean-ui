@@ -13,6 +13,7 @@ import {
 import CreateFolder from "../../components/CreateFolder";
 import ReactPlayer from "react-player";
 import AssignClasswork from "../../components/teacher/AssignClasswork";
+import EditFolder from "../../components/teacher/EditFolder";
 
 function ManageClasswork() {
   return (
@@ -106,6 +107,7 @@ function ManageClasswork() {
       {/* pop up */}
       <CreateFolder />
       <AssignClasswork/>
+  
     </div>
   );
 }
