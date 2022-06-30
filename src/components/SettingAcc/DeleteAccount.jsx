@@ -22,8 +22,8 @@ export default function DeleteAccount() {
                     PASSWORD
                   </span>
                   <input
-                    type="email"
-                    name="email"
+                    type="password"
+                    name="password"
                     className="block w-64 px-3 py-2 mt-1 bg-white border rounded-md shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-mygreen focus:ring-mygreen sm:text-sm focus:ring-1"
                     placeholder="••••••••"
                   />
@@ -46,7 +46,7 @@ export default function DeleteAccount() {
             <div className="mt-5 mb-4">
               <button
                 type="button"
-                className="w-24 py-2 text-sm font-medium text-center text-white rounded-full shadow-md bg-mygreen "
+                className="w-24 py-2 text-sm font-medium text-center text-white rounded-full shadow-md bg-myred "
               >
                 Delete
               </button>

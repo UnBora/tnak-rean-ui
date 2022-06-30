@@ -4,7 +4,7 @@ import StudentComment from './student/StudentComment'
 
 export default function FilesCard() {
   return (
-    <div className='h-40 p-4 mb-5 mr-4 border border-collapse rounded-md shadow-xl border-bordergray bg-smoke w-[265px]'>
+    <div className='h-40 p-4 mb-5 mr-8 border border-collapse rounded-md shadow-xl border-bordergray bg-smoke w-[265px]'>
       <div className='text-lg font-medium'>React JS</div>
       <div className='mt-2 text-xs line-clamp-2'>React JS Chapter1: talk about basic React JS prepared by. T.SSH from PP class Korea software hrd center 10th generation 2022</div>
       <div className="flex mt-4">

@@ -6,11 +6,10 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 
 export default function AccountSetting() {
   return (
-    <div className="mb-40 mx-36 mt-9 ">
-      {/* const style = { color : "white", fontSize: "1.5em"} */}
-      <div className="">
-        <div className="text-3xl font-semibold">Account Setting</div>
-        <div className="mt-3 text-xl font-light ">
+    <div class="mx-36 mt-9 mb-40">
+      <div class="">
+        <div className="font-semibold lg:text-3xl md:text-xl sm:text-base">Account Setting</div>
+        <div className="mt-3 font-light lg:text-xl md:text-sm sm:text-xs">
           Change your profile and account setting
         </div>
       </div>
@@ -25,19 +24,12 @@ export default function AccountSetting() {
             />
             <div className="mt-3 ml-5 ">
               <p className="text-2xl font-medium"> Dayan</p>
-              <label className="block">
-                {/* <span className="sr-only">Choose profile photo</span> */}
-                {/* <input
-                  type="file"
-                  className="block w-full text-sm file:bg-white file:border-0 file:text-sm file:font-semibold file:text-blue-600 hover:file:bg-violet-100"
-                /> */}
-                {/* <input id="file-upload" name="file-upload" type="file" className="text-xs sr-only " />Choose profile photo */}
-              </label>
+              <label class="block"></label>
 
               <div className="flex text-sm text-gray-600">
                 <label
                   htmlFor="file-upload"
-                  className="relative font-medium text-indigo-600 bg-white rounded-md cursor-pointer hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+                  className="relative font-medium text-indigo-600 bg-white rounded-md cursor-pointer hover:text-indigo-500 "
                 >
                   <span>Choose profile photo</span>
                   <input
@@ -50,75 +42,51 @@ export default function AccountSetting() {
               </div>
             </div>
           </div>
-          <div className="mt-10 ml-6 text-xl">
-            <div className="flex">
-              <NavLink
-                className="mr-5 text-AccountIcon text-mygreen"
-                as={Link}
-                to="/setting/account"
-              >
-                <BsPerson />
-              </NavLink>
-              <NavLink
-                className="text-lg font-normal focus:font-medium "
-                as={Link}
-                to="/setting/account"
-              >
-                Account
-              </NavLink>
-            </div>
-            <div className="flex mt-5">
-              <NavLink
-                className="mr-5 text-AccountIcon"
-                as={Link}
-                to="/setting/change-password"
-              >
-                <RiLockPasswordLine />
-              </NavLink>
-              <NavLink
-                className="text-lg font-normal focus:font-medium"
-                as={Link}
-                to="/setting/change-password"
-              >
-                Password
-              </NavLink>
-            </div>
-            <div className="flex mt-5">
-              <NavLink
-                className="ml-1 mr-4 text-AccountIcon"
-                as={Link}
-                to="/setting/deactivate-account"
-              >
-                <BsPersonX />
-              </NavLink>
-              <NavLink
-                className="text-lg font-normal focus:font-medium"
-                as={Link}
-                to="/setting/deactivate-account"
-              >
+          <nav className="mt-8">
+            <NavLink
+              className="flex items-center p-2 my-1 transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 dark:hover:text-white dark:hover:bg-gray-600 dark:text-gray-400 focus:bg-gray-200"
+              as={Link}
+              to="/setting/account"
+            >
+              <BsPerson className="text-lg" />
+              <span className="mx-4 text-lg font-normal">Account</span>
+              <span className="flex-grow text-right"></span>
+            </NavLink>
+
+            <NavLink
+              className="flex items-center p-2 my-1 text-gray-600 transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 dark:hover:text-white dark:hover:bg-gray-600 dark:text-gray-400 "
+              as={Link}
+              to="/setting/change-password"
+            >
+              <RiLockPasswordLine />
+              <span className="mx-4 text-lg font-normal">Password</span>
+              <span className="flex-grow text-right"></span>
+            </NavLink>
+            <NavLink
+              className="flex items-center p-2 text-gray-800 transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 dark:hover:text-white dark:hover:bg-gray-600 dark:text-gray-100 dark:bg-gray-600"
+              as={Link}
+              to="/setting/deactivate-account"
+            >
+              <BsPersonX />
+              <span className="mx-4 text-lg font-normal">
                 Deactivate Account
-              </NavLink>
-            </div>
-            <div className="flex mt-5">
-              <NavLink
-                className="mr-5 text-AccountIcon focus:text-mygreen"
-                as={Link}
-                to="/setting/delete-account"
-              >
-                <BiTrashAlt />
-              </NavLink>
-              <NavLink
-                className="text-lg font-normal focus:font-medium"
-                as={Link}
-                to="/setting/delete-account"
-              >
-                Delete Account
-              </NavLink>
-            </div>
-          </div>
+              </span>
+              <span className="flex-grow text-right"></span>
+            </NavLink>
+            <NavLink
+              className="flex items-center p-2 text-gray-600 transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 dark:hover:text-white dark:hover:bg-gray-600 dark:text-gray-400 "
+              as={Link}
+              to="/setting/delete-account"
+            >
+              <BiTrashAlt />
+              <span className="mx-4 text-lg font-normal">Delete Account</span>
+              <span className="flex-grow text-right"></span>
+            </NavLink>
+          </nav>
         </div>
+
         {/* div right component */}
-        <div className="col-span-7 ml-5">
+        <div class="col-span-7 ml-14">
           <Outlet />
         </div>
       </div>

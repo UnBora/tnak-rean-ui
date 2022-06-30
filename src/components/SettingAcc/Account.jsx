@@ -3,9 +3,10 @@ import React from "react";
 export default function Account() {
   return (
     <div className="w-auto h-auto p-4 border-gray-200 rounded-lg shadow-md dark:bg-gray-200 dark:border-gray-700">
-      <p className="text-xl font-medium text-gray-900 dark:text-white">
-        General Info
-      </p>
+     <form className="" action="#">
+      <h4 className="text-2xl font-medium text-gray-900 dark:text-white">
+        General info
+      </h4>
       <div className="grid w-full lg:grid-cols-2 sm:grid-cols-14 ">
         <label className="block mt-4 ">
           <span className="block mb-2 text-xs font-medium text-slate-700">
@@ -142,6 +143,7 @@ export default function Account() {
           Cancel
         </button>
       </div>
+      </form>
     </div>
   );
 }

@@ -26,7 +26,6 @@ function StuIndex() {
               placeholder="Username"
               className="px-4 py-1 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:mygreen focus:outline-none focus:bg-white"
             >
-              {" "}
               <option className="p-6 text-sm ">Monday</option>
               <option className="p-6 text-sm ">Tuesday</option>
               <option className="p-6 text-sm ">Wednesday</option>

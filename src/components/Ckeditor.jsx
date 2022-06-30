@@ -23,10 +23,12 @@ class App extends Component {
           onFocus={(event, editor) => {
             console.log("Focus.", editor);
           }}
+          
         />
       </div>
     );
   }
 }
+
 
 export default App;

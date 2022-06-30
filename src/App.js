@@ -29,7 +29,7 @@ function App() {
     <div>
       <NavbarT />
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/about" element={<AboutUs />} />
         {/* On navbar page */}

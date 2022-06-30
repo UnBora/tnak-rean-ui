@@ -2,13 +2,12 @@ import React from "react";
 
 export default function () {
   return (
-    <div className="grid grid-cols-2">
-      <div className="col-span-1 bg-white border-gray-200 rounded-lg shadow-md w-80 dark:bg-gray-200 dark:border-gray-700">
-      <form className="h-auto p-5 " action="#">
+    <div className="h-auto p-5 bg-white border-gray-200 rounded-lg shadow-md w-80 dark:bg-gray-200 dark:border-gray-700">
+      <form className="" action="#">
         <h4 className="mb-6 text-2xl font-medium text-gray-900 dark:text-white">
           Change your password
         </h4>
-        <div>
+        <div className="">
           <label
             for="password"
             className="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-300"
@@ -72,7 +71,5 @@ export default function () {
           </button>
         </div>
       </form></div>
-      {/* <div className="col-span-1"></div> */}
-    </div>
   );
 }

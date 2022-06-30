@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { BiBookBookmark } from "react-icons/bi";
+import { FiLoader } from "react-icons/fi";
+import { Link } from "react-router-dom";
 import FilesCard from "../../components/FilesCard";
 import StudentFolder from "../../components/student/StudentFolder";
 
 export default function Course() {
+  const [folder, setFolder] = useState([{Title:"folder"}]);
+  
   return (
     <div className="mt-8 mb-40 lg:mx-32 sm:mx-5 md:mx-12">
       <p className="mt-5 font-semibold lg:text-2xl sm:text-medium md:text-base">
@@ -18,14 +22,32 @@ export default function Course() {
           <span className="mt-1 ml-5 font-medium text-black lg:text-2xl sm:text-xl md:text-xl">
             Course
           </span>
+          <p className="mb-4 border-b"></p>
         </div>
         <p className="mt-8 text-xl font-medium">Folders</p>
+        <p className="mb-3 border-b"></p>
         <div className="flex flex-wrap col-span-12">
         {/* card */}
-         <StudentFolder/>
+        <Link to="#">
+          <StudentFolder />
+        </Link>
+        <StudentFolder />
+        <StudentFolder />
+        <StudentFolder />
+        {/* {folder.map((item,id)=>{
+          <div> {item.Title}
+          <Link to="#">
+          <StudentFolder />
+        </Link>
+          </div>
+        }
+        
+        )} */}
+     
         </div>
         <div className="mt-12">
-          <div className="mb-3 text-xl font-medium">Files</div>
+          <div className="text-xl font-medium ">Files</div>
+          <p className="mb-4 border-b"></p>
           <div className="flex flex-wrap">
           {/* card  */}
           <FilesCard/>
