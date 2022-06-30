@@ -77,7 +77,7 @@ export const deleteFolder= () => {
   Swal.fire({
     position: 'center',
     icon: 'success',
-    iconColor:'danger',
+    iconColor: "#48AD9B",
     title: 'Folder have been deleted',
     showConfirmButton: false,
     timer: 1500
@@ -89,7 +89,7 @@ export const deleteClasswork= () => {
   Swal.fire({
     position: 'center',
     icon: 'success',
-    iconColor:'danger',
+    iconColor: "#48AD9B",
     title: 'Classwork have been deleted',
     showConfirmButton: false,
     timer: 1500
