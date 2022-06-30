@@ -1,6 +1,5 @@
 import React from "react";
 import TnakRean from "../assets/images/logo/TnakRean.jpg";
-import RegisterV2 from "../components/Register";
 import {
   AiFillGitlab,
   AiFillGoogleCircle,
@@ -9,17 +8,20 @@ import {
 import { BiCopyright } from "react-icons/bi";
 import kimhab from "../assets/images/logo/IMG_20220613_160539-01.jpeg";
 import bora from "../assets/images/logo/photo_2022-06-13_19-22-40 copy.jpg";
-import phanith from "../assets/images/logo/photo_2022-06-13_19-22-40 copy.jpg";
+import phanith from "../assets/images/members/phanith.jpg";
+import sinuon from "../assets/images/members/sinuon.jpg";
+import chantha from "../assets/images/members/chantha.jpg";
+import kimgech from "../assets/images/members/kimgech.jpg";
 
 export default function AboutUs() {
   return (
-    <div>
-      <div class="grid grid-cols-4 mt-8 px-48">
-        <div class="col-span-3 ml-6 font-medium lg:text-lg text-center ">
-        <p class="text-2xl font-semibold text-center uppercase lg:text-4xl mt-5">
-        About US
-      </p>
-      <p className="w-20 mx-auto mt-2 myhr"></p>
+    <div className="bg-smoke">
+      <div className="grid grid-cols-4 px-48 pt-8">
+        <div className="col-span-3 ml-6 font-medium text-center lg:text-lg ">
+          <p className="mt-5 text-2xl font-semibold text-center uppercase lg:text-4xl">
+            About US
+          </p>
+          <p className="w-20 mx-auto mt-2 myhr"></p>
           <div className="flex mt-10 ">
             <span className="text-base text-mygreen ">Tnak</span>
             <span className="text-base text-myorange">Rean</span>
@@ -38,36 +40,33 @@ export default function AboutUs() {
           />
         </div>
       </div>
-      <section class="dark:bg-gray-900 mt-4 px-8">
-        <div class="container px-6 py-10 mx-auto ">
-          <p class="text-2xl font-semibold text-center text-black-900 uppercase lg:text-4xl">
+      <div className="px-8 mx-auto mt-4 dark:bg-gray-900 ">
+        <div className="container px-1 py-10 ">
+          <p className="text-2xl font-semibold text-center uppercase text-black-900 lg:text-4xl">
             meet our team
           </p>
           <p className="w-20 mx-auto mt-2 myhr"></p>
-          <div class="container mt-14 justify-between">
-            <div class="flex flex-row flex-wrap text-center m-auto">
+          <div className="container flex mt-14">
+            <div className="flex flex-row flex-wrap justify-center text-center">
               {/* first card phanit*/}
-              <div class="card basis-[30%] items-center p-3 transition-colors duration-200 transform cursor-pointer rounded-xl bg-white shadow-md">
-                <div class="">
-                  <img
-                    class="object-cover w-48 h-48 flex m-auto rounded-full ring-4 ring-myorange "
-                    src={phanith}
-                    alt="Phanith"
-                  />
-                </div>
-                <p className="w-20 mt-5 myhr"></p>
-                <p class="mt-2 text-2xl font-semibold uppercase pt-2">
+              <div className="basis-[30%] items-center p-3 transition-colors duration-200 transform cursor-pointer rounded-xl bg-white shadow-md">
+                <img
+                  className="flex object-cover w-48 h-48 m-auto rounded-full ring-4 ring-myorange "
+                  src={phanith}
+                  alt="Phanith"
+                />
+                <p className="w-20 mx-auto mt-5 myhr"></p>
+                <h1 className="pt-2 mt-2 text-2xl font-semibold uppercase">
                   chea phanith
-                </p>
+                </h1>
 
-                <p class="mt-2 text-myorange text-md">
+                <p className="mx-2 mt-2 text-myorange text-md">
                   "Do what is right not what is easy."
                 </p>
-                {/* icon link social media */}
-                <div class="flex justify-center mt-5 content-end">
+                <div className="flex justify-center mt-5">
                   <a
-                    href="https://kh.linkedin.com/"
-                    class="text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white mr-3"
+                    href="https://www.linkedin.com/in/chea-phanith-963b421a5/"
+                    className="mr-3 text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                     aria-label="`Linkedin`"
                   >
                     <div className="text-AboutIcon">
@@ -75,17 +74,17 @@ export default function AboutUs() {
                     </div>
                   </a>
                   <a
-                    href="https://about.gitlab.com/"
+                    href="https://gitlab.com/cheaphanith"
                     class="text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white mr-3"
                     aria-label="`Gitlab`"
                   >
                     <div className="text-AboutIcon">
-                      <AiFillGitlab />
+                      <AiFillGitlab href="mailto: abc@example.com" />
                     </div>
                   </a>
                   <a
-                    href="www.gmail.com"
-                    class="text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white mr-3"
+                    href="mailto:https://gitlab.com/cheaphanith"
+                    className="mr-3 text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                     aria-label="`Gmail`"
                   >
                     <div className="text-AboutIcon">
@@ -94,28 +93,26 @@ export default function AboutUs() {
                   </a>
                 </div>
               </div>
+
               {/* second card sinuon*/}
-              <div class="card basis-[30%] mx-5 items-center p-3 transition-colors duration-200 transform cursor-pointer rounded-xl bg-white shadow-md">
-                <div class="">
-                  <img
-                    class="object-cover w-48 h-48 flex m-auto rounded-full ring-4 ring-myorange "
-                    src={phanith}
-                    alt="Sinuon"
-                  />
-                </div>
-                <p className="w-20 mt-5 myhr"></p>
-                <h1 class="mt-2 text-2xl font-semibold uppercase pt-2">
-                  sok sinuon
+              <div className="basis-[30%] items-center p-3 transition-colors duration-200 transform cursor-pointer rounded-xl bg-white shadow-md mx-5">
+                <img
+                  className="flex object-cover w-48 h-48 m-auto rounded-full ring-4 ring-myorange "
+                  src={sinuon}
+                  alt="Sinuon"
+                />
+                <p className="w-20 mx-auto mt-5 myhr"></p>
+                <h1 className="pt-2 mt-2 text-2xl font-semibold uppercase">
+                  chea phanith
                 </h1>
 
-                <p class="mt-2 text-myorange text-md">
+                <p className="mx-2 mt-2 text-myorange text-md">
                   "People respect the money not the person."
                 </p>
-
-                <div class="flex justify-center mt-5">
+                <div className="flex justify-center mt-5">
                   <a
-                    href="https://kh.linkedin.com/"
-                    class="text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white mr-3"
+                    href="https://www.linkedin.com/in/sok-sinuon-3800ab14a/?trk=public-profile-join-page"
+                    className="mr-3 text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                     aria-label="`Linkedin`"
                   >
                     <div className="text-AboutIcon">
@@ -123,17 +120,17 @@ export default function AboutUs() {
                     </div>
                   </a>
                   <a
-                    href="https://about.gitlab.com/"
-                    class="text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white mr-3"
+                    href="https://gitlab.com/soksinuon16"
+                    className="mr-3 text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                     aria-label="`Gitlab`"
                   >
                     <div className="text-AboutIcon">
-                      <AiFillGitlab />
+                      <AiFillGitlab href="mailto: soksinuon16@gmail.com" />
                     </div>
                   </a>
                   <a
                     href="www.gmail.com"
-                    class="text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white mr-3"
+                    className="mr-3 text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                     aria-label="`Gmail`"
                   >
                     <div className="text-AboutIcon">
@@ -143,28 +140,23 @@ export default function AboutUs() {
                 </div>
               </div>
               {/* third card bora*/}
-              <div class="basis-[30%]  items-center p-3 transition-colors duration-200 transform cursor-pointer rounded-xl bg-white shadow-md">
-                <div class="">
-                  <img
-                    class="object-cover w-48 h-48 flex m-auto rounded-full ring-4 ring-myorange "
-                    src={bora}
-                    alt="Bora"
-                  />
-                </div>
+              <div className="basis-[30%]  items-center p-3 transition-colors duration-200 transform cursor-pointer rounded-xl bg-white shadow-md">
+                <img
+                  className="flex object-cover w-48 h-48 m-auto rounded-full ring-4 ring-myorange "
+                  src={bora}
+                  alt="Bora"
+                />
                 <p className="w-20 m-auto mt-5 myhr"></p>
-                <h1 class="mt-2 text-2xl font-semibold uppercase pt-2">
+                <h1 className="pt-2 mt-2 text-2xl font-semibold uppercase">
                   un bora
                 </h1>
-
-                <p class="mt-2 text-myorange text-md">
+                <p className="mx-2 mt-2 text-myorange text-md">
                   "He alone, who owns the youth, gains the future."
                 </p>
-                {/* <p>It okay</p> */}
-
-                <div class="flex justify-center mt-5">
+                <div className="flex justify-center mt-5">
                   <a
-                    href="https://kh.linkedin.com/"
-                    class="text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white mr-3"
+                    href="https://www.linkedin.com/in/bora-un-467751226"
+                    className="mr-3 text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                     aria-label="`Linkedin`"
                   >
                     <div className="text-AboutIcon">
@@ -172,17 +164,17 @@ export default function AboutUs() {
                     </div>
                   </a>
                   <a
-                    href="https://about.gitlab.com/"
-                    class="text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white mr-3"
+                    href="https://gitlab.com/UnBora"
+                    className="mr-3 text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                     aria-label="`Gitlab`"
                   >
                     <div className="text-AboutIcon">
-                      <AiFillGitlab />
+                      <AiFillGitlab href="mailto: abc@example.com" />
                     </div>
                   </a>
                   <a
-                    href="www.gmail.com"
-                    class="text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white mr-3"
+                    href="mailto:bora.un2000@gmail.com"
+                    className="mr-3 text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                     aria-label="`Gmail`"
                   >
                     <div className="text-AboutIcon">
@@ -192,27 +184,25 @@ export default function AboutUs() {
                 </div>
               </div>
               {/* forth card chantha*/}
-              <div class="basis-[30%] items-center p-3 transition-colors duration-200 transform cursor-pointer rounded-xl mt-5 bg-white shadow-md">
-                <div class="">
-                  <img
-                    class="object-cover w-48 h-48 flex m-auto rounded-full ring-4 ring-myorange "
-                    src={kimhab}
-                    alt="Chantha"
-                  />
-                </div>
+              <div className="basis-[30%] items-center p-3 transition-colors duration-200 transform cursor-pointer rounded-xl mt-9 bg-white shadow-md">
+                <img
+                  className="flex object-cover w-48 h-48 m-auto rounded-full ring-4 ring-myorange "
+                  src={chantha}
+                  alt="Chantha"
+                />
                 <p className="w-20 m-auto mt-5 myhr"></p>
-                <h1 class="mt-2 text-2xl font-semibold uppercase pt-2">
+                <h1 className="pt-2 mt-2 text-2xl font-semibold uppercase">
                   meng chantha
                 </h1>
 
-                <p class="mt-2 text-myorange text-md">
+                <p className="mx-2 mt-2 text-myorange text-md">
                   "Don't stop when you're tired, Stop when you're done."
                 </p>
 
-                <div class="flex justify-center mt-5">
+                <div className="flex justify-center mt-5">
                   <a
-                    href="https://kh.linkedin.com/"
-                    class="text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white mr-3"
+                    href="https://www.linkedin.com/in/chantha-meng-556aa9243/"
+                    className="mr-3 text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                     aria-label="`Linkedin`"
                   >
                     <div className="text-AboutIcon">
@@ -220,8 +210,8 @@ export default function AboutUs() {
                     </div>
                   </a>
                   <a
-                    href="https://about.gitlab.com/"
-                    class="text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white mr-3"
+                    href="https://gitlab.com/chanthaamengg"
+                    className="mr-3 text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                     aria-label="`Gitlab`"
                   >
                     <div className="text-AboutIcon">
@@ -229,8 +219,8 @@ export default function AboutUs() {
                     </div>
                   </a>
                   <a
-                    href="www.gmail.com"
-                    class="text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white mr-3"
+                    href="mailto:chanthaamengg@gmail.com"
+                    className="mr-3 text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                     aria-label="`Gmail`"
                   >
                     <div className="text-AboutIcon">
@@ -240,27 +230,25 @@ export default function AboutUs() {
                 </div>
               </div>
               {/* fifth card kimgech*/}
-              <div class="basis-[30%] items-center p-3 transition-colors duration-200 transform cursor-pointer rounded-xl bg-white shadow-md mt-5 mx-5">
-                <div class="">
-                  <img
-                    class="object-cover w-48 h-48 flex m-auto rounded-full ring-4 ring-myorange "
-                    src={kimhab}
-                    alt="Kimgech"
-                  />
-                </div>
+              <div className="basis-[30%] items-center p-3 transition-colors duration-200 transform cursor-pointer rounded-xl bg-white shadow-md mt-9 mx-5 ">
+                <img
+                  className="flex object-cover w-48 h-48 m-auto rounded-full ring-4 ring-myorange "
+                  src={kimgech}
+                  alt="Kimgech"
+                />
                 <p className="w-20 m-auto mt-5 myhr"></p>
-                <h1 class="mt-2 text-2xl font-semibold uppercase pt-2 ">
+                <h1 className="pt-2 mt-2 text-2xl font-semibold uppercase ">
                   khou kimgech
                 </h1>
 
-                <p class="mt-2 text-myorange text-md ">
+                <p className="mx-2 mt-2 text-myorange text-md">
                   "it's good, but not enjoy"
                 </p>
 
-                <div class="flex justify-center mt-5">
+                <div className="flex justify-center mt-5">
                   <a
-                    href="https://kh.linkedin.com/"
-                    class="text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white mr-3"
+                    href="https://www.linkedin.com/in/kimgech-khou-280a06243"
+                    className="mr-3 text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                     aria-label="`Linkedin`"
                   >
                     <div className="text-AboutIcon">
@@ -268,8 +256,8 @@ export default function AboutUs() {
                     </div>
                   </a>
                   <a
-                    href="https://about.gitlab.com/"
-                    class="text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white mr-3"
+                    href="https://gitlab.com/kimgech"
+                    className="mr-3 text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                     aria-label="`Gitlab`"
                   >
                     <div className="text-AboutIcon">
@@ -277,8 +265,8 @@ export default function AboutUs() {
                     </div>
                   </a>
                   <a
-                    href="www.gmail.com"
-                    class="text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white mr-3"
+                    href="mailto: kimgech309@gmail.com"
+                    className="mr-3 text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                     aria-label="`Gmail`"
                   >
                     <div className="text-AboutIcon">
@@ -288,27 +276,23 @@ export default function AboutUs() {
                 </div>
               </div>
               {/* sixth card kimhab */}
-              <div class="basis-[30%] items-center p-3 transition-colors duration-200 transform cursor-pointer rounded-xl bg-white shadow-md mt-5">
-                <div class="">
-                  <img
-                    class="object-cover w-48 h-48 flex m-auto rounded-full ring-4 ring-myorange "
-                    src={kimhab}
-                    alt="Kimhab"
-                  />
-                </div>
+              <div className="basis-[30%] items-center p-3 transition-colors duration-200 transform cursor-pointer rounded-xl bg-white shadow-md mt-9">
+                <img
+                  className="flex object-cover w-48 h-48 m-auto rounded-full ring-4 ring-myorange "
+                  src={kimhab}
+                  alt="Kimhab"
+                />
                 <p className="w-20 m-auto mt-5 myhr"></p>
-                <h1 class="mt-2 text-2xl font-semibold uppercase pt-2">
+                <h1 className="pt-2 mt-2 text-2xl font-semibold uppercase">
                   thoeun kimhab
                 </h1>
-
-                <p class="mt-2 text-myorange text-md">
+                <p className="mx-2 mt-2 text-myorange text-md">
                   "Follow your own path, no matter what people say"
                 </p>
-
-                <div class="flex justify-center mt-5">
+                <div className="flex justify-center mt-5">
                   <a
-                    href="kimhab"
-                    class="text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white mr-3"
+                    href="https://www.linkedin.com/in/kimhab-thoeun-2626a716b/"
+                    className="mr-3 text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                     aria-label="`Linkedin`"
                   >
                     <div className="text-AboutIcon">
@@ -316,8 +300,8 @@ export default function AboutUs() {
                     </div>
                   </a>
                   <a
-                    href="https://about.gitlab.com/"
-                    class="text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white mr-3"
+                    href="https://gitlab.com/keomhab"
+                    className="mr-3 text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                     aria-label="`Gitlab`"
                   >
                     <div className="text-AboutIcon">
@@ -325,8 +309,8 @@ export default function AboutUs() {
                     </div>
                   </a>
                   <a
-                    href="www.gmail.com"
-                    class="text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white mr-3"
+                    href="mailto:keomhab@gmail.com"
+                    className="mr-3 text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
                     aria-label="`Gmail`"
                   >
                     <div className="text-AboutIcon">
@@ -338,15 +322,14 @@ export default function AboutUs() {
             </div>
           </div>
         </div>
-      </section>
-      <div class="flex text-center text-gray-500 mb-10 mt-10 justify-center">
-        Copyright{" "}
+      </div>
+      <div className="flex justify-center mt-10 mb-10 text-center text-gray-500">
+        Copyright
         <p className="px-1 pt-1">
           <BiCopyright />
-        </p>{" "}
+        </p>
         2022 TnakRean. All right reserved.
       </div>
-      <RegisterV2 />
     </div>
   );
 }

@@ -8,8 +8,8 @@ export default function AccountSetting() {
   return (
     <div class="mx-36 mt-9 mb-40">
       <div class="">
-        <div className="text-3xl font-semibold">Account Setting</div>
-        <div className="mt-3 text-xl font-light">
+        <div className="font-semibold lg:text-3xl md:text-xl sm:text-base">Account Setting</div>
+        <div className="mt-3 font-light lg:text-xl md:text-sm sm:text-xs">
           Change your profile and account setting
         </div>
       </div>

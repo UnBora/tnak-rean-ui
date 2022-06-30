@@ -6,12 +6,12 @@ import { NavLink } from "react-router-dom";
 export default function AssignedTask() {
   return (
     <div className="flex flex-wrap max-w-sm p-4 border rounded-md shadow-xl mr-7 mb-7 h-52 border-bordergray">
-    <div className="justify-between">
+    <div className="flex w-full ">
       <div className="flex text-2xl">
         <MdOutlineAssignment />
         <span className="ml-2 text-lg font-medium">JAVA assignment 1</span>
       </div>
-      <div className="mt-1">
+      <div className="mt-1 ml-auto cursor-pointer">
       <FaEllipsisV />
     </div>
     </div>
