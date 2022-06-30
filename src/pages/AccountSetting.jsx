@@ -6,9 +6,9 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 
 export default function AccountSetting() {
   return (
-    <div class="mx-36 mt-9 mb-40 ">
+    <div className="mb-40 mx-36 mt-9 ">
       {/* const style = { color : "white", fontSize: "1.5em"} */}
-      <div class="">
+      <div className="">
         <div className="text-3xl font-semibold">Account Setting</div>
         <div className="mt-3 text-xl font-light ">
           Change your profile and account setting
@@ -25,12 +25,11 @@ export default function AccountSetting() {
             />
             <div className="mt-3 ml-5 ">
               <p className="text-2xl font-medium"> Dayan</p>
-              <label class="block">
-                {/* <span class="sr-only">Choose profile photo</span> */}
+              <label className="block">
+                {/* <span className="sr-only">Choose profile photo</span> */}
                 {/* <input
                   type="file"
-                  class="block w-full text-sm 
-                  file:bg-white file:border-0 file:text-sm file:font-semibold file:text-blue-600  hover:file:bg-violet-100"
+                  className="block w-full text-sm file:bg-white file:border-0 file:text-sm file:font-semibold file:text-blue-600 hover:file:bg-violet-100"
                 /> */}
                 {/* <input id="file-upload" name="file-upload" type="file" className="text-xs sr-only " />Choose profile photo */}
               </label>
@@ -119,7 +118,7 @@ export default function AccountSetting() {
           </div>
         </div>
         {/* div right component */}
-        <div class="col-span-7 ml-5">
+        <div className="col-span-7 ml-5">
           <Outlet />
         </div>
       </div>

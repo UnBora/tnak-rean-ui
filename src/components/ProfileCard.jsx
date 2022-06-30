@@ -2,10 +2,10 @@ import React from "react";
 
 export default function ProfileCard() {
   return (
-    <div class="card w-60 bg-smoke shadow-xl z-50">
-      <div class="card-body">
-        <div class="avatar ">
-          <div class="w-16 rounded-full m-auto border-2 border-mygreen ">
+    <div className="z-50 shadow-xl card w-60 bg-smoke">
+      <div className="card-body">
+        <div className="avatar ">
+          <div className="w-16 m-auto border-2 rounded-full border-mygreen ">
             <img src="https://api.lorem.space/image/face?hash=92310" />
           </div>
         </div>

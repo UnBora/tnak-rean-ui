@@ -1,16 +1,13 @@
-import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-
 import RegisterV2 from "../components/Register";
 import ForgetPassword from "../components/ForgetPassword";
 
 export default function Login() {
-
   return (
     <div>
-      <div class="hero ">
-        <div class="hero-content flex-col lg:flex-row-reverse ">
-          <div class="card flex-shrink-0 w-full max-w-md shadow-xl bg-smoke ">
+      <div className="hero ">
+        <div className="flex-col hero-content lg:flex-row-reverse ">
+          <div className="flex-shrink-0 w-full max-w-md shadow-xl card bg-smoke ">
             <div className="flex flex-col max-w-md p-6 pt-12 rounded-sm shadow-sm sm:p-10 bg-smoke">
               <div className="object-cover mb-8 text-center rounded-md xl:col-span-3 ">
                 <h1 className="flex my-3 text-4xl font-semibold">Login</h1>
@@ -49,7 +46,7 @@ export default function Login() {
                     />
                   </div>
                   <label
-                 for="my-modal-4"
+                    for="my-modal-4"
                     className="cursor-pointer text-md hover:underline dark:text-gray-400"
                   >
                     Forgot password
@@ -60,7 +57,6 @@ export default function Login() {
                   <button
                     type="button"
                     className="w-full px-8 py-2 space-x-2 font-semibold text-white rounded-full text-md bg-mygreen"
-                   
                   >
                     Login
                   </button>

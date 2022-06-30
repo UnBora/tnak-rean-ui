@@ -42,7 +42,7 @@ export default function Mystepper() {
 
   return (
     <div>
-      <input type="checkbox" id="my-modal-4" class="modal-toggle" />
+      <input type="checkbox" id="my-modal-4" className="modal-toggle" />
       <div className="modal">
      
         <div className="pb-2 mx-auto shadow-xl bg-smoke rounded-2xl md:w-1/2">

@@ -5,17 +5,17 @@ import { RiLogoutBoxFill } from "react-icons/ri";
 import App from "../App";
 export default function AccountDropdown() {
   return (
-    <div class="card w-72 bg-smoke  z-50">
-      <div class="card-body">
+    <div className="z-50 card w-72 bg-smoke">
+      <div className="card-body">
         {" "}
-        <div class="avatar m-1 space-x-2">
-          <div class="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-1">
+        <div className="m-1 space-x-2 avatar">
+          <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-1">
             <img src="https://api.lorem.space/image/face?hash=3174" />
           </div>
           <span className="mt-1 font-medium">Dayan</span>
         </div>
         <p className="myhr"></p>
-        <ul class=" menu  rounded-md  w-52 font-medium z-auto ">
+        <ul className="z-auto font-medium rounded-md  menu w-52">
           <li>
             <label ><AiFillSetting/>Accound Setting</label>
           </li>

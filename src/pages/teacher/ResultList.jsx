@@ -1,30 +1,29 @@
 import React from "react";
 import { BsFileEarmarkBarGraph } from "react-icons/bs";
 import { MdOutlinePublic } from "react-icons/md";
-import { MdDelete } from "react-icons/md";
+import { posted } from "../../components/swal/Success";
 function ResultList() {
   return (
     <div>
-      <div class="flex items-center space-x-3 ">
-        <div class="avatar">
-          <div class="mask mask-squircle w-10 h-10 bg-mygreen rounded-full">
+      <div className="flex items-center space-x-3 ">
+        <div className="avatar">
+          <div className="w-10 h-10 rounded-full mask mask-squircle bg-mygreen">
             <BsFileEarmarkBarGraph className="flex m-auto mt-3 text-white" />
           </div>
         </div>
         <div>
-          <div class="font-bold text-2xl ">Result</div>
+          <div className="text-2xl font-bold ">Result</div>
         </div>
       </div>
-      <select class="select select-accent mt-3 ">
+      <select className="mt-3 select select-accent ">
         <option disabled selected>
           Task
         </option>
         <option>Assignment1</option>
         <option>Homework4</option>
-       
       </select>
-      <div class="overflow-x-auto shadow-md mt-5  ">
-        <table class="table  ">
+      <div className="mt-5 overflow-x-auto shadow-md ">
+        <table className="table ">
           {/* <!-- head --> */}
           <thead>
             <tr>
@@ -47,7 +46,7 @@ function ResultList() {
               </td>
             </tr>
             {/* <!-- row 2 --> */}
-            <tr class="hover">
+            <tr className="hover">
               <th>2</th>
               <td>Hart Hagerty</td>
               <td>Female</td>
@@ -59,7 +58,12 @@ function ResultList() {
           </tbody>
         </table>
         <div className="flex justify-end ">
-          <button className="m-2 border-none rounded-full shadow-sm hover:bg-myhovergreen btn btn-sm bg-mygreen">
+          <button
+            onClick={() => {
+              posted();
+            }}
+            className="m-2 border-none rounded-full shadow-sm hover:bg-myhovergreen btn btn-sm bg-mygreen"
+          >
             <MdOutlinePublic />
             Post
           </button>

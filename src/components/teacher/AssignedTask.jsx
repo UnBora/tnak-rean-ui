@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaEllipsisV } from "react-icons/fa";
 import { MdOutlineAssignment } from "react-icons/md";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function AssignedTask() {
   return (
@@ -29,13 +29,13 @@ export default function AssignedTask() {
       </div>
     </div>
     <div className="flex mt-auto">
-      <NavLink
+      <Link
         to="/work-submit"
         type="link"
         className="px-4 py-1 text-base text-center text-white shadow-md bg-mygreen font-regular rounded-xl h-max"
       >
         View
-      </NavLink>
+      </Link>
       <div className="mt-2 ml-40 text-sm underline font-regular dropdown dropdown-right">
         <label tabindex="0" className="underline dropdown dropdown-right">
           <span>2</span> comments

@@ -15,7 +15,7 @@ function StuIndex() {
   return (
     <div className=" mx-100px md:flex">
       {" "}
-      <div class="   mt-6 ">
+      <div className="   mt-6 ">
         <div className="max-w-md space-y-3">
           <div className="p-2 rounded-lg bg-smoke h-52">
             <h2 className="text-2xl font-medium text-mygreen">Schedule</h2>

@@ -8,12 +8,12 @@ export default function Register() {
   };
   return (
     <div>
-      <input type="checkbox" id="my-modal-3" class="modal-toggle" />
-      <div class="modal  ">
-        <div class="card flex-shrink-0  shadow-xl bg-smoke  ">
+      <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+      <div className="modal ">
+        <div className="flex-shrink-0 shadow-xl card bg-smoke ">
           <label
             for="my-modal-3"
-            class="btn btn-sm btn-circle absolute right-2 top-2 z-10"
+            className="absolute z-10 btn btn-sm btn-circle right-2 top-2"
           >
             ✕
           </label>

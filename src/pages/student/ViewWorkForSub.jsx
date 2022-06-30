@@ -3,17 +3,18 @@ import { NavLink, Link } from "react-router-dom";
 import { IoChevronBackCircle } from "react-icons/io5";
 import { MdOutlineAssignment } from "react-icons/md";
 import StudentComment from "../../components/student/StudentComment";
+import { submit } from "../../components/swal/Success";
 
 export default function ViewWorkForSub() {
   return (
     <div className="mt-10 mb-40 lg:mx-32 sm:mx-5 md:mx-12">
       <div className="flex">
-        <NavLink to="/stu-classwork" className="text-AboutIcon text-mygreen">
+        <Link to="/stu-classwork" className="text-AboutIcon text-mygreen">
           <IoChevronBackCircle />
-        </NavLink>
-        <NavLink to="/stu-classwork" className="ml-2 font-medium">
+        </Link>
+        <Link  className="ml-2 font-medium">
           Back
-        </NavLink>
+        </Link>
       </div>
       <p className="mt-5 font-semibold lg:text-2xl sm:text-medium md:text-base">
         Phnom Penh Classroom
@@ -72,6 +73,7 @@ export default function ViewWorkForSub() {
           </span>
           <div className="mx-auto mt-6 text-center">
             <button
+              onClick={()=>{submit()}}
               type="button"
               className="w-20 py-2 mx-auto text-sm font-medium text-white rounded-lg shadow-md bg-mygreen "
             >

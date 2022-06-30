@@ -1,5 +1,5 @@
 import { BsFolderPlus } from "react-icons/bs";
-import {GiBookCover } from "react-icons/gi";
+import { GiBookCover } from "react-icons/gi";
 import { MdOutlineHomeWork } from "react-icons/md";
 import { Link } from "react-router-dom";
 import CreateFolder from "../../components/CreateFolder";
@@ -17,32 +17,14 @@ function ManageCourse() {
         </div>
         <p className="mb-3 text-2xl font-semibold">Course</p>
       </div>
-      <div class="text-sm breadcrumbs">
+      <div className="text-sm breadcrumbs">
         <ul>
-          <li>
-            <Link to="#">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                class="w-4 h-4 mr-2 stroke-current"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
-                ></path>
-              </svg>
-              Home
-            </Link>
-          </li>
           <li>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              class="w-4 h-4 mr-2 stroke-current"
+              className="w-4 h-4 mr-2 stroke-current"
             >
               <path
                 stroke-linecap="round"
@@ -55,23 +37,22 @@ function ManageCourse() {
           </li>
         </ul>
       </div>
-      <div class="dropdown dropdown-right">
+      <div className="dropdown dropdown-right">
         <label
           tabindex="0"
-          class="px-5 my-4 ml-1 border-none rounded-full btn btn-sm bg-mygreen hover:bg-myhovergreen"
+          className="px-5 my-4 ml-1 border-none rounded-full btn btn-sm bg-mygreen hover:bg-myhovergreen"
         >
           Create
         </label>
         <ul
           tabindex="0"
-          class="dropdown-content menu p-2 shadow rounded-box w-52 bg-smoke"
+          className="dropdown-content menu p-2 shadow rounded-box w-52 bg-smoke"
         >
           <li>
             <label for="my-modal-1">
               <BsFolderPlus />
               Folder
             </label>
-            
           </li>
           <li>
             <label for="my-modal-upload">
@@ -79,7 +60,6 @@ function ManageCourse() {
               Upload File
             </label>
           </li>
-         
         </ul>
       </div>
       <p className="ml-1 text-lg font-bold ">Folder</p>
@@ -99,14 +79,14 @@ function ManageCourse() {
       <p className="ml-1​​ mt-4 text-lg font-bold">Document</p>
       <p className="mb-4 border-b"></p>
       <div className="flex flex-wrap">
-       <FilesCard/>
-       <FilesCard/>
-       <FilesCard/>
-       <FilesCard/>
+        <FilesCard />
+        <FilesCard />
+        <FilesCard />
+        <FilesCard />
       </div>
       {/* folder pop up */}
-      <CreateFolder/>
-      <UploadCourse/>
+      <CreateFolder />
+      <UploadCourse />
     </div>
   );
 }

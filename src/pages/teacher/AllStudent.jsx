@@ -1,7 +1,7 @@
 import React from "react";
 import { FaUserFriends } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
-import { removeStudent } from "../../components/swal/warning";
+import { removeStudent } from "../../components/swal/Delete";
 
 const AllStudent = () => {
   return (
@@ -13,15 +13,15 @@ const AllStudent = () => {
         <p className="mb-3 text-2xl font-semibold">All student</p>
       </div>
 
-      <div class="flex ">
-        <div class=" flex justify-start items-center  relative">
+      <div className="flex ">
+        <div className="relative flex items-center justify-start ">
           <input
-            class="text-sm leading-none text-left text-gray-600 px-4 py-2 w-full border rounded-full border-gray-300  outline-none my-2"
+            className="w-full px-4 py-2 my-2 text-sm leading-none text-left text-gray-600 border border-gray-300 rounded-full outline-none"
             type="text"
             placeholder="Find student"
           />
           <svg
-            class="absolute right-1 z-10 cursor-pointer  p-1 h-6 w-6 rounded-full text-white"
+            className="absolute z-10 w-6 h-6 p-1 text-white rounded-full cursor-pointer right-1"
             width="20"
             height="20"
             viewBox="0 0 24 24"
@@ -45,8 +45,8 @@ const AllStudent = () => {
           </svg>
         </div>
       </div>
-      <div class="overflow-x-auto shadow-md mt-2">
-        <table class="table   ">
+      <div className="mt-2 overflow-x-auto shadow-md">
+        <table className="table ">
           {/* <!-- head --> */}
           <thead>
             <tr>
@@ -65,25 +65,20 @@ const AllStudent = () => {
               <td>chanthaamengg@gmail.com</td>
               <td>Male</td>
               <td className="text-right w-52">
-                <button
-                  class="btn btn-sm bg-red-500 border-none gap-2 text-xs hover:bg-red-600"
-                  onClick={() => {
-                    removeStudent();
-                  }}
-                >
+                <button className="gap-2 text-xs bg-red-500 border-none btn btn-sm hover:bg-red-600" onClick={()=>{removeStudent()}}>
                   Remove
                   <MdDelete />
                 </button>
               </td>
             </tr>
             {/* <!-- row 2 --> */}
-            <tr class="hover">
+            <tr className="hover">
               <th>2</th>
               <td>Hart Hagerty</td>
               <td>Desktop Support Technician</td>
               <td>Purple</td>
               <td className="text-right w-52 ">
-                <button class="btn btn-sm bg-red-500 border-none gap-2 text-xs hover:bg-red-600">
+                <button className="gap-2 text-xs bg-red-500 border-none btn btn-sm hover:bg-red-600" onClick={()=>{removeStudent()}}>
                   Remove
                   <MdDelete />
                 </button>
@@ -96,7 +91,7 @@ const AllStudent = () => {
               <td>Tax Accountant</td>
               <td>Red</td>
               <td className="text-right w-52 ">
-                <button class="btn btn-sm bg-red-500 border-none gap-2 text-xs hover:bg-red-600">
+                <button className="gap-2 text-xs bg-red-500 border-none btn btn-sm hover:bg-red-600" onClick={()=>{removeStudent()}}>
                   Remove
                   <MdDelete />
                 </button>

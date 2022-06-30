@@ -9,13 +9,13 @@ import DeleteAccount from "./components/SettingAcc/DeleteAccount";
 import ChangePassword from "./components/SettingAcc/ChangePassword";
 import Account from "./components/SettingAcc/Account";
 import Classwork from "./pages/student/Classwork";
-import Course from "./pages/student/Course"
+import Course from "./pages/student/Course";
 import ViewFiles from "./pages/student/ViewFiles";
 import Login from "./pages/Login";
 import AccountSetting from "./pages/AccountSetting";
 import NavbarT from "./components/NavbarT";
 import AllStudent from "./pages/teacher/AllStudent";
-import Home from "./pages/teacher/Home"
+import Home from "./pages/teacher/Home";
 import ResultList from "./pages/teacher/ResultList";
 import StudentRequest from "./pages/teacher/StudentRequest";
 import ManageClasswork from "./pages/teacher/ManageClasswork";
@@ -24,11 +24,10 @@ import AllClasswork from "./pages/teacher/AllClasswork";
 import AllCourse from "./pages/teacher/AllCourse";
 import StuIndex from "./pages/student/StuIndex";
 
-
 function App() {
   return (
     <div>
-      <NavbarT/>
+      <NavbarT />
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

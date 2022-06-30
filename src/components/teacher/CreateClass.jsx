@@ -1,16 +1,12 @@
 import React from "react";
 import { IoMdAddCircleOutline } from "react-icons/io";
-import swal from "sweetalert";
-import logo from "../../assets/images/logo/TnakRean2.png";
+import { createClass } from "../swal/Success";
 export default function CreateClass() {
-  const classcreated = () => {
-    swal("Classroom was created successfully", "", "success");
-  };
   return (
     <div>
-      <input type="checkbox" id="my-modal-3" class="modal-toggle" />
-      <div class="modal ">
-        <div class="card flex-shrink-0  shadow-xl bg-smoke  ">
+      <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+      <div className="modal ">
+        <div className="flex-shrink-0 shadow-xl card bg-smoke ">
           {/* CreateClassroom*/}
           <section className="p-6 ">
             <form
@@ -54,17 +50,17 @@ export default function CreateClass() {
                     </select>
                     <div className="flex justify-between mt-3">
                       <div>
-                        <label class=" flex flex-col items-center  rounded-lg shadow-lg tracking-wide uppercase border cursor-pointer  border-myorange  px-5">
+                        <label className="flex flex-col items-center px-5 tracking-wide uppercase border rounded-lg shadow-lg cursor-pointer  border-myorange">
                           <svg
-                            class="w-5 h-5"
+                            className="w-5 h-5"
                             fill="currentColor"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 20 20"
                           >
                             <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
                           </svg>
-                          <span class=" text-sm leading-normal">Image</span>
-                          <input type="file" class="hidden" />
+                          <span className="text-sm leading-normal ">Image</span>
+                          <input type="file" className="hidden" />
                         </label>
                       </div>
 
@@ -89,14 +85,13 @@ export default function CreateClass() {
                 Cancel
               </label>
 
-              <button
+              <label
                 for="my-modal-3"
+                onClick={() => createClass()}
                 className="border-none rounded-full btn btn-sm bg-mygreen hover:bg-myhovergreen"
               >
-                <label for="my-modal-3" onClick={() => classcreated()}>
-                  Create
-                </label>
-              </button>
+                Create
+              </label>
             </div>
           </section>
 
@@ -104,16 +99,16 @@ export default function CreateClass() {
         </div>
       </div>
       {/* Add School */}
-      <input type="checkbox" id="my-modal-5" class="modal-toggle" />
-      <div class="modal modal-bottom sm:modal-middle">
-        <div class=" bg-smoke max-w-sm p-6 rounded-md relative">
+      <input type="checkbox" id="my-modal-5" className="modal-toggle" />
+      <div className="modal modal-bottom sm:modal-middle">
+        <div className="relative max-w-sm p-6 rounded-md  bg-smoke">
           <label
             for="my-modal-5"
-            class="btn btn-xs btn-circle absolute right-2 top-2"
+            className="absolute btn btn-xs btn-circle right-2 top-2"
           >
             ✕
           </label>
-          <h3 class="font-bold text-lg mb-2">Add your school</h3>
+          <h3 className="mb-2 text-lg font-bold">Add your school</h3>
 
           <div className="col-span-full sm:col-span-3">
             <input
@@ -123,10 +118,10 @@ export default function CreateClass() {
               className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring focus:ring-opacity-75 focus:mygreen dark:border-gray-700 focus:outline-none focus:bg-white"
             />
           </div>
-          <div class="modal-action">
+          <div className="modal-action">
             <label
               for="my-modal-5"
-              class="border-none rounded-full btn btn-sm px-4 bg-mygreen hover:bg-myhovergreen"
+              className="px-4 border-none rounded-full btn btn-sm bg-mygreen hover:bg-myhovergreen"
             >
               Add
             </label>

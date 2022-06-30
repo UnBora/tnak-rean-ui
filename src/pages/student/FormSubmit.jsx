@@ -75,7 +75,7 @@ export default function FormSubmit() {
             onChange={handleChange}
           ></textarea> */}
         </div>
-        <div class="mt-5 flex flex-row">
+        <div className="mt-5 flex flex-row">
           <button
             type="button"
             className="w-20 py-2 ml-auto text-sm font-medium text-center text-white rounded-full shadow-md bg-mygreen "

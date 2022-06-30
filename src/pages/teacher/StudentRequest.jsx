@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ProfileCard from "../../components/ProfileCard";
-import { decline } from "../../components/swal/warning";
 import { FaUser } from "react-icons/fa";
+import { declineStu } from "../../components/swal/Delete";
 export default function StudentRequest() {
   const [accept, setAccept] = useState("Accept");
 
@@ -16,12 +16,12 @@ export default function StudentRequest() {
         </div>
         <p className="mb-3 text-2xl font-semibold">Student request</p>
       </div>
-      <div class="alert  shadow-lg my-4">
+      <div className="my-4 shadow-lg alert">
         <div>
           <div className="dropdown dropdown-right dropdown-hover">
             <label tabindex="0" className="flex m-1 space-x-4">
-              <div class="avatar ">
-                <div class="w-10 rounded-full">
+              <div className="avatar ">
+                <div className="w-10 rounded-full">
                   <img src="https://api.lorem.space/image/face?hash=92310" />
                 </div>
               </div>
@@ -36,19 +36,14 @@ export default function StudentRequest() {
           <p className="font-medium">Bora</p>
           <span>request to join</span> <span>Phnom Penh classroom</span>
         </div>
-        <div class="flex-none">
+        <div className="flex-none">
           <button
-            class="btn btn-sm btn-ghost"
-            onClick={() => {
-              decline();
-            }}
+            className="btn btn-sm btn-ghost"
+            onClick={()=>{declineStu()}}
           >
             Decline
           </button>
-          <button
-            class="btn btn-sm bg-mygreen border-none hover:bg-myhovergreen"
-            onClick={acceptClick}
-          >
+          <button className="border-none btn btn-sm bg-mygreen hover:bg-myhovergreen">
             {accept}
           </button>
         </div>

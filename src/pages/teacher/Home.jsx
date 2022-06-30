@@ -4,9 +4,11 @@ import { useState } from "react";
 import Calendar from "react-calendar";
 import ClassCard from "../../components/teacher/ClassCard";
 import CreateClass from "../../components/teacher/CreateClass";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Home() {
   const [date, setDate] = useState(new Date());
+  let navigate=useNavigate;
 
   return (
     <div className=" mx-100px md:flex">
@@ -94,7 +96,7 @@ export default function Home() {
           </div>
 
           <div className="flex flex-no-wrap flex-wrap sm:flex-wrap md:flex-wrap lg:flex-no-wrap xl:flex-wrap md:justify-center sm:justify-center">
-            <ClassCard />
+           <ClassCard/>
             <ClassCard />
             <ClassCard />
             <ClassCard />
