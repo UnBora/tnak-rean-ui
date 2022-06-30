@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BiBookBookmark } from "react-icons/bi";
 import { FiLoader } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import FilesCard from "../../components/FilesCard";
+import StudentFiles from "../../components/student/StudentFiles";
 import StudentFolder from "../../components/student/StudentFolder";
 
 export default function Course() {
@@ -50,9 +50,7 @@ export default function Course() {
           <p className="mb-4 border-b"></p>
           <div className="flex flex-wrap">
           {/* card  */}
-          <FilesCard/>
-          <FilesCard/>
-          <FilesCard/>
+          <StudentFiles/>
           </div>
         </div>
       </div>

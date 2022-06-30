@@ -8,7 +8,7 @@ const EditClass = () => {
       <input type="checkbox" id="my-modal-2" className="modal-toggle" />
       <div className="modal ">
         <div className="flex-shrink-0 shadow-xl card bg-smoke ">
-          {/* CreateClassroom*/}
+          {/* EditClassroom*/}
           <section className="p-6 ">
             <form
               novalidate=""
@@ -22,36 +22,34 @@ const EditClass = () => {
                   {/* Name class */}
                   <div className="col-span-full">
                     <div className="col-span-full sm:col-span-3">
-                      <label for="username" className="text-sm font-medium">
+                      <label for="classname" className="text-sm font-medium">
                         Class name <span className="text-red-600 ">*</span>
                       </label>
                       <input
-                        id="username"
+                        id="classname"
                         type="text"
-                        placeholder="Enter your email"
-                        className="w-full px-4 py-2 mt-1 leading-tight bg-white border rounded-md focus:ring focus:ring-opacity-75 focus:mygreen dark:border-gray-700 focus:outline-none focus:bg-white"
+                        placeholder="PP Classroom"
+                        className="w-full px-4 py-2 mt-1 leading-tight bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:mygreen dark:border-gray-700 focus:outline-none focus:bg-white"
                       />
                     </div>
                   </div>
                   {/* School */}
                   <div className="col-span-full ">
-                    <label for="username" className="text-sm font-medium">
+                    <label for="school" className="text-sm font-medium">
                       School <span className="text-red-600 ">*</span>
                     </label>
                     <select
-                      id="username"
+                      id="school"
                       type="text"
-                      placeholder="Username"
-                      className="w-full px-4 py-2 mt-1 leading-tight bg-white border rounded-md focus:mygreen focus:mygreen-opacity-75 focus:outline-none focus:bg-white"
+                      className="w-full px-4 py-2 mt-1 leading-tight bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
                     >
-                      {" "}
                       <option className="p-6 text-md">Royal University</option>
                       <option className="p-6 text-md ">KSHRD</option>
                       <option className="p-6 text-md ">NUM</option>
                     </select>
-                    <div className="flex justify-between mt-3">
+                    <div className="flex justify-between mt-5">
                       <div>
-                        <label className="flex flex-col items-center px-5 tracking-wide uppercase border rounded-lg shadow-lg cursor-pointer  border-myorange">
+                        <label className="flex flex-col items-center px-5 tracking-wide uppercase border rounded-lg shadow-lg cursor-pointer border-myorange">
                           <svg
                             className="w-5 h-5"
                             fill="currentColor"
@@ -69,7 +67,6 @@ const EditClass = () => {
                         for="my-modal-6"
                         className="flex mt-2 space-x-1 cursor-pointer row text-md"
                       >
-                        {" "}
                         <IoMdAddCircleOutline className="mt-1 " />
                         Add School
                       </label>
@@ -79,29 +76,27 @@ const EditClass = () => {
               </fieldset>
             </form>
             <div className="flex justify-center mt-2 space-x-4">
-              <label
-                for="my-modal-2"
-                className="p-2 border-none rounded-full btn btn-sm bg-myorange hover:bg-myhoverorange"
-              >
-                Cancel
-              </label>
-
               <button
-                className="border-none rounded-full btn btn-sm bg-mygreen hover:bg-myhovergreen"
+                className="px-4 border-none rounded-full btn btn-sm bg-mygreen hover:bg-myhovergreen"
                 onClick={() => classedited()}
               >
                 <label for="my-modal-2">Update</label>
               </button>
+              <label
+                for="my-modal-2"
+                className="px-4 border-none rounded-full btn btn-sm bg-myorange hover:bg-myhoverorange"
+              >
+                Cancel
+              </label>
             </div>
           </section>
-
           {/* End card */}
         </div>
       </div>
       {/* Add School */}
       <input type="checkbox" id="my-modal-6" className="modal-toggle" />
       <div className="modal modal-bottom sm:modal-middle">
-        <div className="relative max-w-sm p-6 rounded-md  bg-smoke">
+        <div className="relative max-w-sm p-6 rounded-md bg-smoke">
           <label
             for="my-modal-6"
             className="absolute btn btn-xs btn-circle right-2 top-2"
@@ -112,10 +107,10 @@ const EditClass = () => {
 
           <div className="col-span-full sm:col-span-3">
             <input
-              id="username"
+              id="school"
               type="text"
               placeholder="Enter school name"
-              className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring focus:ring-opacity-75 focus:mygreen dark:border-gray-700 focus:outline-none focus:bg-white"
+              className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen dark:border-gray-700 focus:outline-none focus:bg-white"
             />
           </div>
           <div className="modal-action">

@@ -11,7 +11,7 @@ export default function Home() {
   let navigate=useNavigate;
 
   return (
-    <div className=" mx-100px md:flex">
+    <div className="mb-40 mx-100px md:flex">
       {" "}
       <div className="mt-6 ">
         <div className="max-w-md space-y-3">
@@ -19,12 +19,10 @@ export default function Home() {
             <h2 className="text-2xl font-medium text-mygreen">Schedule</h2>
             <p className="mb-2 myhr"></p>
             <select
-              id="username"
+              id="weekday"
               type="text"
-              placeholder="Username"
-              className="px-4 py-1 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:mygreen focus:outline-none focus:bg-white"
+              className="px-4 py-1 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
             >
-              {" "}
               <option className="p-6 text-sm ">Monday</option>
               <option className="p-6 text-sm ">Tuesday</option>
               <option className="p-6 text-sm ">Wednesday</option>

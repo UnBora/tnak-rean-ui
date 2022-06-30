@@ -21,14 +21,14 @@ export default function CreateClass() {
                   {/* Name class */}
                   <div className="col-span-full">
                     <div className="col-span-full sm:col-span-3">
-                      <label for="username" className="text-sm font-medium">
+                      <label for="classname" className="text-sm font-medium">
                         Class name <span className="text-red-600 ">*</span>
                       </label>
                       <input
-                        id="username"
+                        id="classname"
                         type="text"
-                        placeholder="Enter your email"
-                        className="w-full px-4 py-2 mt-1 leading-tight bg-white border rounded-md focus:ring focus:ring-opacity-75 focus:mygreen dark:border-gray-700 focus:outline-none focus:bg-white"
+                        placeholder="Enter your class name"
+                        className="w-full px-4 py-2 mt-1 leading-tight bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:ring-opacity-75 focus:mygreen dark:border-gray-700 focus:outline-none focus:bg-white"
                       />
                     </div>
                   </div>
@@ -38,19 +38,17 @@ export default function CreateClass() {
                       School <span className="text-red-600 ">*</span>
                     </label>
                     <select
-                      id="username"
+                      id="school"
                       type="text"
-                      placeholder="Username"
-                      className="w-full px-4 py-2 mt-1 leading-tight bg-white border rounded-md focus:mygreen focus:mygreen-opacity-75 focus:outline-none focus:bg-white"
+                      className="w-full px-4 py-2 mt-1 leading-tight bg-white border rounded-md focus:ring-mygreen focus:ring-1 focus:outline-none focus:bg-white"
                     >
-                      {" "}
                       <option className="p-6 text-md">Royal University</option>
                       <option className="p-6 text-md ">KSHRD</option>
                       <option className="p-6 text-md ">NUM</option>
                     </select>
-                    <div className="flex justify-between mt-3">
+                    <div className="flex justify-between mt-5">
                       <div>
-                        <label className="flex flex-col items-center px-5 tracking-wide uppercase border rounded-lg shadow-lg cursor-pointer  border-myorange">
+                        <label className="flex flex-col items-center px-5 tracking-wide uppercase border rounded-lg shadow-lg cursor-pointer border-myorange">
                           <svg
                             className="w-5 h-5"
                             fill="currentColor"
@@ -59,17 +57,15 @@ export default function CreateClass() {
                           >
                             <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
                           </svg>
-                          <span className="text-sm leading-normal ">Image</span>
+                          <span className="text-sm leading-normal">Image</span>
                           <input type="file" className="hidden" />
                         </label>
                       </div>
-
                       <label
                         for="my-modal-5"
-                        className="flex mt-2 space-x-1 cursor-pointer row text-md "
+                        className="flex mt-2 space-x-1 cursor-pointer row text-md"
                       >
-                        {" "}
-                        <IoMdAddCircleOutline className="mt-1 " />
+                        <IoMdAddCircleOutline className="mt-1" />
                         Add School
                       </label>
                     </div>
@@ -80,17 +76,16 @@ export default function CreateClass() {
             <div className="flex justify-center mt-2 space-x-4">
               <label
                 for="my-modal-3"
-                className="p-2 border-none rounded-full btn btn-sm bg-myorange hover:bg-myhoverorange"
-              >
-                Cancel
-              </label>
-
-              <label
-                for="my-modal-3"
                 onClick={() => createClass()}
-                className="border-none rounded-full btn btn-sm bg-mygreen hover:bg-myhovergreen"
+                className="px-4 border-none rounded-full btn btn-sm bg-mygreen hover:bg-myhovergreen"
               >
                 Create
+              </label>
+              <label
+                for="my-modal-3"
+                className="px-4 border-none rounded-full btn btn-sm bg-myorange hover:bg-myhoverorange"
+              >
+                Cancel
               </label>
             </div>
           </section>
@@ -101,7 +96,7 @@ export default function CreateClass() {
       {/* Add School */}
       <input type="checkbox" id="my-modal-5" className="modal-toggle" />
       <div className="modal modal-bottom sm:modal-middle">
-        <div className="relative max-w-sm p-6 rounded-md  bg-smoke">
+        <div className="relative max-w-sm p-6 rounded-md bg-smoke">
           <label
             for="my-modal-5"
             className="absolute btn btn-xs btn-circle right-2 top-2"
@@ -112,10 +107,10 @@ export default function CreateClass() {
 
           <div className="col-span-full sm:col-span-3">
             <input
-              id="username"
+              id="school"
               type="text"
               placeholder="Enter school name"
-              className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring focus:ring-opacity-75 focus:mygreen dark:border-gray-700 focus:outline-none focus:bg-white"
+              className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen dark:border-gray-700 focus:outline-none focus:bg-white"
             />
           </div>
           <div className="modal-action">

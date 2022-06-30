@@ -19,7 +19,7 @@ export default function Register() {
           </label>
 
           {/* Register card */}
-          <section className="p-6 dark:bg-gray-800 dark:text-gray-50">
+          <section className="p-6 dark:bg-gray-800 dark:text-gray-50 ">
             <form
               novalidate=""
               action=""
@@ -35,9 +35,9 @@ export default function Register() {
                 <span className=" text-mygreen">Tnak</span>
                 <span className=" text-myorange">Rean</span>
               </h1>
-              <h1 className="text-2xl font-semibold ">Registration</h1>
+              <h1 className="text-2xl font-semibold">Registration</h1>
               <p className="w-full pt-1 myhr"></p>
-              <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900">
+              <fieldset className="grid grid-cols-4 gap-6 py-4 dark:bg-gray-900">
                 <div className="grid grid-cols-6 gap-4 col-span-full md:col-span-4">
                   {/* Name */}
                   <div className="col-span-full sm:col-span-3">
@@ -48,10 +48,10 @@ export default function Register() {
                       id="name"
                       type="name"
                       placeholder="Enter your name"
-                      className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring focus:ring-opacity-75 f focus:outline-none focus:bg-white"
+                      className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
                     />
                   </div>
-                  {/* Password */}
+                  {/* Username*/}
                   <div className="col-span-full sm:col-span-3">
                     <label for="username" className="text-sm font-medium">
                       Username <span className="text-red-600 ">*</span>
@@ -60,7 +60,7 @@ export default function Register() {
                       id="username"
                       type="username"
                       placeholder="Enter Username"
-                      className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring focus:ring-opacity-75 0 focus:outline-none focus:bg-white"
+                      className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen 0 focus:outline-none focus:bg-white"
                     />
                   </div>
                   {/* Gender */}
@@ -71,15 +71,13 @@ export default function Register() {
                     <select
                       id="gender"
                       type="text"
-                      className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring focus:ring-opacity-75 focus:outline-none focus:bg-white"
+                      className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
                     >
-                      {" "}
-                      <option className="p-6 text-xl ">Male</option>
-                      <option className="p-6 text-xl ">Female</option>
+                      <option className="p-6 text-md">Male</option>
+                      <option className="p-6 text-md">Female</option>
                     </select>
                   </div>
                   {/* Email */}
-
                   <div className="col-span-full sm:col-span-3">
                     <label for="username" className="text-sm font-medium">
                       Email <span className="text-red-600 ">*</span>
@@ -88,7 +86,7 @@ export default function Register() {
                       id="email"
                       type="email"
                       placeholder="Enter your email"
-                      className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring focus:ring-opacity-75 focus:outline-none focus:bg-white"
+                      className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
                     />
                   </div>
 
@@ -100,13 +98,12 @@ export default function Register() {
                     <select
                       id="school"
                       type="text"
-                      placeholder="Username"
-                      className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring focus:ring-opacity-75 focus:outline-none focus:bg-white"
+                      placeholder="School"
+                      className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
                     >
-                      {" "}
-                      <option className="p-6 text-xl ">KSHRD</option>
-                      <option className="p-6 text-xl ">RUPP</option>
-                      <option className="p-6 text-xl ">Sectec</option>
+                      <option className="p-6 text-md">KSHRD</option>
+                      <option className="p-6 text-md">RUPP</option>
+                      <option className="p-6 text-md">Setec</option>
                     </select>
                   </div>
                   <div className="col-span-full sm:col-span-3">
@@ -116,26 +113,25 @@ export default function Register() {
                     <select
                       id="username"
                       type="text"
-                      placeholder="Username"
-                      className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring focus:ring-opacity-75 focus:outline-none focus:bg-white"
+                      // placeholder="Username"
+                      className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
                     >
-                      {" "}
-                      <option className="p-6 text-xl ">Phnom Penh</option>
-                      <option className="p-6 text-xl ">M11</option>
-                      <option className="p-6 text-xl ">SR</option>
+                      <option className="p-6 text-md">Phnom Penh</option>
+                      <option className="p-6 text-md">M11</option>
+                      <option className="p-6 text-md">SR</option>
                     </select>
                   </div>
 
                   {/* Password */}
                   <div className="col-span-full sm:col-span-3">
                     <label for="password" className="text-sm font-medium">
-                      Password <span className="text-red-600 ">*</span>
+                      Password <span className="text-red-600">*</span>
                     </label>
                     <input
                       id="password"
                       type="password"
                       placeholder="Enter password"
-                      className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring focus:ring-opacity-75 focus:outline-none focus:bg-white"
+                      className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
                     />
                   </div>
                   {/* cf password */}
@@ -147,13 +143,13 @@ export default function Register() {
                       id="password"
                       type="password"
                       placeholder="Confirm password"
-                      className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring focus:ring-opacity-75 focus:outline-none focus:bg-white"
+                      className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
                     />
                   </div>
                 </div>
               </fieldset>
             </form>
-            <div className="space-y-1">
+            <div className="mt-4 space-y-1">
               <div className="flex justify-center">
                 <button
                   type="button"

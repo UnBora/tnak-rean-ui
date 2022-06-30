@@ -27,7 +27,7 @@ const NavbarT = () => {
             aria-label="Back to homepage"
             className=""
           >
-            <img src={logo} alt="" className="scale-75 " />
+            <img src={logo} alt="" className="scale-75" />
           </NavLink>
           <ul className="items-stretch hidden space-x-10 lg:flex">
             <li className="flex mylink">
@@ -35,7 +35,7 @@ const NavbarT = () => {
                 onClick={() => handleSetCurrentTab("/")}
                 rel="noopener noreferrer"
                 as={Link}
-                to="/index"
+                to="/teacher"
                 className={
                   currentTab === "/"
                     ? "flex items-center font-medium  border-b-2 border-myorange"

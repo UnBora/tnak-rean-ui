@@ -1,8 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import StudentComment from './student/StudentComment'
+import StudentComment from './StudentComment'
 
-export default function FilesCard() {
+export default function StudentFiles() {
   return (
     <div className='h-40 p-4 mb-5 mr-8 border border-collapse rounded-md shadow-xl border-bordergray bg-smoke w-[265px]'>
       <div className='text-lg font-medium'>React JS</div>
@@ -20,7 +20,7 @@ export default function FilesCard() {
             <span>2</span> comments
           </label>
           <div tabindex="0" className="mt-2 dropdown-content rounded-box">
-            <StudentComment />
+            <StudentComment/>
           </div>
         </div>
       </div>

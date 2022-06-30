@@ -3,8 +3,7 @@ import { GiBookCover } from "react-icons/gi";
 import { MdOutlineHomeWork } from "react-icons/md";
 import { Link } from "react-router-dom";
 import CreateFolder from "../../components/CreateFolder";
-import FilesCard from "../../components/FilesCard";
-import AssignedTask from "../../components/teacher/AssignedTask";
+import FilesCard from "../../components/teacher/FilesCard";
 import Folders from "../../components/teacher/Folders";
 import UploadCourse from "../../components/teacher/UploadCourse";
 
@@ -46,7 +45,7 @@ function ManageCourse() {
         </label>
         <ul
           tabindex="0"
-          className="dropdown-content menu p-2 shadow rounded-box w-52 bg-smoke"
+          className="p-2 shadow dropdown-content menu rounded-box w-52 bg-smoke"
         >
           <li>
             <label for="my-modal-1">
@@ -62,7 +61,7 @@ function ManageCourse() {
           </li>
         </ul>
       </div>
-      <p className="ml-1 text-lg font-bold ">Folder</p>
+      <p className="mt-3 ml-1 text-xl font-semibold">Folder</p>
       <p className="mb-2 border-b"></p>
       <div className="flex flex-wrap">
         <Link to="#">
@@ -76,7 +75,7 @@ function ManageCourse() {
         </Link>
       </div>
 
-      <p className="ml-1​​ mt-4 text-lg font-bold">Document</p>
+      <p className="ml-1 text-xl font-semibold mt-9">Document</p>
       <p className="mb-4 border-b"></p>
       <div className="flex flex-wrap">
         <FilesCard />

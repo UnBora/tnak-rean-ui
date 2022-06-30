@@ -23,6 +23,7 @@ import ManageCourse from "./pages/teacher/ManageCourse";
 import AllClasswork from "./pages/teacher/AllClasswork";
 import AllCourse from "./pages/teacher/AllCourse";
 import StuIndex from "./pages/student/StuIndex";
+import ViewFilesT from "./pages/teacher/ViewFilesT";
 
 function App() {
   return (
@@ -33,7 +34,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/about" element={<AboutUs />} />
         {/* On navbar page */}
-        <Route path="/index" element={<Home />} />
+        <Route path="/teacher" element={<Home />} />
         <Route path="/all-classwork" element={<AllClasswork />} />
         <Route path="/all-course" element={<AllCourse />} />
         {/* Per class */}
@@ -44,6 +45,7 @@ function App() {
           <Route path="courses" element={<ManageCourse />}></Route>
           <Route path="results" element={<ResultList />}></Route>
         </Route>
+        <Route path="/viewfile" element={<ViewFilesT/>}/>
 
         <Route path="/setting" element={<AccountSetting />}>
           <Route path="account" element={<Account />}></Route>
