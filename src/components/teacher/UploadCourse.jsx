@@ -66,8 +66,6 @@ function UploadCourse() {
               
             </div>
             <div className="flex flex-wrap mb-6 -mx-3">
-      
-        
               <div className="w-full px-3 mt-6">
                 <label className="flex flex-col items-center py-1 mb-3 tracking-wide uppercase border rounded shadow-lg cursor-pointer ">
                   <svg
