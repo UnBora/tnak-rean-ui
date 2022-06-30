@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "../components/auth";
+
 import RegisterV2 from "../components/Register";
 import ForgetPassword from "../components/ForgetPassword";
 

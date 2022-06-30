@@ -35,8 +35,8 @@ export default function ClassCard() {
     <div>
       <div class="card w-48 h-32 shadow-2xl md:w-72 md:h-48 m-2  ">
         {" "}
-        <div class="dropdown dropdown-right  flex  w-6 h-6 m-3   border rounded-full cursor-pointer text-myygreen z-20 absolute  ">
-          <label tabindex="0" class=" cursor-pointer m-1">
+        <div class="dropdown dropdown-right  flex  w-7 h-7 m-3   border rounded-full cursor-pointer text-myygreen z-20 absolute  ">
+          <label tabindex="0" class=" cursor-pointer ml-1 mt-1 ">
             <FiMoreVertical className="text-white " />
           </label>
           <ul

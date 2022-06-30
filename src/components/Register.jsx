@@ -9,7 +9,7 @@ export default function Register() {
   return (
     <div>
       <input type="checkbox" id="my-modal-3" class="modal-toggle" />
-      <div class="modal ">
+      <div class="modal  ">
         <div class="card flex-shrink-0  shadow-xl bg-smoke  ">
           <label
             for="my-modal-3"
@@ -48,7 +48,7 @@ export default function Register() {
                       id="name"
                       type="name"
                       placeholder="Enter your name"
-                      className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 focus:outline-none focus:bg-white"
+                      className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring focus:ring-opacity-75 f focus:outline-none focus:bg-white"
                     />
                   </div>
                   {/* Password */}
@@ -60,7 +60,7 @@ export default function Register() {
                       id="username"
                       type="username"
                       placeholder="Enter Username"
-                      className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 focus:outline-none focus:bg-white"
+                      className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring focus:ring-opacity-75 0 focus:outline-none focus:bg-white"
                     />
                   </div>
                   {/* Gender */}
@@ -71,7 +71,7 @@ export default function Register() {
                     <select
                       id="gender"
                       type="text"
-                      className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 focus:outline-none focus:bg-white"
+                      className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring focus:ring-opacity-75 focus:outline-none focus:bg-white"
                     >
                       {" "}
                       <option className="p-6 text-xl ">Male</option>
@@ -88,7 +88,7 @@ export default function Register() {
                       id="email"
                       type="email"
                       placeholder="Enter your email"
-                      className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 focus:outline-none focus:bg-white"
+                      className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring focus:ring-opacity-75 focus:outline-none focus:bg-white"
                     />
                   </div>
 
@@ -101,7 +101,7 @@ export default function Register() {
                       id="school"
                       type="text"
                       placeholder="Username"
-                      className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 focus:outline-none focus:bg-white"
+                      className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring focus:ring-opacity-75 focus:outline-none focus:bg-white"
                     >
                       {" "}
                       <option className="p-6 text-xl ">KSHRD</option>
@@ -117,7 +117,7 @@ export default function Register() {
                       id="username"
                       type="text"
                       placeholder="Username"
-                      className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 focus:outline-none focus:bg-white"
+                      className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring focus:ring-opacity-75 focus:outline-none focus:bg-white"
                     >
                       {" "}
                       <option className="p-6 text-xl ">Phnom Penh</option>
@@ -135,7 +135,7 @@ export default function Register() {
                       id="password"
                       type="password"
                       placeholder="Enter password"
-                      className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 focus:outline-none focus:bg-white"
+                      className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring focus:ring-opacity-75 focus:outline-none focus:bg-white"
                     />
                   </div>
                   {/* cf password */}
@@ -147,7 +147,7 @@ export default function Register() {
                       id="password"
                       type="password"
                       placeholder="Confirm password"
-                      className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 focus:outline-none focus:bg-white"
+                      className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring focus:ring-opacity-75 focus:outline-none focus:bg-white"
                     />
                   </div>
                 </div>

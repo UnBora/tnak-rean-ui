@@ -13,7 +13,7 @@ import Course from "./pages/student/Course"
 import ViewFiles from "./pages/student/ViewFiles";
 import Login from "./pages/Login";
 import AccountSetting from "./pages/AccountSetting";
-import Navbar from "./components/Navbar";
+import NavbarT from "./components/NavbarT";
 import AllStudent from "./pages/teacher/AllStudent";
 import Home from "./pages/teacher/Home"
 import ResultList from "./pages/teacher/ResultList";
@@ -28,14 +28,16 @@ import StuIndex from "./pages/student/StuIndex";
 function App() {
   return (
     <div>
-      <Navbar/>
+      <NavbarT/>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/about" element={<AboutUs />} />
+        {/* On navbar page */}
         <Route path="/index" element={<Home />} />
         <Route path="/all-classwork" element={<AllClasswork />} />
         <Route path="/all-course" element={<AllCourse />} />
+        {/* Per class */}
         <Route path="/classroom" element={<ManageClass />}>
           <Route path="students" element={<AllStudent />}></Route>
           <Route path="requests" element={<StudentRequest />}></Route>

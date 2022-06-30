@@ -2,15 +2,12 @@ import React from "react";
 import "../../App.css";
 import { useState } from "react";
 import Calendar from "react-calendar";
-import NavbarT from "../../components/NavbarT";
 import ClassCard from "../../components/teacher/ClassCard";
 import CreateClass from "../../components/teacher/CreateClass";
-import Stepper from "../../components/Stepper";
-import { useAuth } from "../../components/auth";
 
 export default function Home() {
   const [date, setDate] = useState(new Date());
- 
+
   return (
     <div className=" mx-100px md:flex">
       {" "}
@@ -103,6 +100,7 @@ export default function Home() {
             <ClassCard />
             <ClassCard />
             <ClassCard />
+            {/* pop up create class  */}
             <CreateClass />
           </div>
         </div>

@@ -2,7 +2,8 @@ import React from 'react'
 
 function CreateFolder() {
   return (
-    <div>      {/* Add new folder */}
+    <div>      
+      {/* Add new folder */}
     <input type="checkbox" id="my-modal-1" class="modal-toggle" />
     <div class="modal modal-bottom sm:modal-middle">
       <div class=" bg-smoke max-w-sm p-6 rounded-md relative">
@@ -32,7 +33,8 @@ function CreateFolder() {
         </div>
       </div>
     </div>
-    {/* ========== */}</div>
+    {/* ========== */}
+    </div>
   )
 }
 

@@ -1,8 +1,12 @@
+import { BsFolderPlus } from "react-icons/bs";
 import {GiBookCover } from "react-icons/gi";
+import { MdOutlineHomeWork } from "react-icons/md";
 import { Link } from "react-router-dom";
+import CreateFolder from "../../components/CreateFolder";
 import FilesCard from "../../components/FilesCard";
 import AssignedTask from "../../components/teacher/AssignedTask";
 import Folders from "../../components/teacher/Folders";
+import UploadCourse from "../../components/teacher/UploadCourse";
 
 function ManageCourse() {
   return (
@@ -51,12 +55,33 @@ function ManageCourse() {
           </li>
         </ul>
       </div>
-      <label
-        className="px-5 my-4 ml-1 border-none rounded-full btn btn-sm bg-mygreen hover:bg-myhovergreen"
-        for="my-modal-3"
-      >
-        Create
-      </label>
+      <div class="dropdown dropdown-right">
+        <label
+          tabindex="0"
+          class="px-5 my-4 ml-1 border-none rounded-full btn btn-sm bg-mygreen hover:bg-myhovergreen"
+        >
+          Create
+        </label>
+        <ul
+          tabindex="0"
+          class="dropdown-content menu p-2 shadow rounded-box w-52 bg-smoke"
+        >
+          <li>
+            <label for="my-modal-1">
+              <BsFolderPlus />
+              Folder
+            </label>
+            
+          </li>
+          <li>
+            <label for="my-modal-upload">
+              <MdOutlineHomeWork />
+              Upload File
+            </label>
+          </li>
+         
+        </ul>
+      </div>
       <p className="ml-1 text-lg font-bold ">Folder</p>
       <p className="mb-2 border-b"></p>
       <div className="flex flex-wrap">
@@ -79,6 +104,9 @@ function ManageCourse() {
        <FilesCard/>
        <FilesCard/>
       </div>
+      {/* folder pop up */}
+      <CreateFolder/>
+      <UploadCourse/>
     </div>
   );
 }
