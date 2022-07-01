@@ -31,9 +31,8 @@ import { useEffect } from "react";
 
 function App() {
     useEffect(() => {
-      window.OneSignal = window.OneSignal || []
       runOneSignal();
-    },[]);
+    });
   OneSignal.setExternalUserId(1);
   return (
     <div>
