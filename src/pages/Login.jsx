@@ -11,7 +11,7 @@ export default function Login() {
             <div className="flex flex-col max-w-md p-6 pt-12 rounded-sm shadow-sm sm:p-10 bg-smoke">
               <div className="object-cover mb-8 text-center rounded-md xl:col-span-3 ">
                 <h1 className="flex my-3 text-4xl font-semibold">Login</h1>
-                <p className="flex pt-1 text-md dark:text-gray-400">
+                <p className="flex pt-1 text-md ">
                   Don't have an account?{" "}
                   <label
                     for="my-modal-3"
@@ -33,7 +33,7 @@ export default function Login() {
                       name="email"
                       id="email"
                       placeholder="Username or Email"
-                      className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
+                      className="w-full px-3 py-2 border rounded-md "
                     />
                   </div>
                   <div className="pb-2">
@@ -42,12 +42,12 @@ export default function Login() {
                       name="password"
                       id="password"
                       placeholder={"Password"}
-                      className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
+                      className="w-full px-3 py-2 border rounded-md "
                     />
                   </div>
                   <label
                     for="my-modal-4"
-                    className="cursor-pointer text-md hover:underline dark:text-gray-400"
+                    className="cursor-pointer text-md hover:underline "
                   >
                     Forgot password
                   </label>

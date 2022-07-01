@@ -8,7 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function Home() {
   const [date, setDate] = useState(new Date());
-  let navigate=useNavigate;
+  let navigate = useNavigate;
 
   return (
     <div className="mb-40 mx-100px md:flex">
@@ -93,8 +93,8 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex flex-no-wrap flex-wrap sm:flex-wrap md:flex-wrap lg:flex-no-wrap xl:flex-wrap md:justify-center sm:justify-center">
-           <ClassCard/>
+          <div className="flex flex-wrap ml-4 sm:flex-wrap md:flex-wrap lg:flex-wrap xl:flex-wrap">
+            <ClassCard />
             <ClassCard />
             <ClassCard />
             <ClassCard />
