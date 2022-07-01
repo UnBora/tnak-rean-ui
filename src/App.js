@@ -30,6 +30,9 @@ import OneSignal from "react-onesignal";
 import { useEffect } from "react";
 
 function App() {
+  useEffect(() => {
+    runOneSignal();
+  });
 
   return (
     <div>

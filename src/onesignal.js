@@ -5,7 +5,6 @@ export default async function runOneSignal() {
     src="https://cdn.onesignal.com/sdks/OneSignalSDK.js"
     async=""
   ></script>;
-  window.OneSignal = window.OneSignal || [];
   await OneSignal.init({
     appId: "c52f4ef1-f5b6-4095-86d5-1ad49f0359c8",
     setInitialized: true,
