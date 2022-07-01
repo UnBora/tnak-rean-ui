@@ -5,8 +5,9 @@ export default async function runOneSignal() {
     src="https://cdn.onesignal.com/sdks/OneSignalSDK.js"
     async=""
   ></script>;
+  window.OneSignal = window.OneSignal || [];
   await OneSignal.init({
-    appId: "c52f4ef1-f5b6-4095-86d5-1ad49f0359c8",
+    appId: "1557ea45-8f4a-473d-ad64-dff9355214ec",
     setInitialized: true,
     safari_web_id: "web.onesignal.auto.39e347a3-7290-467c-af89-3542a6fc2365",
     allowLocalhostAsSecureOrigin: true,
