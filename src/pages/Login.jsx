@@ -33,7 +33,7 @@ export default function Login() {
                       name="email"
                       id="email"
                       placeholder="Username or Email"
-                      className="w-full px-3 py-2 border rounded-md "
+                      className="w-full px-3 py-2 border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:border-mygreen"
                     />
                   </div>
                   <div className="pb-2">
@@ -41,8 +41,8 @@ export default function Login() {
                       type="password"
                       name="password"
                       id="password"
-                      placeholder={"Password"}
-                      className="w-full px-3 py-2 border rounded-md "
+                      placeholder="Password"
+                      className="w-full px-3 py-2 border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:border-mygreen"
                     />
                   </div>
                   <label
@@ -56,7 +56,7 @@ export default function Login() {
                 <div>
                   <button
                     type="button"
-                    className="w-full px-8 py-2 space-x-2 font-semibold text-white rounded-full text-md bg-mygreen"
+                    className="w-full px-8 py-2 space-x-2 font-semibold text-white rounded-full text-md bg-mygreen hover:bg-myhovergreen"
                   >
                     Login
                   </button>

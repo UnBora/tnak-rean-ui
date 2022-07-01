@@ -34,7 +34,7 @@ export default function Index() {
         <div className="flex flex-col max-w-md p-6 rounded-md shadow-lg sm:p-10 bg-smoke">
           <div className="object-cover mb-8 text-center rounded-md xl:col-span-3 ">
             <h1 className="flex my-3 text-4xl font-semibold">Login</h1>
-            <p className="flex text-md ">
+            <p className="flex text-md">
               Don't have an account? Register
             </p>
           </div>
@@ -51,7 +51,7 @@ export default function Index() {
                   name="email"
                   id="email"
                   placeholder="Username or Email"
-                  className="w-full px-3 py-2 border rounded-md "
+                  className="w-full px-3 py-2 border rounded-md focus:ring-1 focus:ring-mygreen"
                 />
               </div>
               <div className="pb-2">
@@ -61,7 +61,7 @@ export default function Index() {
                   name="password"
                   id="password"
                   placeholder="*****"
-                  className="w-full px-3 py-2 border rounded-md "
+                  className="w-full px-3 py-2 border rounded-md"
                 />
               </div>
               <a

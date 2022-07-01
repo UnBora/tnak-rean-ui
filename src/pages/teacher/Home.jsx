@@ -12,7 +12,6 @@ export default function Home() {
 
   return (
     <div className="mb-40 mx-100px md:flex">
-      {" "}
       <div className="mt-6 ">
         <div className="max-w-md space-y-3">
           <div className="p-2 rounded-lg bg-smoke h-52">
