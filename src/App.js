@@ -30,9 +30,10 @@ import OneSignal from "react-onesignal";
 import { useEffect } from "react";
 
 function App() {
-  useEffect(() => {
-    runOneSignal();
-  });
+    useEffect(() => {
+      window.OneSignal = window.OneSignal || []
+      runOneSignal();
+    },[]);
   OneSignal.setExternalUserId(1);
   return (
     <div>
