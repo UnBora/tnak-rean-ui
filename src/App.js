@@ -30,10 +30,7 @@ import OneSignal from "react-onesignal";
 import { useEffect } from "react";
 
 function App() {
-    useEffect(() => {
-      runOneSignal();
-    });
-  OneSignal.setExternalUserId(1);
+
   return (
     <div>
       <NavbarT />
