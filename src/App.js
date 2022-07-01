@@ -11,7 +11,6 @@ import Account from "./components/SettingAcc/Account";
 import Classwork from "./pages/student/Classwork";
 import Course from "./pages/student/Course";
 import ViewFiles from "./pages/student/ViewFiles";
-import Login from "./pages/Login";
 import AccountSetting from "./pages/AccountSetting";
 import NavbarT from "./components/NavbarT";
 import AllStudent from "./pages/teacher/AllStudent";
@@ -24,6 +23,7 @@ import AllClasswork from "./pages/teacher/AllClasswork";
 import AllCourse from "./pages/teacher/AllCourse";
 import StuIndex from "./pages/student/StuIndex";
 import ViewFilesT from "./pages/teacher/ViewFilesT";
+import Login from "./pages/authentication/Login";
 
 function App() {
   return (
