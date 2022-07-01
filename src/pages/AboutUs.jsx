@@ -40,7 +40,7 @@ export default function AboutUs() {
           />
         </div>
       </div>
-      <div className="px-8 mx-auto mt-4 dark:bg-gray-900 ">
+      <div className="px-8 mx-auto mt-4 ">
         <div className="container px-1 py-10 ">
           <p className="text-2xl font-semibold text-center uppercase text-black-900 lg:text-4xl">
             meet our team
@@ -66,7 +66,7 @@ export default function AboutUs() {
                 <div className="flex justify-center mt-5">
                   <a
                     href="https://www.linkedin.com/in/chea-phanith-963b421a5/"
-                    className="mr-3 text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                    className="mr-3 text-gray-800 hover:text-gray-500 group-hover:text-white"
                     aria-label="`Linkedin`"
                   >
                     <div className="text-AboutIcon">
@@ -75,7 +75,7 @@ export default function AboutUs() {
                   </a>
                   <a
                     href="https://gitlab.com/cheaphanith"
-                    class="text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white mr-3"
+                    class="text-gray-800 hover:text-gray-500  group-hover:text-white mr-3"
                     aria-label="`Gitlab`"
                   >
                     <div className="text-AboutIcon">
@@ -84,7 +84,7 @@ export default function AboutUs() {
                   </a>
                   <a
                     href="mailto:https://gitlab.com/cheaphanith"
-                    className="mr-3 text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                    className="mr-3 text-gray-800 hover:text-gray-500 group-hover:text-white"
                     aria-label="`Gmail`"
                   >
                     <div className="text-AboutIcon">
@@ -112,7 +112,7 @@ export default function AboutUs() {
                 <div className="flex justify-center mt-5">
                   <a
                     href="https://www.linkedin.com/in/sok-sinuon-3800ab14a/?trk=public-profile-join-page"
-                    className="mr-3 text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                    className="mr-3 text-gray-800 hover:text-gray-500 group-hover:text-white"
                     aria-label="`Linkedin`"
                   >
                     <div className="text-AboutIcon">
@@ -121,7 +121,7 @@ export default function AboutUs() {
                   </a>
                   <a
                     href="https://gitlab.com/soksinuon16"
-                    className="mr-3 text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                    className="mr-3 text-gray-800 hover:text-gray-500 group-hover:text-white"
                     aria-label="`Gitlab`"
                   >
                     <div className="text-AboutIcon">
@@ -130,7 +130,7 @@ export default function AboutUs() {
                   </a>
                   <a
                     href="www.gmail.com"
-                    className="mr-3 text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                    className="mr-3 text-gray-800 hover:text-gray-500 group-hover:text-white"
                     aria-label="`Gmail`"
                   >
                     <div className="text-AboutIcon">
@@ -156,7 +156,7 @@ export default function AboutUs() {
                 <div className="flex justify-center mt-5">
                   <a
                     href="https://www.linkedin.com/in/bora-un-467751226"
-                    className="mr-3 text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                    className="mr-3 text-gray-800 hover:text-gray-500 group-hover:text-white"
                     aria-label="`Linkedin`"
                   >
                     <div className="text-AboutIcon">
@@ -165,7 +165,7 @@ export default function AboutUs() {
                   </a>
                   <a
                     href="https://gitlab.com/UnBora"
-                    className="mr-3 text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                    className="mr-3 text-gray-800 hover:text-gray-500 group-hover:text-white"
                     aria-label="`Gitlab`"
                   >
                     <div className="text-AboutIcon">
@@ -174,7 +174,7 @@ export default function AboutUs() {
                   </a>
                   <a
                     href="mailto:bora.un2000@gmail.com"
-                    className="mr-3 text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                    className="mr-3 text-gray-800 hover:text-gray-500 group-hover:text-white"
                     aria-label="`Gmail`"
                   >
                     <div className="text-AboutIcon">
@@ -202,7 +202,7 @@ export default function AboutUs() {
                 <div className="flex justify-center mt-5">
                   <a
                     href="https://www.linkedin.com/in/chantha-meng-556aa9243/"
-                    className="mr-3 text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                    className="mr-3 text-gray-800 hover:text-gray-500 group-hover:text-white"
                     aria-label="`Linkedin`"
                   >
                     <div className="text-AboutIcon">
@@ -211,7 +211,7 @@ export default function AboutUs() {
                   </a>
                   <a
                     href="https://gitlab.com/chanthaamengg"
-                    className="mr-3 text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                    className="mr-3 text-gray-800 hover:text-gray-500 group-hover:text-white"
                     aria-label="`Gitlab`"
                   >
                     <div className="text-AboutIcon">
@@ -220,7 +220,7 @@ export default function AboutUs() {
                   </a>
                   <a
                     href="mailto:chanthaamengg@gmail.com"
-                    className="mr-3 text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                    className="mr-3 text-gray-800 hover:text-gray-500 group-hover:text-white"
                     aria-label="`Gmail`"
                   >
                     <div className="text-AboutIcon">
@@ -248,7 +248,7 @@ export default function AboutUs() {
                 <div className="flex justify-center mt-5">
                   <a
                     href="https://www.linkedin.com/in/kimgech-khou-280a06243"
-                    className="mr-3 text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                    className="mr-3 text-gray-800 hover:text-gray-500 group-hover:text-white"
                     aria-label="`Linkedin`"
                   >
                     <div className="text-AboutIcon">
@@ -257,7 +257,7 @@ export default function AboutUs() {
                   </a>
                   <a
                     href="https://gitlab.com/kimgech"
-                    className="mr-3 text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                    className="mr-3 text-gray-800 hover:text-gray-500 group-hover:text-white"
                     aria-label="`Gitlab`"
                   >
                     <div className="text-AboutIcon">
@@ -266,7 +266,7 @@ export default function AboutUs() {
                   </a>
                   <a
                     href="mailto: kimgech309@gmail.com"
-                    className="mr-3 text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                    className="mr-3 text-gray-800 hover:text-gray-500 group-hover:text-white"
                     aria-label="`Gmail`"
                   >
                     <div className="text-AboutIcon">
@@ -292,7 +292,7 @@ export default function AboutUs() {
                 <div className="flex justify-center mt-5">
                   <a
                     href="https://www.linkedin.com/in/kimhab-thoeun-2626a716b/"
-                    className="mr-3 text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                    className="mr-3 text-gray-800 hover:text-gray-500 group-hover:text-white"
                     aria-label="`Linkedin`"
                   >
                     <div className="text-AboutIcon">
@@ -301,7 +301,7 @@ export default function AboutUs() {
                   </a>
                   <a
                     href="https://gitlab.com/keomhab"
-                    className="mr-3 text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                    className="mr-3 text-gray-800 hover:text-gray-500 group-hover:text-white"
                     aria-label="`Gitlab`"
                   >
                     <div className="text-AboutIcon">
@@ -310,7 +310,7 @@ export default function AboutUs() {
                   </a>
                   <a
                     href="mailto:keomhab@gmail.com"
-                    className="mr-3 text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                    className="mr-3 text-gray-800 hover:text-gray-500 group-hover:text-white"
                     aria-label="`Gmail`"
                   >
                     <div className="text-AboutIcon">

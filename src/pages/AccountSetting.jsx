@@ -44,7 +44,7 @@ export default function AccountSetting() {
           </div>
           <nav className="mt-8">
             <NavLink
-              className="flex items-center p-2 my-1 transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 dark:hover:text-white dark:hover:bg-gray-600 dark:text-gray-400 focus:bg-gray-200"
+              className="flex items-center p-2 my-1 transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 focus:bg-gray-200"
               as={Link}
               to="/setting/account"
             >
@@ -54,7 +54,7 @@ export default function AccountSetting() {
             </NavLink>
 
             <NavLink
-              className="flex items-center p-2 my-1 text-gray-600 transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 dark:hover:text-white dark:hover:bg-gray-600 dark:text-gray-400 "
+              className="flex items-center p-2 my-1 text-gray-600 transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 "
               as={Link}
               to="/setting/change-password"
             >
@@ -63,7 +63,7 @@ export default function AccountSetting() {
               <span className="flex-grow text-right"></span>
             </NavLink>
             <NavLink
-              className="flex items-center p-2 text-gray-800 transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 dark:hover:text-white dark:hover:bg-gray-600 dark:text-gray-100 dark:bg-gray-600"
+              className="flex items-center p-2 text-gray-800 transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 "
               as={Link}
               to="/setting/deactivate-account"
             >
@@ -74,7 +74,7 @@ export default function AccountSetting() {
               <span className="flex-grow text-right"></span>
             </NavLink>
             <NavLink
-              className="flex items-center p-2 text-gray-600 transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 dark:hover:text-white dark:hover:bg-gray-600 dark:text-gray-400 "
+              className="flex items-center p-2 text-gray-600 transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 "
               as={Link}
               to="/setting/delete-account"
             >
