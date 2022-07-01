@@ -14,7 +14,6 @@ export default async function runOneSignal() {
     notifyButton: {
       enable: true,
     },
-    subdomainName: "tanrean",
   });
   OneSignal.showSlidedownPrompt();
 }
