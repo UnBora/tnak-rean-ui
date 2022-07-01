@@ -31,8 +31,12 @@ import { useEffect } from "react";
 
 function App() {
   useEffect(() => {
-    console.log("tessssssst");
-    runOneSignal();
+    window.OneSignal = window.OneSignal || [];
+    OneSignal.init({
+      appId: "1557ea45-8f4a-473d-ad64-dff9355214ec",
+      setInitialized: true,
+      allowLocalhostAsSecureOrigin: true,
+    });
   });
 
   return (
