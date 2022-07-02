@@ -21,7 +21,7 @@ export default function Register() {
           </label>
 
           {/* Register card */}
-          <section className="p-6 dark:bg-gray-800 dark:text-gray-50 ">
+          <section className="p-6 ">
             <form
               novalidate=""
               action=""
@@ -39,7 +39,7 @@ export default function Register() {
               </h1>
               <h1 className="text-2xl font-semibold">Registration</h1>
               <p className="w-full pt-1 myhr"></p>
-              <fieldset className="grid grid-cols-4 gap-6 py-4 dark:bg-gray-900">
+              <fieldset className="grid grid-cols-4 gap-6 py-4 ">
                 <div className="grid grid-cols-6 gap-4 col-span-full md:col-span-4">
                   {/* Name */}
                   <div className="col-span-full sm:col-span-3">

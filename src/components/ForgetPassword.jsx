@@ -41,14 +41,12 @@ export default function Mystepper() {
   };
 
   return (
-    <div>
+    <div className="">
       <input type="checkbox" id="my-modal-4" className="modal-toggle" />
-      <div className="modal">
-     
-        <div className="pb-2 mx-auto shadow-xl bg-smoke rounded-2xl md:w-1/2">
-          
+      <div className="modal">     
+        <div className="pb-2 mx-auto shadow-xl bg-smoke rounded-2xl md:w-1/2"> 
           {/* Stepper */}
-          <div className="container mt-5 horizontal ">
+          <div className="container px-3 mt-5 horizontal">
             <Stepper steps={steps} currentStep={currentStep} />
 
             <div className="p-10 ">

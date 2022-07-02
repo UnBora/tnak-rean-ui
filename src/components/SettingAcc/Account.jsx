@@ -2,9 +2,9 @@ import React from "react";
 
 export default function Account() {
   return (
-    <div className="w-auto h-auto p-4 border-gray-200 rounded-lg shadow-md dark:bg-gray-200 dark:border-gray-700">
+    <div className="w-auto h-auto p-4 border-gray-200 rounded-lg shadow-md ">
      <form className="" action="#">
-      <h4 className="text-2xl font-medium text-gray-900 dark:text-white">
+      <h4 className="text-2xl font-medium text-gray-900 ">
         General info
       </h4>
       <div className="grid w-full lg:grid-cols-2 sm:grid-cols-14 ">
@@ -26,7 +26,7 @@ export default function Account() {
             </span>
             <select
               id="gender"
-              className="block w-full p-2 text-sm bg-white border rounded-md shadow-sm border-slate-300 text-slate-400 focus:ring-mygreen focus:border-mygreen dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="block w-full p-2 text-sm bg-white border rounded-md shadow-sm border-slate-300 text-slate-400 focus:ring-mygreen focus:border-mygreen "
             >
               <option>Male</option>
               <option>Female</option>

@@ -2,15 +2,15 @@ import React from "react";
 
 export default function () {
   return (
-    <div className="h-auto p-5 bg-white border-gray-200 rounded-lg shadow-md w-80 dark:bg-gray-200 dark:border-gray-700">
+    <div className="h-auto p-5 bg-white border-gray-200 rounded-lg shadow-md w-80 ">
       <form className="" action="#">
-        <h4 className="mb-6 text-2xl font-medium text-gray-900 dark:text-white">
+        <h4 className="mb-6 text-2xl font-medium text-gray-900 ">
           Change your password
         </h4>
         <div className="">
           <label
             for="password"
-            className="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-300"
+            className="block mb-2 text-xs font-medium text-gray-900 "
           >
             OLD PASSWORD
           </label>
@@ -26,7 +26,7 @@ export default function () {
         <div className="mt-4">
           <label
             for="password"
-            className="block mb-2 text-xs font-medium text-white-900 dark:text-gray-300"
+            className="block mb-2 text-xs font-medium text-white-900 "
           >
             NEW PASSWORD
           </label>
@@ -42,7 +42,7 @@ export default function () {
         <div className="mt-4">
           <label
             for="password"
-            class="block mb-2 text-xs font-medium text-gray-900 dark:text-gray-100"
+            class="block mb-2 text-xs font-medium text-gray-900 "
           >
             COMFIRM NEW PASSWORD
           </label>
