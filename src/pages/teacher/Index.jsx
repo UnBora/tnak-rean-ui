@@ -15,7 +15,7 @@ export default function Index() {
       <div className="grid gap-6 text-right lg:grid-cols-2 ">
         <div className=" sm:px-12 md:px-14">
           <div className="font-extrabold text-Welcome">
-            <h1>Welcome to</h1>
+            <h1>Welcome toscsdf</h1>
             <h1>
               <span className=" text-Welcome text-mygreen">Tnak</span>
               <span className=" text-Welcome text-myorange">Rean</span>
@@ -25,7 +25,7 @@ export default function Index() {
           <div className="pb-6 border-b-4 text-Quote pt-14 border-myorange">
             <p>
               “Education is the passport to the future,for tomorrow belongs to
-              those who prepare for it today ”
+              those who prepare for it today”
             </p>
           </div>
         </div>
