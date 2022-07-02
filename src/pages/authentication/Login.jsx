@@ -3,8 +3,7 @@ import { useState } from "react";
 import { getCurrentUser, login } from "../../service/authService";
 import Register from "../../components/Register";
 import cryptoJs from "crypto-js";
-import Form from "react-validation/build/form";
-import Input from "react-validation/build/input";
+import ForgetPassword from "../../components/ForgetPassword";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
