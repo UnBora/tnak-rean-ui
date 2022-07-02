@@ -3,8 +3,6 @@ import { AiFillSetting } from "react-icons/ai";
 import { MdFeedback } from "react-icons/md";
 import { RiLogoutBoxFill } from "react-icons/ri";
 import {Link} from "react-router-dom"
-import App from "../App";
-import Login from "../pages/Login";
 export default function AccountDropdown() {
   return (
     <div className="z-50 shadow-lg card w-72 bg-smoke">
