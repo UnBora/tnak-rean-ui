@@ -2,9 +2,9 @@ import React from "react";
 
 export default function DeactivateAccount() {
   return (
-    <div className="h-auto p-5 bg-white border-gray-200 rounded-lg shadow-md max-w-l dark:bg-gray-200 dark:border-gray-700">
+    <div className="h-auto p-5 bg-white border-gray-200 rounded-lg shadow-md max-w-l ">
       <form className="" action="#">
-        <h4 className="text-2xl font-medium text-gray-900 dark:text-white">
+        <h4 className="text-2xl font-medium text-gray-900 ">
           Deactivate your account
         </h4>
         <p className="mt-1 text-sm text-gray-400 font-montserrat">

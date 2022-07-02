@@ -12,7 +12,7 @@ export const signUp=async (user)=>{
 
 export const login= async (user) => {
  try {
-     let response =await api.post('/login',user)
+     let response =await api.post('/auth/login',user)
      console.log(response);
      return response.data.payload.token
  } catch (error) {

@@ -128,7 +128,7 @@ const NavbarT = () => {
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              className="w-6 h-6 dark:text-gray-100"
+              className="w-6 h-6 "
             >
               <path
                 strokeLinecap="round"

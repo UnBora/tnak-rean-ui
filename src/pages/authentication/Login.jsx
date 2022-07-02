@@ -3,8 +3,7 @@ import { useState } from "react";
 import { login } from "../../service/authService";
 import Register from "../../components/Register";
 import cryptoJs from "crypto-js";
-import Form from "react-validation/build/form";
-import Input from "react-validation/build/input";
+import ForgetPassword from "../../components/ForgetPassword"
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -19,7 +18,7 @@ export default function Login() {
       let encryptToken = cryptoJs.AES.encrypt(token, password).toString();
       console.log("encryptToken", encryptToken);
       localStorage.setItem("token", encryptToken);
-      window.location.href="/teacher"
+      // window.location.href="/teacher"
     });
   };
 
@@ -116,7 +115,7 @@ export default function Login() {
         </div>
       </div>
       {/* ========== */}
-
+<ForgetPassword/>
       <Register />
 
       {/* =============== */}
