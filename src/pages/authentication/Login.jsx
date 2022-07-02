@@ -1,27 +1,45 @@
 import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
-import { login } from "../../service/authService";
+import { getCurrentUser, login } from "../../service/authService";
 import Register from "../../components/Register";
 import cryptoJs from "crypto-js";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  let navigate = useNavigate();
   let signin = (e) => {
     e.preventDefault();
     let user = {
       username: username,
       password: password,
     };
-    login(user).then((token) => {
-      console.log("token", token);
-      let encryptToken = cryptoJs.AES.encrypt(token, password).toString();
+
+    login(user).then((user) => {
+      console.log("user", user);
+      let encryptToken = cryptoJs.AES.encrypt(user.token, password).toString();
       console.log("encryptToken", encryptToken);
       localStorage.setItem("token", encryptToken);
-      // window.location.href="/teacher"
+
+      if (user.role[0] === "Teacher") {
+        console.log(user.role[0]);
+        navigate("/teacher", { replace: true });
+      } else if (user.role[0] === "Student") {
+        navigate("/stu-index", { replace: true });
+      }
     });
   };
+
+  useEffect(() => {
+    const user = getCurrentUser;
+    if (user) {
+      console.log(user);
+    }
+  }, []);
 
   return (
     <div>

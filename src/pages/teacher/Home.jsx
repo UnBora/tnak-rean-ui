@@ -10,6 +10,8 @@ export default function Home() {
   const [date, setDate] = useState(new Date());
   let navigate = useNavigate;
 
+  
+
   return (
     <div className="mb-40 mx-100px md:flex">
       {" "}
