@@ -24,8 +24,17 @@ import AllCourse from "./pages/teacher/AllCourse";
 import StuIndex from "./pages/student/StuIndex";
 import ViewFilesT from "./pages/teacher/ViewFilesT";
 import Login from "./pages/authentication/Login";
+import runOneSignal from "./onesignal";
+import OneSignal from "react-onesignal";
+
+import { useEffect } from "react";
 
 function App() {
+    useEffect(() => {
+      window.OneSignal = window.OneSignal || []
+      runOneSignal();
+    },[]);
+  OneSignal.setExternalUserId(1);
   return (
     <div>
       <NavbarT />
@@ -45,7 +54,7 @@ function App() {
           <Route path="courses" element={<ManageCourse />}></Route>
           <Route path="results" element={<ResultList />}></Route>
         </Route>
-        <Route path="/viewfile" element={<ViewFilesT/>}/>
+        <Route path="/viewfile" element={<ViewFilesT />} />
 
         <Route path="/setting" element={<AccountSetting />}>
           <Route path="account" element={<Account />}></Route>

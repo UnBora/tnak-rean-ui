@@ -29,12 +29,12 @@ export default function Login() {
           <div className="flex-shrink-0 w-full max-w-md shadow-xl card bg-smoke ">
             <div className="flex flex-col max-w-md p-6 pt-12 rounded-sm shadow-sm sm:p-10 bg-smoke">
               <div className="object-cover mb-8 text-center rounded-md xl:col-span-3 ">
-                <h1 className="flex my-3 text-4xl font-semibold">Login</h1>
-                <p className="flex pt-1 text-md ">
+                <p className="flex my-3 font-semibold lg:text-4xl md:text-2xl sm:text-xl">Login</p>
+                <p className="flex pt-1 lg:text-md md:text-base sm:text-sm">
                   Don't have an account?
                   <label
                     for="my-modal-3"
-                    className="flex items-center ml-3 cursor-pointer mylink"
+                    className="flex items-center ml-2 cursor-pointer mylink"
                   >
                     Register
                   </label>
@@ -72,7 +72,6 @@ export default function Login() {
                     Forgot password
                   </label>
                 </div>
-
                 <div>
                   <button
                     type="submit"
@@ -95,21 +94,21 @@ export default function Login() {
               </form>
             </div>
           </div>
-          <div className="max-w-3xl">
-            <div className="font-extrabold text-Welcome">
-              <h1>Welcome to</h1>
-              <h1>
-                <span className=" text-Welcome text-mygreen">Tnak</span>
-                <span className=" text-Welcome text-myorange">Rean</span>
-              </h1>
+          <div className="lg:max-w-3xl md:max-w-3xl">
+            <div className="font-extrabold lg:text-Welcome md:text-5xl sm:text-2xl">
+              <p className="">Welcome to</p>
+              <p className="">
+                <span className="lg:text-Welcome text-mygreen md:text-5xl sm:text-2xl">Tnak</span>
+                <span className="lg:text-Welcome text-myorange md:text-5xl sm:text-2xl">Rean</span>
+              </p>
             </div>
 
-            <div className="pt-12 pb-6 text-Quote ">
+            <div className="pb-6 lg:pt-12 lg:text-Quote md:text-xl md:pt-3 sm:pt-4 sm:text-base">
               <p>
-                “Education is the passport to the future,for tomorrow belongs to
-                those who prepare for it today ”
+                “Education is the passport to the future, for tomorrow belongs to
+                those who prepare for it today.”
               </p>
-              <p className="pt-4 myhr w-28"></p>
+              <p className="lg:pt-4 md:pt-2 sm:pt-1 myhr w-28"></p>
             </div>
           </div>
         </div>
