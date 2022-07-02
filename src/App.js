@@ -11,7 +11,6 @@ import Account from "./components/SettingAcc/Account";
 import Classwork from "./pages/student/Classwork";
 import Course from "./pages/student/Course";
 import ViewFiles from "./pages/student/ViewFiles";
-import Login from "./pages/Login";
 import AccountSetting from "./pages/AccountSetting";
 import NavbarT from "./components/NavbarT";
 import AllStudent from "./pages/teacher/AllStudent";
@@ -26,8 +25,8 @@ import StuIndex from "./pages/student/StuIndex";
 import ViewFilesT from "./pages/teacher/ViewFilesT";
 import runOneSignal from "./onesignal";
 import OneSignal from "react-onesignal";
-
 import { useEffect } from "react";
+import Login from "./pages/authentication/Login";
 
 function App() {
   useEffect(() => {

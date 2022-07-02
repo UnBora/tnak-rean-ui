@@ -2,10 +2,12 @@ import React from "react";
 import { FcGoogle } from "react-icons/fc";
 import logo from "../assets/images/logo/TnakRean2.png";
 import swal from "sweetalert";
+import { useState } from "react";
 export default function Register() {
   const register = () => {
     swal("register successfully", "", "success");
   };
+
   return (
     <div>
       <input type="checkbox" id="my-modal-3" className="modal-toggle" />
