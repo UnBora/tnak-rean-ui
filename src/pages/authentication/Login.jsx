@@ -2,24 +2,26 @@ import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
 import { login } from "../../service/authService";
 import Register from "../../components/Register";
-import cryptoJs from 'crypto-js'
-
+import cryptoJs from "crypto-js";
+import Form from "react-validation/build/form";
+import Input from "react-validation/build/input";
 export default function Login() {
-  const [username, setUsername] = useState("")
-    const [password, setPassword] = useState("")
-    let signin =(e)=>{
-        e.preventDefault()
-        let user={
-            username:username,
-            password:password,
-        }
-        login(user).then((token)=>{
-            console.log("token",token);
-            let encryptToken= cryptoJs.AES.encrypt(token,password).toString()
-            console.log("encryptToken",encryptToken);
-            localStorage.setItem("token",encryptToken)
-        })
-    }
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  let signin = (e) => {
+    e.preventDefault();
+    let user = {
+      username: username,
+      password: password,
+    };
+    login(user).then((token) => {
+      console.log("token", token);
+      let encryptToken = cryptoJs.AES.encrypt(token, password).toString();
+      console.log("encryptToken", encryptToken);
+      localStorage.setItem("token", encryptToken);
+      window.location.href="/teacher"
+    });
+  };
 
   return (
     <div>
@@ -47,6 +49,7 @@ export default function Login() {
                 <div className="space-y-4">
                   <div>
                     <input
+                      name="email"
                       type="email"
                       id="username"
                       placeholder="Username or Email"
