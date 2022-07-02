@@ -19,7 +19,7 @@ export default function Login() {
       let encryptToken = cryptoJs.AES.encrypt(token, password).toString();
       console.log("encryptToken", encryptToken);
       localStorage.setItem("token", encryptToken);
-      window.location.href="/teacher"
+      // window.location.href="/teacher"
     });
   };
 

@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const api=axios.create({
-    baseURL: 'https://amsjwt.hrd-edu.info/api'
+    baseURL: 'https://api.tnakrean.info/api/v1'
 })
