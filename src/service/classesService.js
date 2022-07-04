@@ -8,3 +8,12 @@ export const fetchAllClasses = async () => {
     console.log("error", error);
   }
 };
+
+export const createClass = async () => {
+  try {
+    let response = await api.post("class/create-class");
+    return response.data;
+  } catch (error) {
+    console.log("error", error);
+  }
+};
