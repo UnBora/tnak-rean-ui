@@ -15,7 +15,7 @@ export default function Index() {
       <div className="grid gap-6 text-right lg:grid-cols-2 ">
         <div className=" sm:px-12 md:px-14">
           <div className="font-extrabold text-Welcome">
-            <h1>Welcome toscsdf</h1>
+            <h1>Welcome tos</h1>
             <h1>
               <span className=" text-Welcome text-mygreen">Tnak</span>
               <span className=" text-Welcome text-myorange">Rean</span>
