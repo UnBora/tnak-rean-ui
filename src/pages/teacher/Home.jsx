@@ -4,14 +4,24 @@ import { useState } from "react";
 import Calendar from "react-calendar";
 import ClassCard from "../../components/teacher/ClassCard";
 import CreateClass from "../../components/teacher/CreateClass";
-import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { fetchAllClassesSlice } from "../../slices/classes/classesSlice";
+import { fetchAllClasses } from "../../service/classesService";
 
 export default function Home() {
   const [date, setDate] = useState(new Date());
-  let navigate = useNavigate;
+  const classes = useSelector((state) => state.classes.value);
+  const dispatch = useDispatch();
 
-  
-
+  // fetchAllClasses().then(
+  //   (r) => console.log("response in Home : ", r),
+  //   (r) => console.log("Error : ", r)
+  // );
+  useEffect(() => {
+    fetchAllClasses().then((r) => dispatch(fetchAllClassesSlice(r)));
+  }, []);
+  console.log("test: ", classes.data);
   return (
     <div className="mb-40 mx-100px md:flex">
       <div className="mt-6 ">
@@ -95,12 +105,10 @@ export default function Home() {
           </div>
 
           <div className="flex flex-wrap ml-4 sm:flex-wrap md:flex-wrap lg:flex-wrap xl:flex-wrap">
-            <ClassCard />
-            <ClassCard />
-            <ClassCard />
-            <ClassCard />
-            <ClassCard />
-            <ClassCard />
+            {classes.data.map((index) => {
+              return <ClassCard data={index} />;
+            })}
+
             {/* pop up create class  */}
             <CreateClass />
           </div>
