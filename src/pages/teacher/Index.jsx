@@ -8,7 +8,7 @@ export default function Index() {
       password:password,
       
     }
-    Login(user).then(()=>{console.log();})
+    // Login(user).then(()=>{console.log();})
   }
   return (
     <section className="flex justify-between my-5 mx-100px">
