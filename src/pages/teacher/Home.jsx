@@ -14,10 +14,10 @@ export default function Home() {
   const classes = useSelector((state) => state.classes.value);
   const dispatch = useDispatch();
 
-  // fetchAllClasses().then(
-  //   (r) => console.log("response in Home : ", r),
-  //   (r) => console.log("Error : ", r)
-  // );
+  fetchAllClasses().then(
+    (r) => console.log("response in Home : ", r),
+    (r) => console.log("Error : ", r)
+  );
   useEffect(() => {
     fetchAllClasses().then((r) => dispatch(fetchAllClassesSlice(r)));
   }, []);
@@ -105,7 +105,7 @@ export default function Home() {
           </div>
 
           <div className="flex flex-wrap ml-4 sm:flex-wrap md:flex-wrap lg:flex-wrap xl:flex-wrap">
-            {classes.data.map((index) => {
+            {classes.data?.map((index) => {
               return <ClassCard data={index} />;
             })}
 

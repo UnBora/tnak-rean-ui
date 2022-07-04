@@ -30,11 +30,11 @@ export default function Login() {
       } else if (u.role[0] === "Student") {
         navigate("/stu-index", { replace: true });
       }
-      try {
-        dispatch(getUserSlice(u));
-      } catch (error) {
-        console.log(error);
-      }
+      // try {
+      //   dispatch(getUserSlice(u));
+      // } catch (error) {
+      //   console.log(error);
+      // }
     });
   };
 
