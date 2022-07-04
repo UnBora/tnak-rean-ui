@@ -23,7 +23,7 @@ export default function ClassCard({ data }) {
             </label>
             <ul
               tabindex="0"
-              className="z-20 w-40 p-1 text-xs font-medium shadow dropdown-content menu bg-base-100 rounded-box"
+              className="w-32 p-1 text-sm font-medium shadow w-z-20 dropdown-content menu bg-base-100 rounded-box"
             >
               <li className="focus:bg-mygreen">
                 <label for="my-modal-2">Edit</label>
