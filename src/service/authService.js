@@ -1,4 +1,5 @@
 import { api } from "../utils/api";
+import { cryptoEncrypt } from "../utils/tokenEnDe";
 
 export const signUp = async (user) => {
   try {
@@ -16,7 +17,9 @@ export const login = async (user) => {
     if (response.data.token) {
       localStorage.setItem("user", JSON.stringify(response.data));
       console.log(response.data);
+      cryptoEncrypt(response.data.token, "Phanith");
     }
+    console.log(response.data);
     return response.data;
   } catch (error) {
     console.log(error);

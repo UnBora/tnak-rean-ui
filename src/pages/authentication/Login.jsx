@@ -1,15 +1,17 @@
 import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
-import { getCurrentUser, login } from "../../service/authService";
+import { login } from "../../service/authService";
 import Register from "../../components/Register";
-import cryptoJs from "crypto-js";
 import ForgetPassword from "../../components/ForgetPassword";
-import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { cryptoDecrypt, encryptToken } from "../../utils/tokenEnDe";
+import { getUserSlice } from "../../slices/users/userSlice";
 
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
   let navigate = useNavigate();
   let signin = (e) => {
     e.preventDefault();
@@ -18,27 +20,34 @@ export default function Login() {
       password: password,
     };
 
-    login(user).then((user) => {
-      console.log("user", user);
-      let encryptToken = cryptoJs.AES.encrypt(user.token, password).toString();
-      console.log("encryptToken", encryptToken);
-      localStorage.setItem("token", encryptToken);
-
-      if (user.role[0] === "Teacher") {
-        console.log(user.role[0]);
+    login(user).then((u) => {
+      if (u.role[0] === "Teacher") {
+        console.log(u.role[0]);
+        console.log(
+          "decryp: " + cryptoDecrypt(localStorage.getItem("token"), "Phanith")
+        );
         navigate("/teacher", { replace: true });
-      } else if (user.role[0] === "Student") {
+      } else if (u.role[0] === "Student") {
         navigate("/stu-index", { replace: true });
       }
+      // try {
+      //   dispatch(getUserSlice(u));
+      // } catch (error) {
+      //   console.log(error);
+      // }
     });
   };
 
-  useEffect(() => {
-    const user = getCurrentUser;
-    if (user) {
-      console.log(user);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const user = getCurrentUser;
+  //   if (user) {
+  //     if (user.role[0] === "Teacher") {
+  //       return <Navigate to="/teacher" />;
+  //     } else if (user.role[0] === "Student") {
+  //       return <Navigate to="/stu-index" />;
+  //     }
+  //   }
+  // }, []);
 
   return (
     <div className="grid flex-col mx-auto mt-5 mb-28 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 hero-content lg:flex-row-reverse">
