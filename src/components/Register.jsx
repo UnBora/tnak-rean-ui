@@ -2,7 +2,7 @@ import React from "react";
 import { FcGoogle } from "react-icons/fc";
 import logo from "../assets/images/logo/TnakRean2.png";
 import swal from "sweetalert";
-import { useState } from "react";
+// import { useState } from "react";
 export default function Register() {
   const register = () => {
     swal("register successfully", "", "success");
@@ -11,7 +11,7 @@ export default function Register() {
   return (
     <div>
       <input type="checkbox" id="my-modal-3" className="modal-toggle" />
-      <div className="modal ">
+      <div className="text-black modal">
         <div className="flex-shrink-0 shadow-xl card bg-smoke ">
           <label
             for="my-modal-3"
@@ -31,13 +31,14 @@ export default function Register() {
                 <img
                   src={logo}
                   className="w-12 h-12 bg-gray-200 rounded-full"
+                  alt="logo TnakRean"
                 />
               </div>
               <h1 className="text-2xl font-semibold text-center ">
                 <span className=" text-mygreen">Tnak</span>
                 <span className=" text-myorange">Rean</span>
               </h1>
-              <h1 className="text-2xl font-semibold">Registration</h1>
+              <h1 className="text-2xl font-semibold ">Registration</h1>
               <p className="w-full pt-1 myhr"></p>
               <fieldset className="grid grid-cols-4 gap-6 py-4 ">
                 <div className="grid grid-cols-6 gap-4 col-span-full md:col-span-4">
