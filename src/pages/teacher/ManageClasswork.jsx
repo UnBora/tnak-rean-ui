@@ -8,13 +8,9 @@ import {
   MdOutlineHomeWork,
   MdOutlineAssignment,
   MdOutlineQuiz,
-  MdOutlineAddLink,
 } from "react-icons/md";
 import CreateFolder from "../../components/CreateFolder";
-import ReactPlayer from "react-player";
 import AssignClasswork from "../../components/teacher/AssignClasswork";
-import EditFolder from "../../components/teacher/EditFolder";
-
 function ManageClasswork() {
   return (
     <div className="">
@@ -93,6 +89,7 @@ function ManageClasswork() {
         <Link to="#">
           <Folders />
         </Link>
+        
       </div>
 
       <p className="ml-1​​ mt-12 text-xl font-semibold">Assigned task</p>

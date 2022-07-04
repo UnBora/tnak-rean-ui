@@ -23,10 +23,16 @@ export default function Folders() {
           </label>
           <ul
             tabindex="0"
-            class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 font-medium"
+            className="w-40 p-1 font-medium shadow dropdown-content menu bg-base-100 rounded-box"
           >
             <li>
-              <label for="my-modal-1">Edit</label>
+              <label
+                // data-bs-toggle="modal"
+                // data-bs-target="#exampleModalScrollable"
+                for="my-modal-3"
+              >
+                Edit
+              </label>
             </li>
 
             <li className="text-red-500">
@@ -41,6 +47,7 @@ export default function Folders() {
           </ul>
         </div>
       </div>
+      <EditFolder />
     </div>
   );
 }

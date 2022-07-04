@@ -1,6 +1,7 @@
 import React from "react";
 import { MdOutlineAddLink, MdOutlineHomeWork } from "react-icons/md";
 import ReactPlayer from "react-player";
+import { upload } from "../swal/Success";
 import AddLink from "./AddLink";
 
 function UploadCourse() {
@@ -44,7 +45,7 @@ function UploadCourse() {
                   type="text"
                   className="w-full px-4 py-3 leading-tight text-gray-700 bg-white border rounded-md shadow-lg focus:outline-mygreen focus:bg-white focus:ring-1 focus:ring-mygreen"
                 >
-                  <option className="p-6 text-md">All School</option>
+                  <option className="p-6 text-md">All schools</option>
                   <option className="p-6 text-md">KSHRD</option>
                   <option className="p-6 text-md">RUPP</option>
                   <option className="p-6 text-md">Setec</option>
@@ -66,6 +67,8 @@ function UploadCourse() {
               
             </div>
             <div className="flex flex-wrap mb-6 -mx-3">
+      
+        
               <div className="w-full px-3 mt-6">
                 <label className="flex flex-col items-center py-1 mb-3 tracking-wide uppercase border rounded shadow-lg cursor-pointer ">
                   <svg

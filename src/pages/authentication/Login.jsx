@@ -1,16 +1,17 @@
 import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
-import { getCurrentUser, login } from "../../service/authService";
+import { login } from "../../service/authService";
 import Register from "../../components/Register";
-import cryptoJs from "crypto-js";
-import Form from "react-validation/build/form";
-import Input from "react-validation/build/input";
-import { useEffect } from "react";
+import ForgetPassword from "../../components/ForgetPassword";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { cryptoDecrypt, encryptToken } from "../../utils/tokenEnDe";
+import { getUserSlice } from "../../slices/users/userSlice";
 
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
   let navigate = useNavigate();
   let signin = (e) => {
     e.preventDefault();
@@ -19,27 +20,34 @@ export default function Login() {
       password: password,
     };
 
-    login(user).then((user) => {
-      console.log("user", user);
-      let encryptToken = cryptoJs.AES.encrypt(user.token, password).toString();
-      console.log("encryptToken", encryptToken);
-      localStorage.setItem("token", encryptToken);
-
-      if (user.role[0] === "Teacher") {
-        console.log(user.role[0]);
+    login(user).then((u) => {
+      if (u.role[0] === "Teacher") {
+        console.log(u.role[0]);
+        console.log(
+          "decryp: " + cryptoDecrypt(localStorage.getItem("token"), "Phanith")
+        );
         navigate("/teacher", { replace: true });
-      } else if (user.role[0] === "Student") {
+      } else if (u.role[0] === "Student") {
         navigate("/stu-index", { replace: true });
       }
+      // try {
+      //   dispatch(getUserSlice(u));
+      // } catch (error) {
+      //   console.log(error);
+      // }
     });
   };
 
-  useEffect(() => {
-    const user = getCurrentUser;
-    if (user) {
-      console.log(user);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const user = getCurrentUser;
+  //   if (user) {
+  //     if (user.role[0] === "Teacher") {
+  //       return <Navigate to="/teacher" />;
+  //     } else if (user.role[0] === "Student") {
+  //       return <Navigate to="/stu-index" />;
+  //     }
+  //   }
+  // }, []);
 
   return (
     <div>
@@ -48,12 +56,14 @@ export default function Login() {
           <div className="flex-shrink-0 w-full max-w-md shadow-xl card bg-smoke ">
             <div className="flex flex-col max-w-md p-6 pt-12 rounded-sm shadow-sm sm:p-10 bg-smoke">
               <div className="object-cover mb-8 text-center rounded-md xl:col-span-3 ">
-                <h1 className="flex my-3 text-4xl font-semibold">Login</h1>
-                <p className="flex pt-1 text-md ">
+                <p className="flex my-3 font-semibold lg:text-4xl md:text-2xl sm:text-xl">
+                  Login
+                </p>
+                <p className="flex pt-1 lg:text-md md:text-base sm:text-sm">
                   Don't have an account?
                   <label
                     for="my-modal-3"
-                    className="flex items-center ml-3 cursor-pointer mylink"
+                    className="flex items-center ml-2 cursor-pointer mylink"
                   >
                     Register
                   </label>
@@ -91,7 +101,6 @@ export default function Login() {
                     Forgot password
                   </label>
                 </div>
-
                 <div>
                   <button
                     type="submit"
@@ -114,27 +123,31 @@ export default function Login() {
               </form>
             </div>
           </div>
-          <div className="max-w-3xl">
-            <div className="font-extrabold text-Welcome">
-              <h1>Welcome to</h1>
-              <h1>
-                <span className=" text-Welcome text-mygreen">Tnak</span>
-                <span className=" text-Welcome text-myorange">Rean</span>
-              </h1>
+          <div className="lg:max-w-3xl md:max-w-3xl">
+            <div className="font-extrabold lg:text-Welcome md:text-5xl sm:text-2xl">
+              <p className="">Welcome to</p>
+              <p className="">
+                <span className="lg:text-Welcome text-mygreen md:text-5xl sm:text-2xl">
+                  Tnak
+                </span>
+                <span className="lg:text-Welcome text-myorange md:text-5xl sm:text-2xl">
+                  Rean
+                </span>
+              </p>
             </div>
 
-            <div className="pt-12 pb-6 text-Quote ">
+            <div className="pb-6 lg:pt-12 lg:text-Quote md:text-xl md:pt-3 sm:pt-4 sm:text-base">
               <p>
-                “Education is the passport to the future,for tomorrow belongs to
-                those who prepare for it today ”
+                “Education is the passport to the future, for tomorrow belongs
+                to those who prepare for it today.”
               </p>
-              <p className="pt-4 myhr w-28"></p>
+              <p className="lg:pt-4 md:pt-2 sm:pt-1 myhr w-28"></p>
             </div>
           </div>
         </div>
       </div>
       {/* ========== */}
-
+      <ForgetPassword />
       <Register />
 
       {/* =============== */}

@@ -6,9 +6,11 @@ import "../App.css";
 import ClassCard from "./teacher/ClassCard";
 import ProfileCard from "./ProfileCard";
 import Notification from "./Notification";
+import { useSelector } from "react-redux";
 import AccountDropdown from "./AccountDropdown";
 import { Link, NavLink } from "react-router-dom";
 const NavbarT = () => {
+  const [openNavbar, setOpenNavbar] = useState(false);
   const current = localStorage.getItem("currentTab");
   const [currentTab, setCurrentTab] = useState(current);
 
@@ -18,7 +20,7 @@ const NavbarT = () => {
   };
   return (
     <div>
-      <header className="border-b border-mygray ">
+      <nav className="border-b border-mygray ">
         <div className="flex justify-between mx-100px h-mynav">
           <NavLink
             as={Link}
@@ -29,7 +31,11 @@ const NavbarT = () => {
           >
             <img src={logo} alt="" className="scale-75" />
           </NavLink>
-          <ul className="items-stretch hidden space-x-10 lg:flex">
+          <ul
+            className={
+              openNavbar ? "hidden" : "items-stretch space-x-10 lg:flex"
+            }
+          >
             <li className="flex mylink">
               <NavLink
                 onClick={() => handleSetCurrentTab("/")}
@@ -48,7 +54,7 @@ const NavbarT = () => {
 
             <li className="flex">
               <NavLink
-              onClick={() => handleSetCurrentTab("/classroom")}
+                onClick={() => handleSetCurrentTab("/classroom")}
                 rel="noopener noreferrer"
                 as={Link}
                 to="/all-classwork"
@@ -84,10 +90,13 @@ const NavbarT = () => {
               <label tabindex="0" className="flex m-1 space-x-4 cursor-pointer">
                 <div className="avatar online">
                   <div className="rounded-full w-9 ">
-                    <img src="https://api.lorem.space/image/face?hash=28212" />
+                    <img
+                      src="https://api.lorem.space/image/face?hash=28212"
+                      alt="profile"
+                    />
                   </div>
                 </div>
-                <p className="mt-2 font-medium">Dayan</p>
+                <p className="mt-2 font-medium">zz</p>
               </label>
               <div
                 tabindex="0"
@@ -122,13 +131,16 @@ const NavbarT = () => {
               </div>
             </div>
           </div>
-          <button className="p-4 lg:hidden">
+          <button
+            className="p-4 lg:hidden"
+            onClick={() => setOpenNavbar(!openNavbar)}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              className="w-6 h-6 dark:text-gray-100"
+              className="w-6 h-6 "
             >
               <path
                 strokeLinecap="round"
@@ -139,7 +151,7 @@ const NavbarT = () => {
             </svg>
           </button>
         </div>
-      </header>
+      </nav>
     </div>
   );
 };

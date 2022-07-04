@@ -4,6 +4,7 @@ import { MdOutlineAssignment } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { deleteClasswork } from "../swal/Delete";
 import AssignClasswork from "./AssignClasswork";
+import ViewComment from "./ViewComment";
 
 export default function AssignedTask() {
   return (
@@ -15,17 +16,15 @@ export default function AssignedTask() {
         </div>
         <div className="mt-1 ml-auto dropdown">
           <label tabindex="0" className="cursor-pointer">
-            {" "}
             <FaEllipsisV />
           </label>
           <ul
             tabindex="0"
-            class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 font-medium"
+            class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-40 font-medium"
           >
             <li>
               <label for="my-modal-2">Edit</label>
             </li>
-
             <li className="text-red-500">
               <label onClick={()=>{deleteClasswork()}}>Delete</label>
             </li>
@@ -35,7 +34,7 @@ export default function AssignedTask() {
       <div className="mt-2 text-base font-medium">
         <p className="max-w-[22rem] truncate">
           Create firt project Java Using Intellij hii am Kimhab form
-          ppclassdffdf what do you wanthjtyjughfthyfgfhgfg lfgrfhdturtfhgfhggfh
+          pp class
         </p>
       </div>
 
@@ -60,7 +59,7 @@ export default function AssignedTask() {
             <span>2</span> comments
           </label>
           <div tabindex="0" className="mt-2 dropdown-content rounded-box">
-            {/* <StudentComment /> */}
+           <ViewComment/>
           </div>
         </div>
       </div>

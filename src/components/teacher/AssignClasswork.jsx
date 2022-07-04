@@ -45,7 +45,7 @@ const AssignClasswork = () => {
                   type="text"
                   className="w-full px-4 py-3 leading-tight text-gray-700 bg-white border rounded-md shadow-lg focus:outline-mygreen focus:bg-white focus:ring-1 focus:ring-mygreen"
                 >
-                  <option className="p-6 text-md">All School</option>
+                  <option className="p-6 text-md">All schools</option>
                   <option className="p-6 text-md">KSHRD</option>
                   <option className="p-6 text-md">RUPP</option>
                   <option className="p-6 text-md">Setec</option>
@@ -82,7 +82,6 @@ const AssignClasswork = () => {
                   className="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 border rounded shadow-md appearance-none focus:outline-none focus:ring-1 focus:ring-mygreen"
                   id="grid-password"
                   type="datetime-local"
-
                 />
               </div>
               <div className="w-full px-3 mt-6">
@@ -121,7 +120,6 @@ const AssignClasswork = () => {
                   />
                 </div>
                 <div className="flex justify-end mt-2">
-                  {" "}
                   <label
                     className="px-5 mt-3 ml-1 border-none rounded-full btn btn-sm bg-mygreen hover:bg-myhovergreen"
                     onClick={() => {

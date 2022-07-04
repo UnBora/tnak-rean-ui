@@ -28,7 +28,7 @@ export default function CreateClass() {
                         id="classname"
                         type="text"
                         placeholder="Enter your class name"
-                        className="w-full px-4 py-2 mt-1 leading-tight bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:ring-opacity-75 focus:mygreen dark:border-gray-700 focus:outline-none focus:bg-white"
+                        className="w-full px-4 py-2 mt-1 leading-tight bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:ring-opacity-75 focus:mygreen focus:outline-none focus:bg-white"
                       />
                     </div>
                   </div>
@@ -110,7 +110,7 @@ export default function CreateClass() {
               id="school"
               type="text"
               placeholder="Enter school name"
-              className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen dark:border-gray-700 focus:outline-none focus:bg-white"
+              className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
             />
           </div>
           <div className="modal-action">
