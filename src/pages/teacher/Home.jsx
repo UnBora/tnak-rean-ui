@@ -105,7 +105,7 @@ export default function Home() {
           </div>
 
           <div className="flex flex-wrap ml-4 sm:flex-wrap md:flex-wrap lg:flex-wrap xl:flex-wrap">
-            {classes.data.map((index) => {
+            {classes.data?.map((index) => {
               return <ClassCard data={index} />;
             })}
 

@@ -11,7 +11,7 @@ import AccountDropdown from "./AccountDropdown";
 import { Link, NavLink } from "react-router-dom";
 const NavbarT = () => {
   const [openNavbar, setOpenNavbar] = useState(false);
-  const user = useSelector((state) => state.user.value);
+  // const user = useSelector((state) => state.user.value);
   const current = localStorage.getItem("currentTab");
   const [currentTab, setCurrentTab] = useState(current);
 
