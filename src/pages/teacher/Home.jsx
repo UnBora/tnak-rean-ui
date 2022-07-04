@@ -9,25 +9,25 @@ import { useEffect } from "react";
 import { fetchAllClassesSlice } from "../../slices/classes/classesSlice";
 import { fetchAllClasses } from "../../service/classesService";
 import { fetchScheduleTeacher } from "../../service/scheduleService";
-import scheduleSlice from "../../slices/schedule/scheduleTeacherSlice";
+import { fetchScheduleClassSlice } from "../../slices/schedule/scheduleTeacherSlice";
 
 export default function Home() {
   const [date, setDate] = useState(new Date());
   const classes = useSelector((state) => state.classes.value);
   const dispatch = useDispatch();
-  const scheduleTeacher=useSelector((state)=> state.scheduleTeacher.value);
+  const scheduleTeacher = useSelector((state) => state.scheduleTeacher.value);
   // fetchAllClasses().then(
   //   (r) => console.log("response in Home : ", r),
   //   (r) => console.log("Error : ", r)
   // );
   useEffect(() => {
     fetchAllClasses().then((r) => dispatch(fetchAllClassesSlice(r)));
-    fetchScheduleTeacher().then((r) => dispatch(scheduleSlice(r)));
+    fetchScheduleTeacher(4, 2).then((r) =>
+      dispatch(fetchScheduleClassSlice(r))
+    );
   }, []);
-  console.log("test: ", classes.data);
+  console.log("test: ", scheduleTeacher);
 
-
-  
   return (
     <div className="mb-40 mx-100px md:flex">
       <div className="mt-6 ">
@@ -112,7 +112,7 @@ export default function Home() {
 
           <div className="flex flex-wrap ml-4 sm:flex-wrap md:flex-wrap lg:flex-wrap xl:flex-wrap">
             {classes.data?.map((index) => {
-              return <ClassCard data={index} />;
+              return <ClassCard key={index.id} data={index} />;
             })}
 
             {/* pop up create class  */}

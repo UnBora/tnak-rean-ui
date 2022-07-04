@@ -4,14 +4,14 @@ const initialState = {
   value: [],
 };
 
-const scheduleTeacherSlice = createSlice({
+const scheduleClassSlice = createSlice({
   name: "scheduleTeacher",
   initialState,
   reducers: {
-    fetchScheduleTeacher: (state, action) => {
+    fetchScheduleClassSlice: (state, action) => {
       state.value = action.payload;
     },
   },
 });
-export const { fetchScheduleTeacher } = scheduleTeacherSlice.actions;
-export default scheduleTeacherSlice.reducer;
+export const { fetchScheduleClassSlice } = scheduleClassSlice.actions;
+export default scheduleClassSlice.reducer;
