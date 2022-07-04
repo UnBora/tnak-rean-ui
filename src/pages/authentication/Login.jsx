@@ -69,7 +69,7 @@ export default function Login() {
               “Education is the passport to the future, for tomorrow belongs to
               those who prepare for it today.”
             </p>
-            <p className="ml-auto lg:pt-4 md:pt-2 sm:pt-1 myhr w-28"></p>
+            <p className="mr-auto lg:pt-4 md:pt-2 sm:pt-1 myhr w-28"></p>
           </div>
         </div>
       </div>
