@@ -24,7 +24,7 @@ export default function Home() {
   }, []);
   console.log("test: ", classes.data);
   return (
-    <div className="mb-40 mx-100px md:flex">
+    <div className="mx-100px md:flex">
       <div className="mt-6 ">
         <div className="max-w-md space-y-3">
           <div className="p-2 rounded-lg bg-smoke h-52">
@@ -43,8 +43,8 @@ export default function Home() {
               <option className="p-6 text-sm ">Satursday</option>
               <option className="p-6 text-sm ">Sunday</option>
             </select>
-            <div className="flex justify-between mt-2 text-sm font-medium">
-              <span>Phnom Penh</span> <span>7:00-9:00</span>
+            <div className="flex justify-between mt-2 text-sm font-medium bg-smoke">
+              <span >Phnom Penh</span> <span>7:00-9:00</span>
               <span>KSHRD</span>
             </div>
           </div>
@@ -62,12 +62,12 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="w-full h-full mt-6 ml-3">
-        <div className="pt-5 rounded-lg bg-smoke">
-          <div className="mx-5 my-4 ">
+      <div className="w-full h-full pb-6 mt-6 ml-3 bg-smoke">
+        <div className="pt-5 rounded-lg">
+          <div className="mx-5 my-4">
             <div className="flex justify-between">
               <label
-                className="px-5 ml-1 border-none rounded-full btn btn-sm bg-mygreen hover:bg-myhovergreen"
+                className="px-5 ml-1 text-white border-none rounded-full btn btn-sm bg-mygreen hover:bg-myhovergreen"
                 for="my-modal-3"
               >
                 Create
