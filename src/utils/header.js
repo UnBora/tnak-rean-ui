@@ -5,10 +5,10 @@ export const header = () => {
   let jwt = test !== null ? cryptoDecrypt(test, "Phanith") : null;
   
   if (jwt !== null) {
-    // if (parseJwt(jwt).exp < Date.now() / 600000) {
-    //   localStorage.clear();
-    //   return { ContentType: "application/json" };
-    // }
+    if (parseJwt(jwt).exp < Date.now() / 600000) {
+      localStorage.clear();
+      return { ContentType: "application/json" };
+    }
 
     return {
       ContentType: "application/json",

@@ -8,20 +8,26 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchAllClassesSlice } from "../../slices/classes/classesSlice";
 import { fetchAllClasses } from "../../service/classesService";
+import { fetchScheduleTeacher } from "../../service/scheduleService";
+import scheduleSlice from "../../slices/schedule/scheduleTeacherSlice";
 
 export default function Home() {
   const [date, setDate] = useState(new Date());
   const classes = useSelector((state) => state.classes.value);
   const dispatch = useDispatch();
-
+  const scheduleTeacher=useSelector((state)=> state.scheduleTeacher.value);
   // fetchAllClasses().then(
   //   (r) => console.log("response in Home : ", r),
   //   (r) => console.log("Error : ", r)
   // );
   useEffect(() => {
     fetchAllClasses().then((r) => dispatch(fetchAllClassesSlice(r)));
+    fetchScheduleTeacher().then((r) => dispatch(scheduleSlice(r)));
   }, []);
   console.log("test: ", classes.data);
+
+
+  
   return (
     <div className="mb-40 mx-100px md:flex">
       <div className="mt-6 ">
