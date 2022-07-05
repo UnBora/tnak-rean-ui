@@ -5,7 +5,9 @@ const { configureStore } = require("@reduxjs/toolkit");
 
 export const store = configureStore({
   reducer: {
+    //class material
     classes: classesSlice,
     scheduleTeacher: scheduleTeacherSlice,
+    
   },
 });

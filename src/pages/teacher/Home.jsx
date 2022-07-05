@@ -16,18 +16,18 @@ export default function Home() {
   const classes = useSelector((state) => state.classes.value);
   const dispatch = useDispatch();
   const scheduleTeacher = useSelector((state) => state.scheduleTeacher.value);
+  const [daySelect, setdaySelect] = useState();
   // fetchAllClasses().then(
   //   (r) => console.log("response in Home : ", r),
   //   (r) => console.log("Error : ", r)
   // );
   useEffect(() => {
     fetchAllClasses().then((r) => dispatch(fetchAllClassesSlice(r)));
-    fetchScheduleTeacher(4, 2).then((r) =>
+    fetchScheduleTeacher(2, 1).then((r) =>
       dispatch(fetchScheduleClassSlice(r))
     );
   }, []);
   console.log("test: ", scheduleTeacher);
-
   return (
     <div className="mb-40 mx-100px md:flex">
       <div className="mt-6 ">
@@ -35,23 +35,47 @@ export default function Home() {
           <div className="p-2 rounded-lg bg-smoke h-52">
             <h2 className="text-2xl font-medium text-mygreen">Schedule</h2>
             <p className="mb-2 myhr"></p>
+            <p>{daySelect}</p>
             <select
+              onChange={(e) => {
+                fetchScheduleTeacher(2, e.target.value).then((r) =>
+                  dispatch(fetchScheduleClassSlice(r))
+                );
+              }}
               id="weekday"
               type="text"
+              value={daySelect}
               className="px-4 py-1 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
             >
-              <option className="p-6 text-sm ">Monday</option>
-              <option className="p-6 text-sm ">Tuesday</option>
-              <option className="p-6 text-sm ">Wednesday</option>
-              <option className="p-6 text-sm ">Thursday</option>
-              <option className="p-6 text-sm ">Friday</option>
-              <option className="p-6 text-sm ">Satursday</option>
-              <option className="p-6 text-sm ">Sunday</option>
+              <option value={1} className="p-6 text-sm ">
+                Monday
+              </option>
+              <option value={2} className="p-6 text-sm ">
+                Tuesday
+              </option>
+              <option value={3} className="p-6 text-sm ">
+                Wednesday
+              </option>
+              <option value={4} className="p-6 text-sm ">
+                Thursday
+              </option>
+              <option value={5} className="p-6 text-sm ">
+                Friday
+              </option>
+              <option value={6} className="p-6 text-sm ">
+                Satursday
+              </option>
+              <option value={7} className="p-6 text-sm ">
+                Sunday
+              </option>
             </select>
-            <div className="flex justify-between mt-2 text-sm font-medium">
-              <span>Phnom Penh</span> <span>7:00-9:00</span>
-              <span>KSHRD</span>
-            </div>
+            {scheduleTeacher.data?.map((item) => (
+              <div className="flex justify-between mt-2 text-sm font-medium">
+                <span>{item.subject}</span>
+                <span>{item.time}</span>
+                <span>{item.class_name}</span>
+              </div>
+            ))}
           </div>
           <div className="p-2 rounded-lg bg-smoke">
             <div className="mx-1 calendar-container">
@@ -114,7 +138,6 @@ export default function Home() {
             {classes.data?.map((index) => {
               return <ClassCard key={index.id} data={index} />;
             })}
-
             {/* pop up create class  */}
             <CreateClass />
           </div>
