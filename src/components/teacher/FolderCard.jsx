@@ -19,16 +19,18 @@ export default function FolderCard() {
             <FaEllipsisV />
           </label>
           <div
-              tabindex="0"
-              className="w-24 text-sm font-medium shadow w-z-20 dropdown-content menu bg-base-100 rounded-box"
-            >
-              <label className="py-2 pl-4 cursor-pointer hover:rounded-t-lg hover:bg-gray-200">
-                <label for="my-modal-3" className="cursor-pointer">Edit</label>
+            tabindex="0"
+            className="w-24 text-sm font-medium shadow w-z-20 dropdown-content menu bg-base-100 rounded-box"
+          >
+            <label className="py-2 pl-4 cursor-pointer hover:rounded-t-lg hover:bg-gray-200">
+              <label for="my-modal-edit-folder" className="cursor-pointer">
+                Edit
               </label>
-              <label className="py-2 pl-4 text-red-500 border-t hover:rounded-b-lg hover:bg-gray-200">
-                <button onClick={() => deleteFolder()} >Delete</button>
-              </label>
-            </div>
+            </label>
+            <label className="py-2 pl-4 text-red-500 border-t hover:rounded-b-lg hover:bg-gray-200">
+              <button onClick={() => deleteFolder()}>Delete</button>
+            </label>
+          </div>
         </div>
       </div>
       <EditFolder />

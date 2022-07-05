@@ -7,7 +7,7 @@ import {
   MdOutlineAssignment,
   MdOutlineQuiz,
 } from "react-icons/md";
-import CreateFolder from "../../components/CreateFolder";
+import CreateFolder from "../../components/teacher/CreateFolder";
 import AssignClasswork from "../../components/teacher/AssignClasswork";
 import FolderCard from "../../components/teacher/FolderCard";
 import AssignedTaskCard from "../../components/teacher/AssignedTaskCard";

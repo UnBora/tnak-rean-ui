@@ -10,6 +10,7 @@ export default function Index() {
     }
     // Login(user).then(()=>{console.log();})
   }
+  // not use this page
   return (
     <section className="flex justify-between my-5 mx-100px">
       <div className="grid gap-6 text-right lg:grid-cols-2 ">

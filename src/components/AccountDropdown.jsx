@@ -9,7 +9,7 @@ export default function AccountDropdown() {
       <div className="card-body">
         <div className="m-1 space-x-2 avatar">
           <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-1 ">
-            <img src="https://api.lorem.space/image/face?hash=3174" />
+            <img src="https://api.lorem.space/image/face?hash=3174" alt="profile"/>
           </div>
           <span className="mt-1 font-medium">Dayan</span>
         </div>

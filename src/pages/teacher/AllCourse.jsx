@@ -3,7 +3,7 @@ import { BsFolderPlus } from "react-icons/bs";
 import { GiBookCover } from "react-icons/gi";
 import { MdOutlineHomeWork } from "react-icons/md";
 import { Link } from "react-router-dom";
-import CreateFolder from "../../components/CreateFolder";
+import CreateFolder from "../../components/teacher/CreateFolder";
 import FilesCard from '../../components/teacher/FilesCard';
 import Folders from "../../components/teacher/FolderCard";
 import UploadCourse from "../../components/teacher/UploadCourse";

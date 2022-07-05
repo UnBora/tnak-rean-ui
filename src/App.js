@@ -4,10 +4,10 @@ import Register from "./components/Register";
 import ManageClass from "./pages/teacher/ManageClass";
 import FormSubmit from "./pages/student/FormSubmit";
 import ViewWorkForSub from "./pages/student/ViewWorkForSub";
-import DeactivateAccount from "./components/SettingAcc/DeactivateAccount";
-import DeleteAccount from "./components/SettingAcc/DeleteAccount";
-import ChangePassword from "./components/SettingAcc/ChangePassword";
-import Account from "./components/SettingAcc/Account";
+import DeactivateAccount from "./components/settingacc/DeactivateAccount";
+import DeleteAccount from "./components/settingacc/DeleteAccount";
+import ChangePassword from "./components/settingacc/ChangePassword";
+import Account from "./components/settingacc/Account";
 import Classwork from "./pages/student/Classwork";
 import Course from "./pages/student/Course";
 import ViewFiles from "./pages/student/ViewFiles";
@@ -44,7 +44,7 @@ function App() {
       <NavbarT />
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        {/* <Route path="/register" element={<Register />} /> */}
         <Route path="/about" element={<AboutUs />} />
         {/* On navbar page */}
         <Route path="/teacher" element={<Home />} />
@@ -59,7 +59,7 @@ function App() {
           <Route path="results" element={<ResultList />}></Route>
         </Route>
         <Route path="/viewfile" element={<ViewFilesT />} />
-
+        {/* Account setting */}
         <Route path="/setting" element={<AccountSetting />}>
           <Route path="account" element={<Account />}></Route>
           <Route path="change-password" element={<ChangePassword />}></Route>
@@ -69,6 +69,7 @@ function App() {
           ></Route>
           <Route path="delete-account" element={<DeleteAccount />}></Route>
         </Route>
+        {/* Student side */}
         <Route path="/stu-index" element={<StuIndex />} />
         <Route path="/formsubmit" element={<FormSubmit />} />
         <Route path="/work-submit" element={<ViewWorkForSub />} />

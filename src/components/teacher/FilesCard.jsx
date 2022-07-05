@@ -3,6 +3,8 @@ import { NavLink } from "react-router-dom";
 import ViewComment from "./ViewComment";
 import { FaEllipsisV } from "react-icons/fa";
 import { deleteClasswork, deleteFile } from "../swal/Delete";
+import AssignClasswork from "./AssignClasswork";
+import EditCourse from "./EditCourse";
 
 export default function FilesCard() {
   return (
@@ -16,8 +18,14 @@ export default function FilesCard() {
           tabindex="0"
           class="w-24 text-sm font-medium shadow w-z-20 dropdown-content menu bg-base-100 rounded-box"
         >
-          <label for="my-modal-2" className="py-2 pl-4 cursor-pointer hover:bg-gray-200 hover:rounded-t-lg">Edit</label>
-          <label className="py-2 pl-4 text-red-500 border-t cursor-pointer hover:rounded-b-lg hover:bg-gray-200"
+          <label
+            for="my-modal-edit-file"
+            className="py-2 pl-4 cursor-pointer hover:bg-gray-200 hover:rounded-t-lg"
+          >
+            Edit
+          </label>
+          <label
+            className="py-2 pl-4 text-red-500 border-t cursor-pointer hover:rounded-b-lg hover:bg-gray-200"
             onClick={() => {
               deleteFile();
             }}
@@ -56,6 +64,7 @@ export default function FilesCard() {
           </div>
         </div>
       </div>
+      <EditCourse/>
     </div>
   );
 }

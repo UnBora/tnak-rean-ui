@@ -22,6 +22,33 @@ function CreateFolder() {
               className="w-full px-4 py-2 mb-4 leading-tight text-gray-700 bg-white border rounded-md shadow-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
             />
           </div>
+          <div class="w-full">
+      <label class="inline-block text-sm text-gray-600" for="Multiselect"
+        >Select multiple roles</label
+      >
+      <div class="relative flex w-full">
+        <select
+          id="select-role"
+          name="roles[]"
+          multiple
+          placeholder="Select roles..."
+          autocomplete="off"
+          class="block w-full rounded-sm cursor-pointer focus:outline-none"
+        >
+          <option value="1">super admin</option>
+          <option value="2">admin</option>
+          <option value="3">writer</option>
+          <option value="4">user</option>
+        </select>
+      </div>
+    </div>
+    {/* <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
+    <script>
+      new TomSelect('#select-role', {
+        maxItems: 3,
+      }); */}
+    {/* </script> */}
+          {/* dropdown select school */}
           <div className="flex flex-wrap mb-3 -mx-3">
               <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0">
                 <p className="font-medium ">School</p>
@@ -36,6 +63,7 @@ function CreateFolder() {
                   <option className="p-6 text-sm">Setec</option>
                 </select>
               </div>
+              {/* dropdown select class */}
               <div className="w-full px-2 mb-6 md:w-1/2 md:mb-0">
               <p className="font-medium ">Classroom</p>
               <select
@@ -49,7 +77,6 @@ function CreateFolder() {
                 <option className="p-6 text-sm">BTB</option>
               </select>
             </div>
-              
             </div>
           <div className="modal-action">
             <label
