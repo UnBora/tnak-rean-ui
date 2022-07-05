@@ -8,6 +8,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchAllClassesSlice } from "../../slices/classes/classesSlice";
 import { fetchAllClasses } from "../../service/classesService";
+import { fetchScheduleTeacher } from "../../service/scheduleService";
+import { fetchScheduleClassSlice } from "../../slices/schedule/scheduleTeacherSlice";
 
 export default function Home() {
   const [date, setDate] = useState(new Date());
@@ -19,10 +21,19 @@ export default function Home() {
     (r) => console.log("response in Home : ", r),
     (r) => console.log("Error : ", r)
   );
+  const scheduleTeacher = useSelector((state) => state.scheduleTeacher.value);
+  // fetchAllClasses().then(
+  //   (r) => console.log("response in Home : ", r),
+  //   (r) => console.log("Error : ", r)
+  // );
   useEffect(() => {
     fetchAllClasses().then((r) => dispatch(fetchAllClassesSlice(r)));
+    fetchScheduleTeacher(4, 2).then((r) =>
+      dispatch(fetchScheduleClassSlice(r))
+    );
   }, []);
-  console.log("test: ", classes.data);
+  console.log("test: ", scheduleTeacher);
+
   return (
     <div className="mx-100px md:flex">
       <div className="mt-6 ">
@@ -107,7 +118,7 @@ export default function Home() {
 
           <div className="flex flex-wrap ml-4 sm:flex-wrap md:flex-wrap lg:flex-wrap xl:flex-wrap">
             {classes.data?.map((index) => {
-              return <ClassCard data={index} />;
+              return <ClassCard key={index.id} data={index} />;
             })}
 
             {/* pop up create class  */}
