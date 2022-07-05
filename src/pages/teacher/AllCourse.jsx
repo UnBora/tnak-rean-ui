@@ -7,10 +7,18 @@ import CreateFolder from "../../components/CreateFolder";
 import FilesCard from '../../components/teacher/FilesCard';
 import Folders from "../../components/teacher/Folders";
 import UploadCourse from "../../components/teacher/UploadCourse";
+import { useEffect } from 'react';
+import { fecthCourseFolderByTeacher } from '../../service/folderService';
 
 function AllCourse() {
+
+  useEffect(() => {
+    fecthCourseFolderByTeacher(2).then((e)=>console.log(e.data));
+
+  }, [])
+
   return (
-      <div className='mt-10 mx-100px'>
+    <div className='mt-10 mx-100px'>
       <div className="flex space-x-2">
         <div className="w-8 h-8 rounded-full bg-mygreen">
           <GiBookCover className="flex m-auto mt-2 text-white align-middle" />
