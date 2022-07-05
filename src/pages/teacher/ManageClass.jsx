@@ -1,7 +1,7 @@
 import React from "react";
 import { FaUserFriends } from "react-icons/fa";
 import { FaUser, FaClipboardList } from "react-icons/fa";
-import { MdWork, MdLibraryBooks } from "react-icons/md";
+import { MdWork } from "react-icons/md";
 import { GiBookCover } from "react-icons/gi";
 import { Link, NavLink, Outlet } from "react-router-dom";
 
@@ -12,7 +12,7 @@ export default function ManageClass() {
         <div className="flex sm:flex-row ">
           <div className="w-72">
             <div className="flex items-center justify-start mt-10">
-              <span className="text-2xl font-bold text-gray-600 ">
+              <span className="text-2xl font-bold text-black">
                 PP classroom
               </span>
             </div>

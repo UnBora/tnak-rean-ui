@@ -3,9 +3,9 @@ import { BsFolderPlus } from "react-icons/bs";
 import { GiBookCover } from "react-icons/gi";
 import { MdOutlineHomeWork } from "react-icons/md";
 import { Link } from "react-router-dom";
-import CreateFolder from "../../components/CreateFolder";
+import CreateFolder from "../../components/teacher/CreateFolder";
 import FilesCard from '../../components/teacher/FilesCard';
-import Folders from "../../components/teacher/Folders";
+import Folders from "../../components/teacher/FolderCard";
 import UploadCourse from "../../components/teacher/UploadCourse";
 import { useEffect } from 'react';
 import { fecthCourseFolderByTeacher } from '../../service/folderService';
@@ -50,23 +50,23 @@ function AllCourse() {
         >
           Create
         </label>
-        <ul
+        <div
           tabindex="0"
-          className="p-2 shadow dropdown-content menu rounded-box w-52 bg-smoke"
+          className="w-48 text-lg font-medium shadow-lg dropdown-content menu rounded-box bg-base-100"
         >
-          <li>
-            <label for="my-modal-1">
-              <BsFolderPlus />
+          <label className='py-2 pl-4 hover:bg-gray-200 hover:rounded-t-lg'>
+            <label for="my-modal-1" className='flex'>
+              <BsFolderPlus className='mt-1 mr-3 text-black '/>
               Folder
             </label>
-          </li>
-          <li>
-            <label for="my-modal-upload">
-              <MdOutlineHomeWork />
+          </label>
+          <label className='py-2 pl-4 border-t hover:bg-gray-200 hover:rounded-b-lg'>
+            <label for="my-modal-upload" className='flex'>
+              <MdOutlineHomeWork className='mt-1 mr-3 text-black'/>
               Upload File
             </label>
-          </li>
-        </ul>
+          </label>
+        </div>
       </div>
       <p className="mt-3 ml-1 text-xl font-semibold">Folder</p>
       <p className="mb-2 border-b"></p>

@@ -27,7 +27,7 @@ export default function CreateClass() {
                       <input
                         id="classname"
                         type="text"
-                        placeholder="Enter your class name"
+                        placeholder="Enter class name"
                         className="w-full px-4 py-2 mt-1 leading-tight bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:ring-opacity-75 focus:mygreen focus:outline-none focus:bg-white"
                       />
                     </div>

@@ -6,7 +6,7 @@ import { deleteClasswork } from "../swal/Delete";
 import AssignClasswork from "./AssignClasswork";
 import ViewComment from "./ViewComment";
 
-export default function AssignedTask() {
+export default function AssignedTaskCard() {
   return (
     <div className="flex flex-wrap max-w-sm p-4 border rounded-md shadow-xl mr-7 mb-7 h-52 border-bordergray">
       <div className="flex w-full ">
@@ -18,17 +18,17 @@ export default function AssignedTask() {
           <label tabindex="0" className="cursor-pointer">
             <FaEllipsisV />
           </label>
-          <ul
+          <div
             tabindex="0"
-            class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-40 font-medium"
+            class="w-24 text-sm font-medium shadow w-z-20 dropdown-content menu bg-base-100 rounded-box"
           >
-            <li>
-              <label for="my-modal-2">Edit</label>
-            </li>
-            <li className="text-red-500">
-              <label onClick={()=>{deleteClasswork()}}>Delete</label>
-            </li>
-          </ul>
+            <label className="py-2 pl-4 hover:bg-gray-200 hover:rounded-t-lg">
+              <label for="my-modal-2" className="cursor-pointer">Edit</label>
+            </label>
+            <label className="py-2 pl-4 text-red-500 border-t hover:rounded-b-lg hover:bg-gray-200">
+              <label onClick={()=>{deleteClasswork()}} className="cursor-pointer">Delete</label>
+            </label>
+          </div>
         </div>
       </div>
       <div className="mt-2 text-base font-medium">

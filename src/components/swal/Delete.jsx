@@ -95,3 +95,14 @@ export const deleteClasswork= () => {
     timer: 1500
   })
 };
+//file document
+export const deleteFile= () => {
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    iconColor: "#48AD9B",
+    title: 'File have been deleted',
+    showConfirmButton: false,
+    timer: 1500
+  })
+};
