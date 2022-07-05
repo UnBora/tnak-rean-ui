@@ -49,7 +49,7 @@ export default function DeactivateAccount() {
                 className="w-24 py-2 text-sm font-medium text-center text-white rounded-full shadow-md bg-myred "
                 onClick={()=>{deactivateaccount()}}
               >
-                Delete
+                Deactivate
               </button>
               <button
                 type="button"

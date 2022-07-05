@@ -98,11 +98,13 @@ export const deleteClasswork = () => {
 
 // Delate Account
 export const deleteaccount = () => {
+
   Swal.fire({
     position: 'center',
     icon: 'success',
     iconColor: "#48AD9B",
     title: 'Your account have been deleted successfully',
+    title: 'File have been deleted',
     showConfirmButton: false,
     timer: 1500
   })
@@ -119,7 +121,17 @@ export const deactivateaccount = () => {
     timer: 1500
   })
 };
-
+//file document
+export const deleteFile = () => {
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    iconColor: "#48AD9B",
+    title: 'File have been deleted',
+    showConfirmButton: false,
+    timer: 1500
+  })
+};
 
 
 

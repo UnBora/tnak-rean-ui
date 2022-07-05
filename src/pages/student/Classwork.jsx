@@ -2,7 +2,6 @@ import React from "react";
 import { VscNotebook } from "react-icons/vsc";
 import StudentFolder from "../../components/student/StudentFolder";
 import StudentAssignedTask from "../../components/student/StudentAssignedTask";
-import Folders from "../../components/teacher/Folders";
 
 export default function Classwork() {
   return (

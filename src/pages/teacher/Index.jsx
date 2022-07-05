@@ -8,14 +8,15 @@ export default function Index() {
       password:password,
       
     }
-    Login(user).then(()=>{console.log();})
+    // Login(user).then(()=>{console.log();})
   }
+  // not use this page
   return (
     <section className="flex justify-between my-5 mx-100px">
       <div className="grid gap-6 text-right lg:grid-cols-2 ">
         <div className=" sm:px-12 md:px-14">
           <div className="font-extrabold text-Welcome">
-            <h1>Welcome toscsdf</h1>
+            <h1>Welcome tos</h1>
             <h1>
               <span className=" text-Welcome text-mygreen">Tnak</span>
               <span className=" text-Welcome text-myorange">Rean</span>

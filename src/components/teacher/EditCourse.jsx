@@ -4,24 +4,23 @@ import ReactPlayer from "react-player";
 import { upload } from "../swal/Success";
 import AddLink from "./AddLink";
 
-function UploadCourse() {
+function EditCourse() {
   return (
     <div>
-    <input type="checkbox" id="my-modal-upload" className="modal-toggle " />
+    <input type="checkbox" id="my-modal-edit-file" className="modal-toggle " />
     <div className="modal ">
       <div className="flex-shrink-0 w-screen h-screen overflow-y-scroll shadow-xl card bg-smoke ">
         <label
-          for="my-modal-upload"
+          for="my-modal-edit-file"
           className="absolute z-10 mt-2 btn btn-sm btn-circle right-3 top-3"
         >
           ✕
         </label>
-
-        {/* Assign card */}
+        {/* Edit file card */}
         <section className="p-6 ">
           <p className="flex text-2xl font-semibold">
             <MdOutlineHomeWork className="w-10 h-10 p-2 mr-2 text-white border rounded-full bg-mygreen" />
-            Upload File
+            Edit File
           </p>
           <div className="pt-1 myhr"></div>
           <form className="w-full max-w-3xl p-5 m-auto mt-3 bg-white border rounded-lg">
@@ -32,7 +31,7 @@ function UploadCourse() {
                   className="block w-full px-4 py-3 mt-1 mb-3 leading-tight text-gray-700 border rounded shadow-md appearance-none focus:outline-none focus:ring-1 focus:ring-mygreen"
                   id="grid-password"
                   type="text"
-                  placeholder="Tittle"
+                  placeholder="React JS"
                 />
               </div>
             </div>
@@ -123,4 +122,4 @@ function UploadCourse() {
   );
 }
 
-export default UploadCourse;
+export default EditCourse;
