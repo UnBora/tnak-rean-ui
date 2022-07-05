@@ -23,14 +23,14 @@ export default function ClassCard({ data }) {
             </label>
             <ul
               tabindex="0"
-              className="w-32 p-1 text-sm font-medium shadow w-z-20 dropdown-content menu bg-base-100 rounded-box"
+              className="w-24 text-sm font-medium shadow w-z-20 dropdown-content menu bg-base-100 rounded-box"
             >
-              <li className="focus:bg-mygreen">
+              <p className="py-2 pl-4">
                 <label for="my-modal-2">Edit</label>
-              </li>
-              <li className="text-red-500">
+              </p>
+              <p className="py-2 pl-4 text-red-500 border-t">
                 <button onClick={() => classDelete()}>Delete</button>
-              </li>
+              </p>
             </ul>
           </div>
         </div>

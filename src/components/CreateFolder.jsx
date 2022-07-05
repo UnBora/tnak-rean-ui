@@ -13,16 +13,44 @@ function CreateFolder() {
           >
             ✕
           </label>
-          <h3 className="mb-2 text-lg font-bold">New Folder</h3>
-
+          <h3 className="mb-1 text-lg font-bold">New Folder</h3>
           <div className="col-span-full sm:col-span-3">
             <input
               id="folder"
               type="text"
               placeholder="Enter folder name"
-              className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:mygreen focus:outline-none focus:bg-white"
+              className="w-full px-4 py-2 mb-4 leading-tight text-gray-700 bg-white border rounded-md shadow-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
             />
           </div>
+          <div className="flex flex-wrap mb-3 -mx-3">
+              <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0">
+                <p className="font-medium ">School</p>
+                <select
+                  id="school"
+                  type="text"
+                  className="w-full px-2 py-3 text-sm leading-tight text-gray-700 bg-white border rounded-md shadow-md focus:outline-none focus:bg-white focus:ring-1 focus:ring-mygreen"
+                >
+                  <option className="p-6 text-sm">All schools</option>
+                  <option className="p-6 text-sm">KSHRD</option>
+                  <option className="p-6 text-sm">RUPP</option>
+                  <option className="p-6 text-sm">Setec</option>
+                </select>
+              </div>
+              <div className="w-full px-2 mb-6 md:w-1/2 md:mb-0">
+              <p className="font-medium ">Classroom</p>
+              <select
+                id="class"
+                type="text"
+                className="w-full px-2 py-3 text-sm leading-tight text-gray-700 bg-white border rounded-md shadow-md focus:ring-1 focus:ring-mygreen focus:outline-none"
+              >
+                <option className="p-6 text-sm">All classes</option>
+                <option className="p-6 text-sm">PP</option>
+                <option className="p-6 text-sm">M5</option>
+                <option className="p-6 text-sm">BTB</option>
+              </select>
+            </div>
+              
+            </div>
           <div className="modal-action">
             <label
               for="my-modal-1"

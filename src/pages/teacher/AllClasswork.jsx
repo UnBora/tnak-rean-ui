@@ -1,8 +1,7 @@
 import React from "react";
 import { MdWork } from "react-icons/md";
 import { Link } from "react-router-dom";
-import AssignedTask from "../../components/teacher/AssignedTask";
-import Folders from "../../components/teacher/Folders";
+import AssignedTaskCard from "../../components/teacher/AssignedTaskCard";
 import { BsFolderPlus } from "react-icons/bs";
 import {
   MdOutlineHomeWork,
@@ -11,6 +10,7 @@ import {
 } from "react-icons/md";
 import CreateFolder from "../../components/CreateFolder";
 import AssignClasswork from "../../components/teacher/AssignClasswork";
+import FolderCard from "../../components/teacher/FolderCard";
 
 function AllClasswork() {
   return (
@@ -84,22 +84,21 @@ function AllClasswork() {
         <p className="mb-2 border-b"></p>
         <div className="flex flex-wrap">
           <Link to="#">
-            <Folders />
+            <FolderCard />
           </Link>
           <Link to="#">
-            <Folders />
+            <FolderCard />
           </Link>
           <Link to="#">
-            <Folders />
+            <FolderCard />
           </Link>
         </div>
 
         <p className="ml-1​​ mt-12 text-xl font-semibold">Assigned task</p>
         <p className="mb-4 border-b"></p>
         <div className="flex flex-wrap">
-          <AssignedTask />
-          <AssignedTask />
-          <AssignedTask />
+          <AssignedTaskCard />
+          <AssignedTaskCard />
         </div>
         {/* pop up */}
         <CreateFolder />

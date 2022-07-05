@@ -4,7 +4,7 @@ import { MdOutlineHomeWork } from "react-icons/md";
 import { Link } from "react-router-dom";
 import CreateFolder from "../../components/CreateFolder";
 import FilesCard from "../../components/teacher/FilesCard";
-import Folders from "../../components/teacher/Folders";
+import FolderCard from "../../components/teacher/FolderCard";
 import UploadCourse from "../../components/teacher/UploadCourse";
 
 function ManageCourse() {
@@ -65,13 +65,13 @@ function ManageCourse() {
       <p className="mb-2 border-b"></p>
       <div className="flex flex-wrap">
         <Link to="#">
-          <Folders />
+          <FolderCard />
         </Link>
         <Link to="#">
-          <Folders />
+          <FolderCard />
         </Link>
         <Link to="#">
-          <Folders />
+          <FolderCard />
         </Link>
       </div>
 
