@@ -1,5 +1,5 @@
 import React from "react";
-
+import { deactivateaccount } from "../swal/Delete";
 export default function DeactivateAccount() {
   return (
     <div className="h-auto p-5 bg-white border-gray-200 rounded-lg shadow-md max-w-l ">
@@ -47,6 +47,7 @@ export default function DeactivateAccount() {
               <button
                 type="button"
                 className="w-24 py-2 text-sm font-medium text-center text-white rounded-full shadow-md bg-myred "
+                onClick={()=>{deactivateaccount()}}
               >
                 Delete
               </button>
