@@ -44,7 +44,7 @@ export default function Login() {
       //   console.log(error);
       // }
     };
-  };
+  
 
   // useEffect(() => {
   //   const user = getCurrentUser;
