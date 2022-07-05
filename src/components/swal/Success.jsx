@@ -71,4 +71,39 @@ export const submit= () => {
   })
 };
 
+//loadind
+export const showLoading = function() {
+  Swal.fire({
+    title: 'Uploading...',
+    html: 'Please wait...',
+    timer:1000,
+    allowEscapeKey: false,
+    allowOutsideClick: false,
+    didOpen: () => {
+      Swal.showLoading()
+    }
+  });
+};
 
+//general setting
+export const accounupdate = () => {
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    iconColor:'#48AD9B',
+    title: 'Your account have been updated successfully',
+    showConfirmButton: false,
+    timer: 1500
+  })
+};
+ // ChangePassword
+export const changepassword = () => {
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    iconColor:'#48AD9B',
+    title: 'Your password have been changed successfully',
+    showConfirmButton: false,
+    timer: 1500
+  })
+};

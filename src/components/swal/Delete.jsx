@@ -23,9 +23,9 @@ export const classDelete = () => {
     }
   });
 };
- 
+
 // student remove in class
-export const removeStudent = () =>{
+export const removeStudent = () => {
   Swal.fire({
     title: "Are you sure?",
     text: "You won't be able to revert this!",
@@ -49,7 +49,7 @@ export const removeStudent = () =>{
 }
 
 // decline student
-export const declineStu = () =>{
+export const declineStu = () => {
   Swal.fire({
     title: "Are you sure?",
     text: "You won't be able to revert this!",
@@ -73,7 +73,7 @@ export const declineStu = () =>{
 }
 
 //folder
-export const deleteFolder= () => {
+export const deleteFolder = () => {
   Swal.fire({
     position: 'center',
     icon: 'success',
@@ -85,7 +85,7 @@ export const deleteFolder= () => {
 };
 
 //taskwork
-export const deleteClasswork= () => {
+export const deleteClasswork = () => {
   Swal.fire({
     position: 'center',
     icon: 'success',

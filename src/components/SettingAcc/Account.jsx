@@ -1,4 +1,5 @@
 import React from "react";
+import { accounupdate } from "../swal/Success";
 
 export default function Account() {
   return (
@@ -61,12 +62,14 @@ export default function Account() {
         <button
           type="button"
           class="py-2 text-white bg-mygreen w-20 text-center text-sm font-medium shadow-md rounded-full "
+          onClick={()=>{accounupdate()}}
         >
           Save
         </button>
         <button
           type="button"
           class="py-2 text-white bg-myorange w-20 text-center text-sm font-semibold shadow-md rounded-full ml-3"
+          
         >
           Cancel
         </button>

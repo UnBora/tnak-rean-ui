@@ -1,4 +1,5 @@
 import React from "react";
+import { changepassword } from "../swal/Success";
 
 export default function () {
   return (
@@ -60,6 +61,7 @@ export default function () {
           <button
             type="button"
             className="w-20 py-2 text-sm font-semibold text-center text-white rounded-full shadow-md bg-mygreen"
+            onClick={()=>{changepassword()}}
           >
             Save
           </button>

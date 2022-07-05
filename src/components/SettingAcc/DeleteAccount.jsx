@@ -1,4 +1,5 @@
 import React from "react";
+import { cancel, deleteaccount } from "../swal/Delete";
 
 export default function DeleteAccount() {
   return (
@@ -47,12 +48,14 @@ export default function DeleteAccount() {
               <button
                 type="button"
                 className="w-24 py-2 text-sm font-medium text-center text-white rounded-full shadow-md bg-myred "
+                onClick={()=>{deleteaccount()}}
               >
                 Delete
               </button>
               <button
                 type="button"
                 className="w-20 py-2 ml-4 text-sm font-semibold text-center text-white rounded-full shadow-md bg-mygreen"
+              
               >
                 Cancel
               </button>

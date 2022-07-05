@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { cryptoDecrypt, encryptToken } from "../../utils/tokenEnDe";
 import { getUserSlice } from "../../slices/users/userSlice";
+import { showLoading } from "../../components/swal/Success";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -30,12 +31,13 @@ export default function Login() {
       } else if (u.role[0] === "Student") {
         navigate("/stu-index", { replace: true });
       }
-      // try {
-      //   dispatch(getUserSlice(u));
-      // } catch (error) {
-      //   console.log(error);
-      // }
-    });
+      try {
+        dispatch(getUserSlice(u));
+      } catch (error) {
+        console.log(error);
+      } 
+      
+    }).then(showLoading());    
   };
 
   // useEffect(() => {
