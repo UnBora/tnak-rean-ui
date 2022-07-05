@@ -119,7 +119,7 @@ export const deactivateaccount = () => {
     timer: 1500
   })
 };
-//Btn Cancel
+
 
 
 
