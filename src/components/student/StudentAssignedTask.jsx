@@ -7,14 +7,14 @@ export default function StudentAssignedTask() {
   return (
     <div className="flex flex-wrap max-w-sm p-4 border rounded-md shadow-xl mr-7 mb-7 h-52 border-bordergray">
       <div className="justify-between">
-        <div className="flex text-2xl">
+        <div className="flex text-2xl text-black">
           <MdOutlineAssignment />
           <span className="ml-2 text-lg font-medium">JAVA assignment 1</span>
         </div>
         
       </div>
       <div className="mt-2 text-base font-medium">
-        <p className="max-w-[22rem] truncate">
+        <p className="max-w-[22rem] truncate text-black">
           Create firt project Java Using Intellij hii am Kimhab form
           ppclassdffdf what do you wanthjtyjughfthyfgfhgfg lfgrfhdturtfhgfhggfh
         </p>

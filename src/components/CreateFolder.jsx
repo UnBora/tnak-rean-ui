@@ -20,7 +20,7 @@ function CreateFolder() {
               id="folder"
               type="text"
               placeholder="Enter folder name"
-              className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:mygreen dark:border-gray-700 focus:outline-none focus:bg-white"
+              className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:mygreen focus:outline-none focus:bg-white"
             />
           </div>
           <div className="modal-action">

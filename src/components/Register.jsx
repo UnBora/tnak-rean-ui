@@ -2,7 +2,7 @@ import React from "react";
 import { FcGoogle } from "react-icons/fc";
 import logo from "../assets/images/logo/TnakRean2.png";
 import swal from "sweetalert";
-import { useState } from "react";
+// import { useState } from "react";
 export default function Register() {
   const register = () => {
     swal("register successfully", "", "success");
@@ -11,7 +11,7 @@ export default function Register() {
   return (
     <div>
       <input type="checkbox" id="my-modal-3" className="modal-toggle" />
-      <div className="modal ">
+      <div className="text-black modal">
         <div className="flex-shrink-0 shadow-xl card bg-smoke ">
           <label
             for="my-modal-3"
@@ -31,13 +31,14 @@ export default function Register() {
                 <img
                   src={logo}
                   className="w-12 h-12 bg-gray-200 rounded-full"
+                  alt="logo TnakRean"
                 />
               </div>
               <h1 className="text-2xl font-semibold text-center ">
                 <span className=" text-mygreen">Tnak</span>
                 <span className=" text-myorange">Rean</span>
               </h1>
-              <h1 className="text-2xl font-semibold">Registration</h1>
+              <h1 className="text-2xl font-semibold ">Registration</h1>
               <p className="w-full pt-1 myhr"></p>
               <fieldset className="grid grid-cols-4 gap-6 py-4 ">
                 <div className="grid grid-cols-6 gap-4 col-span-full md:col-span-4">
@@ -49,7 +50,7 @@ export default function Register() {
                     <input
                       id="name"
                       type="name"
-                      placeholder="Enter your name"
+                      placeholder="Enter name"
                       className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
                     />
                   </div>
@@ -61,7 +62,7 @@ export default function Register() {
                     <input
                       id="username"
                       type="username"
-                      placeholder="Enter Username"
+                      placeholder="Enter username"
                       className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen 0 focus:outline-none focus:bg-white"
                     />
                   </div>
@@ -87,7 +88,7 @@ export default function Register() {
                     <input
                       id="email"
                       type="email"
-                      placeholder="Enter your email"
+                      placeholder="Enter email"
                       className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
                     />
                   </div>
@@ -108,14 +109,14 @@ export default function Register() {
                       <option className="p-6 text-md">Setec</option>
                     </select>
                   </div>
+                  {/* Classroom */}
                   <div className="col-span-full sm:col-span-3">
                     <label for="username" className="text-sm font-medium">
-                      Classroom <span className="text-red-600 ">*</span>
+                      Class <span className="text-red-600 ">*</span>
                     </label>
                     <select
                       id="username"
                       type="text"
-                      // placeholder="Username"
                       className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
                     >
                       <option className="p-6 text-md">Phnom Penh</option>
@@ -155,18 +156,18 @@ export default function Register() {
               <div className="flex justify-center">
                 <button
                   type="button"
-                  className="py-1 space-x-2 text-xl font-medium text-white rounded-full bg-mygreen w-350px"
+                  className="py-1 space-x-2 text-lg font-semibold text-white rounded-full bg-mygreen w-350px"
                   onClick={() => register()}
                 >
                   Register
                 </button>
               </div>
-              <h2 className="py-1 font-semibold text-center">OR</h2>
+              <h2 className="py-1 font-semibold text-center">Or</h2>
               <div className="flex justify-center font-medium">
                 <button
                   aria-label="Login with Google"
                   type="button"
-                  className="flex items-center justify-center p-4 py-1 space-x-2 text-xl border rounded-full w-350px focus:ring-offset-1"
+                  className="flex items-center justify-center p-4 py-1 space-x-2 text-lg border rounded-full w-350px focus:ring-offset-1"
                 >
                   <FcGoogle />
                   <p>Login with Google</p>

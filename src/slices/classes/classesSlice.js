@@ -14,4 +14,6 @@ const classesSlice = createSlice({
   },
 });
 export const { fetchAllClassesSlice } = classesSlice.actions;
+
+
 export default classesSlice.reducer;

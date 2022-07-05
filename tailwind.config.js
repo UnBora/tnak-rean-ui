@@ -14,6 +14,7 @@ module.exports = {
   purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
 
   theme: {
+    
     extend: {
       colors: {
         mygreen: "#48AD9B",
@@ -24,6 +25,7 @@ module.exports = {
         mygray: "#EBEBEB",
         myred: "#FF3E3E",
         bordergray:"#BCBCBC",
+        mybg:"#FFFFFF",
       },
       spacing: {
         "100px": "100px",
@@ -68,4 +70,15 @@ module.exports = {
     require("daisyui"),
     require('@tailwindcss/line-clamp'),
   ],
+  daisyui: {
+    styled: true,
+    themes: true,
+    base: true,
+    utils: true,
+    logs: true,
+    rtl: false,
+    prefix: "",
+    darkTheme: "light",
+  },
+  
 };
