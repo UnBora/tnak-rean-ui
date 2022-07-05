@@ -18,7 +18,7 @@ export default function FolderCard() {
           <label tabindex="0" className="cursor-pointer">
             <FaEllipsisV />
           </label>
-          <ul
+          <div
               tabindex="0"
               className="w-24 text-sm font-medium shadow w-z-20 dropdown-content menu bg-base-100 rounded-box"
             >
@@ -28,7 +28,7 @@ export default function FolderCard() {
               <label className="py-2 pl-4 text-red-500 border-t hover:rounded-b-lg hover:bg-gray-200">
                 <button onClick={() => deleteFolder()} >Delete</button>
               </label>
-            </ul>
+            </div>
         </div>
       </div>
       <EditFolder />

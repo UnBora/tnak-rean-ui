@@ -21,7 +21,7 @@ export default function ClassCard({ data }) {
             <label className="mt-1 ml-1 cursor-pointer bg-none">
               <FiMoreVertical className="text-white"/>
             </label>
-            <ul
+            <div
               tabindex="0"
               className="w-24 text-sm font-medium shadow w-z-20 dropdown-content menu bg-base-100 rounded-box"
             >
@@ -31,7 +31,7 @@ export default function ClassCard({ data }) {
               <p className="py-2 pl-4 text-red-500 border-t">
                 <button onClick={() => classDelete()}>Delete</button>
               </p>
-            </ul>
+            </div>
           </div>
         </div>
         <Link
