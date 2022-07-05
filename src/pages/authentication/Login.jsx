@@ -38,6 +38,12 @@ export default function Login() {
       } 
       
     }).then(showLoading());    
+      // try {
+      //   dispatch(getUserSlice(u));
+      // } catch (error) {
+      //   console.log(error);
+      // }
+    };
   };
 
   // useEffect(() => {

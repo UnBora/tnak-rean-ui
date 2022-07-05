@@ -95,8 +95,34 @@ export const deleteClasswork = () => {
     timer: 1500
   })
 };
+
+// Delate Account
+export const deleteaccount = () => {
+
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    iconColor: "#48AD9B",
+    title: 'Your account have been deleted successfully',
+    title: 'File have been deleted',
+    showConfirmButton: false,
+    timer: 1500
+  })
+};
+
+//DeactiveAccount
+export const deactivateaccount = () => {
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    iconColor: "#48AD9B",
+    title: 'Your deactivate account have been deleted successfully',
+    showConfirmButton: false,
+    timer: 1500
+  })
+};
 //file document
-export const deleteFile= () => {
+export const deleteFile = () => {
   Swal.fire({
     position: 'center',
     icon: 'success',
@@ -106,3 +132,10 @@ export const deleteFile= () => {
     timer: 1500
   })
 };
+
+
+
+
+
+
+
