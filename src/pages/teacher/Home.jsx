@@ -13,7 +13,6 @@ import { fetchScheduleClassSlice } from "../../slices/schedule/scheduleTeacherSl
 
 export default function Home() {
   const [date, setDate] = useState(new Date());
-  
   const classes = useSelector((state) => state.classes.value);
   const dispatch = useDispatch();
 
