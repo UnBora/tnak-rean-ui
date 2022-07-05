@@ -12,9 +12,7 @@ import { fecthCourseFolderByTeacher } from '../../service/folderService';
 import { useDispatch, useSelector } from 'react-redux';
 
 function AllCourse() {
-  const folder = useSelector((state) => state.classes.value);
-  const dispatch = useDispatch();
-
+ 
   return (
     <div className='mt-10 mx-100px'>
       <div className="flex space-x-2">
