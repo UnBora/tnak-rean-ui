@@ -9,5 +9,6 @@ export const store = configureStore({
     classes: classesSlice,
     scheduleTeacher: scheduleTeacherSlice,
     scheduleStudent: scheduleStudentSlice,
+    
   },
 });

@@ -9,13 +9,11 @@ import Folders from "../../components/teacher/Folders";
 import UploadCourse from "../../components/teacher/UploadCourse";
 import { useEffect } from 'react';
 import { fecthCourseFolderByTeacher } from '../../service/folderService';
+import { useDispatch, useSelector } from 'react-redux';
 
 function AllCourse() {
-
-  useEffect(() => {
-    fecthCourseFolderByTeacher(2).then((e)=>console.log(e.data));
-
-  }, [])
+  const folder = useSelector((state) => state.classes.value);
+  const dispatch = useDispatch();
 
   return (
     <div className='mt-10 mx-100px'>
