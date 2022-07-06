@@ -51,7 +51,7 @@ function App() {
         <Route path="/all-classwork" element={<AllClasswork />} />
         <Route path="/all-course" element={<AllCourse />} />
         {/* Per class */}
-        <Route path="/classroom" element={<ManageClass />}>
+        <Route path="/classroom/:id" element={<ManageClass />}>
           <Route path="students" element={<AllStudent />}></Route>
           <Route path="requests" element={<StudentRequest />}></Route>
           <Route path="classworks" element={<ManageClasswork />}></Route>

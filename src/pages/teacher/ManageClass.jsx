@@ -3,9 +3,16 @@ import { FaUserFriends } from "react-icons/fa";
 import { FaUser, FaClipboardList } from "react-icons/fa";
 import { MdWork } from "react-icons/md";
 import { GiBookCover } from "react-icons/gi";
-import { Link, NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet, useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function ManageClass() {
+  const { id } = useParams();
+
+  useEffect(() => {
+    console.log("asdasdasdasdasdasdasdasd");
+  }, []);
+
   return (
     <div className="flex mx-100px">
       <div className="bg-white ">
@@ -28,10 +35,14 @@ export default function ManageClass() {
                 <span className="flex-grow text-right"></span>
               </NavLink>
 
-              <NavLink
+              <Link
                 className="flex items-center p-2 my-1 text-gray-600 transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 "
                 as={Link}
-                to="/classroom/requests"
+                to={{
+                  // pathname: "/classroom/requests",
+                  pathname: `/classroom/${id}/requests`,
+                  state: {},
+                }}
               >
                 <FaUser />
                 <span className="mx-4 text-lg font-normal">Request</span>
@@ -43,7 +54,7 @@ export default function ManageClass() {
                     <span className="p-1">7</span>
                   </button>
                 </span>
-              </NavLink>
+              </Link>
               <NavLink
                 className="flex items-center p-2 text-gray-800 transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 "
                 as={Link}

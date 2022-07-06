@@ -2,7 +2,18 @@ import React, { useState } from "react";
 import ProfileCard from "../../components/ProfileCard";
 import { FaUser } from "react-icons/fa";
 import { declineStu } from "../../components/swal/Delete";
-export default function StudentRequest() {
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+export const StudentRequest = ({ studentRequest }) => {
+const { id } = useParams();
+
+  useEffect(() => {
+    return () => {
+      // api.get
+      // dispatch
+    };
+  }, []);
+
   const [accept, setAccept] = useState("Accept");
 
   function acceptClick() {
@@ -39,7 +50,9 @@ export default function StudentRequest() {
         <div className="flex-none">
           <button
             className="btn btn-sm btn-ghost"
-            onClick={()=>{declineStu()}}
+            onClick={() => {
+              declineStu();
+            }}
           >
             Decline
           </button>
@@ -50,4 +63,5 @@ export default function StudentRequest() {
       </div>
     </div>
   );
-}
+};
+export default StudentRequest;
