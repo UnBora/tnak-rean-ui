@@ -20,7 +20,11 @@ export const createClass = async () => {
 
 export const fecthAllClassByTeacher = async () => {
   try {
-    let response = await api.post("class/get-by-teacherUserId");
+    let response = await api.get("class/get-by-teacherUserId",{
+      params:{
+        classroom_id : 1,
+      }
+    });
     return response.data;
   } catch (error) {
     console.log("error", error);
