@@ -7,13 +7,12 @@ import CreateClass from "../../components/teacher/CreateClass";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchAllClassesSlice } from "../../slices/classes/classesSlice";
-import { fetchAllClasses } from "../../service/classesService";
+import { fecthAllClassByTeacher, fetchAllClasses } from "../../service/classesService";
 import { fetchScheduleTeacher } from "../../service/scheduleService";
 import { fetchScheduleClassSlice } from "../../slices/schedule/scheduleTeacherSlice";
 
 export default function Home() {
   const [date, setDate] = useState(new Date());
-
   const classes = useSelector((state) => state.classes.value);
   const dispatch = useDispatch();
 
@@ -23,12 +22,8 @@ export default function Home() {
   );
   const scheduleTeacher = useSelector((state) => state.scheduleTeacher.value);
   const [daySelect, setdaySelect] = useState();
-  // fetchAllClasses().then(
-  //   (r) => console.log("response in Home : ", r),
-  //   (r) => console.log("Error : ", r)
-  // );
   useEffect(() => {
-    fetchAllClasses().then((r) => dispatch(fetchAllClassesSlice(r)));
+    fecthAllClassByTeacher().then((r) => dispatch(fetchAllClassesSlice(r)));
     fetchScheduleTeacher(2, 1).then((r) =>
       dispatch(fetchScheduleClassSlice(r))
     );
