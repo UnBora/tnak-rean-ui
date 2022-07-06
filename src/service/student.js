@@ -3,7 +3,7 @@ import { api } from "../utils/api";
 export const fetchStudentRequest = async (classroomId, classId) => {
     try {
       let response = await api.get(
-        "student/get-student-request",
+        "student/get-student-request-by-classId",
         {
           params: {
             classroom_id: classroomId,

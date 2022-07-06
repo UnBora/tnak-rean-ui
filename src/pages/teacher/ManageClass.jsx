@@ -1,17 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaUserFriends } from "react-icons/fa";
 import { FaUser, FaClipboardList } from "react-icons/fa";
 import { MdWork } from "react-icons/md";
 import { GiBookCover } from "react-icons/gi";
 import { Link, NavLink, Outlet, useParams } from "react-router-dom";
 import { useEffect } from "react";
+import { fetchStudentRequest } from "../../service/student";
 
 export default function ManageClass() {
+  const [studentRequest, setStudentRequest] = useState([]);
   const { id } = useParams();
 
   useEffect(() => {
-    console.log("asdasdasdasdasdasdasdasd");
+    fetchStudentRequest(1, id).then((r) => {
+      setStudentRequest(r.data);
+      console.log("stu request", r.data);
+    });
   }, []);
+
+  console.log(studentRequest?.length);
+
 
   return (
     <div className="flex mx-100px">
@@ -53,7 +61,7 @@ export default function ManageClass() {
                     type="button"
                     className="w-6 h-6 text-xs text-white bg-red-500 rounded-full"
                   >
-                    <span className="p-1">7</span>
+                    <span className="p-1">{studentRequest?.length}</span>
                   </button>
                 </span>
               </NavLink>

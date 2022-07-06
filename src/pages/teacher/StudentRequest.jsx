@@ -12,7 +12,7 @@ export const StudentRequest = () => {
   useEffect(() => {
     fetchStudentRequest(1, id).then((r) => {
       setStudentRequest(r.data);
-      console.log("asdasdasdsdasdasdasd ", r);
+      console.log("stu request", r);
     });
   }, []);
   console.log(id);
