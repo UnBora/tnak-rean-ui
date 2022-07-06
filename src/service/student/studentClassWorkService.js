@@ -3,7 +3,7 @@ import { api } from "../../utils/api";
 export const fetchUpCommingWork = async (studentId, classId) => {
   try {
     let response = await api.get(
-      "submittableWork/get-upComingWork-byStudentId",
+      "submittableWork/get-upComingWork-by-StudentId",
       {
         params: {
           studentId: studentId,

@@ -1,28 +1,28 @@
 import React, { useEffect, useState } from "react";
 import "../../App.css";
 import Calendar from "react-calendar";
-import ClassCard from "../../components/teacher/ClassCard";
-import CreateClass from "../../components/teacher/CreateClass";
 import StudentAssignedTask from "../../components/student/StudentAssignedTask";
-import ResultList from "../teacher/ResultList";
 import ShowResult from "../../components/student/ShowResult";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchScheduleStudentSlice } from "../../slices/schedule/scheduleStudentSlice";
 import { fetchScheduleStudent } from "../../service/scheduleService";
 import NavbarT from "../../components/NavbarT";
-import { getCurrentUser } from "../../service/authService";
 import { fetchUpCommingWork } from "../../service/student/studentClassWorkService";
+import { getCurrentUser } from "../../service/authService";
 
 function StuIndex() {
   const [date, setDate] = useState(new Date());
   const scheduleStudent = useSelector((state) => state.scheduleStudent.value);
+  const user = useSelector((state) => state.user.value);
+  const [upComingWork, setUpComingWork] = useState([]);
   const dispatch = useDispatch();
   useEffect(() => {
     fetchScheduleStudent(1).then((r) => dispatch(fetchScheduleStudentSlice(r)));
-
-    fetchUpCommingWork(getCurrentUser?.id,1);
+    fetchUpCommingWork(user.id, 1).then((r) => {
+      setUpComingWork(r.data);
+    });
   }, []);
-  console.log("studentSc:", scheduleStudent);
+  console.log();
   return (
     <div>
       <NavbarT />
@@ -97,10 +97,9 @@ function StuIndex() {
             </div>
 
             <div className="flex flex-no-wrap flex-wrap sm:flex-wrap md:flex-wrap lg:flex-no-wrap xl:flex-wrap md:justify-center sm:justify-center">
-              <StudentAssignedTask />
-              <StudentAssignedTask />
-              <StudentAssignedTask />
-              <StudentAssignedTask />
+              {upComingWork.map((index) => (
+                <StudentAssignedTask assignedTask={index} />
+              ))}
             </div>
             <ShowResult />
           </div>
