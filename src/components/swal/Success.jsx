@@ -71,19 +71,6 @@ export const submit= () => {
   })
 };
 
-//loadind
-export const showLoading = function() {
-  Swal.fire({
-    title: 'Uploading...',
-    html: 'Please wait...',
-    timer:1000,
-    allowEscapeKey: false,
-    allowOutsideClick: false,
-    didOpen: () => {
-      Swal.showLoading()
-    }
-  });
-};
 
 //general setting
 export const accounupdate = () => {

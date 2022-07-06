@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import AboutUs from "./pages/AboutUs";
 import Register from "./components/Register";
+import { Switch} from 'react-router-dom';
 import ManageClass from "./pages/teacher/ManageClass";
 import FormSubmit from "./pages/student/FormSubmit";
 import ViewWorkForSub from "./pages/student/ViewWorkForSub";
@@ -12,7 +13,6 @@ import Classwork from "./pages/student/Classwork";
 import Course from "./pages/student/Course";
 import ViewFiles from "./pages/student/ViewFiles";
 import AccountSetting from "./pages/AccountSetting";
-import NavbarT from "./components/NavbarT";
 import AllStudent from "./pages/teacher/AllStudent";
 import Home from "./pages/teacher/Home";
 import ResultList from "./pages/teacher/ResultList";
@@ -41,13 +41,12 @@ function App() {
 
   return (
     <div>
-      <NavbarT />
       <Routes>
-        <Route path="/" element={<Login />} />
+      <Route path="/" element={<Login/>}/>
         {/* <Route path="/register" element={<Register />} /> */}
         <Route path="/about" element={<AboutUs />} />
         {/* On navbar page */}
-        <Route path="/teacher" element={<Home />} />
+        <Route path="/teacher" element={<Home/>} />
         <Route path="/all-classwork" element={<AllClasswork />} />
         <Route path="/all-course" element={<AllCourse />} />
         {/* Per class */}
