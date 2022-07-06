@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MdWork } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { BsFolderPlus } from "react-icons/bs";
 import {
   MdOutlineHomeWork,
@@ -11,7 +11,16 @@ import CreateFolder from "../../components/teacher/CreateFolder";
 import AssignClasswork from "../../components/teacher/AssignClasswork";
 import FolderCard from "../../components/teacher/FolderCard";
 import AssignedTaskCard from "../../components/teacher/AssignedTaskCard";
+import { fetchAllclasswork } from "../../service/classMaterial";
 function ManageClasswork() {
+  const [allClasswork, setallClasswork] = useState([]);
+  const { id } = useParams();
+  useEffect(() => {
+    fetchAllclasswork(1,id).then((r) => {
+      setallClasswork(r.data);
+      console.log("all: ", r);
+    });
+  }, []);
   return (
     <div className="">
       <div className="flex space-x-2">

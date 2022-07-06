@@ -4,16 +4,18 @@ import { FaUser } from "react-icons/fa";
 import { declineStu } from "../../components/swal/Delete";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-export const StudentRequest = ({ studentRequest }) => {
-const { id } = useParams();
+import { fetchStudentRequest } from "../../service/student";
+export const StudentRequest = () => {
+  const [studentRequest, setStudentRequest] = useState([]);
+  const { id } = useParams();
 
   useEffect(() => {
-    return () => {
-      // api.get
-      // dispatch
-    };
+    fetchStudentRequest(1, id).then((r) => {
+      setStudentRequest(r.data);
+      console.log("asdasdasdsdasdasdasd ", r);
+    });
   }, []);
-
+  console.log(id);
   const [accept, setAccept] = useState("Accept");
 
   function acceptClick() {
@@ -27,40 +29,46 @@ const { id } = useParams();
         </div>
         <p className="mb-3 text-2xl font-semibold">Student request</p>
       </div>
-      <div className="my-4 shadow-lg alert">
-        <div>
-          <div className="dropdown dropdown-right dropdown-hover">
-            <label tabindex="0" className="flex m-1 space-x-4">
-              <div className="avatar ">
-                <div className="w-10 rounded-full">
-                  <img src="https://api.lorem.space/image/face?hash=92310" />
+      {studentRequest?.map((index) => {
+        return (
+          <div>
+            <div className="my-4 shadow-lg alert">
+              <div>
+                <div className="dropdown dropdown-right dropdown-hover">
+                  <label tabindex="0" className="flex m-1 space-x-4">
+                    <div className="avatar ">
+                      <div className="w-10 rounded-full">
+                        <img src="https://api.lorem.space/image/face?hash=92310" />
+                      </div>
+                    </div>
+                  </label>
+                  <div
+                    tabindex="0"
+                    className="p-1 dropdown-content mt-9 rounded-box "
+                  >
+                    <ProfileCard />
+                  </div>
                 </div>
+                <p className="font-medium">{index.name}</p>
+                <span>request to join</span> <span>Phnom Penh classroom</span>
               </div>
-            </label>
-            <div
-              tabindex="0"
-              className="p-1 dropdown-content mt-9 rounded-box "
-            >
-              <ProfileCard />
+              <div className="flex-none">
+                <button
+                  className="btn btn-sm btn-ghost"
+                  onClick={() => {
+                    declineStu();
+                  }}
+                >
+                  Decline
+                </button>
+                <button className="border-none btn btn-sm bg-mygreen hover:bg-myhovergreen">
+                  {accept}
+                </button>
+              </div>
             </div>
           </div>
-          <p className="font-medium">Bora</p>
-          <span>request to join</span> <span>Phnom Penh classroom</span>
-        </div>
-        <div className="flex-none">
-          <button
-            className="btn btn-sm btn-ghost"
-            onClick={() => {
-              declineStu();
-            }}
-          >
-            Decline
-          </button>
-          <button className="border-none btn btn-sm bg-mygreen hover:bg-myhovergreen">
-            {accept}
-          </button>
-        </div>
-      </div>
+        );
+      })}
     </div>
   );
 };

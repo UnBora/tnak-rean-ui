@@ -28,14 +28,16 @@ export default function ManageClass() {
               <NavLink
                 className="flex items-center p-2 my-1 text-gray-600 transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 "
                 as={Link}
-                to="/classroom/students"
+                to={{
+                  pathname: `/classroom/${id}/students`,
+                }}
               >
                 <FaUserFriends className="text-lg" />
                 <span className="mx-4 text-lg font-normal">All student</span>
                 <span className="flex-grow text-right"></span>
               </NavLink>
 
-              <Link
+              <NavLink
                 className="flex items-center p-2 my-1 text-gray-600 transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 "
                 as={Link}
                 to={{
@@ -54,20 +56,24 @@ export default function ManageClass() {
                     <span className="p-1">7</span>
                   </button>
                 </span>
-              </Link>
-              <NavLink
+              </NavLink>
+              <Link
                 className="flex items-center p-2 text-gray-800 transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 "
                 as={Link}
-                to="/classroom/classworks"
+                to={{
+                  pathname: `/classroom/${id}/classworks`,
+                }}
               >
                 <MdWork />
                 <span className="mx-4 text-lg font-normal">Classwork</span>
                 <span className="flex-grow text-right"></span>
-              </NavLink>
+              </Link>
               <NavLink
                 className="flex items-center p-2 text-gray-600 transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 "
                 as={Link}
-                to="/classroom/courses"
+                to={{
+                  pathname: `/classroom/${id}/courses`,
+                }}
               >
                 <GiBookCover />
                 <span className="mx-4 text-lg font-normal">Course</span>
@@ -76,7 +82,9 @@ export default function ManageClass() {
               <NavLink
                 className="flex items-center p-2 text-gray-600 transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 "
                 as={Link}
-                to="/classroom/results"
+                to={{
+                  pathname: `/classroom/${id}/results`,
+                }}
               >
                 <FaClipboardList />
                 <span className="mx-4 text-lg font-normal">Result</span>

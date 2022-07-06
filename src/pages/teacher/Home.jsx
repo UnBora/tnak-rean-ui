@@ -24,7 +24,7 @@ export default function Home() {
   const [daySelect, setdaySelect] = useState();
   useEffect(() => {
     fecthAllClassByTeacher().then((r) => dispatch(fetchAllClassesSlice(r)));
-    fetchScheduleTeacher(2, 1).then((r) =>
+    fetchScheduleTeacher(1, 1).then((r) =>
       dispatch(fetchScheduleClassSlice(r))
     );
   }, []);
@@ -57,7 +57,7 @@ export default function Home() {
             <p>{daySelect}</p>
             <select
               onChange={(e) => {
-                fetchScheduleTeacher(2, e.target.value).then((r) =>
+                fetchScheduleTeacher(1, e.target.value).then((r) =>
                   dispatch(fetchScheduleClassSlice(r))
                 );
               }}
