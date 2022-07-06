@@ -4,10 +4,10 @@ import Register from "./components/Register";
 import ManageClass from "./pages/teacher/ManageClass";
 import FormSubmit from "./pages/student/FormSubmit";
 import ViewWorkForSub from "./pages/student/ViewWorkForSub";
-import DeactivateAccount from "./components/settingacc/DeactivateAccount";
-import DeleteAccount from "./components/settingacc/DeleteAccount";
-import ChangePassword from "./components/settingacc/ChangePassword";
-import Account from "./components/settingacc/Account";
+import DeactivateAccount from "./components/SettingAcc/DeactivateAccount";
+import DeleteAccount from "./components/SettingAcc/DeleteAccount";
+import ChangePassword from "./components/SettingAcc/ChangePassword";
+import Account from "./components/SettingAcc/Account";
 import Classwork from "./pages/student/Classwork";
 import Course from "./pages/student/Course";
 import ViewFiles from "./pages/student/ViewFiles";
@@ -25,10 +25,12 @@ import StuIndex from "./pages/student/StuIndex";
 import ViewFilesT from "./pages/teacher/ViewFilesT";
 import runOneSignal from "./onesignal";
 import OneSignal from "react-onesignal";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Login from "./pages/authentication/Login";
+import { getCurrentUser } from "./service/authService";
 
 function App() {
+  const user = getCurrentUser;
   useEffect(() => {
     window.OneSignal = window.OneSignal || [];
     OneSignal.init({
@@ -37,11 +39,11 @@ function App() {
       allowLocalhostAsSecureOrigin: true,
     });
     OneSignal.showSlidedownPrompt();
-  });
+  }, []);
 
   return (
     <div>
-      <NavbarT />
+      <NavbarT userData={user} />
       <Routes>
         <Route path="/" element={<Login />} />
         {/* <Route path="/register" element={<Register />} /> */}

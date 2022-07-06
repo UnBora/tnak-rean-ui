@@ -9,7 +9,7 @@ import Notification from "./Notification";
 import { useSelector } from "react-redux";
 import AccountDropdown from "./AccountDropdown";
 import { Link, NavLink } from "react-router-dom";
-const NavbarT = () => {
+const NavbarT = ({userData}) => {
   const [openNavbar, setOpenNavbar] = useState(false);
   const current = localStorage.getItem("currentTab");
   const [currentTab, setCurrentTab] = useState(current);
@@ -41,7 +41,7 @@ const NavbarT = () => {
                 onClick={() => handleSetCurrentTab("/")}
                 rel="noopener noreferrer"
                 as={Link}
-                to="/teacher"
+                to="/"
                 className={
                   currentTab === "/"
                     ? "flex items-center font-medium  border-b-2 border-myorange"
@@ -96,7 +96,7 @@ const NavbarT = () => {
                     />
                   </div>
                 </div>
-                <p className="mt-2 font-medium">zz</p>
+                <p className="mt-2 font-medium">{userData.name}</p>
               </label>
               <div
                 tabindex="0"
