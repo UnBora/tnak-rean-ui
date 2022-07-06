@@ -9,15 +9,16 @@ import Notification from "./Notification";
 import { useSelector } from "react-redux";
 import AccountDropdown from "./AccountDropdown";
 import { Link, NavLink } from "react-router-dom";
-const NavbarT = ({userData}) => {
+
+const NavbarT = ({ userData }) => {
   const [openNavbar, setOpenNavbar] = useState(false);
   const current = localStorage.getItem("currentTab");
   const [currentTab, setCurrentTab] = useState(current);
-
   const handleSetCurrentTab = (tabName) => {
     localStorage.setItem("currentTab", tabName);
     setCurrentTab(tabName);
   };
+
   return (
     <div>
       <nav className="border-b border-mygray ">
@@ -96,7 +97,7 @@ const NavbarT = ({userData}) => {
                     />
                   </div>
                 </div>
-                <p className="mt-2 font-medium">{userData.name}</p>
+                <p className="mt-2 font-medium">{userData?.name}</p>
               </label>
               <div
                 tabindex="0"
