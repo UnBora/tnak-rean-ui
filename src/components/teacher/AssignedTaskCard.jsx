@@ -6,7 +6,8 @@ import { deleteClasswork } from "../swal/Delete";
 import AssignClasswork from "./AssignClasswork";
 import ViewComment from "./ViewComment";
 
-export default function AssignedTaskCard() {
+export default function AssignedTaskCard({data}) {
+  const dataTask = data;
   return (
     <div className="flex flex-wrap max-w-sm p-4 border rounded-md shadow-xl mr-7 mb-7 h-52 border-bordergray">
       <div className="flex w-full ">
