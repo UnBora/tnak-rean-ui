@@ -9,6 +9,7 @@ import ShowResult from "../../components/student/ShowResult";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchScheduleStudentSlice } from "../../slices/schedule/scheduleStudentSlice";
 import { fetchScheduleStudent } from "../../service/scheduleService";
+import NavbarT from "../../components/NavbarT";
 
 function StuIndex() {
   const [date, setDate] = useState(new Date());
@@ -21,7 +22,9 @@ function StuIndex() {
   }, []);
   console.log("studentSc:",scheduleStudent)
   return (
-    <div className=" mx-100px md:flex">
+    <div>
+    <NavbarT />
+        <div className=" mx-100px md:flex">
       {" "}
       <div className="mt-6 ">
         <div className="max-w-md space-y-3">
@@ -87,6 +90,8 @@ function StuIndex() {
         </div>
       </div>
     </div>
+    </div>
+    
   );
 }
 
