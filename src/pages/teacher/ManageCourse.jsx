@@ -3,6 +3,7 @@ import { BsFolderPlus } from "react-icons/bs";
 import { GiBookCover } from "react-icons/gi";
 import { MdOutlineHomeWork } from "react-icons/md";
 import { Link, useParams } from "react-router-dom";
+import NavbarT from "../../components/NavbarT";
 import CreateFolder from "../../components/teacher/CreateFolder";
 import FilesCard from "../../components/teacher/FilesCard";
 import FolderCard from "../../components/teacher/FolderCard";
@@ -27,6 +28,7 @@ function ManageCourse() {
 
   return (
     <div>
+    <NavbarT/>
       <div className="flex space-x-2">
         <div className="w-8 h-8 rounded-full bg-mygreen">
           <GiBookCover className="flex m-auto mt-2 text-white align-middle" />

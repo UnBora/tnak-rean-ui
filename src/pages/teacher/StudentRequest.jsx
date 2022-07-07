@@ -5,6 +5,7 @@ import { declineStu } from "../../components/swal/Delete";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { fetchStudentRequest } from "../../service/student";
+import NavbarT from "../../components/NavbarT";
 export const StudentRequest = () => {
   const [studentRequest, setStudentRequest] = useState([]);
   const { id } = useParams();
@@ -23,6 +24,7 @@ export const StudentRequest = () => {
   }
   return (
     <div>
+    <NavbarT/>
       <div className="flex space-x-2">
         <div className="w-8 h-8 rounded-full bg-mygreen">
           <FaUser className="flex m-auto mt-2 text-white align-middle" />

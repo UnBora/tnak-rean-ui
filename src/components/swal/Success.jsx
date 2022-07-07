@@ -74,7 +74,7 @@ export const submit= () => {
 //loadind
 export const showLoading = function() {
   Swal.fire({
-    title: 'Uploading...',
+    title: 'Loading...',
     html: 'Please wait...',
     timer:1000,
     allowEscapeKey: false,

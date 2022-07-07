@@ -1,10 +1,12 @@
 import React from "react";
 import { BsFileEarmarkBarGraph } from "react-icons/bs";
 import { MdOutlinePublic } from "react-icons/md";
+import NavbarT from "../../components/NavbarT";
 import { posted } from "../../components/swal/Success";
 function ResultList() {
   return (
     <div>
+    <NavbarT/>
       <div className="flex items-center space-x-3 ">
         <div className="avatar">
           <div className="w-10 h-10 rounded-full mask mask-squircle bg-mygreen">

@@ -13,6 +13,7 @@ import FolderCard from "../../components/teacher/FolderCard";
 import AssignedTaskCard from "../../components/teacher/AssignedTaskCard";
 import { fetchAllclasswork } from "../../service/classMaterial";
 import { fetchClassworkFolder } from "../../service/folderService";
+import NavbarT from "../../components/NavbarT";
 
 function ManageClasswork() {
   const [folder, setFolder] = useState([]);
@@ -22,13 +23,14 @@ function ManageClasswork() {
     fetchClassworkFolder(id, 1).then((r) => {
       setFolder(r.data);
     });
-    fetchAllclasswork(1,id).then((r)=>{
+    fetchAllclasswork(1, id).then((r) => {
       setClasswork(r.data);
-      console.log("classwork",r);
+      console.log("classwork", r);
     });
   }, []);
   return (
     <div className="">
+      <NavbarT />
       <div className="flex space-x-2">
         <div className="w-8 h-8 rounded-full bg-mygreen">
           <MdWork className="flex m-auto mt-2 text-white align-middle" />
@@ -103,10 +105,9 @@ function ManageClasswork() {
       <p className="ml-1​​ mt-12 text-xl font-semibold">Assigned task</p>
       <p className="mb-4 border-b"></p>
       <div className="flex flex-wrap">
-      {classwork?.map((index) => {
+        {classwork?.map((index) => {
           return <AssignedTaskCard key={index.id} data={index} />;
         })}
-        
       </div>
       {/* pop up */}
       <CreateFolder />
