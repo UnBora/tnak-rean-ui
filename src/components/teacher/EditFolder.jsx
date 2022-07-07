@@ -1,6 +1,7 @@
 import React from "react";
 
 const EditFolder = () => {
+  // const dataFolder = data;
   return (
     <div>
       {/* Add new folder */}
@@ -20,11 +21,11 @@ const EditFolder = () => {
             <input
               id="folder"
               type="text"
-              placeholder="Edit folder name"
+              placeholder="Edit folder"
               className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring focus:ring-opacity-75 focus:mygreen focus:outline-none focus:bg-white"
             />
           </div>
-          <div className="w-full mb-6 md:w-full md:mb-0 ">
+          <div className="w-full mt-4 mb-6 md:w-full md:mb-0">
             <p className="font-medium ">Classroom</p>
             <select
               id="class"
