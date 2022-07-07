@@ -7,7 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { cryptoDecrypt, encryptToken } from "../../utils/tokenEnDe";
 import { getUserSlice } from "../../slices/users/userSlice";
-import { showLoading } from "../../components/swal/Success";
+import { showLoading } from "../../components/swal/Loading";
+import Navbar from "../../components/Navbar";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -21,30 +22,32 @@ export default function Login() {
       password: password,
     };
 
-    login(user).then((u) => {
-      if (u.role[0] === "Teacher") {
-        console.log(u.role[0]);
-        console.log(
-          "decryp: " + cryptoDecrypt(localStorage.getItem("token"), "Phanith")
-        );
-        navigate("/teacher", { replace: true });
-      } else if (u.role[0] === "Student") {
-        navigate("/stu-index", { replace: true });
-      }
-      try {
-        dispatch(getUserSlice(u));
-      } catch (error) {
-        console.log(error);
-      } 
-      
-    }).then(showLoading());    
-      // try {
-      //   dispatch(getUserSlice(u));
-      // } catch (error) {
-      //   console.log(error);
-      // }
-    };
-  
+    login(user)
+      .then((u) => {
+        if (u.role[0] === "Teacher") {
+          console.log(u.role[0]);
+          console.log(
+            "decryp: " + cryptoDecrypt(localStorage.getItem("token"), "Phanith")
+          );
+          navigate("/teacher", { replace: true });
+        } else if (u.role[0] === "Student") {
+          navigate("/stu-index", { replace: true });
+        }
+        try {
+          dispatch(getUserSlice(u));
+        } catch (error) {
+          console.log(error);
+        }
+        // localStorage.setItem("user", JSON.stringify(u));
+        console.log('userrrrrrrrrrrrrrrrrrrrrrrrrrrrrr ',u);
+      })
+      .then(showLoading);
+    // try {
+    //   dispatch(getUserSlice(u));
+    // } catch (error) {
+    //   console.log(error);
+    // }
+  };
 
   // useEffect(() => {
   //   const user = getCurrentUser;
@@ -58,105 +61,31 @@ export default function Login() {
   // }, []);
 
   return (
-    <div className="grid flex-col mx-auto mt-5 mb-28 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 hero-content lg:flex-row-reverse">
-      <div className="col-span-1 md:mx-0 sm:mx-9">
-        <div className="text-center lg:text-left sm:mx-auto">
-          <div className="text-3xl font-extrabold lg:text-Welcome md:text-4xl">
-            <p className="text-black lg:mb-14">Welcome to</p>
-            <p className="">
-              <span className="text-mygreen">
-                Tnak
-              </span>
-              <span className="text-myorange">
-                Rean
-              </span>
-            </p>
-          </div>
-          <div className="pb-6 lg:pt-12 md:pt-3 sm:pt-4">
-            <p className="leading-relaxed text-black sm:text-md md:text-lg lg:text-Quote">
-              “Education is the passport to the future, for tomorrow belongs to
-              those who prepare for it today.”
-            </p>
-            <p className="mr-auto lg:pt-4 md:pt-2 sm:pt-1 myhr w-28"></p>
-          </div>
-        </div>
-      </div>
-      <div className="col-span-1 ">
-        <div className="flex flex-shrink-0 w-full max-w-md mx-auto shadow-xl card bg-smoke">
-          <div className="flex flex-col max-w-md p-6 rounded-sm shadow-sm sm:p-10 ">
-            <div className="object-cover mt-0 mb-8 text-center text-black rounded-md xl:col-span-3">
-              <p className="flex my-3 font-semibold lg:text-4xl md:text-2xl sm:text-xl">
-                Login
-              </p>
-              <p className="flex pt-1 lg:text-md md:text-base sm:text-sm">
-                Don't have an account?
-                <label
-                  for="my-modal-3"
-                  className="flex items-center ml-2 cursor-pointer mylink"
-                >
-                  Register
-                </label>
+    <div>
+      <Navbar />
+      <div className="grid flex-col mx-auto mt-5 mb-28 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 hero-content lg:flex-row-reverse">
+        <div className="col-span-1 md:mx-0 sm:mx-9">
+          <div className="text-center lg:text-left sm:mx-auto">
+            <div className="text-3xl font-extrabold lg:text-Welcome md:text-4xl">
+              <p className="text-black lg:mb-14">Welcome to</p>
+              <p className="">
+                <span className="text-mygreen">Tnak</span>
+                <span className="text-myorange">Rean</span>
               </p>
             </div>
-            <form
-              novalidate=""
-              action=""
-              className="space-y-12 ng-untouched ng-pristine ng-valid"
-            >
-              <div className="space-y-4">
-                <div>
-                  <input
-                    name="email"
-                    type="email"
-                    id="username"
-                    placeholder="Username or Email"
-                    className="w-full px-3 py-2 border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none"
-                    onChange={(e) => setUsername(e.target.value)}
-                  />
-                </div>
-                <div className="pb-2">
-                  <input
-                    type="password"
-                    id="password"
-                    placeholder={"Password"}
-                    className="w-full px-3 py-2 border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none"
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                </div>
-                <label
-                  for="my-modal-4"
-                  className="text-black cursor-pointer text-md hover:underline"
-                >
-                  Forgot password
-                </label>
-              </div>
-              <div>
-                <button
-                  type="submit"
-                  className="w-full px-8 py-2 space-x-2 font-semibold text-white rounded-full text-md bg-mygreen"
-                  onClick={signin}
-                >
-                  Login
-                </button>
-                <p className="py-2 font-semibold text-center text-black">Or</p>
-
-                <button
-                  aria-label="Login with Google"
-                  type="button"
-                  className="flex items-center justify-center w-full px-8 py-2 space-x-2 text-black border rounded-full font-md medium focus:ring-offset-1"
-                >
-                  <FcGoogle />
-                  <p className="font-semibold">Continue with Google</p>
-                </button>
-              </div>
-            </form>
+            <div className="pb-6 lg:pt-12 md:pt-3 sm:pt-4">
+              <p className="leading-loose text-black sm:text-md md:text-lg lg:text-Quote">
+                “Education is the passport to the future, for tomorrow belongs
+                to those who prepare for it today.”
+              </p>
+              <p className="mr-auto lg:pt-4 md:pt-2 sm:pt-1 myhr w-28"></p>
+            </div>
           </div>
         </div>
-      </div>
-      {/* <div className="flex-col hero-content lg:flex-row-reverse">
-          <div className="flex-shrink-0 w-full max-w-md shadow-xl card bg-smoke ">
-            <div className="flex flex-col max-w-md p-6 pt-12 rounded-sm shadow-sm sm:p-10 bg-smoke">
-              <div className="object-cover mb-8 text-center rounded-md xl:col-span-3 ">
+        <div className="col-span-1 ">
+          <div className="flex flex-shrink-0 w-full max-w-md mx-auto shadow-xl card bg-smoke">
+            <div className="flex flex-col max-w-md p-6 rounded-sm shadow-sm sm:p-10 ">
+              <div className="object-cover mt-0 mb-8 text-center text-black rounded-md xl:col-span-3">
                 <p className="flex my-3 font-semibold lg:text-4xl md:text-2xl sm:text-xl">
                   Login
                 </p>
@@ -173,7 +102,7 @@ export default function Login() {
               <form
                 novalidate=""
                 action=""
-                className="space-y-12 ng-untouched ng-pristine ng-valid "
+                className="space-y-12 ng-untouched ng-pristine ng-valid"
               >
                 <div className="space-y-4">
                   <div>
@@ -182,7 +111,7 @@ export default function Login() {
                       type="email"
                       id="username"
                       placeholder="Username or Email"
-                      className="w-full px-3 py-2 border rounded-md "
+                      className="w-full px-3 py-2 border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none"
                       onChange={(e) => setUsername(e.target.value)}
                     />
                   </div>
@@ -191,13 +120,13 @@ export default function Login() {
                       type="password"
                       id="password"
                       placeholder={"Password"}
-                      className="w-full px-3 py-2 border rounded-md "
+                      className="w-full px-3 py-2 border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none"
                       onChange={(e) => setPassword(e.target.value)}
                     />
                   </div>
                   <label
                     for="my-modal-4"
-                    className="cursor-pointer text-md hover:underline "
+                    className="text-black cursor-pointer text-md hover:underline"
                   >
                     Forgot password
                   </label>
@@ -210,7 +139,9 @@ export default function Login() {
                   >
                     Login
                   </button>
-                  <p className="py-2 font-bold text-center">Or</p>
+                  <p className="py-2 font-semibold text-center text-black">
+                    Or
+                  </p>
 
                   <button
                     aria-label="Login with Google"
@@ -218,39 +149,18 @@ export default function Login() {
                     className="flex items-center justify-center w-full px-8 py-2 space-x-2 text-black border rounded-full font-md medium focus:ring-offset-1"
                   >
                     <FcGoogle />
-                    <p>Continue with Google</p>
+                    <p className="font-semibold">Continue with Google</p>
                   </button>
                 </div>
               </form>
             </div>
           </div>
-          <div className="lg:max-w-3xl md:max-w-3xl">
-            <div className="font-extrabold lg:text-Welcome md:text-5xl sm:text-2xl">
-              <p className="">Welcome to</p>
-              <p className="">
-                <span className="lg:text-Welcome text-mygreen md:text-5xl sm:text-2xl">
-                  Tnak
-                </span>
-                <span className="lg:text-Welcome text-myorange md:text-5xl sm:text-2xl">
-                  Rean
-                </span>
-              </p>
-            </div>
-            <div className="pb-6 lg:pt-12 lg:text-Quote md:text-xl md:pt-3 sm:pt-4 sm:text-base">
-              <p>
-                “Education is the passport to the future, for tomorrow belongs
-                to those who prepare for it today.”
-              </p>
-              <p className="lg:pt-4 md:pt-2 sm:pt-1 myhr w-28"></p>
-            </div>
-          </div>
-        </div> */}
-      {/* </div> */}
-      {/* ========== */}
+        </div>
 
-      <ForgetPassword />
-      <Register />
-      {/* =============== */}
+        <ForgetPassword />
+        <Register />
+        {/* =============== */}
+      </div>
     </div>
   );
 }

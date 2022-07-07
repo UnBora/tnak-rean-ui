@@ -1,18 +1,18 @@
 import { Routes, Route } from "react-router-dom";
 import AboutUs from "./pages/AboutUs";
 import Register from "./components/Register";
+import { Switch} from 'react-router-dom';
 import ManageClass from "./pages/teacher/ManageClass";
 import FormSubmit from "./pages/student/FormSubmit";
 import ViewWorkForSub from "./pages/student/ViewWorkForSub";
-import DeactivateAccount from "./components/settingacc/DeactivateAccount";
-import DeleteAccount from "./components/settingacc/DeleteAccount";
-import ChangePassword from "./components/settingacc/ChangePassword";
-import Account from "./components/settingacc/Account";
+import DeactivateAccount from "./components/SettingAcc/DeactivateAccount";
+import DeleteAccount from "./components/SettingAcc/DeleteAccount";
+import ChangePassword from "./components/SettingAcc/ChangePassword";
+import Account from "./components/SettingAcc/Account";
 import Classwork from "./pages/student/Classwork";
 import Course from "./pages/student/Course";
 import ViewFiles from "./pages/student/ViewFiles";
 import AccountSetting from "./pages/AccountSetting";
-import NavbarT from "./components/NavbarT";
 import AllStudent from "./pages/teacher/AllStudent";
 import Home from "./pages/teacher/Home";
 import ResultList from "./pages/teacher/ResultList";
@@ -25,10 +25,12 @@ import StuIndex from "./pages/student/StuIndex";
 import ViewFilesT from "./pages/teacher/ViewFilesT";
 import runOneSignal from "./onesignal";
 import OneSignal from "react-onesignal";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Login from "./pages/authentication/Login";
+import { getCurrentUser } from "./service/authService";
 
 function App() {
+  const user = getCurrentUser;
   useEffect(() => {
     window.OneSignal = window.OneSignal || [];
     OneSignal.init({
@@ -37,17 +39,16 @@ function App() {
       allowLocalhostAsSecureOrigin: true,
     });
     OneSignal.showSlidedownPrompt();
-  });
+  }, []);
 
   return (
     <div>
-      <NavbarT />
       <Routes>
-        <Route path="/" element={<Login />} />
+      <Route path="/" element={<Login/>}/>
         {/* <Route path="/register" element={<Register />} /> */}
         <Route path="/about" element={<AboutUs />} />
         {/* On navbar page */}
-        <Route path="/teacher" element={<Home />} />
+        <Route path="/teacher" element={<Home/>} />
         <Route path="/all-classwork" element={<AllClasswork />} />
         <Route path="/all-course" element={<AllCourse />} />
         {/* Per class */}

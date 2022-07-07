@@ -10,6 +10,7 @@ import { fetchAllClassesSlice } from "../../slices/classes/classesSlice";
 import { fecthAllClassByTeacher, fetchAllClasses } from "../../service/classesService";
 import { fetchScheduleTeacher } from "../../service/scheduleService";
 import { fetchScheduleClassSlice } from "../../slices/schedule/scheduleTeacherSlice";
+import NavbarT from "../../components/NavbarT";
 
 export default function Home() {
   const [date, setDate] = useState(new Date());
@@ -31,7 +32,9 @@ export default function Home() {
   }, []);
   console.log("test: ", scheduleTeacher);
   return (
-    <div className="mx-100px md:flex">
+    <div>
+      <NavbarT/>
+      <div className="mx-100px md:flex">
       <div className="mt-6 ">
         <div className="max-w-md space-y-3">
           {/* <div className="p-2 rounded-lg bg-smoke ">
@@ -164,5 +167,7 @@ export default function Home() {
         </div>
       </div>
     </div>
+  </div>
+    
   );
 }

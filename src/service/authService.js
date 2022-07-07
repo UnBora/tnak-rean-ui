@@ -15,7 +15,6 @@ export const login = async (user) => {
   try {
     let response = await api.post("/auth/login", user);
     if (response.data.token) {
-      localStorage.setItem("user", JSON.stringify(response.data));
       console.log(response.data);
       cryptoEncrypt(response.data.token, "Phanith");
     }

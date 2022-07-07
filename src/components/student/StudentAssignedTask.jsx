@@ -3,27 +3,27 @@ import StudentComment from "./StudentComment";
 import { MdOutlineAssignment } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 
-export default function StudentAssignedTask() {
+export default function StudentAssignedTask({ assignedTask }) {
   return (
     <div className="flex flex-wrap max-w-sm p-4 border rounded-md shadow-xl mr-7 mb-7 h-52 border-bordergray">
       <div className="justify-between">
         <div className="flex text-2xl text-black">
           <MdOutlineAssignment />
-          <span className="ml-2 text-lg font-medium">JAVA assignment 1</span>
+          <span className="ml-2 text-lg font-medium">{assignedTask.title}</span>
         </div>
-        
       </div>
       <div className="mt-2 text-base font-medium">
         <p className="max-w-[22rem] truncate text-black">
-          Create firt project Java Using Intellij hii am Kimhab form
-          ppclassdffdf what do you wanthjtyjughfthyfgfhgfg lfgrfhdturtfhgfhggfh
+          {assignedTask.description}
         </p>
       </div>
 
       <div className="text-xs font-medium">
-        <div className="mb-2">Point: <span>1/100</span></div>
+        <div className="mb-2">
+          Point: <span>1/100</span>
+        </div>
         <div className="mt-1 text-xs font-regular text-myred ">
-          <p>Due 31 june 2022 13:00</p>
+          <p>{assignedTask.deadline}</p>
         </div>
       </div>
       <div className="flex mt-auto">
