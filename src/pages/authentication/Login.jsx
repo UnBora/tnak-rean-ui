@@ -148,8 +148,8 @@ export default function Login() {
                   type="button"
                   className="flex items-center justify-center w-full px-8 py-2 space-x-2 text-black border rounded-full font-md medium focus:ring-offset-1"
                 >
-                  <FcGoogle />
-                  <p className="font-semibold">Continue with Google</p>
+                  {/* <FcGoogle /> */}
+                  <label className="font-semibold" for="my-modal-3">Register</label>
                 </button>
               </div>
             </form>

@@ -21,7 +21,7 @@ export default function CreateClass() {
                   {/* Name class */}
                   <div className="col-span-full">
                     <div className="col-span-full sm:col-span-3">
-                      <label for="classname" className="text-sm font-medium">
+                      <label for="classname" className="-mt-5 text-lg font-medium">
                         Class name <span className="text-red-600 ">*</span>
                       </label>
                       <input
@@ -34,7 +34,7 @@ export default function CreateClass() {
                   </div>
                   {/* School */}
                   <div className="col-span-full ">
-                    <label for="username" className="text-sm font-medium">
+                    {/* <label for="username" className="text-sm font-medium">
                       School <span className="text-red-600 ">*</span>
                     </label>
                     <select
@@ -45,7 +45,7 @@ export default function CreateClass() {
                       <option className="p-6 text-md">Royal University</option>
                       <option className="p-6 text-md ">KSHRD</option>
                       <option className="p-6 text-md ">NUM</option>
-                    </select>
+                    </select> */}
                     <div className="flex justify-between mt-5">
                       <div>
                         <label className="flex flex-col items-center px-5 tracking-wide uppercase border rounded-lg shadow-lg cursor-pointer border-myorange">
@@ -61,13 +61,13 @@ export default function CreateClass() {
                           <input type="file" className="hidden" />
                         </label>
                       </div>
-                      <label
+                      {/* <label
                         for="my-modal-5"
                         className="flex mt-2 space-x-1 cursor-pointer row text-md"
                       >
                         <IoMdAddCircleOutline className="mt-1" />
                         Add School
-                      </label>
+                      </label> */}
                     </div>
                   </div>
                 </div>

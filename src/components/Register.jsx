@@ -12,7 +12,7 @@ export default function Register() {
     <div>
       <input type="checkbox" id="my-modal-3" className="modal-toggle" />
       <div className="text-black modal">
-        <div className="flex-shrink-0 shadow-xl card bg-smoke ">
+        <div className="flex-shrink-0 mb-10 shadow-xl card bg-smoke">
           <label
             for="my-modal-3"
             className="absolute z-10 btn btn-sm btn-circle right-2 top-2"
@@ -162,7 +162,7 @@ export default function Register() {
                   Register
                 </button>
               </div>
-              <h2 className="py-1 font-semibold text-center">Or</h2>
+              {/* <h2 className="py-1 font-semibold text-center">Or</h2>
               <div className="flex justify-center font-medium">
                 <button
                   aria-label="Login with Google"
@@ -172,7 +172,7 @@ export default function Register() {
                   <FcGoogle />
                   <p>Login with Google</p>
                 </button>
-              </div>
+              </div> */}
             </div>
           </section>
           {/* End card */}
