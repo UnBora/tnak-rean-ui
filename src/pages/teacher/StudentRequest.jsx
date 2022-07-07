@@ -24,7 +24,7 @@ export const StudentRequest = () => {
   }
   return (
     <div>
-    <NavbarT/>
+    {/* <NavbarT/> */}
       <div className="flex space-x-2">
         <div className="w-8 h-8 rounded-full bg-mygreen">
           <FaUser className="flex m-auto mt-2 text-white align-middle" />
@@ -55,16 +55,17 @@ export const StudentRequest = () => {
                 <span>request to join</span> <span>Phnom Penh classroom</span>
               </div>
               <div className="flex-none">
+                
+                <button className="border-none btn btn-sm bg-mygreen hover:bg-myhovergreen">
+                  {accept}
+                </button>
                 <button
-                  className="btn btn-sm btn-ghost"
+                  className="border-none btn btn-sm bg-myorange hover:bg-myhoverorange"
                   onClick={() => {
                     declineStu();
                   }}
                 >
                   Decline
-                </button>
-                <button className="border-none btn btn-sm bg-mygreen hover:bg-myhovergreen">
-                  {accept}
                 </button>
               </div>
             </div>

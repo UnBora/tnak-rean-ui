@@ -22,35 +22,9 @@ function CreateFolder() {
               className="w-full px-4 py-2 mb-4 leading-tight text-gray-700 bg-white border rounded-md shadow-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
             />
           </div>
-          <div class="w-full">
-      <label class="inline-block text-sm text-gray-600" for="Multiselect"
-        >Select multiple roles</label
-      >
-      <div class="relative flex w-full">
-        <select
-          id="select-role"
-          name="roles[]"
-          multiple
-          placeholder="Select roles..."
-          autocomplete="off"
-          class="block w-full rounded-sm cursor-pointer focus:outline-none"
-        >
-          <option value="1">super admin</option>
-          <option value="2">admin</option>
-          <option value="3">writer</option>
-          <option value="4">user</option>
-        </select>
-      </div>
-    </div>
-    {/* <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
-    <script>
-      new TomSelect('#select-role', {
-        maxItems: 3,
-      }); */}
-    {/* </script> */}
           {/* dropdown select school */}
-          <div className="flex flex-wrap mb-3 -mx-3">
-              <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0">
+          {/* <div className="flex flex-wrap mb-3 -mx-3"> */}
+          {/* <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0">
                 <p className="font-medium ">School</p>
                 <select
                   id="school"
@@ -62,28 +36,29 @@ function CreateFolder() {
                   <option className="p-6 text-sm">RUPP</option>
                   <option className="p-6 text-sm">Setec</option>
                 </select>
-              </div>
-              {/* dropdown select class */}
-              <div className="w-full px-2 mb-6 md:w-1/2 md:mb-0">
-              <p className="font-medium ">Classroom</p>
-              <select
-                id="class"
-                type="text"
-                className="w-full px-2 py-3 text-sm leading-tight text-gray-700 bg-white border rounded-md shadow-md focus:ring-1 focus:ring-mygreen focus:outline-none"
-              >
-                <option className="p-6 text-sm">All classes</option>
-                <option className="p-6 text-sm">PP</option>
-                <option className="p-6 text-sm">M5</option>
-                <option className="p-6 text-sm">BTB</option>
-              </select>
-            </div>
-            </div>
+              </div> */}
+
+          {/* </div> */}
+          {/* dropdown select class */}
+          <div className="w-full mb-6 md:w-full md:mb-0 ">
+            <p className="font-medium ">Classroom</p>
+            <select
+              id="class"
+              type="text"
+              className="w-full px-2 py-3 text-sm leading-tight text-gray-700 bg-white border rounded-md shadow-md focus:ring-1 focus:ring-mygreen focus:outline-none"
+            >
+              <option className="p-6 text-sm">All classes</option>
+              <option className="p-6 text-sm">PP</option>
+              <option className="p-6 text-sm">M5</option>
+              <option className="p-6 text-sm">BTB</option>
+            </select>
+          </div>
           <div className="modal-action">
             <label
               for="my-modal-1"
               className="px-4 border-none rounded-full btn btn-sm bg-mygreen hover:bg-myhovergreen"
             >
-              Add
+              Create
             </label>
           </div>
         </div>

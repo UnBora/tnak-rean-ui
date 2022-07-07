@@ -30,7 +30,7 @@ function ManageClasswork() {
   }, []);
   return (
     <div className="">
-      <NavbarT />
+      {/* <NavbarT /> */}
       <div className="flex space-x-2">
         <div className="w-8 h-8 rounded-full bg-mygreen">
           <MdWork className="flex m-auto mt-2 text-white align-middle" />
@@ -81,16 +81,16 @@ function ManageClasswork() {
             </label>
           </li>
           <li>
-            <label>
+            <label for="my-modal-2">
               <MdOutlineAssignment />
               Assignment
             </label>
           </li>
           <li>
-            <Link to="#">
+            <label for="my-modal-2">
               <MdOutlineQuiz />
               Quiz
-            </Link>
+            </label>
           </li>
         </ul>
       </div>

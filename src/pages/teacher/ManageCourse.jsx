@@ -28,7 +28,7 @@ function ManageCourse() {
 
   return (
     <div>
-    <NavbarT/>
+    {/* <NavbarT/> */}
       <div className="flex space-x-2">
         <div className="w-8 h-8 rounded-full bg-mygreen">
           <GiBookCover className="flex m-auto mt-2 text-white align-middle" />

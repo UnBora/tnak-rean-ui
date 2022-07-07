@@ -23,7 +23,7 @@ export default function ManageClass() {
 
   return (
     <div>
-      <NavbarT />{" "}
+      <NavbarT />
       <div className="flex mx-100px">
         <div className="bg-white ">
           <div className="flex sm:flex-row ">
@@ -36,19 +36,19 @@ export default function ManageClass() {
               <p className="mt-2 myhr"></p>
               <nav className="mt-8 ">
                 <NavLink
-                  className="flex items-center p-2 my-1 text-gray-600 transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 "
+                  className="flex items-center p-2 my-1 text-black transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 "
                   as={Link}
                   to={{
                     pathname: `/classroom/${id}/students`,
                   }}
                 >
                   <FaUserFriends className="text-lg" />
-                  <span className="mx-4 text-lg font-normal">All student</span>
-                  <span className="flex-grow text-right"></span>
+                  <span className="mx-4 text-lg font-normal ">All student</span>
+                  {/* <span className="flex-grow text-right"></span> */}
                 </NavLink>
 
                 <NavLink
-                  className="flex items-center p-2 my-1 text-gray-600 transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 "
+                  className="flex items-center p-2 my-1 text-black transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 "
                   as={Link}
                   to={{
                     // pathname: "/classroom/requests",
@@ -68,7 +68,7 @@ export default function ManageClass() {
                   </span>
                 </NavLink>
                 <Link
-                  className="flex items-center p-2 text-gray-800 transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 "
+                  className="flex items-center p-2 text-black transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 "
                   as={Link}
                   to={{
                     pathname: `/classroom/${id}/classworks`,
@@ -79,7 +79,7 @@ export default function ManageClass() {
                   <span className="flex-grow text-right"></span>
                 </Link>
                 <NavLink
-                  className="flex items-center p-2 text-gray-600 transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 "
+                  className="flex items-center p-2 text-black transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 "
                   as={Link}
                   to={{
                     pathname: `/classroom/${id}/courses`,
@@ -90,7 +90,7 @@ export default function ManageClass() {
                   <span className="flex-grow text-right"></span>
                 </NavLink>
                 <NavLink
-                  className="flex items-center p-2 text-gray-600 transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 "
+                  className="flex items-center p-2 text-black transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 "
                   as={Link}
                   to={{
                     pathname: `/classroom/${id}/results`,

@@ -248,7 +248,7 @@ export default function AboutUs() {
                     "It's good but not enjoy.
                   </p>
                   <p className="mx-2 text-myorange text-md">
-                    And I don't know is not the answer."
+                    and remember, I don't know is not the answer."
                   </p>
 
                   <div className="flex justify-center mt-5">

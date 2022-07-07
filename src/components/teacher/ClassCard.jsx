@@ -25,9 +25,9 @@ export default function ClassCard({ data }) {
             tabindex="0"
             className="w-24 text-sm font-medium shadow w-z-20 dropdown-content menu bg-base-100 rounded-box"
           >
-            <p className="py-2 pl-4">
-              <label for="my-modal-2">Edit</label>
-            </p>
+            <label className="py-2 pl-4 cursor-pointer">
+              <label for="my-modal-2" className="cursor-pointer">Edit</label>
+            </label>
             <p className="py-2 pl-4 text-red-500 border-t">
               <button onClick={() => classDelete()}>Delete</button>
             </p>
