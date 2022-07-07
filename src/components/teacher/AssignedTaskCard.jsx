@@ -32,10 +32,8 @@ export default function AssignedTaskCard({data}) {
           </div>
         </div>
       </div>
-      <div className="mt-2 text-base font-medium">
-        <p className="max-w-[22rem] ">
-         {dataTask.description}
-        </p>
+      <div className="w-full mt-2 text-base font-medium">
+      {dataTask.description}
       </div>
       
       <div className="text-xs font-medium">
