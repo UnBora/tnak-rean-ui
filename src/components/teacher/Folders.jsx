@@ -3,8 +3,8 @@ import { FaEllipsisV, FaFolderMinus } from "react-icons/fa";
 import { deleteFolder } from "../swal/Delete";
 import EditFolder from "./EditFolder";
 
-export default function Folders({data}) {
-  const dataFolder = data;
+export default function Folders() {
+  
   return (
     <div className="flex mt-3 mr-4">
       <div className="flex p-2 border border-collapse rounded-md shadow-xl h-max border-bordergray w-60">

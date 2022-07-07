@@ -3,7 +3,8 @@ import { FaEllipsisV, FaFolderMinus } from "react-icons/fa";
 import { deleteFolder } from "../swal/Delete";
 import EditFolder from "./EditFolder";
 
-export default function FolderCard() {
+export default function FolderCard({data}) {
+  const dataFolder = data;
   return (
     <div className="flex mt-3 mr-4">
       <div className="flex p-2 border border-collapse rounded-md shadow-xl h-max border-bordergray w-60">
@@ -11,8 +12,7 @@ export default function FolderCard() {
           <FaFolderMinus />
         </div>
         <span className="ml-2 text-sm truncate font-regular">
-          HTML numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga
-          praesentium optio
+        {dataFolder.folder_name}
         </span>
         <div className="ml-auto dropdown">
           <label tabindex="0" className="cursor-pointer">

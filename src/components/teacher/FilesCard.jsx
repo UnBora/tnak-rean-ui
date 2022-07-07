@@ -6,10 +6,11 @@ import { deleteClasswork, deleteFile } from "../swal/Delete";
 import AssignClasswork from "./AssignClasswork";
 import EditCourse from "./EditCourse";
 
-export default function FilesCard() {
+export default function FilesCard({data}) {
+  const dataCourse = data;
   return (
     <div className="flex flex-wrap h-40 p-4 mb-5 mr-8 border border-collapse rounded-md shadow-xl border-bordergray bg-smoke w-[265px]">
-      <div className="text-lg font-semibold">React JS</div>
+      <div className="text-lg font-semibold">{dataCourse.title}</div>
       <div className="mt-1 ml-auto dropdown">
         <label tabindex="0" className="cursor-pointer">
           <FaEllipsisV />

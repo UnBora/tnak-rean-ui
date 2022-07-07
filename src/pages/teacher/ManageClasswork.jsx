@@ -12,13 +12,19 @@ import AssignClasswork from "../../components/teacher/AssignClasswork";
 import FolderCard from "../../components/teacher/FolderCard";
 import AssignedTaskCard from "../../components/teacher/AssignedTaskCard";
 import { fetchAllclasswork } from "../../service/classMaterial";
+import { fetchClassworkFolder } from "../../service/folderService";
+
 function ManageClasswork() {
-  const [allClasswork, setallClasswork] = useState([]);
+  const [folder, setFolder] = useState([]);
+  const [classwork, setClasswork] = useState([]);
   const { id } = useParams();
   useEffect(() => {
-    fetchAllclasswork(1,id).then((r) => {
-      setallClasswork(r.data);
-      console.log("all: ", r);
+    fetchClassworkFolder(id, 1).then((r) => {
+      setFolder(r.data);
+    });
+    fetchAllclasswork(1,id).then((r)=>{
+      setClasswork(r.data);
+      console.log("classwork",r);
     });
   }, []);
   return (
@@ -89,29 +95,22 @@ function ManageClasswork() {
       <p className="mt-3 ml-1 text-xl font-semibold">Folder</p>
       <p className="mb-2 border-b"></p>
       <div className="flex flex-wrap">
-        <Link to="#">
-          <FolderCard />
-        </Link>
-        <Link to="#">
-          <FolderCard />
-        </Link>
-        <Link to="#">
-          <FolderCard />
-        </Link>
-        
+        {folder?.map((index) => {
+          return <FolderCard key={index.id} data={index} />;
+        })}
       </div>
 
       <p className="ml-1​​ mt-12 text-xl font-semibold">Assigned task</p>
       <p className="mb-4 border-b"></p>
       <div className="flex flex-wrap">
-        <AssignedTaskCard />
-        <AssignedTaskCard />
-        <AssignedTaskCard />
+      {classwork?.map((index) => {
+          return <AssignedTaskCard key={index.id} data={index} />;
+        })}
+        
       </div>
       {/* pop up */}
       <CreateFolder />
-      <AssignClasswork/>
-  
+      <AssignClasswork />
     </div>
   );
 }

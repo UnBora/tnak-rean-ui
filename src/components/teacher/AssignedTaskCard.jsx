@@ -13,7 +13,7 @@ export default function AssignedTaskCard({data}) {
       <div className="flex w-full ">
         <div className="flex text-2xl">
           <MdOutlineAssignment />
-          <span className="ml-2 text-lg font-medium">JAVA assignment 1</span>
+          <span className="ml-2 text-lg font-medium">{dataTask.title}</span>
         </div>
         <div className="mt-1 ml-auto dropdown">
           <label tabindex="0" className="cursor-pointer">
@@ -33,18 +33,17 @@ export default function AssignedTaskCard({data}) {
         </div>
       </div>
       <div className="mt-2 text-base font-medium">
-        <p className="max-w-[22rem] truncate">
-          Create firt project Java Using Intellij hii am Kimhab form
-          pp class
+        <p className="max-w-[22rem] ">
+         {dataTask.description}
         </p>
       </div>
-
+      
       <div className="text-xs font-medium">
         <div className="mb-2">
-          Point: <span>1/100</span>
+          Point: <span>{dataTask.score}</span>
         </div>
         <div className="mt-1 text-xs font-regular text-myred ">
-          <p>Due 31 june 2022 13:00</p>
+          <p><span>Due</span>  <span>{dataTask.deadline}</span></p>
         </div>
       </div>
       <div className="flex mt-auto">
@@ -57,7 +56,7 @@ export default function AssignedTaskCard({data}) {
         </Link>
         <div className="mt-2 ml-40 text-sm underline font-regular dropdown dropdown-right">
           <label tabindex="0" className="underline dropdown dropdown-right">
-            <span>2</span> comments
+            <span>{dataTask.total_comment}</span> comments
           </label>
           <div tabindex="0" className="mt-2 dropdown-content rounded-box">
            <ViewComment/>

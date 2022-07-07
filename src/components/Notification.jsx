@@ -24,10 +24,10 @@ export default function ProfileCard() {
               </div>
             </div>
             <div>
-              <div className="font-bold">{index.type}</div>
+              <div className="font-bold">{index.sender_name}</div>
               
             </div>
-          </div><span>requested to join Phnom Penh classroom</span>
+          </div><span>{index.sender_name}to join Phnom Penh classroom</span>
           </div>
         );
       })}
