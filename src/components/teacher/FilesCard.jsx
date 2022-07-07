@@ -43,7 +43,7 @@ export default function FilesCard({data}) {
         </div>
       </div>
       <div className="mt-2 text-xs font-medium line-clamp-2">
-        React JS Chapter1: talk about basic React JS prepared
+        {dataCourse.description}
       </div>
       <div className="flex mt-4">
         <NavLink
@@ -58,7 +58,7 @@ export default function FilesCard({data}) {
             tabindex="0"
             className="ml-16 underline dropdown dropdown-right"
           >
-            <span>2</span> comments
+            <span>{dataCourse.total_comment}</span> comments
           </label>
           <div tabindex="0" className="mt-2 dropdown-content rounded-box">
             <ViewComment />
