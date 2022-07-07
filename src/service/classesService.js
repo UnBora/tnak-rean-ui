@@ -30,3 +30,12 @@ export const fecthAllClassByTeacher = async () => {
     console.log("error", error);
   }
 };
+// create class
+export const create = async () => {
+  try {
+    let response = await api.post("class/get-by-teacherUserId")
+    return response.data;
+  } catch (error) {
+    console.log("error", error);
+  }
+};
