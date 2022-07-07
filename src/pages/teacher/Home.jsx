@@ -14,6 +14,7 @@ import { fetchScheduleClassSlice } from "../../slices/schedule/scheduleTeacherSl
 export default function Home() {
   const [date, setDate] = useState(new Date());
   const classes = useSelector((state) => state.classes.value);
+  const [className, setclassName] = useState({});
   const dispatch = useDispatch();
 
   fetchAllClasses().then(
@@ -26,7 +27,7 @@ export default function Home() {
     fecthAllClassByTeacher().then((r) => dispatch(fetchAllClassesSlice(r)));
     fetchScheduleTeacher(1, 1).then((r) =>
       dispatch(fetchScheduleClassSlice(r))
-    );
+    );   
   }, []);
   console.log("test: ", scheduleTeacher);
   return (

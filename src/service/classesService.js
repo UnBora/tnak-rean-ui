@@ -9,9 +9,13 @@ export const fetchAllClasses = async () => {
   }
 };
 
-export const createClass = async () => {
+const classes = { 
+  classname: 'SW2',
+  image: 'images' };
+export const createClasses = async () => {
   try {
-    let response = await api.post("class/create-class");
+    console.log('create class')
+    let response = await api.post("class/create-class",classes);
     return response.data;
   } catch (error) {
     console.log("error", error);
@@ -33,9 +37,19 @@ export const fecthAllClassByTeacher = async () => {
 // create class
 export const create = async () => {
   try {
-    let response = await api.post("class/get-by-teacherUserId")
+    let response = await api.post("class/create-class")
     return response.data;
   } catch (error) {
     console.log("error", error);
+  }
+};
+
+export const createClasss = async (createClass) => {
+  try {
+    let response = await api.post("class/create-class", createClass);
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    console.log(error);
   }
 };

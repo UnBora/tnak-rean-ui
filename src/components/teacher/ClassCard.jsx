@@ -45,7 +45,8 @@ export default function ClassCard({ data }) {
         className="w-48 h-32 m-2 shadow-2xl card md:w-72 md:h-48"
       >
         <img
-          src="https://i.pinimg.com/564x/99/e3/e5/99e3e56b1b95911f9f9d4a8e0a469312.jpg"
+        
+          src={dataClass.image!==null?dataClass.image:"https://i.pinimg.com/564x/ef/78/48/ef78480671d8a6810281ef6f8ee76d17.jpg"}
           className="absolute z-0 object-cover w-full h-full"
           alt="Class"
         />

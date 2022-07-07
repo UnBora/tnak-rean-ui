@@ -1,7 +1,9 @@
 import React from "react";
 import { IoMdAddCircleOutline } from "react-icons/io";
+import { createClasses } from "../../service/classesService";
 import { createClass } from "../swal/Success";
 export default function CreateClass() {
+
   return (
     <div>
       <input type="checkbox" id="my-modal-3" className="modal-toggle" />
