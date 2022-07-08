@@ -7,8 +7,10 @@ import ProfileCard from "./ProfileCard";
 import Notification from "./Notification";
 import AccountDropdown from "./AccountDropdown";
 import { Link, NavLink } from "react-router-dom";
-
+import { useSelector } from "react-redux/es/exports";
 const NavbarT = ({ userData }) => {
+  const  user = useSelector((state) => state?. user?.value);
+  console.log("user",user);
   const [openNavbar, setOpenNavbar] = useState(false);
   const current = localStorage.getItem("currentTab");
   const [currentTab, setCurrentTab] = useState(current);
@@ -101,7 +103,7 @@ const NavbarT = ({ userData }) => {
                 tabindex="0"
                 className="p-1 dropdown-content mt-9 rounded-box "
               >
-                <ProfileCard />
+                <ProfileCard data={user}/>
               </div>
             </div>
             {/* ================== */}
@@ -126,7 +128,7 @@ const NavbarT = ({ userData }) => {
                 tabindex="0"
                 className="p-1 mt-8 dropdown-content rounded-box "
               >
-                <AccountDropdown />
+                <AccountDropdown data={user} />
               </div>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import React from "react";
+export default function ProfileCard({data}) {
 
-export default function ProfileCard() {
   return (
     <div className="z-50 shadow-xl card w-60 bg-smoke">
       <div className="card-body">
@@ -10,8 +10,8 @@ export default function ProfileCard() {
           </div>
         </div>
         <div className="text-center ">
-          <p className="font-semibold" >Dayan</p>
-          <p className="text-xs">@Dayan_konbarang</p>
+          <p className="font-semibold" >{data.name}</p>
+          <p className="text-xs">{data.username}</p>
         </div>
         <div className="text-xs">
             <p className="font-semibold">Contact</p>

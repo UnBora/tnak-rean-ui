@@ -4,7 +4,7 @@ import { AiFillSetting } from "react-icons/ai";
 import { MdFeedback } from "react-icons/md";
 import { RiLogoutBoxFill } from "react-icons/ri";
 import { Link, useNavigate } from "react-router-dom";
-export default function AccountDropdown() {
+export default function AccountDropdown({data}) {
   let navigate = useNavigate();
   const handleOnClick = useCallback(
     () => navigate("/", { replace: true }),
@@ -23,7 +23,7 @@ export default function AccountDropdown() {
               alt="profile"
             />
           </div>
-          <span className="mt-1 font-medium">Dayan</span>
+          <span className="mt-1 font-medium">{data.name}</span>
         </div>
         <p className="myhr"></p>
         <div className="z-50 w-full font-medium rounded-md menu">
