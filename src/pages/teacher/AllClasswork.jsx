@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { MdWork } from "react-icons/md";
 import { Link } from "react-router-dom";
 import AssignedTaskCard from "../../components/teacher/AssignedTaskCard";
@@ -12,8 +12,17 @@ import CreateFolder from "../../components/teacher/CreateFolder";
 import AssignClasswork from "../../components/teacher/AssignClasswork";
 import FolderCard from "../../components/teacher/FolderCard";
 import NavbarT from "../../components/NavbarT";
+import { fetchClassworks } from "../../service/classMaterial";
 
 function AllClasswork() {
+  const [allClasswork,setallClasswork] = useState([]);
+  useEffect(() => {
+    fetchClassworks().then((r) => {
+      setallClasswork(r.data);
+    });
+    
+  }, []);
+  console.log("all classwork",allClasswork);
   return (
     <div>
       <NavbarT />
@@ -100,8 +109,10 @@ function AllClasswork() {
           <p className="ml-1​​ mt-12 text-xl font-semibold">Assigned task</p>
           <p className="mb-4 border-b"></p>
           <div className="flex flex-wrap">
-            {/* <AssignedTaskCard />
-            <AssignedTaskCard /> */}
+           
+          {allClasswork?.map((index) => {
+          return <AssignedTaskCard key={index.id} data={index} />;
+        })}
           </div>
           {/* pop up */}
           <CreateFolder />

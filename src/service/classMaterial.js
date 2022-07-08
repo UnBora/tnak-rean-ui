@@ -36,3 +36,15 @@ export const fetchAllclasswork = async (classroom_id,class_id) => {
       console.log("error", error);
     }
   };
+
+  //All classwork
+  export const fetchClassworks = async () => {
+    try {
+      let response = await api.get(
+        "submittableWork/get-by-teacherUserId"
+      );
+      return response.data;
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
