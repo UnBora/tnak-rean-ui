@@ -9,13 +9,14 @@ export const fetchAllClasses = async () => {
   }
 };
 
-const classes = { 
-  classname: 'SW2',
-  image: 'images' };
+const classes = {
+  classname: "SW2",
+  image: "images",
+};
 export const createClasses = async () => {
   try {
-    console.log('create class')
-    let response = await api.post("class/create-class",classes);
+    console.log("create class");
+    let response = await api.post("class/create-class", classes);
     return response.data;
   } catch (error) {
     console.log("error", error);
@@ -24,10 +25,10 @@ export const createClasses = async () => {
 
 export const fecthAllClassByTeacher = async () => {
   try {
-    let response = await api.get("class/get-by-teacherUserId",{
-      params:{
-        classroom_id : 1,
-      }
+    let response = await api.get("class/get-by-teacherUserId", {
+      params: {
+        classroom_id: 1,
+      },
     });
     return response.data;
   } catch (error) {
@@ -35,9 +36,22 @@ export const fecthAllClassByTeacher = async () => {
   }
 };
 // create class
-export const create = async () => {
+export const create = async (className, image) => {
+  // let formData = new FormData();
+  // formData.append('files', image);
+  console.log(image);
+
+  api
+    .post("/upload", image, {})
+    .then((r) => console.log(r));
+
+  const data = {
+    className: className,
+    image: "",
+  };
+
   try {
-    let response = await api.post("class/create-class")
+    let response = await api.post("class/create-class", data, {});
     return response.data;
   } catch (error) {
     console.log("error", error);
