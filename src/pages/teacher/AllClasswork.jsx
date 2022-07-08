@@ -13,16 +13,22 @@ import AssignClasswork from "../../components/teacher/AssignClasswork";
 import FolderCard from "../../components/teacher/FolderCard";
 import NavbarT from "../../components/NavbarT";
 import { fetchClassworks } from "../../service/classMaterial";
+import { fetchallClassworkFolder } from "../../service/folderService";
+
 
 function AllClasswork() {
   const [allClasswork,setallClasswork] = useState([]);
+  const [allFolder,setallFolder]=useState([]);
   useEffect(() => {
     fetchClassworks().then((r) => {
       setallClasswork(r.data);
     });
     
+    fetchallClassworkFolder().then((r)=>{
+      setallFolder(r.data);
+    });
   }, []);
-  console.log("all classwork",allClasswork);
+  console.log("all folder",allFolder);
   return (
     <div>
       <NavbarT />
@@ -95,15 +101,9 @@ function AllClasswork() {
           <p className="mt-3 ml-1 text-xl font-semibold">Folder</p>
           <p className="mb-2 border-b"></p>
           <div className="flex flex-wrap">
-            {/* <Link to="#">
-              <FolderCard />
-            </Link>
-            <Link to="#">
-              <FolderCard />
-            </Link>
-            <Link to="#">
-              <FolderCard />
-            </Link> */}
+          {allFolder?.map((index) => {
+          return <FolderCard key={index.id} data={index} />;
+        })}
           </div>
 
           <p className="ml-1​​ mt-12 text-xl font-semibold">Assigned task</p>

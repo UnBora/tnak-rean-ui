@@ -1,15 +1,14 @@
 import { api } from "../utils/api";
 
 // classwork folder
-export const fetchClassworkFolder = async (classId,classRoomId) => {
+export const fetchClassworkFolder = async (classId, classRoomId) => {
   try {
-    let response = await api.get("folder/get-classWorkFolders-by-class-id",
-    {
-        params: {
-            classId: classId,
-            classRoomId:classRoomId,
-        },
-      });
+    let response = await api.get("folder/get-classWorkFolders-by-class-id", {
+      params: {
+        classId: classId,
+        classRoomId: classRoomId,
+      },
+    });
     return response.data;
   } catch (error) {
     console.log("error", error);
@@ -17,15 +16,24 @@ export const fetchClassworkFolder = async (classId,classRoomId) => {
 };
 
 // course folder
-export const fetchCourseFolder = async (classId,classRoomId) => {
+export const fetchCourseFolder = async (classId, classRoomId) => {
   try {
-    let response = await api.get("folder/get-courseFolders-by-class-id",
-    {
-        params: {
-            classId: classId,
-            classRoomId:classRoomId,
-        },
-      });
+    let response = await api.get("folder/get-courseFolders-by-class-id", {
+      params: {
+        classId: classId,
+        classRoomId: classRoomId,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.log("error", error);
+  }
+};
+
+// all folder
+export const fetchallClassworkFolder = async () => {
+  try {
+    let response = await api.get("folder/get-classworkFolder-by-teacherUserId");
     return response.data;
   } catch (error) {
     console.log("error", error);
