@@ -74,7 +74,7 @@ export default function Login() {
               </p>
             </div>
             <div className="pb-6 lg:pt-12 md:pt-3 sm:pt-4">
-              <p className="leading-loose text-black sm:text-md md:text-lg lg:text-Quote">
+              <p className="leading-8 text-black sm:text-md md:text-lg lg:text-Quote">
                 “Education is the passport to the future, for tomorrow belongs
                 to those who prepare for it today.”
               </p>
@@ -139,18 +139,18 @@ export default function Login() {
                   >
                     Login
                   </button>
-                  <p className="py-2 font-semibold text-center text-black">
+                  {/* <p className="py-2 font-semibold text-center text-black">
                     Or
-                  </p>
+                  </p> */}
 
-                  <button
+                  {/* <button
                     aria-label="Login with Google"
                     type="button"
                     className="flex items-center justify-center w-full px-8 py-2 space-x-2 text-black border rounded-full font-md medium focus:ring-offset-1"
                   >
                     <FcGoogle />
                     <p className="font-semibold">Continue with Google</p>
-                  </button>
+                  </button> */}
                 </div>
               </form>
             </div>
@@ -162,7 +162,6 @@ export default function Login() {
         {/* =============== */}
       </div>
     </div>
-    </div>
-   
+    
   );
 }

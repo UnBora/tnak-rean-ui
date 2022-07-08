@@ -3,10 +3,8 @@ import logo from "../assets/images/logo/TnakRean.png";
 import { MdOutlineArrowDropDownCircle } from "react-icons/md";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import "../App.css";
-import ClassCard from "./teacher/ClassCard";
 import ProfileCard from "./ProfileCard";
 import Notification from "./Notification";
-import { useSelector } from "react-redux";
 import AccountDropdown from "./AccountDropdown";
 import { Link, NavLink } from "react-router-dom";
 
@@ -42,7 +40,7 @@ const NavbarT = ({ userData }) => {
                 onClick={() => handleSetCurrentTab("/")}
                 rel="noopener noreferrer"
                 as={Link}
-                to="/"
+                to="/teacher"
                 className={
                   currentTab === "/"
                     ? "flex items-center font-medium  border-b-2 border-myorange"

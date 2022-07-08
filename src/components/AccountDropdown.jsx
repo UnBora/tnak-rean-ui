@@ -25,25 +25,25 @@ export default function AccountDropdown() {
           <span className="mt-1 font-medium">Dayan</span>
         </div>
         <p className="myhr"></p>
-        <ul className="z-auto font-medium rounded-md menu w-52">
-          <li className="focus:bg-mygreen">
-            <Link to="/setting/account">
-              <AiFillSetting />
+        <div className="z-50 w-full font-medium rounded-md menu">
+          <div className="text-lg focus:bg-mygreen">
+            <Link to="/setting/account" className="flex py-2 cursor-pointer hover:bg-gray-200 hover:rounded hover:w-full">
+              <AiFillSetting className="mx-4 mt-1"/>
               Accound Setting
             </Link>
-          </li>
-          <li>
-            <button>
-              <MdFeedback /> <a href="mailto: abc@example.com">Give feedback</a>
+          </div>
+          <div className="text-lg">
+            <button className="flex py-2 cursor-pointer hover:bg-gray-200 hover:rounded hover:w-full">
+              <MdFeedback className="mx-4 mt-1"/> <a href="mailto: abc@example.com">Give feedback</a>
             </button>
-          </li>
-          <li>
-            <button onClick={handleOnClick}>
-              <RiLogoutBoxFill />
+          </div>
+          <div className="text-lg">
+            <button onClick={handleOnClick} className="flex py-2 cursor-pointer hover:bg-gray-200 hover:rounded hover:w-full">
+              <RiLogoutBoxFill className="mx-4 mt-1" />
               Logout
             </button>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
     </div>
   );

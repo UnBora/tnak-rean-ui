@@ -62,23 +62,23 @@ function ManageCourse() {
         >
           Create
         </label>
-        <ul
+        <div
           tabindex="0"
           className="p-2 shadow dropdown-content menu rounded-box w-52 bg-smoke"
         >
-          <li>
-            <label for="my-modal-1">
-              <BsFolderPlus />
+          <div className="text-lg">
+            <label for="my-modal-1"  className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded">
+              <BsFolderPlus className="mx-4 mt-1"/>
               Folder
             </label>
-          </li>
-          <li>
-            <label for="my-modal-upload">
-              <MdOutlineHomeWork />
+          </div>
+          <div className="text-lg">
+            <label for="my-modal-upload"  className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded">
+              <MdOutlineHomeWork className="mx-4 mt-1"/>
               Upload File
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
       <p className="mt-3 ml-1 text-xl font-semibold">Folder</p>
       <p className="mb-2 border-b"></p>
