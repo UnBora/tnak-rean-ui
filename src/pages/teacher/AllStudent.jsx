@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { FaUserFriends } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { useParams } from "react-router-dom";
+import NavbarT from "../../components/NavbarT";
 import { removeStudent } from "../../components/swal/Delete";
 import { fetchAllstudent } from "../../service/student";
 
@@ -18,6 +19,7 @@ const AllStudent = () => {
 
   return (
     <div>
+    {/* <NavbarT/> */}
       <div className="flex space-x-2">
         <div className="w-8 h-8 rounded-full bg-mygreen">
           <FaUserFriends className="flex m-auto mt-2 text-white align-middle" />

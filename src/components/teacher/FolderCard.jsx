@@ -3,6 +3,7 @@ import { FaEllipsisV, FaFolderMinus } from "react-icons/fa";
 import { deleteFolder } from "../swal/Delete";
 import EditFolder from "./EditFolder";
 
+//use
 export default function FolderCard({data}) {
   const dataFolder = data;
   return (

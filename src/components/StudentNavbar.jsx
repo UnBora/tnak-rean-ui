@@ -3,22 +3,20 @@ import logo from "../assets/images/logo/TnakRean.png";
 import { MdOutlineArrowDropDownCircle } from "react-icons/md";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import "../App.css";
-import ClassCard from "./teacher/ClassCard";
+import { Link, NavLink } from "react-router-dom";
 import ProfileCard from "./ProfileCard";
 import Notification from "./Notification";
-import { useSelector } from "react-redux";
 import AccountDropdown from "./AccountDropdown";
-import { Link, NavLink } from "react-router-dom";
 
-const NavbarT = ({ userData }) => {
+const StudentNavBar = () => {
   const [openNavbar, setOpenNavbar] = useState(false);
   const current = localStorage.getItem("currentTab");
   const [currentTab, setCurrentTab] = useState(current);
+
   const handleSetCurrentTab = (tabName) => {
     localStorage.setItem("currentTab", tabName);
     setCurrentTab(tabName);
   };
-
   return (
     <div>
       <nav className="border-b border-mygray ">
@@ -30,7 +28,7 @@ const NavbarT = ({ userData }) => {
             aria-label="Back to homepage"
             className=""
           >
-            <img src={logo} alt="logo" className="scale-75" />
+            <img src={logo} alt="" className="scale-75" />
           </NavLink>
           <ul
             className={
@@ -42,7 +40,7 @@ const NavbarT = ({ userData }) => {
                 onClick={() => handleSetCurrentTab("/")}
                 rel="noopener noreferrer"
                 as={Link}
-                to="/"
+                to="/student"
                 className={
                   currentTab === "/"
                     ? "flex items-center font-medium  border-b-2 border-myorange"
@@ -58,7 +56,7 @@ const NavbarT = ({ userData }) => {
                 onClick={() => handleSetCurrentTab("/classroom")}
                 rel="noopener noreferrer"
                 as={Link}
-                to="/all-classwork"
+                to="/stu-classwork"
                 className={
                   currentTab === "/classroom"
                     ? "flex items-center font-medium  border-b-2 border-myorange"
@@ -73,7 +71,7 @@ const NavbarT = ({ userData }) => {
                 onClick={() => handleSetCurrentTab("/course")}
                 rel="noopener noreferrer"
                 as={Link}
-                to="/all-course"
+                to="/stu-course"
                 className={
                   currentTab === "/course"
                     ? "flex items-center font-medium  border-b-2 border-myorange"
@@ -97,7 +95,7 @@ const NavbarT = ({ userData }) => {
                     />
                   </div>
                 </div>
-                <p className="mt-2 font-medium">{userData?.name}</p>
+                <p className="mt-2 font-medium">zz</p>
               </label>
               <div
                 tabindex="0"
@@ -114,8 +112,7 @@ const NavbarT = ({ userData }) => {
               </label>
               <div
                 tabindex="0"
-                className="p-1 dropdown-content mt-9 rounded-box "
-              >
+                className="p-1 dropdown-content mt-9 rounded-box ">
                 <Notification />
               </div>
             </div>
@@ -157,4 +154,4 @@ const NavbarT = ({ userData }) => {
   );
 };
 
-export default NavbarT;
+export default StudentNavBar;
