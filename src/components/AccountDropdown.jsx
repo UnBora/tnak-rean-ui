@@ -22,8 +22,7 @@ export default function AccountDropdown() {
             <button><MdFeedback/> <a href = "mailto: abc@example.com">Give feedback</a></button>
           </li>
           <li >
-            <button onClick={"/"}><RiLogoutBoxFill/>Logout</button>
-          
+            <button onClick={"/"}><RiLogoutBoxFill/>Logout</button>          
           </li>
         </ul>
       </div>

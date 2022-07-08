@@ -64,16 +64,16 @@ function ManageClasswork() {
         >
           Create
         </label>
-        <ul
+        <div
           tabindex="0"
           className="p-2 shadow dropdown-content menu rounded-box w-52 bg-smoke"
         >
-          <li>
+          <div>
             <label for="my-modal-1">
               <BsFolderPlus />
               Folder
             </label>
-          </li>
+          </div>
           <li>
             <label for="my-modal-2">
               <MdOutlineHomeWork />
@@ -92,7 +92,7 @@ function ManageClasswork() {
               Quiz
             </label>
           </li>
-        </ul>
+        </div>
       </div>
       <p className="mt-3 ml-1 text-xl font-semibold">Folder</p>
       <p className="mb-2 border-b"></p>
