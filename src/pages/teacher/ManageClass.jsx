@@ -7,17 +7,27 @@ import { Link, NavLink, Outlet, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { fetchStudentRequest } from "../../service/student";
 import NavbarT from "../../components/NavbarT";
+import { fetchAllClasses } from "../../service/classesService";
+import { useSelector } from "react-redux";
 
 export default function ManageClass() {
   const [studentRequest, setStudentRequest] = useState([]);
   const { id } = useParams();
+  const classes = useSelector((state) => state?.classes?.value);
+
+  console.log("class: ", classes);
+  const classFilter = classes?.data?.filter((e) => {
+    console.log(e.classId);
+    return e.classId == id;
+  });
+  // console.log("the classname is : ", classFilter[0]?.className);
 
   useEffect(() => {
     fetchStudentRequest(1, id).then((r) => {
       setStudentRequest(r.data);
       console.log("stu request", r.data);
     });
-  }, []);
+  }, [id]);
 
   console.log(studentRequest?.length);
 
@@ -29,9 +39,7 @@ export default function ManageClass() {
           <div className="flex sm:flex-row ">
             <div className="w-72">
               <div className="flex items-center justify-start mt-10">
-                <span className="text-2xl font-bold text-black">
-                  PP classroom
-                </span>
+                <span className="text-2xl font-bold text-black">{classFilter[0]?.className}</span>
               </div>
               <p className="mt-2 myhr"></p>
               <nav className="mt-8 ">

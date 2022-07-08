@@ -9,7 +9,8 @@ export default function AccountDropdown() {
   const handleOnClick = useCallback(
     () => navigate("/", { replace: true }),
     [navigate],
-    localStorage.removeItem("user")
+    localStorage.removeItem("user"),
+    localStorage.setItem("currentTab", "/")
   );
 
   return (
