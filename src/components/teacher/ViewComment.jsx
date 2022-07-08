@@ -10,7 +10,7 @@ export default function ViewComment({ comment }) {
   return (
     <div>
       {comment?.map((data) => (
-        <div className="z-50 p-3 bg-white border shadow-md border-mygray w-max card">
+        <div className="z-50 p-3 bg-white border shadow-md border-mygray w-max card ">
           <div className="flex mb-2">
             <img
               className="flex object-cover rounded-full h-9 w-9 jsutify-left"

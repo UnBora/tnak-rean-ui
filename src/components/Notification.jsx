@@ -17,7 +17,7 @@ export default function ProfileCard() {
         {notification?.map((index) => {
         return (
           <div>
-            <div className="flex items-center space-x-2 cursor-pointer hover:bg-gray-200 hover:rounded">
+            <div className="flex items-center space-x-2 cursor-pointer hover:bg-gray-200 hover:rounded ">
             <div className="ml-2 avatar">
               <div className="w-10 h-10 rounded-full mask mask-squircle">
               <img src="https://api.lorem.space/image/face?hash=53273" alt="profile"/>

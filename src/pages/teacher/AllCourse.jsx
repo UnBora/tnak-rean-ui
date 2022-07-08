@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BsFolderPlus } from "react-icons/bs";
 import { GiBookCover } from "react-icons/gi";
 import { MdOutlineHomeWork } from "react-icons/md";
@@ -8,11 +8,24 @@ import FilesCard from "../../components/teacher/FilesCard";
 import Folders from "../../components/teacher/FolderCard";
 import UploadCourse from "../../components/teacher/UploadCourse";
 import { useEffect } from "react";
-import { fecthCourseFolderByTeacher } from "../../service/folderService";
+import { fecthCourseFolderByTeacher, fetchallCourseFolder } from "../../service/folderService";
 import { useDispatch, useSelector } from "react-redux";
 import NavbarT from "../../components/NavbarT";
+import FolderCard from "../../components/teacher/FolderCard";
+import { fetchCourseFile } from "../../service/classMaterial";
 
 function AllCourse() {
+  const [allCourse,setallCourse] = useState([]);
+  const [allFolder,setallFolder]=useState([]);
+  useEffect(() => {
+    fetchCourseFile().then((r) => {
+      setallCourse(r.data);
+    });
+    
+    fetchallCourseFolder().then((r)=>{
+      setallFolder(r.data);
+    });
+  }, []);
   return (
     <div>
       <NavbarT />
@@ -71,24 +84,17 @@ function AllCourse() {
         <p className="mt-3 ml-1 text-xl font-semibold">Folder</p>
         <p className="mb-2 border-b"></p>
         <div className="flex flex-wrap">
-          <Link to="#">
-            <Folders />
-          </Link>
-          <Link to="#">
-            <Folders />
-          </Link>
-          <Link to="#">
-            <Folders />
-          </Link>
+        {allFolder?.map((index) => {
+          return <FolderCard key={index.id} data={index} />;
+        })}
         </div>
 
         <p className="ml-1 text-xl font-semibold mt-9">Document</p>
         <p className="mb-4 border-b"></p>
         <div className="flex flex-wrap">
-          <FilesCard />
-          <FilesCard />
-          <FilesCard />
-          <FilesCard />
+        {allCourse?.map((index) => {
+          return <FilesCard key={index.id} data={index} />;
+        })}
         </div>
         {/* folder pop up */}
         <CreateFolder />

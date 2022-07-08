@@ -112,7 +112,7 @@ const NavbarT = ({ userData }) => {
               </label>
               <div
                 tabindex="0"
-                className="p-1 dropdown-content mt-9 rounded-box "
+                className="p-1 overflow-y-auto h-80 dropdown-content mt-9 rounded-box scrollbar-thin scrollbar-thumb-zinc-400"
               >
                 <Notification />
               </div>

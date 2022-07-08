@@ -48,3 +48,16 @@ export const fetchAllclasswork = async (classroom_id,class_id) => {
       console.log("error", error);
     }
   };
+
+  //All course File
+  export const fetchCourseFile = async () => {
+    try {
+      let response = await api.get(
+        "classMaterial/get-by-teacherId"
+      );
+      return response.data;
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+

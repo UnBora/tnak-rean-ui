@@ -30,10 +30,20 @@ export const fetchCourseFolder = async (classId, classRoomId) => {
   }
 };
 
-// all folder
+// all classwork folder
 export const fetchallClassworkFolder = async () => {
   try {
     let response = await api.get("folder/get-classworkFolder-by-teacherUserId");
+    return response.data;
+  } catch (error) {
+    console.log("error", error);
+  }
+};
+
+//all course folder
+export const fetchallCourseFolder = async () => {
+  try {
+    let response = await api.get("folder/get-courseFolder-by-teacherUserId");
     return response.data;
   } catch (error) {
     console.log("error", error);
