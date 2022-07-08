@@ -19,7 +19,7 @@ const AllStudent = () => {
 
   return (
     <div>
-    {/* <NavbarT/> */}
+      {/* <NavbarT/> */}
       <div className="flex space-x-2">
         <div className="w-8 h-8 rounded-full bg-mygreen">
           <FaUserFriends className="flex m-auto mt-2 text-white align-middle" />
@@ -64,7 +64,6 @@ const AllStudent = () => {
           {/* <!-- head --> */}
           <thead>
             <tr>
-              <th></th>
               <th>Name</th>
               <th>Email</th>
               <th>Gender</th>
@@ -76,7 +75,6 @@ const AllStudent = () => {
             {allStudent?.map((item) => {
               return (
                 <tr className="hover">
-                  <th>1</th>
                   <td>{item.name}</td>
                   <td>{item.email}</td>
                   <td>{item.gender}</td>

@@ -24,7 +24,7 @@ export const StudentRequest = () => {
   }
   return (
     <div>
-    {/* <NavbarT/> */}
+      {/* <NavbarT/> */}
       <div className="flex space-x-2">
         <div className="w-8 h-8 rounded-full bg-mygreen">
           <FaUser className="flex m-auto mt-2 text-white align-middle" />
@@ -40,7 +40,13 @@ export const StudentRequest = () => {
                   <label tabindex="0" className="flex m-1 space-x-4">
                     <div className="avatar ">
                       <div className="w-10 rounded-full">
-                        <img src={index.img!==null?index.img:"https://www.cmcaindia.org/wp-content/uploads/2015/11/default-profile-picture-gmail-2.png"} />
+                        <img
+                          src={
+                            index.img !== null
+                              ? index.img
+                              : "https://www.cmcaindia.org/wp-content/uploads/2015/11/default-profile-picture-gmail-2.png"
+                          }
+                        />
                       </div>
                     </div>
                   </label>
@@ -48,15 +54,36 @@ export const StudentRequest = () => {
                     tabindex="0"
                     className="p-1 dropdown-content mt-9 rounded-box "
                   >
-                    
-                    <ProfileCard  />
+                    <div className="z-50 shadow-xl card w-60 bg-smoke">
+                      <div className="card-body">
+                        <div className="avatar ">
+                          <div className="w-16 m-auto border-2 rounded-full border-mygreen ">
+                            <img
+                              src={
+                                index.img !== null
+                                  ? index.img
+                                  : "https://www.cmcaindia.org/wp-content/uploads/2015/11/default-profile-picture-gmail-2.png"
+                              }
+                            />
+                          </div>
+                        </div>
+                        <div className="text-center ">
+                          <p className="font-semibold">{index.name}</p>
+                          <p className="text-xs">@Dayan_konbarang</p>
+                        </div>
+                        <div className="text-xs">
+                          <p className="font-semibold">Contact</p>
+                          <p>Male</p>
+                          <p>danyan@gmail.com</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <p className="font-medium">{index.name}</p>
-                <span>request to join</span> <span>Phnom Penh classroom</span>
+                <span>request to join</span> <span>{index.class_name} classroom</span>
               </div>
               <div className="flex-none">
-                
                 <button className="border-none btn btn-sm bg-mygreen hover:bg-myhovergreen">
                   {accept}
                 </button>
