@@ -8,9 +8,9 @@ export default function FolderCard({data}) {
   const dataFolder = data;
   return (
     <div className="flex mt-3 mr-4">
-      <div className="flex p-2 border border-collapse rounded-md shadow-xl h-max border-bordergray w-60">
+      <button className="flex p-2 border border-collapse rounded-md shadow-xl cursor-pointer h-max border-bordergray w-60">
         <div className="">
-          <FaFolderMinus />
+          <FaFolderMinus/>
         </div>
         <span className="ml-2 text-sm truncate font-regular">
         {dataFolder.folder_name}
@@ -33,7 +33,7 @@ export default function FolderCard({data}) {
             </label>
           </div>
         </div>
-      </div>
+      </button>
       <EditFolder />
     </div>
   );

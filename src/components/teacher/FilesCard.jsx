@@ -9,7 +9,7 @@ import EditCourse from "./EditCourse";
 export default function FilesCard({data}) {
   const dataCourse = data;
   return (
-    <div className="flex flex-wrap h-40 p-4 mb-5 mr-8 border border-collapse rounded-md shadow-xl border-bordergray bg-smoke w-[265px]">
+    <div className="flex flex-wrap h-40 p-4 mb-5 mr-8 border border-collapse rounded-md shadow-xl border-bordergray bg-smoke w-[265px] cursor-default">
       <div className="text-lg font-semibold">{dataCourse.title}</div>
       <div className="mt-1 ml-auto dropdown">
         <label tabindex="0" className="cursor-pointer">
@@ -56,7 +56,7 @@ export default function FilesCard({data}) {
         <div className="mt-2 ml-auto text-sm underline font-regular dropdown dropdown-right">
           <label
             tabindex="0"
-            className="ml-16 underline dropdown dropdown-right"
+            className="ml-16 underline cursor-pointer dropdown dropdown-right"
           >
             <span>{dataCourse.total_comment}</span> comments
           </label>
