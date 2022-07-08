@@ -1,9 +1,7 @@
 import React from "react";
-import moment from 'react-moment';
+// import moment from 'react-moment';
 
 export default function ViewComment({ comment }) {
-
-
   console.log('====================================');
   console.log(comment);
   console.log('====================================');
