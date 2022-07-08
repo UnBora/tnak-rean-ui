@@ -86,7 +86,7 @@ function AllClasswork() {
           <p className="mt-3 ml-1 text-xl font-semibold">Folder</p>
           <p className="mb-2 border-b"></p>
           <div className="flex flex-wrap">
-            <Link to="#">
+            {/* <Link to="#">
               <FolderCard />
             </Link>
             <Link to="#">
@@ -94,14 +94,14 @@ function AllClasswork() {
             </Link>
             <Link to="#">
               <FolderCard />
-            </Link>
+            </Link> */}
           </div>
 
           <p className="ml-1​​ mt-12 text-xl font-semibold">Assigned task</p>
           <p className="mb-4 border-b"></p>
           <div className="flex flex-wrap">
-            <AssignedTaskCard />
-            <AssignedTaskCard />
+            {/* <AssignedTaskCard />
+            <AssignedTaskCard /> */}
           </div>
           {/* pop up */}
           <CreateFolder />
