@@ -13,7 +13,6 @@ import FolderCard from "../../components/teacher/FolderCard";
 import AssignedTaskCard from "../../components/teacher/AssignedTaskCard";
 import { fetchAllclasswork } from "../../service/classMaterial";
 import { fetchClassworkFolder } from "../../service/folderService";
-import NavbarT from "../../components/NavbarT";
 
 function ManageClasswork() {
   const [folder, setFolder] = useState([]);
@@ -69,30 +68,30 @@ function ManageClasswork() {
           tabindex="0"
           className="p-2 shadow dropdown-content menu rounded-box w-52 bg-smoke"
         >
-          <div>
-            <label for="my-modal-1">
-              <BsFolderPlus />
+          <div className="text-lg">
+            <label for="my-modal-1" className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded">
+              <BsFolderPlus className="mx-4 mt-1"/>
               Folder
             </label>
           </div>
-          <li>
-            <label for="my-modal-2">
-              <MdOutlineHomeWork />
+          <div className="text-lg">
+            <label for="my-modal-2" className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded">
+              <MdOutlineHomeWork className="mx-4 mt-1"/>
               Homework
             </label>
-          </li>
-          <li>
-            <label for="my-modal-2">
-              <MdOutlineAssignment />
+          </div>
+          <div className="text-lg">
+            <label for="my-modal-2" className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded">
+              <MdOutlineAssignment className="mx-4 mt-1"/>
               Assignment
             </label>
-          </li>
-          <li>
-            <label for="my-modal-2">
-              <MdOutlineQuiz />
+          </div>
+          <div className="text-lg">
+            <label for="my-modal-2" className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded">
+              <MdOutlineQuiz className="mx-4 mt-1"/>
               Quiz
             </label>
-          </li>
+          </div>
         </div>
       </div>
       <p className="mt-3 ml-1 text-xl font-semibold">Folder</p>

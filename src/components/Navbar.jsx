@@ -21,6 +21,10 @@ export default function Navbar() {
                 Login
               </NavLink>
             </li>
+         
+            <li className="flex">
+                <label for="my-modal-3"  className="flex items-center cursor-pointer mylink">Register</label>
+            </li>
             <li className="flex">
               <NavLink
                 rel="noopener noreferrer"
@@ -30,9 +34,6 @@ export default function Navbar() {
               >
                 About
               </NavLink>
-            </li>
-            <li className="flex">
-                <label for="my-modal-3"  className="flex items-center cursor-pointer mylink">Register</label>
             </li>
           </ul>
         </div>

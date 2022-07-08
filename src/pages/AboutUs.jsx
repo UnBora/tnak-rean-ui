@@ -245,11 +245,11 @@ export default function AboutUs() {
                   </h1>
 
                   <p className="mx-2 mt-2 text-myorange text-md">
-                    "It's good but not enjoy.
+                    "It's good but not enjoy. I don't know is not the answer."
                   </p>
-                  <p className="mx-2 text-myorange text-md">
+                  {/* <p className="mx-2 text-myorange text-md">
                     and remember, I don't know is not the answer."
-                  </p>
+                  </p> */}
 
                   <div className="flex justify-center mt-5">
                     <a

@@ -1,8 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { createClasses } from "../../service/classesService";
 import { createClass } from "../swal/Success";
+import { create } from "../../service/classesService";
+import { faPersonWalkingDashedLineArrowRight } from "@fortawesome/free-solid-svg-icons";
+
 export default function CreateClass() {
+
+  const [className, setClassName] = useState("");
+  const [imgUrl,setImgUrl] = useState([])
+  const [imgfile, uploadimg] = useState([])
+
+  console.log(className);
+
+  const imgFilehandler = (e) => {
+    if (e.target.files.length !== 0) {
+      // uploadimg(imgfile => [...imgfile, URL.createObjectURL(e.target.files[0])])
+      setImgUrl(URL.createObjectURL(e.target.files[0]));
+    }
+  }
+  
+  const handleCreateClass = (e) => {
+    console.log(e.target);
+    create(className, imgUrl).then(createClass());
+  };
 
   return (
     <div>
@@ -23,10 +44,14 @@ export default function CreateClass() {
                   {/* Name class */}
                   <div className="col-span-full">
                     <div className="col-span-full sm:col-span-3">
-                      <label for="classname" className="-mt-5 text-lg font-medium">
+                      <label
+                        for="classname"
+                        className="-mt-5 text-lg font-medium"
+                      >
                         Class name <span className="text-red-600 ">*</span>
                       </label>
                       <input
+                        onChange={e=>setClassName(e.target.value)}
                         id="classname"
                         type="text"
                         placeholder="Enter class name"
@@ -60,7 +85,7 @@ export default function CreateClass() {
                             <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
                           </svg>
                           <span className="text-sm leading-normal">Image</span>
-                          <input type="file" className="hidden" />
+                          <input type="file" className="hidden" onChange={e=>imgFilehandler(e)}/>
                         </label>
                         {/* <input type="file" class="block w-full text-sm text-slate-500
       file:mr-4 file:py-2 file:px-4
@@ -85,7 +110,7 @@ export default function CreateClass() {
             <div className="flex justify-center mt-2 space-x-4">
               <label
                 for="my-modal-3"
-                onClick={() => createClass()}
+                onClick={(e) => handleCreateClass(e)}
                 className="px-4 border-none rounded-full btn btn-sm bg-mygreen hover:bg-myhovergreen"
               >
                 Create
