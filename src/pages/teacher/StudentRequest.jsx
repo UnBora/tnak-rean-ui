@@ -38,7 +38,7 @@ export const StudentRequest = () => {
                   <label tabindex="0" className="flex m-1 space-x-4">
                     <div className="avatar ">
                       <div className="w-10 rounded-full">
-                        <img src="https://api.lorem.space/image/face?hash=92310" />
+                        <img src={index.img!==null?index.img:"https://www.cmcaindia.org/wp-content/uploads/2015/11/default-profile-picture-gmail-2.png"} />
                       </div>
                     </div>
                   </label>
@@ -46,7 +46,8 @@ export const StudentRequest = () => {
                     tabindex="0"
                     className="p-1 dropdown-content mt-9 rounded-box "
                   >
-                    <ProfileCard />
+                    
+                    <ProfileCard  />
                   </div>
                 </div>
                 <p className="font-medium">{index.name}</p>
