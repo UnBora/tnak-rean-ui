@@ -9,6 +9,7 @@ import { fetchScheduleStudent } from "../../service/scheduleService";
 import NavbarT from "../../components/NavbarT";
 import { fetchUpCommingWork } from "../../service/student/studentClassWorkService";
 import { getCurrentUser } from "../../service/authService";
+import StudentNavBar from "../../components/StudentNavbar";
 
 function StuIndex() {
   const [date, setDate] = useState(new Date());
@@ -25,9 +26,8 @@ function StuIndex() {
   console.log();
   return (
     <div>
-      <NavbarT />
+      <StudentNavBar/>
       <div className=" mx-100px md:flex">
-        {" "}
         <div className="mt-6 ">
           <div className="max-w-md space-y-3">
             <div className="p-2 rounded-lg bg-smoke h-52">

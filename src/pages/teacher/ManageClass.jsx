@@ -34,12 +34,13 @@ export default function ManageClass() {
   return (
     <div>
       <NavbarT />
-      <div className="flex mx-100px">
+      <div className="flex mb-56 mx-100px">
         <div className="bg-white ">
           <div className="flex sm:flex-row ">
             <div className="w-72">
               <div className="flex items-center justify-start mt-10">
                 <span className="text-2xl font-bold text-black">{classFilter[0]?.className}</span>
+                <span className="ml-2 text-2xl font-bold text-black">Class</span>
               </div>
               <p className="mt-2 myhr"></p>
               <nav className="mt-8 ">

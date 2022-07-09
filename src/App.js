@@ -25,6 +25,7 @@ import OneSignal from "react-onesignal";
 import { useEffect, useState } from "react";
 import Login from "./pages/authentication/Login";
 import { getCurrentUser } from "./service/authService";
+import ListGradeStudent from "./pages/teacher/ListGradeStudent";
 
 function App() {
   const user = getCurrentUser;
@@ -41,6 +42,7 @@ function App() {
   return (
     <div>
       <Routes>
+      <Route path="/grade" element={<ListGradeStudent/>}></Route>
       <Route path="/" element={<Login/>}/>
         {/* <Route path="/register" element={<Register />} /> */}
         <Route path="/about" element={<AboutUs />} />
@@ -52,7 +54,8 @@ function App() {
         <Route path="/classroom/:id" element={<ManageClass />}>
           <Route path="students" element={<AllStudent />}></Route>
           <Route path="requests" element={<StudentRequest />}></Route>
-          <Route path="classworks" element={<ManageClasswork />}></Route>
+          <Route path="classworks" element={<ManageClasswork />}>
+          </Route>
           <Route path="courses" element={<ManageCourse />}></Route>
           <Route path="results" element={<ResultList />}></Route>
         </Route>

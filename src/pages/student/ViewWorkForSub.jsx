@@ -40,7 +40,6 @@ export default function ViewWorkForSub() {
             <div className="grid grid-cols-3 mt-5 ml-12">
               <div className="col-span-2">
                 <p>
-                  {" "}
                   Hello every one, I'm Kimhab from PP class boyloysloy no Smoke
                   Zinzin
                 </p>

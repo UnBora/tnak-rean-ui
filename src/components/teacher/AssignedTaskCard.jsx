@@ -70,11 +70,11 @@ export default function AssignedTaskCard({ data }) {
       </div>
       <div className="flex mt-auto">
         <Link
-          to="/work-submit"
+          to="/grade"
           type="link"
           className="px-4 py-1 text-base text-center text-white shadow-md bg-mygreen font-regular rounded-xl h-max"
         >
-          View
+          Grade
         </Link>
         <div
           className="mt-2 ml-40 text-sm underline font-regular dropdown dropdown-right"
