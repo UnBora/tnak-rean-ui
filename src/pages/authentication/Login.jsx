@@ -31,7 +31,7 @@ export default function Login() {
           );
           navigate("/teacher", { replace: true });
         } else if (u.role[0] === "Student") {
-          navigate("/stu-index", { replace: true });
+          navigate("/student", { replace: true });
         }
         try {
           dispatch(getUserSlice(u));

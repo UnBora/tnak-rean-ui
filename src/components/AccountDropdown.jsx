@@ -19,7 +19,11 @@ export default function AccountDropdown({data}) {
         <div className="m-1 space-x-2 avatar">
           <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-1 ">
             <img
-              src="https://api.lorem.space/image/face?hash=3174"
+              src={
+                data.img !== null
+                  ? data.img
+                  : "https://www.cmcaindia.org/wp-content/uploads/2015/11/default-profile-picture-gmail-2.png"
+              }
               alt="profile"
             />
           </div>

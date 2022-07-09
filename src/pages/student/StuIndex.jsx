@@ -22,7 +22,6 @@ function StuIndex() {
       setUpComingWork(r.data);
     });
   }, []);
-  console.log();
   return (
     <div>
       <NavbarT />
