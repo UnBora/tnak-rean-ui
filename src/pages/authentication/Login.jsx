@@ -31,7 +31,7 @@ export default function Login() {
           );
           navigate("/teacher", { replace: true });
         } else if (u.role[0] === "Student") {
-          navigate("/stu-index", { replace: true });
+          navigate("/student", { replace: true });
         }
         try {
           dispatch(getUserSlice(u));
@@ -73,8 +73,8 @@ export default function Login() {
                 <span className="text-myorange">Rean</span>
               </p>
             </div>
-            <div className="pb-6 lg:pt-12 md:pt-3 sm:pt-4">
-              <p className="leading-8 text-black sm:text-md md:text-lg lg:text-Quote">
+            <div className="pb-6 leading-8 lg:pt-12 md:pt-3 sm:pt-4">
+              <p className="text-black sm:text-md md:text-lg lg:text-Quote">
                 “Education is the passport to the future, for tomorrow belongs
                 to those who prepare for it today.”
               </p>

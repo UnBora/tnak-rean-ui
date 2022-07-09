@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { BsPerson, BsPersonX } from "react-icons/bs";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { BiTrashAlt } from "react-icons/bi";
 import { Link, NavLink, Outlet } from "react-router-dom";
 
 export default function AccountSetting() {
+  const [isActive, setIsActive] = useState(1);
   return (
     <div class="mx-36 mt-9 mb-40">
       <div class="">
@@ -44,9 +45,19 @@ export default function AccountSetting() {
           </div>
           <nav className="mt-8">
             <NavLink
-              className="flex items-center p-2 my-1 transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 focus:bg-gray-200"
+             onClick={() => {
+                      setIsActive(1);
+                    }}
               as={Link}
               to="/setting/account"
+              className={({ isActive }) =>
+                      [
+                        "flex items-center p-2 my-1 transition-colors duration-200 rounded-lg ",
+                        isActive
+                          ? " text-white shadow-lg w-full bg-mygreen"
+                          : null,
+                      ]
+                  }
             >
               <BsPerson className="text-lg" />
               <span className="mx-4 text-lg font-normal">Account</span>
@@ -54,18 +65,38 @@ export default function AccountSetting() {
             </NavLink>
 
             <NavLink
-              className="flex items-center p-2 my-1 text-gray-600 transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 "
+               onClick={() => {
+                      setIsActive(1);
+                    }}
               as={Link}
               to="/setting/change-password"
+              className={({ isActive }) =>
+                      [
+                        "flex items-center p-2 my-1 transition-colors duration-200 rounded-lg ",
+                        isActive
+                          ? " text-white shadow-lg w-full bg-mygreen"
+                          : null,
+                      ]
+                  }
             >
               <RiLockPasswordLine />
               <span className="mx-4 text-lg font-normal">Password</span>
               <span className="flex-grow text-right"></span>
             </NavLink>
             <NavLink
-              className="flex items-center p-2 text-gray-800 transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 "
+             onClick={() => {
+                      setIsActive(1);
+                    }}
               as={Link}
               to="/setting/deactivate-account"
+              className={({ isActive }) =>
+                      [
+                        "flex items-center p-2 my-1 transition-colors duration-200 rounded-lg ",
+                        isActive
+                          ? " text-white shadow-lg w-full bg-mygreen"
+                          : null,
+                      ]
+                  }
             >
               <BsPersonX />
               <span className="mx-4 text-lg font-normal">
@@ -74,9 +105,19 @@ export default function AccountSetting() {
               <span className="flex-grow text-right"></span>
             </NavLink>
             <NavLink
-              className="flex items-center p-2 text-gray-600 transition-colors duration-200 rounded-lg hover:text-gray-800 hover:bg-gray-100 "
+             onClick={() => {
+                      setIsActive(1);
+                    }}
               as={Link}
               to="/setting/delete-account"
+              className={({ isActive }) =>
+                      [
+                        "flex items-center p-2 my-1 transition-colors duration-200 rounded-lg ",
+                        isActive
+                          ? " text-white shadow-lg w-full bg-mygreen"
+                          : null,
+                      ]
+                  }
             >
               <BiTrashAlt />
               <span className="mx-4 text-lg font-normal">Delete Account</span>

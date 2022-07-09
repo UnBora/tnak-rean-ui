@@ -33,13 +33,6 @@ export default function FilesCard({data}) {
           >
             Delete
           </label>
-          {/* <li>
-              <label for="my-modal-2">Edit</label>
-            </li> */}
-
-          {/* <li className="text-red-500">
-              <label onClick={()=>{deleteClasswork()}}>Delete</label>
-            </li> */}
         </div>
       </div>
       <div className="mt-2 text-xs font-medium line-clamp-2">
