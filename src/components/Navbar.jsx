@@ -3,8 +3,15 @@ import logo from "../assets/images/logo/TnakRean.png";
 import "../App.css";
 import { Link, NavLink } from "react-router-dom";
 import Register from "./Register";
+import { useState } from "react";
 
 export default function Navbar() {
+  const current = localStorage.getItem("currentTab");
+  const [currentTab, setCurrentTab] = useState(current);
+  const handleSetCurrentTab = (tabName) => {
+    localStorage.setItem("currentTab", tabName);
+    setCurrentTab(tabName);
+  };
   return (
     <div>
       <header className="border-b border-mygray">
@@ -13,24 +20,34 @@ export default function Navbar() {
           <ul className="flex items-stretch font-semibold space-x-25px text-mygreen ">
             <li className="flex">
               <NavLink
+               onClick={() => handleSetCurrentTab("/")}
                 rel="noopener noreferrer"
                 as={Link}
                 to="/"
-                className="flex items-center mylink"
+                className={
+                  currentTab === "/"
+                    ? "flex items-center font-bold  border-b-2 border-myorange"
+                    : "flex items-center font-bold  mylink"
+                }
               >
                 Login
               </NavLink>
             </li>
          
             <li className="flex">
-                <label for="my-modal-3"  className="flex items-center cursor-pointer mylink">Register</label>
+                <label for="my-modal-3"  className="flex items-center font-bold cursor-pointer mylink">Register</label>
             </li>
             <li className="flex">
               <NavLink
+                onClick={() => handleSetCurrentTab("/about")}
                 rel="noopener noreferrer"
                 as={Link}
                 to="/about"
-                className="flex items-center mylink"
+                className={
+                  currentTab === "/about"
+                    ? "flex items-center font-bold  border-b-2 border-myorange"
+                    : "flex items-center font-bold  mylink"
+                }
               >
                 About
               </NavLink>
