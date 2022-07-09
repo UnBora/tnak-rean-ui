@@ -3,26 +3,31 @@ import { IoMdAddCircleOutline } from "react-icons/io";
 import { createClasses } from "../../service/classesService";
 import { createClass } from "../swal/Success";
 import { create } from "../../service/classesService";
+import { fecthAllClassByTeacher } from "../../service/classesService";
+import { useDispatch } from "react-redux/es/hooks/useDispatch";
 import { faPersonWalkingDashedLineArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { fetchAllClassesSlice } from "../../slices/classes/classesSlice";
 
 export default function CreateClass() {
-
   const [className, setClassName] = useState("");
-  const [imgUrl,setImgUrl] = useState([])
-  const [imgfile, uploadimg] = useState([])
+  const [imgUrl, setImgUrl] = useState([]);
+  const [imgfile, uploadimg] = useState([]);
+  const dispatch = useDispatch();
 
   console.log(className);
 
   const imgFilehandler = (e) => {
     if (e.target.files.length !== 0) {
       // uploadimg(imgfile => [...imgfile, URL.createObjectURL(e.target.files[0])])
-      setImgUrl(URL.createObjectURL(e.target.files[0]));
+      // console.log(e.target.files[0]);
+      setImgUrl(e.target.files[0]);
     }
-  }
-  
+  };
+
   const handleCreateClass = (e) => {
     console.log(e.target);
     create(className, imgUrl).then(createClass());
+    fecthAllClassByTeacher().then((r) => dispatch(fetchAllClassesSlice(r)));
   };
 
   return (
@@ -51,7 +56,7 @@ export default function CreateClass() {
                         Class name <span className="text-red-600 ">*</span>
                       </label>
                       <input
-                        onChange={e=>setClassName(e.target.value)}
+                        onChange={(e) => setClassName(e.target.value)}
                         id="classname"
                         type="text"
                         placeholder="Enter class name"
@@ -85,7 +90,11 @@ export default function CreateClass() {
                             <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
                           </svg>
                           <span className="text-sm leading-normal">Image</span>
-                          <input type="file" className="hidden" onChange={e=>imgFilehandler(e)}/>
+                          <input
+                            type="file"
+                            className="hidden"
+                            onChange={(e) => imgFilehandler(e)}
+                          />
                         </label>
                         {/* <input type="file" class="block w-full text-sm text-slate-500
       file:mr-4 file:py-2 file:px-4

@@ -1,13 +1,15 @@
+import axios from "axios";
 import { api } from "../utils/api";
+import { header } from "../utils/header";
 
-export const fetchAllClasses = async () => {
-  try {
-    let response = await api.get("class/get-by-teacherUserId");
-    return response.data;
-  } catch (error) {
-    console.log("error", error);
-  }
-};
+// export const fetchAllClasses = async () => {
+//   try {
+//     let response = await api.get("class/get-by-teacherUserId");
+//     return response.data;
+//   } catch (error) {
+//     console.log("error", error);
+//   }
+// };
 
 const classes = {
   classname: "SW2",
@@ -25,11 +27,12 @@ export const createClasses = async () => {
 
 export const fecthAllClassByTeacher = async () => {
   try {
-    let response = await api.get("class/get-by-teacherUserId", {
+    let response = await api.get("classroom/get-class-by-classroom-id", {
       params: {
-        classroom_id: 1,
+        classroomId: 1,
       },
     });
+    console.log('asdasdasdasd   ',response.data.data);
     return response.data;
   } catch (error) {
     console.log("error", error);
@@ -37,21 +40,30 @@ export const fecthAllClassByTeacher = async () => {
 };
 // create class
 export const create = async (className, image) => {
-  // let formData = new FormData();
-  // formData.append('files', image);
-  console.log(image);
-
-  api
-    .post("/upload", image, {})
-    .then((r) => console.log(r));
-
-  const data = {
-    className: className,
-    image: "",
+  let formData = new FormData();
+  formData.append("file", image);
+  const file = image;
+  const config = {
+    headers: { "content-type": "multipart/form-data" },
   };
 
+  // console.log(formData);
+
+  let re = await api.post("/upload/one", formData, config);
+  console.log(re.data.data.name);
+
+  // .then((res) => {
+  //   console.log(res + "this is data after api call");
+  // })
+  // .catch((err) => console.log(err));
+
+  let data = {
+    className: className,
+    image: re.data.data.name,
+  };
+  // console.log(data);
   try {
-    let response = await api.post("class/create-class", data, {});
+    let response = await api.post("class/create-class", data);
     return response.data;
   } catch (error) {
     console.log("error", error);
