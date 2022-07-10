@@ -36,24 +36,26 @@ export default function Register() {
   const [classes, setClass] = useState([]);
   const onSubmit = (data) => {
     console.log(data);
-    studentRegister(data)
-      .then((r) => {
-        console.log("reponse message: ", r.data);
-        if (r.data?.username === "exist") {
-          setError("userName", {
-            type: "custom",
-            message: r.responseMsg,
-          });
-        } else if (r.data?.email === "exist") {
-          setError("email", {
-            type: "custom",
-            message: r.responseMsg,
-          });
-        }
-      })
-      .then(() => {
+    studentRegister(data).then((r) => {
+      console.log("reponse message: ", r.data);
+      if (r.data?.username === "exist") {
+        setError("userName", {
+          type: "custom",
+          message: r.responseMsg,
+        });
+      } else if (r.data?.email === "exist") {
+        setError("email", {
+          type: "custom",
+          message: r.responseMsg,
+        });
+      }
+
+      if (r.responseCode === 200) {
         swal("register successfully", "", "success");
-      });
+      }else{
+        
+      }
+    });
   };
 
   useEffect(() => {
