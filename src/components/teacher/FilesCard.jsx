@@ -27,7 +27,7 @@ export default function FilesCard({data}) {
         </label>
         <div
           tabindex="0"
-          class="w-24 text-sm font-medium shadow w-z-20 dropdown-content menu bg-base-100 rounded-box"
+          className="w-24 text-sm font-medium shadow w-z-20 dropdown-content menu bg-base-100 rounded-box"
         >
           <label
             for="my-modal-edit-file"

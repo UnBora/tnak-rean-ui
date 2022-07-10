@@ -28,16 +28,16 @@ const ResultList = () => {
       {/* <NavbarT/> */}
       <div className="flex items-center space-x-3">
         <div className="avatar">
-          <div className="w-10 h-10 rounded-full mask mask-squircle bg-mygreen">
-            <BsFileEarmarkBarGraph className="flex m-auto mt-3 text-white" />
+          <div className="w-10 h-10 rounded-full bg-mygreen">
+            <BsFileEarmarkBarGraph className="m-auto mt-3 text-white" />
           </div>
         </div>
         <div>
-          <div className="text-2xl font-bold ">Result</div>
+          <div className="mb-3 text-2xl font-semibold">Result</div>
         </div>
       </div>
       <select
-        className="w-2/3 px-4 py-2 mt-5 text-lg font-medium leading-tight border rounded-md shadow-md border-mygreen focus:ring-mygreen focus:outline-none focus:bg-white focus:border-mygreen"
+        className="w-1/4 px-4 py-2 mt-5 text-lg font-medium leading-tight border rounded-md shadow-md border-mygreen focus:ring-mygreen focus:outline-none focus:bg-white focus:border-mygreen"
         onChange={(e) => {
           console.log(e.target);
           fetchResult(id, e.target.value).then((r) => {
@@ -45,31 +45,31 @@ const ResultList = () => {
           });
         }}
       >
-        <option disabled selected>
+        {/* <option disabled selected>
           Classwork
-        </option>
+        </option> */}
         {classwork?.map((dataTask) => {
           return <option value={dataTask.material_id}> {dataTask.title}</option>;
         })}
       </select>
       <div className="mt-5 overflow-x-auto shadow-md ">
-        <table className="table ">
+        <table className="table w-full">
           {/* <!-- head --> */}
           <thead>
-            <tr>
-              <th></th>
-              <th>Name</th>
-              <th>Gender</th>
-              <th>Point</th>
-              <th>Status</th>
+            <tr className="hover">
+              {/* <th></th> */}
+              <th className="text-base">Name</th>
+              <th className="text-base">Gender</th>
+              <th className="text-base">Point</th>
+              <th className="text-base">Status</th>
             </tr>
           </thead>
           <tbody>
             {/* <!-- row 1 --> */}
             {result?.map((item) => {
               return (
-                <tr className="hover">
-                  <th>1</th>
+                <tr className="cursor-default hover">
+                  {/* <th>1</th> */}
                   <td>{item.name}</td>
                   <td>{item.gender}</td>
                   <td>{item.student_score}</td>

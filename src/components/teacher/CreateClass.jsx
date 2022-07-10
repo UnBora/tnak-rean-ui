@@ -80,7 +80,7 @@ export default function CreateClass() {
                     </select> */}
                     <div className="flex justify-between mt-5">
                       <div>
-                        <label className="flex flex-col items-center px-5 tracking-wide uppercase border rounded-lg shadow-lg cursor-pointer border-myorange">
+                        {/* <label className="flex flex-col items-center px-5 tracking-wide uppercase border rounded-lg shadow-lg cursor-pointer border-myorange">
                           <svg
                             className="w-5 h-5"
                             fill="currentColor"
@@ -95,14 +95,8 @@ export default function CreateClass() {
                             className="hidden"
                             onChange={(e) => imgFilehandler(e)}
                           />
-                        </label>
-                        {/* <input type="file" class="block w-full text-sm text-slate-500
-      file:mr-4 file:py-2 file:px-4
-      file:rounded-full file:border-0
-      file:text-sm file:font-semibold
-      file:bg-violet-50 file:text-violet-700
-      hover:file:bg-violet-100
-    "/> */}
+                        </label> */}
+                        <input type="file" className="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-mygreen hover:file:bg-violet-100 "/>
                       </div>
                       {/* <label
                         for="my-modal-5"
