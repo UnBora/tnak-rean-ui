@@ -17,20 +17,9 @@ const AllStudent = () => {
     });
   }, []);
  // POST PUT PATCH DELETE
- const { mutateAsync } = useMutation(
-  ["removeStudent"],
-  () => removeStudent(),
-  {
-    onSuccess() {
-      queryClient.invalidateQueries(["fethingStudent"]);
-    },
-  }
-);
-const dataList = useMemo(() => studentData?.data, [studentData?.data]);
+
 const [accept, setAccept] = useState("Accept");
-function onRemoveStudent() {
-  mutateAsync();
-}
+
 
 
   return (
@@ -98,7 +87,7 @@ function onRemoveStudent() {
                     <button
                       className="gap-2 text-xs bg-red-500 border-none btn btn-sm hover:bg-red-600"
                       onClick={() => {
-                        onRemoveStudent();
+                        
                       }}
                     >
                       Remove
