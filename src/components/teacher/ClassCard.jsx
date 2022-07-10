@@ -46,7 +46,7 @@ export default function ClassCard({ data }) {
       >
         <img
         
-          src={dataClass.image!==null?dataClass.image:"https://i.pinimg.com/564x/ef/78/48/ef78480671d8a6810281ef6f8ee76d17.jpg"}
+          src={dataClass.img!==null?dataClass.img:"https://i.pinimg.com/564x/ef/78/48/ef78480671d8a6810281ef6f8ee76d17.jpg"}
           className="absolute z-0 object-cover w-full h-full"
           alt="Class"
         />
@@ -56,7 +56,7 @@ export default function ClassCard({ data }) {
               {dataClass.className}
             </h1>
             <div className="flex text-white">
-              <span className="pr-2">{dataClass.totalStudentInClass}</span>
+              <span className="pr-2">{dataClass.allStudent}</span>
               <ImUsers className="mt-1" />
             </div>
           </div>

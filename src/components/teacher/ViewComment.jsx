@@ -1,5 +1,4 @@
 import React from "react";
-import moment from 'react-moment';
 
 export default function ViewComment({ comment }) {
 

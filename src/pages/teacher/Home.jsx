@@ -18,14 +18,14 @@ export default function Home() {
   const [className, setclassName] = useState({});
   const dispatch = useDispatch();
 
-  fetchAllClasses().then(
-    (r) => console.log("response in Home : ", r),
-    (r) => console.log("Error : ", r)
-  );
+
   const scheduleTeacher = useSelector((state) => state.scheduleTeacher.value);
   const [daySelect, setdaySelect] = useState();
+
+  
   useEffect(() => {
     fecthAllClassByTeacher().then((r) => dispatch(fetchAllClassesSlice(r)));
+  
     fetchScheduleTeacher(1, 1).then((r) =>
       dispatch(fetchScheduleClassSlice(r))
     );   
