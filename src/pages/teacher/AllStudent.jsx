@@ -16,6 +16,21 @@ const AllStudent = () => {
       console.log("all: ", r);
     });
   }, []);
+ // POST PUT PATCH DELETE
+ const { mutateAsync } = useMutation(
+  ["removeStudent"],
+  () => removeStudent(),
+  {
+    onSuccess() {
+      queryClient.invalidateQueries(["fethingStudent"]);
+    },
+  }
+);
+const dataList = useMemo(() => studentData?.data, [studentData?.data]);
+const [accept, setAccept] = useState("Accept");
+function onRemoveStudent() {
+  mutateAsync();
+}
 
 
   return (
@@ -83,7 +98,7 @@ const AllStudent = () => {
                     <button
                       className="gap-2 text-xs bg-red-500 border-none btn btn-sm hover:bg-red-600"
                       onClick={() => {
-                        removeStudent();
+                        onRemoveStudent();
                       }}
                     >
                       Remove

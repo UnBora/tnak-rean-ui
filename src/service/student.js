@@ -52,10 +52,11 @@ export const fetchStudentRequest = async (classroomId, classId) => {
 
     let data = {
       user_id: user_id,
-      class_id:class_id
+      class_id:class_id,
+      classroom_id:1
     }
-    let response = await api.get(
-      "teacher/teacher-remove-student-by-id"
+    let response = await api.post(
+      "teacher/teacher-remove-student-by-id",data
     );
   
   
