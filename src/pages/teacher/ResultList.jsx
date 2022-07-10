@@ -10,7 +10,6 @@ import { fetchAllclasswork } from "../../service/classMaterial";
 const ResultList = () => {
   const [classwork, setClasswork] = useState([]);
   const [result, setResult] = useState([]);
-  const [selectValue, setSelectValue] = useState([]);
   const { id } = useParams();
   useEffect(() => {
     fetchResult(id, 1).then((r) => {
@@ -52,8 +51,6 @@ const ResultList = () => {
         {classwork?.map((dataTask) => {
           return <option value={dataTask.material_id}> {dataTask.title}</option>;
         })}
-
-        {/* <option>Homework4</option> */}
       </select>
       <div className="mt-5 overflow-x-auto shadow-md ">
         <table className="table ">
@@ -82,17 +79,6 @@ const ResultList = () => {
                 </tr>
               );
             })}
-
-            {/* <!-- row 2 --> */}
-            {/* <tr className="hover">
-              <th>2</th>
-              <td>Hart Hagerty</td>
-              <td>Female</td>
-              <td>90</td>
-              <td>
-                <i>handed in late</i>
-              </td>
-            </tr> */}
           </tbody>
         </table>
         <div className="flex justify-end ">

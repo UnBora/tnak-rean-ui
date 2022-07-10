@@ -33,7 +33,6 @@ export default function Navbar() {
                 Login
               </NavLink>
             </li>
-         
             <li className="flex">
                 <label for="my-modal-3"  className="flex items-center font-bold cursor-pointer mylink">Register</label>
             </li>

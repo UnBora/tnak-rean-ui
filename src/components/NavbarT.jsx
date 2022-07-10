@@ -25,7 +25,7 @@ const NavbarT = ({ userData }) => {
         <div className="flex justify-between mx-100px h-mynav">
           <NavLink
             as={Link}
-            to="/"
+            to="/teacher"
             rel="noopener noreferrer"
             aria-label="Back to homepage"
             className=""
