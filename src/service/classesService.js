@@ -70,12 +70,3 @@ export const create = async (className, image) => {
   }
 };
 
-export const createClasss = async (createClass) => {
-  try {
-    let response = await api.post("class/create-class", createClass);
-    console.log(response.data);
-    return response.data;
-  } catch (error) {
-    console.log(error);
-  }
-};
