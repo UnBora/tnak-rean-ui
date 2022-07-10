@@ -30,6 +30,8 @@ export default function Home() {
       dispatch(fetchScheduleClassSlice(r))
     );   
   }, []);
+
+  
   console.log("test: ", scheduleTeacher);
   return (
     <div>

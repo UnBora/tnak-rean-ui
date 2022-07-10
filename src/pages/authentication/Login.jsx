@@ -24,6 +24,7 @@ export default function Login() {
 
     login(user)
       .then((u) => {
+        console.log(u);
         if (u.role[0] === "Teacher") {
           console.log(u.role[0]);
           console.log(

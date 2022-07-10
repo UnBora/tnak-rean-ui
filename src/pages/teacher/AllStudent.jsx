@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { FaUserFriends } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { useParams } from "react-router-dom";
-import NavbarT from "../../components/NavbarT";
+import { useQuery } from "react-query";
 import { removeStudent } from "../../components/swal/Delete";
 import { fetchAllstudent } from "../../service/student";
 
@@ -16,6 +16,7 @@ const AllStudent = () => {
       console.log("all: ", r);
     });
   }, []);
+
 
   return (
     <div>

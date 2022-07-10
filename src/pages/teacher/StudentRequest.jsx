@@ -4,24 +4,38 @@ import { FaUser } from "react-icons/fa";
 import { declineStu } from "../../components/swal/Delete";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { fetchStudentRequest } from "../../service/student";
+import { acceptStudent, fetchStudentRequest } from "../../service/student";
 import NavbarT from "../../components/NavbarT";
+import { useQuery, useMutation, useQueryClient } from "react-query";
+import { useMemo } from "react";
 export const StudentRequest = () => {
-  const [studentRequest, setStudentRequest] = useState([]);
   const { id } = useParams();
 
-  useEffect(() => {
-    fetchStudentRequest(1, id).then((r) => {
-      setStudentRequest(r.data);
-      console.log("stu request", r);
-    });
-  }, []);
-  console.log(id);
-  const [accept, setAccept] = useState("Accept");
+  const queryClient = useQueryClient();
+  // GET
+  const {
+    data: studentData,
+    isFetched,
+    isLoading,
+    refetch,
+  } = useQuery(["fethingStudent", id], () => fetchStudentRequest(1, id));
 
-  function acceptClick() {
-    setAccept("Accepted");
+  // POST PUT PATCH DELETE
+  const { mutateAsync } = useMutation(
+    ["acceptStudentRequest"],
+    (studentId) => acceptStudent(studentId),
+    {
+      onSuccess() {
+        queryClient.invalidateQueries(["fethingStudent"]);
+      },
+    }
+  );
+  const dataList = useMemo(() => studentData?.data, [studentData?.data]);
+  const [accept, setAccept] = useState("Accept");
+  function onAcceptSutdent(studentId) {
+    mutateAsync(studentId);
   }
+
   return (
     <div>
       {/* <NavbarT/> */}
@@ -31,75 +45,83 @@ export const StudentRequest = () => {
         </div>
         <p className="mb-3 text-2xl font-semibold">Student request</p>
       </div>
-      {studentRequest?.map((index) => {
-        return (
-          <div>
-            <div className="my-4 shadow-lg alert">
-              <div>
-                <div className="dropdown dropdown-right dropdown-hover">
-                  <label tabindex="0" className="flex m-1 space-x-4">
-                    <div className="avatar ">
-                      <div className="w-10 rounded-full">
-                        <img
-                          src={
-                            index.img !== null
-                              ? index.img
-                              : "https://www.cmcaindia.org/wp-content/uploads/2015/11/default-profile-picture-gmail-2.png"
-                          }
-                        />
+      {isFetched &&
+        dataList.length > 0 &&
+        dataList?.map((index) => {
+          return (
+            <div key={index.user_id}>
+              <div className="my-4 shadow-lg alert">
+                <div>
+                  <div className="dropdown dropdown-right dropdown-hover">
+                    <label tabindex="0" className="flex m-1 space-x-4">
+                      <div className="avatar ">
+                        <div className="w-10 rounded-full">
+                          <img
+                            src={
+                              index.img !== null
+                                ? index.img
+                                : "https://www.cmcaindia.org/wp-content/uploads/2015/11/default-profile-picture-gmail-2.png"
+                            }
+                          />
+                        </div>
                       </div>
-                    </div>
-                  </label>
-                  <div
-                    tabindex="0"
-                    className="p-1 dropdown-content mt-9 rounded-box "
-                  >
-                    <div className="z-50 shadow-xl card w-60 bg-smoke">
-                      <div className="card-body">
-                        <div className="avatar ">
-                          <div className="w-16 m-auto border-2 rounded-full border-mygreen ">
-                            <img
-                              src={
-                                index.img !== null
-                                  ? index.img
-                                  : "https://www.cmcaindia.org/wp-content/uploads/2015/11/default-profile-picture-gmail-2.png"
-                              }
-                            />
+                    </label>
+                    <div
+                      tabindex="0"
+                      className="p-1 dropdown-content mt-9 rounded-box "
+                    >
+                      <div className="z-50 shadow-xl card w-60 bg-smoke">
+                        <div className="card-body">
+                          <div className="avatar ">
+                            <div className="w-16 m-auto border-2 rounded-full border-mygreen ">
+                              <img
+                                src={
+                                  index.img !== null
+                                    ? index.img
+                                    : "https://www.cmcaindia.org/wp-content/uploads/2015/11/default-profile-picture-gmail-2.png"
+                                }
+                              />
+                            </div>
                           </div>
-                        </div>
-                        <div className="text-center ">
-                          <p className="font-semibold">{index.name}</p>
-                          <p className="text-xs">@Dayan_konbarang</p>
-                        </div>
-                        <div className="text-xs">
-                          <p className="font-semibold">Contact</p>
-                          <p>Male</p>
-                          <p>danyan@gmail.com</p>
+                          <div className="text-center ">
+                            <p className="font-semibold">{index.name}</p>
+                            <p className="text-xs">@Dayan_konbarang</p>
+                          </div>
+                          <div className="text-xs">
+                            <p className="font-semibold">Contact</p>
+                            <p>Male</p>
+                            <p>danyan@gmail.com</p>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
+                  <p className="font-medium">{index.name}</p>
+                  <span>request to join</span>{" "}
+                  <span>{index.class_name} classroom</span>
                 </div>
-                <p className="font-medium">{index.name}</p>
-                <span>request to join</span> <span>{index.class_name} classroom</span>
-              </div>
-              <div className="flex-none">
-                <button className="border-none btn btn-sm bg-mygreen hover:bg-myhovergreen">
-                  {accept}
-                </button>
-                <button
-                  className="border-none btn btn-sm bg-myorange hover:bg-myhoverorange"
-                  onClick={() => {
-                    declineStu();
-                  }}
-                >
-                  Decline
-                </button>
+                <div className="flex-none">
+                  <button
+                    onClick={() => {
+                      onAcceptSutdent(index.user_id);
+                    }}
+                    className="border-none btn btn-sm bg-mygreen hover:bg-myhovergreen"
+                  >
+                    {accept}
+                  </button>
+                  <button
+                    className="border-none btn btn-sm bg-myorange hover:bg-myhoverorange"
+                    onClick={() => {
+                      declineStu();
+                    }}
+                  >
+                    Decline
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
     </div>
   );
 };

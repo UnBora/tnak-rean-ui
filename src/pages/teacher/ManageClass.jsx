@@ -20,6 +20,7 @@ export default function ManageClass() {
     console.log(e.classId);
     return e.classId == id;
   });
+  
   // console.log("the classname is : ", classFilter[0]?.className);
 
   useEffect(() => {
@@ -39,7 +40,7 @@ export default function ManageClass() {
           <div className="flex sm:flex-row ">
             <div className="w-72">
               <div className="flex items-center justify-start mt-10">
-                <span className="text-2xl font-bold text-black">{classFilter[0]?.className} classroom</span>
+               {classFilter&&classFilter.length>0&& <span className="text-2xl font-bold text-black">{classFilter[0]?.className} classroom</span>}
               </div>
               <p className="mt-2 myhr"></p>
               <nav className="mt-8 ">
