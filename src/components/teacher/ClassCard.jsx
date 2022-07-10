@@ -37,7 +37,7 @@ export default function ClassCard({ data }) {
       <Link
         to={{
           // pathname: "/classroom/students",
-          pathname: `/classroom/${dataClass.classId}/students`,
+          pathname: `/classroom/${dataClass.id}/students`,
           state: {
             studentRequest: dataClass,
           },

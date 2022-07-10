@@ -48,4 +48,15 @@ export const fetchStudentRequest = async (classroomId, classId) => {
   };
 
   //remove student in class
+  export const removeStudent = async (user_id,class_id) => {
+
+    let data = {
+      user_id: user_id,
+      class_id:class_id
+    }
+    let response = await api.get(
+      "teacher/teacher-remove-student-by-id"
+    );
   
+  
+  }
