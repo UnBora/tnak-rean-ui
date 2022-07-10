@@ -40,7 +40,7 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <div className="App">
       <Routes>
       <Route path="/grade" element={<ListGradeStudent/>}></Route>
       <Route path="/" element={<Login/>}/>

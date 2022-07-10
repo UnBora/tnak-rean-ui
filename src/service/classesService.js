@@ -32,7 +32,7 @@ export const fecthAllClassByTeacher = async () => {
         classroomId: 1,
       },
     });
-    console.log('asdasdasdasd   ',response.data.data);
+    console.log("get class   ", response.data.data);
     return response.data;
   } catch (error) {
     console.log("error", error);
@@ -52,11 +52,6 @@ export const create = async (className, image) => {
   let re = await api.post("/upload/one", formData, config);
   console.log(re.data.data.name);
 
-  // .then((res) => {
-  //   console.log(res + "this is data after api call");
-  // })
-  // .catch((err) => console.log(err));
-
   let data = {
     className: className,
     image: re.data.data.name,
@@ -70,3 +65,20 @@ export const create = async (className, image) => {
   }
 };
 
+export const fetchSelectClass = async () => {
+  try {
+    let response = await api.get("classroom/get-select-class-by-classroom-id", {
+      params: {
+        classroomId: 1,
+      },
+    });
+    console.log("get class   ", response.data.data);
+    return response.data;
+  } catch (error) {
+    console.log("error", error);
+  }
+};
+
+export const getAllClass = async () => {
+  let response = await api.get("/");
+};
