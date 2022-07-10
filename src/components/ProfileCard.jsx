@@ -6,7 +6,7 @@ export default function ProfileCard() {
       <div className="card-body">
         <div className="avatar ">
           <div className="w-16 m-auto border-2 rounded-full border-mygreen ">
-            <img src="https://api.lorem.space/image/face?hash=92310" />
+          <img src="https://www.cmcaindia.org/wp-content/uploads/2015/11/default-profile-picture-gmail-2.png" />
           </div>
         </div>
         <div className="text-center ">

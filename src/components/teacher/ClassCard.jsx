@@ -13,48 +13,56 @@ export default function ClassCard({ data }) {
 
   return (
     <div className="text-black">
-        <div className="flex justify-end">
+      <div className="flex justify-end">
+        <div
+          tabindex="0"
+          className="absolute z-10 flex m-5 border rounded-full cursor-pointer dropdown dropdown-right w-7 h-7 text-myygreen "
+        >
+          <label className="mt-1 ml-1 cursor-pointer bg-none">
+            <FiMoreVertical className="text-white" />
+          </label>
           <div
             tabindex="0"
-            className="absolute z-10 flex m-5 border rounded-full cursor-pointer dropdown dropdown-right w-7 h-7 text-myygreen "
+            className="w-24 text-sm font-medium shadow w-z-20 dropdown-content menu bg-base-100 rounded-box"
           >
-            <label className="mt-1 ml-1 cursor-pointer bg-none">
-              <FiMoreVertical className="text-white"/>
+            <label className="py-2 pl-4 cursor-pointer hover:bg-gray-200 hover:rounded-t-lg">
+              <label for="my-modal-2" className="cursor-pointer">Edit</label>
             </label>
-            <div
-              tabindex="0"
-              className="w-24 text-sm font-medium shadow w-z-20 dropdown-content menu bg-base-100 rounded-box"
-            >
-              <p className="py-2 pl-4">
-                <label for="my-modal-2">Edit</label>
-              </p>
-              <p className="py-2 pl-4 text-red-500 border-t">
-                <button onClick={() => classDelete()}>Delete</button>
-              </p>
+            <p className="py-2 pl-4 text-red-500 border-t hover:bg-gray-200 hover:rounded-b-lg">
+              <button onClick={() => classDelete()}>Delete</button>
+            </p>
+          </div>
+        </div>
+      </div>
+      <Link
+        to={{
+          // pathname: "/classroom/students",
+          pathname: `/classroom/${dataClass.classId}/students`,
+          state: {
+            studentRequest: dataClass,
+          },
+        }}
+        className="w-48 h-32 m-2 shadow-2xl card md:w-72 md:h-48"
+      >
+        <img
+        
+          src={dataClass.img!==null?dataClass.img:"https://i.pinimg.com/564x/ef/78/48/ef78480671d8a6810281ef6f8ee76d17.jpg"}
+          className="absolute z-0 object-cover w-full h-full"
+          alt="Class"
+        />
+        <div className="z-20 h-10 mt-auto bg-black md:h-16 bg-opacity-30">
+          <div className="flex justify-between px-1 mt-2 md:px-3 md:mt-5 ">
+            <h1 className="text-lg font-medium text-white">
+              {dataClass.className}
+            </h1>
+            <div className="flex text-white">
+              <span className="pr-2">{dataClass.allStudent}</span>
+              <ImUsers className="mt-1" />
             </div>
           </div>
         </div>
-        <Link
-          to="/classroom/students"
-          className="w-48 h-32 m-2 shadow-2xl card md:w-72 md:h-48"
-        >
-          <img
-            src="https://i.pinimg.com/564x/99/e3/e5/99e3e56b1b95911f9f9d4a8e0a469312.jpg"
-            className="absolute z-0 object-cover w-full h-full" alt="Class"
-          />
-          <div className="z-20 h-10 mt-auto bg-black md:h-16 bg-opacity-30">
-            <div className="flex justify-between px-1 mt-2 md:px-3 md:mt-5 ">
-              <h1 className="text-lg font-medium text-white">
-                {dataClass.className}
-              </h1>
-              <div className="flex text-white">
-                <span className="pr-2">{dataClass.totalStudentInClass}</span>
-                <ImUsers className="mt-1" />
-              </div>
-            </div>
-          </div>
-        </Link>
-        <EditClass />
-      </div>
+      </Link>
+      <EditClass />
+    </div>
   );
 }

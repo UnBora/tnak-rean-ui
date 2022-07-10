@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { MdWork } from "react-icons/md";
 import { Link } from "react-router-dom";
 import AssignedTaskCard from "../../components/teacher/AssignedTaskCard";
@@ -11,18 +11,30 @@ import {
 import CreateFolder from "../../components/teacher/CreateFolder";
 import AssignClasswork from "../../components/teacher/AssignClasswork";
 import FolderCard from "../../components/teacher/FolderCard";
+import NavbarT from "../../components/NavbarT";
+import { fetchClassworks } from "../../service/classMaterial";
 
 function AllClasswork() {
+  const [allClasswork,setallClasswork] = useState([]);
+  useEffect(() => {
+    fetchClassworks().then((r) => {
+      setallClasswork(r.data);
+    });
+    
+  }, []);
+  console.log("all classwork",allClasswork);
   return (
-    <div className="mt-10 mx-100px">
-      <div className="">
-        <div className="flex space-x-2">
-          <div className="w-8 h-8 rounded-full bg-mygreen">
-            <MdWork className="flex m-auto mt-2 text-white align-middle" />
+    <div>
+      <NavbarT />
+      <div className="mt-10 mx-100px">
+        <div className="">
+          <div className="flex space-x-2">
+            <div className="w-8 h-8 rounded-full bg-mygreen">
+              <MdWork className="flex m-auto mt-2 text-white align-middle" />
+            </div>
+            <p className="mb-3 text-2xl font-semibold">Classwork</p>
           </div>
-          <p className="mb-3 text-2xl font-semibold">Classwork</p>
-        </div>
-        {/* <div className="text-sm breadcrumbs">
+          {/* <div className="text-sm breadcrumbs">
           <ul>
             <li>
               <svg
@@ -43,66 +55,69 @@ function AllClasswork() {
           </ul>
         </div> */}
 
-        <div className="dropdown dropdown-right">
-          <label
-            tabindex="0"
-            className="px-5 my-4 ml-1 border-none rounded-full btn btn-sm bg-mygreen hover:bg-myhovergreen"
-          >
-            Create
-          </label>
-          <ul
-            tabindex="0"
-            className="p-2 shadow dropdown-content menu rounded-box w-52 bg-smoke"
-          >
-            <li>
-              <label for="my-modal-1">
-                <BsFolderPlus />
-                Folder
-              </label>
-            </li>
-            <li>
-              <label for="my-modal-2">
-                <MdOutlineHomeWork />
-                Homework
-              </label>
-            </li>
-            <li>
-              <label>
-                <MdOutlineAssignment />
-                Assignment
-              </label>
-            </li>
-            <li>
-              <Link to="#">
-                <MdOutlineQuiz />
-                Quiz
-              </Link>
-            </li>
-          </ul>
-        </div>
-        <p className="mt-3 ml-1 text-xl font-semibold">Folder</p>
-        <p className="mb-2 border-b"></p>
-        <div className="flex flex-wrap">
-          <Link to="#">
-            <FolderCard />
-          </Link>
-          <Link to="#">
-            <FolderCard />
-          </Link>
-          <Link to="#">
-            <FolderCard />
-          </Link>
-        </div>
+          <div className="dropdown dropdown-right">
+            <label
+              tabindex="0"
+              className="px-5 my-4 ml-1 border-none rounded-full btn btn-sm bg-mygreen hover:bg-myhovergreen"
+            >
+              Create
+            </label>
+            <ul
+              tabindex="0"
+              className="p-2 shadow dropdown-content menu rounded-box w-52 bg-smoke"
+            >
+              <li>
+                <label for="my-modal-1">
+                  <BsFolderPlus />
+                  Folder
+                </label>
+              </li>
+              <li>
+                <label for="my-modal-2">
+                  <MdOutlineHomeWork />
+                  Homework
+                </label>
+              </li>
+              <li>
+                <label>
+                  <MdOutlineAssignment />
+                  Assignment
+                </label>
+              </li>
+              <li>
+                <Link to="#">
+                  <MdOutlineQuiz />
+                  Quiz
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <p className="mt-3 ml-1 text-xl font-semibold">Folder</p>
+          <p className="mb-2 border-b"></p>
+          <div className="flex flex-wrap">
+            {/* <Link to="#">
+              <FolderCard />
+            </Link>
+            <Link to="#">
+              <FolderCard />
+            </Link>
+            <Link to="#">
+              <FolderCard />
+            </Link> */}
+          </div>
 
-        <p className="ml-1​​ mt-12 text-xl font-semibold">Assigned task</p>
-        <p className="mb-4 border-b"></p>
-        <div className="flex flex-wrap">
-          <AssignedTaskCard />
-          <AssignedTaskCard />
+          <p className="ml-1​​ mt-12 text-xl font-semibold">Assigned task</p>
+          <p className="mb-4 border-b"></p>
+          <div className="flex flex-wrap">
+           
+          {allClasswork?.map((index) => {
+          return <AssignedTaskCard key={index.id} data={index} />;
+        })}
+          </div>
+          {/* pop up */}
+          <CreateFolder />
+          <AssignClasswork />
         </div>
-        {/* pop up */}
-        <CreateFolder />
-        <AssignClasswork />
       </div>
     </div>
   );

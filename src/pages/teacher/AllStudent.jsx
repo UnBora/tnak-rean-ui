@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
+import { useEffect } from "react";
 import { FaUserFriends } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import { useParams } from "react-router-dom";
+import NavbarT from "../../components/NavbarT";
 import { removeStudent } from "../../components/swal/Delete";
+import { fetchAllstudent } from "../../service/student";
 
 const AllStudent = () => {
+  const [allStudent, setAllstudent] = useState([]);
+  const { id } = useParams();
+  useEffect(() => {
+    fetchAllstudent(id).then((r) => {
+      setAllstudent(r.data);
+      console.log("all: ", r);
+    });
+  }, []);
+
   return (
     <div>
+      {/* <NavbarT/> */}
       <div className="flex space-x-2">
         <div className="w-8 h-8 rounded-full bg-mygreen">
           <FaUserFriends className="flex m-auto mt-2 text-white align-middle" />
@@ -50,7 +64,6 @@ const AllStudent = () => {
           {/* <!-- head --> */}
           <thead>
             <tr>
-              <th></th>
               <th>Name</th>
               <th>Email</th>
               <th>Gender</th>
@@ -59,44 +72,26 @@ const AllStudent = () => {
           </thead>
           <tbody>
             {/* <!-- row 1 --> */}
-            <tr className="hover">
-              <th>1</th>
-              <td>Chea Phanit</td>
-              <td>chanthaamengg@gmail.com</td>
-              <td>Male</td>
-              <td className="text-right w-52">
-                <button className="gap-2 text-xs bg-red-500 border-none btn btn-sm hover:bg-red-600" onClick={()=>{removeStudent()}}>
-                  Remove
-                  <MdDelete />
-                </button>
-              </td>
-            </tr>
-            {/* <!-- row 2 --> */}
-            <tr className="hover">
-              <th>2</th>
-              <td>Hart Hagerty</td>
-              <td>Desktop Support Technician</td>
-              <td>Purple</td>
-              <td className="text-right w-52 ">
-                <button className="gap-2 text-xs bg-red-500 border-none btn btn-sm hover:bg-red-600" onClick={()=>{removeStudent()}}>
-                  Remove
-                  <MdDelete />
-                </button>
-              </td>
-            </tr>
-            {/* <!-- row 3 --> */}
-            <tr className="hover">
-              <th>3</th>
-              <td>Brice Swyre</td>
-              <td>Tax Accountant</td>
-              <td>Red</td>
-              <td className="text-right w-52 ">
-                <button className="gap-2 text-xs bg-red-500 border-none btn btn-sm hover:bg-red-600" onClick={()=>{removeStudent()}}>
-                  Remove
-                  <MdDelete />
-                </button>
-              </td>
-            </tr>
+            {allStudent?.map((item) => {
+              return (
+                <tr className="hover">
+                  <td>{item.name}</td>
+                  <td>{item.email}</td>
+                  <td>{item.gender}</td>
+                  <td className="text-right w-52">
+                    <button
+                      className="gap-2 text-xs bg-red-500 border-none btn btn-sm hover:bg-red-600"
+                      onClick={() => {
+                        removeStudent();
+                      }}
+                    >
+                      Remove
+                      <MdDelete />
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>

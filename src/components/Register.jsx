@@ -1,18 +1,72 @@
-import React from "react";
-import { FcGoogle } from "react-icons/fc";
+import React, { useRef } from "react";
 import logo from "../assets/images/logo/TnakRean2.png";
 import swal from "sweetalert";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { useEffect } from "react";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { fetchSelectClass } from "../service/classesService";
+import * as Yup from "yup";
+import { studentRegister } from "../service/authService";
+
 // import { useState } from "react";
 export default function Register() {
-  const register = () => {
-    swal("register successfully", "", "success");
+  const validationSchema = Yup.object().shape({
+    name: Yup.string()
+      .required("Name is required")
+      .min(6, "Name must be at least 6 characters")
+      .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for Name "),
+    userName: Yup.string()
+      .required("Username is required")
+      .min(4)
+      .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for Username "),
+    email: Yup.string().required("Email is required").email("Email is invalid"),
+    password: Yup.string()
+      .min(6, "Password must be at least 6 characters")
+      .required("Password is required"),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref("password"), null], "Passwords must match")
+      .required("Confirm Password is required"),
+  });
+
+  const formOptions = { resolver: yupResolver(validationSchema) };
+  const { register, handleSubmit, reset, formState, setError } =
+    useForm(formOptions);
+  const { errors } = formState;
+  const [classes, setClass] = useState([]);
+  const onSubmit = (data) => {
+    console.log(data);
+    studentRegister(data).then((r) => {
+      console.log("reponse message: ", r.data);
+      if (r.data?.username === "exist") {
+        setError("userName", {
+          type: "custom",
+          message: r.responseMsg,
+        });
+      } else if (r.data?.email === "exist") {
+        setError("email", {
+          type: "custom",
+          message: r.responseMsg,
+        });
+      }
+
+      if (r.responseCode === 200) {
+        swal("register successfully", "", "success");
+      }else{
+        
+      }
+    });
   };
+
+  useEffect(() => {
+    fetchSelectClass().then((r) => setClass(r.data));
+  }, []);
 
   return (
     <div>
       <input type="checkbox" id="my-modal-3" className="modal-toggle" />
       <div className="text-black modal">
-        <div className="flex-shrink-0 shadow-xl card bg-smoke ">
+        <div className="flex-shrink-0 mb-10 shadow-xl card bg-smoke">
           <label
             for="my-modal-3"
             className="absolute z-10 btn btn-sm btn-circle right-2 top-2"
@@ -48,23 +102,36 @@ export default function Register() {
                       Name <span className="text-red-600 ">*</span>
                     </label>
                     <input
+                      {...register("name")}
                       id="name"
                       type="name"
                       placeholder="Enter name"
-                      className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
+                      // className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
+                      className={`w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white form-check-input ${
+                        errors.acceptTerms ? "is-invalid" : ""
+                      }`}
                     />
+                    <div className="invalid-feedback">
+                      {errors.name?.message}
+                    </div>
                   </div>
+
                   {/* Username*/}
                   <div className="col-span-full sm:col-span-3">
                     <label for="username" className="text-sm font-medium">
                       Username <span className="text-red-600 ">*</span>
                     </label>
                     <input
+                      {...register("userName")}
+                      defaultValue=""
                       id="username"
                       type="username"
                       placeholder="Enter username"
                       className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen 0 focus:outline-none focus:bg-white"
                     />
+                    <div className="invalid-feedback">
+                      {errors.userName?.message}
+                    </div>
                   </div>
                   {/* Gender */}
                   <div className="col-span-full sm:col-span-3">
@@ -72,12 +139,17 @@ export default function Register() {
                       Gender <span className="text-red-600 ">*</span>
                     </label>
                     <select
+                      {...register("gender")}
                       id="gender"
                       type="text"
                       className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
                     >
-                      <option className="p-6 text-md">Male</option>
-                      <option className="p-6 text-md">Female</option>
+                      <option value="Male" className="p-6 text-md">
+                        Male
+                      </option>
+                      <option value="Female" className="p-6 text-md">
+                        Female
+                      </option>
                     </select>
                   </div>
                   {/* Email */}
@@ -86,11 +158,15 @@ export default function Register() {
                       Email <span className="text-red-600 ">*</span>
                     </label>
                     <input
+                      {...register("email")}
                       id="email"
                       type="email"
                       placeholder="Enter email"
                       className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
                     />
+                    <div className="invalid-feedback">
+                      {errors.email?.message}
+                    </div>
                   </div>
 
                   {/* Class */}
@@ -99,8 +175,6 @@ export default function Register() {
                       School <span className="text-red-600 ">*</span>
                     </label>
                     <select
-                      id="school"
-                      type="text"
                       placeholder="School"
                       className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
                     >
@@ -115,13 +189,16 @@ export default function Register() {
                       Class <span className="text-red-600 ">*</span>
                     </label>
                     <select
-                      id="username"
+                      {...register("class")}
+                      id="class"
                       type="text"
                       className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
                     >
-                      <option className="p-6 text-md">Phnom Penh</option>
-                      <option className="p-6 text-md">M11</option>
-                      <option className="p-6 text-md">SR</option>
+                      {classes?.map((index) => (
+                        <option value={index.id} className="p-6 text-md">
+                          {index.className}
+                        </option>
+                      ))}
                     </select>
                   </div>
 
@@ -131,11 +208,15 @@ export default function Register() {
                       Password <span className="text-red-600">*</span>
                     </label>
                     <input
+                      {...register("password")}
                       id="password"
                       type="password"
                       placeholder="Enter password"
                       className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
                     />
+                    <div className="invalid-feedback">
+                      {errors.password?.message}
+                    </div>
                   </div>
                   {/* cf password */}
                   <div className="col-span-full sm:col-span-3">
@@ -143,11 +224,15 @@ export default function Register() {
                       Confirm password <span className="text-red-600 ">*</span>
                     </label>
                     <input
+                      {...register("confirmPassword")}
                       id="password"
                       type="password"
                       placeholder="Confirm password"
                       className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
                     />
+                    <div className="invalid-feedback">
+                      {errors.confirmPassword?.message}
+                    </div>
                   </div>
                 </div>
               </fieldset>
@@ -157,12 +242,12 @@ export default function Register() {
                 <button
                   type="button"
                   className="py-1 space-x-2 text-lg font-semibold text-white rounded-full bg-mygreen w-350px"
-                  onClick={() => register()}
+                  onClick={handleSubmit(onSubmit)}
                 >
                   Register
                 </button>
               </div>
-              <h2 className="py-1 font-semibold text-center">Or</h2>
+              {/* <h2 className="py-1 font-semibold text-center">Or</h2>
               <div className="flex justify-center font-medium">
                 <button
                   aria-label="Login with Google"
@@ -172,7 +257,7 @@ export default function Register() {
                   <FcGoogle />
                   <p>Login with Google</p>
                 </button>
-              </div>
+              </div> */}
             </div>
           </section>
           {/* End card */}

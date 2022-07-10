@@ -1,11 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { BsFileEarmarkBarGraph } from "react-icons/bs";
 import { MdOutlinePublic } from "react-icons/md";
+import NavbarT from "../../components/NavbarT";
 import { posted } from "../../components/swal/Success";
-function ResultList() {
+import { fetchResult } from "../../service/submittedWorkService";
+import { fetchAllclasswork } from "../../service/classMaterial";
+
+const ResultList = () => {
+  const [classwork, setClasswork] = useState([]);
+  const [result, setResult] = useState([]);
+  const [selectValue, setSelectValue] = useState([]);
+  const { id } = useParams();
+  useEffect(() => {
+    fetchResult(id, 1).then((r) => {
+      setResult(r.data);
+      console.log("allre: ", r);
+    });
+    fetchAllclasswork(1, id).then((r) => {
+      setClasswork(r.data);
+    });
+  }, [id]);
+  
+  console.log(classwork)
+
   return (
-    <div>
-      <div className="flex items-center space-x-3 ">
+    <div className="">
+      {/* <NavbarT/> */}
+      <div className="flex items-center space-x-3">
         <div className="avatar">
           <div className="w-10 h-10 rounded-full mask mask-squircle bg-mygreen">
             <BsFileEarmarkBarGraph className="flex m-auto mt-3 text-white" />
@@ -15,12 +37,23 @@ function ResultList() {
           <div className="text-2xl font-bold ">Result</div>
         </div>
       </div>
-      <select className="mt-3 select select-accent ">
+      <select
+        className="w-2/3 px-4 py-2 mt-5 text-lg font-medium leading-tight border rounded-md shadow-md border-mygreen focus:ring-mygreen focus:outline-none focus:bg-white focus:border-mygreen"
+        onChange={(e) => {
+          console.log(e.target);
+          fetchResult(id, e.target.value).then((r) => {
+            setResult(r.data);
+          });
+        }}
+      >
         <option disabled selected>
-          Task
+          Classwork
         </option>
-        <option>Assignment1</option>
-        <option>Homework4</option>
+        {classwork?.map((dataTask) => {
+          return <option value={dataTask.material_id}> {dataTask.title}</option>;
+        })}
+
+        {/* <option>Homework4</option> */}
       </select>
       <div className="mt-5 overflow-x-auto shadow-md ">
         <table className="table ">
@@ -36,17 +69,22 @@ function ResultList() {
           </thead>
           <tbody>
             {/* <!-- row 1 --> */}
-            <tr className="hover">
-              <th>1</th>
-              <td>Chea Phanit</td>
-              <td>Male</td>
-              <td>100</td>
-              <td>
-                <i>handed in</i>
-              </td>
-            </tr>
+            {result?.map((item) => {
+              return (
+                <tr className="hover">
+                  <th>1</th>
+                  <td>{item.name}</td>
+                  <td>{item.gender}</td>
+                  <td>{item.student_score}</td>
+                  <td>
+                    <i>{item.ui_status}</i>
+                  </td>
+                </tr>
+              );
+            })}
+
             {/* <!-- row 2 --> */}
-            <tr className="hover">
+            {/* <tr className="hover">
               <th>2</th>
               <td>Hart Hagerty</td>
               <td>Female</td>
@@ -54,7 +92,7 @@ function ResultList() {
               <td>
                 <i>handed in late</i>
               </td>
-            </tr>
+            </tr> */}
           </tbody>
         </table>
         <div className="flex justify-end ">
@@ -71,6 +109,6 @@ function ResultList() {
       </div>
     </div>
   );
-}
+};
 
 export default ResultList;

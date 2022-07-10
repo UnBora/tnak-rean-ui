@@ -22,8 +22,8 @@ const EditClass = () => {
                   {/* Name class */}
                   <div className="col-span-full">
                     <div className="col-span-full sm:col-span-3">
-                      <label for="classname" className="text-sm font-medium">
-                        Class name <span className="text-red-600 ">*</span>
+                      <label for="classname" className="text-lg font-medium">
+                        Edit Class name <span className="text-red-600 ">*</span>
                       </label>
                       <input
                         id="classname"
@@ -35,10 +35,10 @@ const EditClass = () => {
                   </div>
                   {/* School */}
                   <div className="col-span-full ">
-                    <label for="school" className="text-sm font-medium">
+                    {/* <label for="school" className="text-sm font-medium">
                       School <span className="text-red-600 ">*</span>
-                    </label>
-                    <select
+                    </label> */}
+                    {/* <select
                       id="school"
                       type="text"
                       className="w-full px-4 py-2 mt-1 leading-tight bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
@@ -46,7 +46,7 @@ const EditClass = () => {
                       <option className="p-6 text-md">Royal University</option>
                       <option className="p-6 text-md ">KSHRD</option>
                       <option className="p-6 text-md ">NUM</option>
-                    </select>
+                    </select> */}
                     <div className="flex justify-between mt-5">
                       <div>
                         <label className="flex flex-col items-center px-5 tracking-wide uppercase border rounded-lg shadow-lg cursor-pointer border-myorange">
@@ -63,13 +63,13 @@ const EditClass = () => {
                         </label>
                       </div>
 
-                      <label
+                      {/* <label
                         for="my-modal-6"
                         className="flex mt-2 space-x-1 cursor-pointer row text-md"
                       >
                         <IoMdAddCircleOutline className="mt-1 " />
                         Add School
-                      </label>
+                      </label> */}
                     </div>
                   </div>
                 </div>

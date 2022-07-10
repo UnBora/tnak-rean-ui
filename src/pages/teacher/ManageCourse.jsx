@@ -1,15 +1,34 @@
+import { useEffect, useState } from "react";
 import { BsFolderPlus } from "react-icons/bs";
 import { GiBookCover } from "react-icons/gi";
 import { MdOutlineHomeWork } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import NavbarT from "../../components/NavbarT";
 import CreateFolder from "../../components/teacher/CreateFolder";
 import FilesCard from "../../components/teacher/FilesCard";
 import FolderCard from "../../components/teacher/FolderCard";
 import UploadCourse from "../../components/teacher/UploadCourse";
+import { fetchAllcourse } from "../../service/classMaterial";
+import { fetchCourseFolder } from "../../service/folderService";
 
 function ManageCourse() {
+  const [folder, setFolder] = useState([]);
+  const [course, setCourse] = useState([]);
+  const { id } = useParams();
+  
+  useEffect(() => {
+    fetchCourseFolder(id, 1).then((r) => {
+      setFolder(r.data);
+    });
+    fetchAllcourse(1, id).then((r) => {
+      setCourse(r.data);
+      console.log("course", r);
+    });
+  }, []);
+
   return (
     <div>
+    {/* <NavbarT/> */}
       <div className="flex space-x-2">
         <div className="w-8 h-8 rounded-full bg-mygreen">
           <GiBookCover className="flex m-auto mt-2 text-white align-middle" />
@@ -43,45 +62,38 @@ function ManageCourse() {
         >
           Create
         </label>
-        <ul
+        <div
           tabindex="0"
           className="p-2 shadow dropdown-content menu rounded-box w-52 bg-smoke"
         >
-          <li>
-            <label for="my-modal-1">
-              <BsFolderPlus />
+          <div className="text-lg">
+            <label for="my-modal-1"  className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded">
+              <BsFolderPlus className="mx-4 mt-1"/>
               Folder
             </label>
-          </li>
-          <li>
-            <label for="my-modal-upload">
-              <MdOutlineHomeWork />
+          </div>
+          <div className="text-lg">
+            <label for="my-modal-upload"  className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded">
+              <MdOutlineHomeWork className="mx-4 mt-1"/>
               Upload File
             </label>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
       <p className="mt-3 ml-1 text-xl font-semibold">Folder</p>
       <p className="mb-2 border-b"></p>
       <div className="flex flex-wrap">
-        <Link to="#">
-          <FolderCard />
-        </Link>
-        <Link to="#">
-          <FolderCard />
-        </Link>
-        <Link to="#">
-          <FolderCard />
-        </Link>
+        {folder?.map((index) => {
+          return <FolderCard key={index.id} data={index} />;
+        })}
       </div>
 
       <p className="ml-1 text-xl font-semibold mt-9">Document</p>
       <p className="mb-4 border-b"></p>
       <div className="flex flex-wrap">
-        <FilesCard />
-        <FilesCard />
-        <FilesCard />
-        <FilesCard />
+        {course?.map((index) => {
+          return <FilesCard key={index.id} data={index} />;
+        })}
       </div>
       {/* folder pop up */}
       <CreateFolder />

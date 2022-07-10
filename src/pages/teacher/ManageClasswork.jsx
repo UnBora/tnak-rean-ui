@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MdWork } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { BsFolderPlus } from "react-icons/bs";
 import {
   MdOutlineHomeWork,
@@ -11,9 +11,26 @@ import CreateFolder from "../../components/teacher/CreateFolder";
 import AssignClasswork from "../../components/teacher/AssignClasswork";
 import FolderCard from "../../components/teacher/FolderCard";
 import AssignedTaskCard from "../../components/teacher/AssignedTaskCard";
+import { fetchAllclasswork } from "../../service/classMaterial";
+import { fetchClassworkFolder } from "../../service/folderService";
+
 function ManageClasswork() {
+  const [folder, setFolder] = useState([]);
+  const [classwork, setClasswork] = useState([]);
+  const { id } = useParams();
+  useEffect(() => {
+    fetchClassworkFolder(id, 1).then((r) => {
+      setFolder(r.data);
+    });
+    fetchAllclasswork(1, id).then((r) => {
+      setClasswork(r.data);
+      console.log("classwork", r);
+    });
+
+  }, []);
   return (
     <div className="">
+      {/* <NavbarT /> */}
       <div className="flex space-x-2">
         <div className="w-8 h-8 rounded-full bg-mygreen">
           <MdWork className="flex m-auto mt-2 text-white align-middle" />
@@ -47,62 +64,54 @@ function ManageClasswork() {
         >
           Create
         </label>
-        <ul
+        <div
           tabindex="0"
           className="p-2 shadow dropdown-content menu rounded-box w-52 bg-smoke"
         >
-          <li>
-            <label for="my-modal-1">
-              <BsFolderPlus />
+          <div className="text-lg">
+            <label for="my-modal-1" className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded">
+              <BsFolderPlus className="mx-4 mt-1"/>
               Folder
             </label>
-          </li>
-          <li>
-            <label for="my-modal-2">
-              <MdOutlineHomeWork />
+          </div>
+          <div className="text-lg">
+            <label for="my-modal-2" className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded">
+              <MdOutlineHomeWork className="mx-4 mt-1"/>
               Homework
             </label>
-          </li>
-          <li>
-            <label>
-              <MdOutlineAssignment />
+          </div>
+          <div className="text-lg">
+            <label for="my-modal-2" className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded">
+              <MdOutlineAssignment className="mx-4 mt-1"/>
               Assignment
             </label>
-          </li>
-          <li>
-            <Link to="#">
-              <MdOutlineQuiz />
+          </div>
+          <div className="text-lg">
+            <label for="my-modal-2" className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded">
+              <MdOutlineQuiz className="mx-4 mt-1"/>
               Quiz
-            </Link>
-          </li>
-        </ul>
+            </label>
+          </div>
+        </div>
       </div>
       <p className="mt-3 ml-1 text-xl font-semibold">Folder</p>
       <p className="mb-2 border-b"></p>
       <div className="flex flex-wrap">
-        <Link to="#">
-          <FolderCard />
-        </Link>
-        <Link to="#">
-          <FolderCard />
-        </Link>
-        <Link to="#">
-          <FolderCard />
-        </Link>
-        
+        {folder?.map((index) => {
+          return <FolderCard key={index.id} data={index} />;
+        })}
       </div>
 
       <p className="ml-1​​ mt-12 text-xl font-semibold">Assigned task</p>
       <p className="mb-4 border-b"></p>
       <div className="flex flex-wrap">
-        <AssignedTaskCard />
-        <AssignedTaskCard />
-        <AssignedTaskCard />
+        {classwork?.map((index) => {
+          return <AssignedTaskCard key={index.id} data={index} />;
+        })}
       </div>
       {/* pop up */}
       <CreateFolder />
-      <AssignClasswork/>
-  
+      <AssignClasswork />
     </div>
   );
 }

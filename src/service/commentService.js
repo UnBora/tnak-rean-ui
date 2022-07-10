@@ -1,5 +1,7 @@
 // import { api } from "../utils/api";
 
+import { api } from "../utils/api"
+
 // export const fetchCountCommentByMaterialAndClass = async (
 //   class_material_id,
 //   classroom_id,
@@ -68,3 +70,20 @@
 //     console.log("error", error);
 //   }
 // };
+
+//get comment
+
+export const fetchAllCommentByClassMaterial=async(material_id)=>{
+    try{
+        let response = await api.get("comment/get-by-materialId",
+        {
+            params: {
+               material_id:material_id
+            },
+          });
+        return response.data;
+
+    }catch(error){
+        console.log("error",error)
+    }
+}

@@ -1,14 +1,12 @@
 import { Routes, Route } from "react-router-dom";
 import AboutUs from "./pages/AboutUs";
-import Register from "./components/Register";
-import { Switch} from 'react-router-dom';
 import ManageClass from "./pages/teacher/ManageClass";
 import FormSubmit from "./pages/student/FormSubmit";
 import ViewWorkForSub from "./pages/student/ViewWorkForSub";
-import DeactivateAccount from "./components/SettingAcc/DeactivateAccount";
-import DeleteAccount from "./components/SettingAcc/DeleteAccount";
-import ChangePassword from "./components/SettingAcc/ChangePassword";
-import Account from "./components/SettingAcc/Account";
+import DeactivateAccount from "./components/settingacc/DeactivateAccount";
+import DeleteAccount from "./components/settingacc/DeleteAccount";
+import ChangePassword from "./components/settingacc/ChangePassword";
+import Account from "./components/settingacc/Account";
 import Classwork from "./pages/student/Classwork";
 import Course from "./pages/student/Course";
 import ViewFiles from "./pages/student/ViewFiles";
@@ -23,7 +21,6 @@ import AllClasswork from "./pages/teacher/AllClasswork";
 import AllCourse from "./pages/teacher/AllCourse";
 import StuIndex from "./pages/student/StuIndex";
 import ViewFilesT from "./pages/teacher/ViewFilesT";
-import runOneSignal from "./onesignal";
 import OneSignal from "react-onesignal";
 import { useEffect, useState } from "react";
 import Login from "./pages/authentication/Login";
@@ -42,7 +39,7 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <div className="App">
       <Routes>
       <Route path="/" element={<Login/>}/>
         {/* <Route path="/register" element={<Register />} /> */}
@@ -52,7 +49,7 @@ function App() {
         <Route path="/all-classwork" element={<AllClasswork />} />
         <Route path="/all-course" element={<AllCourse />} />
         {/* Per class */}
-        <Route path="/classroom" element={<ManageClass />}>
+        <Route path="/classroom/:id" element={<ManageClass />}>
           <Route path="students" element={<AllStudent />}></Route>
           <Route path="requests" element={<StudentRequest />}></Route>
           <Route path="classworks" element={<ManageClasswork />}></Route>
@@ -71,7 +68,7 @@ function App() {
           <Route path="delete-account" element={<DeleteAccount />}></Route>
         </Route>
         {/* Student side */}
-        <Route path="/stu-index" element={<StuIndex />} />
+        <Route path="/student" element={<StuIndex />} />
         <Route path="/formsubmit" element={<FormSubmit />} />
         <Route path="/work-submit" element={<ViewWorkForSub />} />
         <Route path="/stu-classwork" element={<Classwork />} />
