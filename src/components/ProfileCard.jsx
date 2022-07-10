@@ -20,7 +20,7 @@ export default function ProfileCard({ data }) {
         </div>
         <div className="text-xs">
           <p className="font-semibold">Contact</p>
-          <p>Male</p>
+          <p>{data.gender}</p>
           <p>{data.email}</p>
         </div>
       </div>

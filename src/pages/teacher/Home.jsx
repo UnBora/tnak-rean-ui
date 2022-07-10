@@ -32,7 +32,7 @@ export default function Home() {
   }, []);
 
   
-  console.log("test: ", scheduleTeacher);
+  console.log("class: ", classes);
   return (
     <div>
       <NavbarT/>

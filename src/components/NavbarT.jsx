@@ -18,6 +18,9 @@ const NavbarT = ({ userData }) => {
     localStorage.setItem("currentTab", tabName);
     setCurrentTab(tabName);
   };
+  console.log('====================================');
+  console.log("user",user);
+  console.log('====================================');
 
   return (
     <div>
@@ -92,7 +95,7 @@ const NavbarT = ({ userData }) => {
                 <div className="avatar online">
                   <div className="rounded-full w-9 ">
                     <img
-                      src="https://api.lorem.space/image/face?hash=28212"
+                      src={user.img}
                       alt="profile"
                     />
                   </div>
