@@ -70,6 +70,20 @@ export const create = async (className, image) => {
   }
 };
 
+export const fetchSelectClass = async () => {
+  try {
+    let response = await api.get("classroom/get-select-class-by-classroom-id", {
+      params: {
+        classroomId: 1,
+      },
+    });
+    console.log("get class   ", response.data.data);
+    return response.data;
+  } catch (error) {
+    console.log("error", error);
+  }
+};
+
 // remove class
 export const deleteClass = async (classId) => {
   try {

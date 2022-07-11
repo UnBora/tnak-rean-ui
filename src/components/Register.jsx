@@ -1,7 +1,14 @@
-import React from "react";
-import { FcGoogle } from "react-icons/fc";
+import React, { useRef } from "react";
 import logo from "../assets/images/logo/TnakRean2.png";
 import swal from "sweetalert";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { useEffect } from "react";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { fetchSelectClass } from "../service/classesService";
+import * as Yup from "yup";
+import { studentRegister } from "../service/authService";
+
 // import { useState } from "react";
 export default function Register() {
   const validationSchema = Yup.object().shape({
@@ -52,6 +59,10 @@ export default function Register() {
     });
   };
 
+  useEffect(() => {
+    fetchSelectClass().then((r) => setClass(r.data));
+  }, []);
+
   return (
     <div>
       <input type="checkbox" id="my-modal-3" className="modal-toggle" />
@@ -92,23 +103,36 @@ export default function Register() {
                       Name <span className="text-red-600 ">*</span>
                     </label>
                     <input
+                      {...register("name")}
                       id="name"
                       type="name"
                       placeholder="Enter name"
-                      className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
+                      // className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
+                      className={`w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white form-check-input ${
+                        errors.acceptTerms ? "is-invalid" : ""
+                      }`}
                     />
+                    <div className="invalid-feedback">
+                      {errors.name?.message}
+                    </div>
                   </div>
+
                   {/* Username*/}
                   <div className="col-span-full sm:col-span-3">
                     <label for="username" className="text-sm font-medium">
                       Username <span className="text-red-600 ">*</span>
                     </label>
                     <input
+                      {...register("userName")}
+                      defaultValue=""
                       id="username"
                       type="username"
                       placeholder="Enter username"
                       className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen 0 focus:outline-none focus:bg-white"
                     />
+                    <div className="invalid-feedback">
+                      {errors.userName?.message}
+                    </div>
                   </div>
                   {/* Gender */}
                   <div className="col-span-full sm:col-span-3">
@@ -116,12 +140,17 @@ export default function Register() {
                       Gender <span className="text-red-600 ">*</span>
                     </label>
                     <select
+                      {...register("gender")}
                       id="gender"
                       type="text"
                       className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
                     >
-                      <option className="p-6 text-md">Male</option>
-                      <option className="p-6 text-md">Female</option>
+                      <option value="Male" className="p-6 text-md">
+                        Male
+                      </option>
+                      <option value="Female" className="p-6 text-md">
+                        Female
+                      </option>
                     </select>
                   </div>
                   {/* Email */}
@@ -130,11 +159,15 @@ export default function Register() {
                       Email <span className="text-red-600 ">*</span>
                     </label>
                     <input
+                      {...register("email")}
                       id="email"
                       type="email"
                       placeholder="Enter email"
                       className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
                     />
+                    <div className="invalid-feedback">
+                      {errors.email?.message}
+                    </div>
                   </div>
 
                   {/* Class */}
@@ -143,8 +176,6 @@ export default function Register() {
                       School <span className="text-red-600 ">*</span>
                     </label>
                     <select
-                      id="school"
-                      type="text"
                       placeholder="School"
                       className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
                     >
@@ -159,13 +190,16 @@ export default function Register() {
                       Class <span className="text-red-600 ">*</span>
                     </label>
                     <select
-                      id="username"
+                      {...register("class")}
+                      id="class"
                       type="text"
                       className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
                     >
-                      <option className="p-6 text-md">Phnom Penh</option>
-                      <option className="p-6 text-md">M11</option>
-                      <option className="p-6 text-md">SR</option>
+                      {classes?.map((index) => (
+                        <option value={index.id} className="p-6 text-md">
+                          {index.className}
+                        </option>
+                      ))}
                     </select>
                   </div>
 
@@ -175,11 +209,15 @@ export default function Register() {
                       Password <span className="text-red-600">*</span>
                     </label>
                     <input
+                      {...register("password")}
                       id="password"
                       type="password"
                       placeholder="Enter password"
                       className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
                     />
+                    <div className="invalid-feedback">
+                      {errors.password?.message}
+                    </div>
                   </div>
                   {/* cf password */}
                   <div className="col-span-full sm:col-span-3">
@@ -187,11 +225,15 @@ export default function Register() {
                       Confirm password <span className="text-red-600 ">*</span>
                     </label>
                     <input
+                      {...register("confirmPassword")}
                       id="password"
                       type="password"
                       placeholder="Confirm password"
                       className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
                     />
+                    <div className="invalid-feedback">
+                      {errors.confirmPassword?.message}
+                    </div>
                   </div>
                 </div>
               </fieldset>
@@ -201,7 +243,7 @@ export default function Register() {
                 <button
                   type="button"
                   className="py-1 space-x-2 text-lg font-semibold text-white rounded-full bg-mygreen w-350px"
-                  onClick={() => register()}
+                  onClick={handleSubmit(onSubmit)}
                 >
                   Register
                 </button>
