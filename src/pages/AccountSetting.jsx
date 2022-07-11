@@ -5,7 +5,7 @@ import { BiTrashAlt } from "react-icons/bi";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import NavbarT from "../components/NavbarT";
 
-export default function AccountSetting() {
+export default function AccountSetting({ userData }) {
   const [isActive, setIsActive] = useState(1);
   return (
     <div>
@@ -29,7 +29,7 @@ export default function AccountSetting() {
                 alt=""
               />
               <div className="mt-3 ml-5 ">
-                <p className="text-2xl font-medium"> Dayan</p>
+                <p className="text-2xl font-medium">Dayan</p>
                 <label class="block"></label>
 
                 <div className="flex text-sm text-gray-600">

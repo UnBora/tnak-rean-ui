@@ -38,7 +38,7 @@ const AssignClasswork = () => {
               </div>
 
               <div className="flex flex-wrap mb-6 -mx-3">
-                <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0 ">
+                {/* <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0 ">
                   <p className="font-medium ">School</p>
                   <select
                     id="school"
@@ -50,7 +50,7 @@ const AssignClasswork = () => {
                     <option className="p-6 text-md">RUPP</option>
                     <option className="p-6 text-md">Setec</option>
                   </select>
-                </div>
+                </div> */}
                 <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0 ">
                   <p className="font-medium ">Classroom</p>
                   <select

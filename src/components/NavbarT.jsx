@@ -9,38 +9,53 @@ import AccountDropdown from "./AccountDropdown";
 import { Link, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux/es/exports";
 const NavbarT = ({ userData }) => {
-  const  user = useSelector((state) => state?. user?.value);
-  console.log("user",user);
-  const [openNavbar, setOpenNavbar] = useState(false);
+  const user = useSelector((state) => state?.user?.value);
+  console.log("user", user);
+  // const [openNavbar, setOpenNavbar] = useState(false);
   const current = localStorage.getItem("currentTab");
   const [currentTab, setCurrentTab] = useState(current);
   const handleSetCurrentTab = (tabName) => {
     localStorage.setItem("currentTab", tabName);
     setCurrentTab(tabName);
   };
-  console.log('====================================');
-  console.log("user",user);
-  console.log('====================================');
+  console.log("====================================");
+  console.log("user", user);
+  console.log("====================================");
 
   return (
-    <div>
-      <nav className="border-b border-mygray ">
-        <div className="flex justify-between mx-100px h-mynav">
-          <NavLink
-            as={Link}
-            to="/teacher"
-            rel="noopener noreferrer"
-            aria-label="Back to homepage"
-            className=""
+    <nav className="sticky top-0 z-50 flex w-full px-20 bg-white border-b border-mygray">
+      <div className="justify-between lg:flex navbar-start">
+      <NavLink
+          as={Link}
+          to="/teacher"
+          rel="noopener noreferrer"
+          aria-label="Back to homepage"
+          className="justify-start text-xl normal-case"
+        >
+          <img src={logo} alt="logo" className="scale-75" />
+        </NavLink>
+        <div className="dropdown">
+          <label tabindex="0" class="btn btn-ghost lg:hidden ">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
+          </label>
+          <div
+            tabindex="0"
+            class="menu menu-compact dropdown-content mt-3 p-2 shadow-lg bg-base-100 rounded-box w-52"
           >
-            <img src={logo} alt="logo" className="scale-75" />
-          </NavLink>
-          <ul
-            className={
-              openNavbar ? "hidden" : "items-stretch space-x-10 lg:flex"
-            }
-          >
-            <li className="flex mylink">
+            <button className="py-3 ml-3">
               <NavLink
                 onClick={() => handleSetCurrentTab("/")}
                 rel="noopener noreferrer"
@@ -54,10 +69,10 @@ const NavbarT = ({ userData }) => {
               >
                 Home
               </NavLink>
-            </li>
-
-            <li className="flex">
+            </button>
+            <button className="py-3 ml-3">
               <NavLink
+                class="justify-between"
                 onClick={() => handleSetCurrentTab("/classroom")}
                 rel="noopener noreferrer"
                 as={Link}
@@ -70,8 +85,8 @@ const NavbarT = ({ userData }) => {
               >
                 Classwork
               </NavLink>
-            </li>
-            <li className="flex">
+            </button>
+            <button className="py-3 ml-3">
               <NavLink
                 onClick={() => handleSetCurrentTab("/course")}
                 rel="noopener noreferrer"
@@ -85,78 +100,112 @@ const NavbarT = ({ userData }) => {
               >
                 Course
               </NavLink>
-            </li>
-          </ul>
-
-          <div className="items-center flex-shrink-0 hidden space-x-5 lg:flex">
-            {/* Profile */}
-            <div className="dropdown ">
-              <label tabindex="0" className="flex m-1 space-x-4 cursor-pointer">
-                <div className="avatar online">
-                  <div className="rounded-full w-9 ">
-                    <img
-                      src={user.img}
-                      alt="profile"
-                    />
-                  </div>
+            </button>
+          </div>
+        </div>
+        {/* <NavLink
+          as={Link}
+          to="/teacher"
+          rel="noopener noreferrer"
+          aria-label="Back to homepage"
+          className="justify-start text-xl normal-case"
+        >
+          <img src={logo} alt="logo" className="scale-75" />
+        </NavLink> */}
+      </div>
+      <div class="navbar-center hidden lg:flex ">
+        <div class="menu menu-horizontal p-0">
+          <label className="flex mylink">
+            <NavLink
+              onClick={() => handleSetCurrentTab("/")}
+              rel="noopener noreferrer"
+              as={Link}
+              to="/teacher"
+              className={
+                currentTab === "/"
+                  ? "flex items-center font-medium  border-b-2 border-myorange"
+                  : "flex items-center font-medium  mylink"
+              }
+            >
+              Home
+            </NavLink>
+          </label>
+          <label className="flex px-9 ">
+            <NavLink
+              onClick={() => handleSetCurrentTab("/classroom")}
+              rel="noopener noreferrer"
+              as={Link}
+              to="/all-classwork"
+              className={
+                currentTab === "/classroom"
+                  ? "flex items-center font-medium  border-b-2 border-myorange"
+                  : "flex items-center font-medium  mylink"
+              }
+            >
+              Classwork
+            </NavLink>
+          </label>
+          <label className="flex mylink">
+            <NavLink
+              onClick={() => handleSetCurrentTab("/course")}
+              rel="noopener noreferrer"
+              as={Link}
+              to="/all-course"
+              className={
+                currentTab === "/course"
+                  ? "flex items-center font-medium  border-b-2 border-myorange"
+                  : "flex items-center font-medium  mylink"
+              }
+            >
+              Course
+            </NavLink>
+          </label>
+        </div>
+      </div>
+      <div class="navbar-end lg:flex">
+        <div className="items-center flex-shrink-0 space-x-5 lg:flex">
+          <div className="dropdown dropdown-left">
+            <label tabindex="0" 
+            className="flex m-1 cursor-pointer ">
+              <div className="avatar online">
+                <div className="rounded-full w-9 ">
+                  <img src={user.img} alt="profile" />
                 </div>
-                <p className="mt-2 font-medium">{userData?.name}</p>
-              </label>
-              <div
-                tabindex="0"
-                className="p-1 dropdown-content mt-9 rounded-box "
-              >
-                <ProfileCard data={user}/>
               </div>
-            </div>
-            {/* ================== */}
-
-            <div className="dropdown dropdown-left">
-              <label tabindex="0">
-                <IoMdNotificationsOutline className="text-2xl cursor-pointer" />
-              </label>
-              <div
-                tabindex="0"
-                className="p-1 overflow-y-auto h-80 dropdown-content mt-9 rounded-box scrollbar-thin scrollbar-thumb-zinc-400"
-              >
-                <Notification />
-              </div>
-            </div>
-
-            <div className="dropdown dropdown-left ">
-              <label tabindex="0">
-                <MdOutlineArrowDropDownCircle className="text-2xl cursor-pointer" />
-              </label>
-              <div
-                tabindex="0"
-                className="p-1 mt-8 dropdown-content rounded-box "
-              >
-                <AccountDropdown data={user} />
-              </div>
+              <p className="mt-2 font-medium">{userData?.name}</p>
+            </label>
+            <div
+              tabindex="0"
+              className="p-1 dropdown-content rounded-box "
+            >
+              <ProfileCard data={user} />
             </div>
           </div>
-          <button
-            className="p-4 lg:hidden"
-            onClick={() => setOpenNavbar(!openNavbar)}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              className="w-6 h-6 "
+          <div className="dropdown dropdown-left">
+            <label tabindex="0">
+              <IoMdNotificationsOutline className="text-2xl cursor-pointer" />
+            </label>
+            <div
+              tabindex="0"
+              className="p-1 overflow-y-auto border rounded-xl h-80 dropdown-content mt-9 scrollbar-thumb-zinc-400 bg-smoke scrollbar-none"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              ></path>
-            </svg>
-          </button>
+              <Notification />
+            </div>
+          </div>
+          <div className="dropdown dropdown-left ">
+            <label tabindex="0">
+              <MdOutlineArrowDropDownCircle className="text-2xl cursor-pointer" />
+            </label>
+            <div
+              tabindex="0"
+              className="p-1 mt-8 border dropdown-content rounded-box bg-smoke"
+            >
+              <AccountDropdown data={user} />
+            </div>
+          </div>
         </div>
-      </nav>
-    </div>
+      </div>
+    </nav>
   );
 };
 

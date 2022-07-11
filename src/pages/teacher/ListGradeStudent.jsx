@@ -10,8 +10,8 @@ export default function ListGradeStudent() {
           <IoChevronBackCircle />
         </Link>
         <Link className="ml-2 font-medium">Back</Link>
-        <div className="text-base">Homework 001</div>
       </div>
+      <div className="text-base">Homework 001</div>
     </div>
   );
 }

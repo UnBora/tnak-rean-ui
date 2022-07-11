@@ -73,7 +73,7 @@ export const submit= () => {
 
 
 //general setting
-export const accounupdate = () => {
+export const accountupdate = () => {
   Swal.fire({
     position: 'center',
     icon: 'success',

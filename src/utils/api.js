@@ -7,7 +7,7 @@ import { cryptoDecrypt } from "./tokenEnDe";
 //   "Phanith"
 // )}`;
 export const api = axios.create({
-  baseURL: "https://api.tnakrean.info/api/v1/",
+  baseURL: "http://149.129.32.126:8888/api/v1/",
   headers: header(),
 });
 

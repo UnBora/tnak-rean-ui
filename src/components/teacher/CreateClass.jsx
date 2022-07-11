@@ -66,18 +66,6 @@ export default function CreateClass() {
                   </div>
                   {/* School */}
                   <div className="col-span-full ">
-                    {/* <label for="username" className="text-sm font-medium">
-                      School <span className="text-red-600 ">*</span>
-                    </label>
-                    <select
-                      id="school"
-                      type="text"
-                      className="w-full px-4 py-2 mt-1 leading-tight bg-white border rounded-md focus:ring-mygreen focus:ring-1 focus:outline-none focus:bg-white"
-                    >
-                      <option className="p-6 text-md">Royal University</option>
-                      <option className="p-6 text-md ">KSHRD</option>
-                      <option className="p-6 text-md ">NUM</option>
-                    </select> */}
                     <div className="flex justify-between mt-5">
                       <div>
                         {/* <label className="flex flex-col items-center px-5 tracking-wide uppercase border rounded-lg shadow-lg cursor-pointer border-myorange">
@@ -98,13 +86,6 @@ export default function CreateClass() {
                         </label> */}
                         <input type="file" className="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-slate-100 file:text-mygreen hover:file:bg-slate-200"/>
                       </div>
-                      {/* <label
-                        for="my-modal-5"
-                        className="flex mt-2 space-x-1 cursor-pointer row text-md"
-                      >
-                        <IoMdAddCircleOutline className="mt-1" />
-                        Add School
-                      </label> */}
                     </div>
                   </div>
                 </div>

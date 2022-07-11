@@ -13,14 +13,17 @@ export default function Navbar() {
     setCurrentTab(tabName);
   };
   return (
-    <div>
-      <header className="border-b border-mygray">
-        <div className="justify-center h-mynav mx-100px md:flex md:justify-between">
-            <img src={logo} alt="" className="scale-75 " />
-          <ul className="flex items-stretch font-semibold space-x-25px text-mygreen ">
-            <li className="flex">
+    <nav className="z-50 flex w-full px-20 bg-white border-b border-mygray sm:px-52 ">
+      <div className="w-full">
+       <div className="flex justify-between"> 
+       <div className="">
+          <img src={logo} alt="logo" className="scale-75 " />
+        </div>
+      
+        <div className="flex items-stretch font-semibold space-x-25px text-mygreen ">
+            <label className="flex">
               <NavLink
-               onClick={() => handleSetCurrentTab("/")}
+                onClick={() => handleSetCurrentTab("/")}
                 rel="noopener noreferrer"
                 as={Link}
                 to="/"
@@ -32,10 +35,15 @@ export default function Navbar() {
               >
                 Login
               </NavLink>
-            </li>
-            <li className="flex">
-                <label for="my-modal-3"  className="flex items-center font-bold cursor-pointer mylink">Register</label>
-            </li>
+            </label>
+            <div className="flex">
+              <label
+                for="my-modal-3"
+                className="flex items-center font-bold cursor-pointer mylink"
+              >
+                Register
+              </label>
+            </div>
             <li className="flex">
               <NavLink
                 onClick={() => handleSetCurrentTab("/about")}
@@ -51,11 +59,10 @@ export default function Navbar() {
                 About
               </NavLink>
             </li>
-          </ul>
+          </div>
         </div>
-      </header>
-      <Register/>
-      {/* {isShowingRegister ? <Register /> : "this is false"}  old popup*/}
-    </div>
+        <Register />
+      </div>
+    </nav>
   );
 }

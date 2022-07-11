@@ -14,11 +14,12 @@ export default function AccountDropdown({data}) {
   );
 
   return (
-    <div className="z-50 shadow-lg card w-72 bg-smoke">
+    <div className="z-50 card w-72">
       <div className="card-body">
-        <div className="m-1 space-x-2 avatar">
-          <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-1 ">
-            <img
+        <div className="flex space-x-2">
+          <div className="avatar online ">
+           <div className="w-12 border-2 rounded-full border-mygreen"> 
+           <img
               src={
                 data.img !== null
                   ? data.img
@@ -26,8 +27,9 @@ export default function AccountDropdown({data}) {
               }
               alt="profile"
             />
+            </div>
           </div>
-          <span className="mt-1 font-medium">{data.name}</span>
+          <span className="mt-2 text-xl font-semibold">{data.name}</span>
         </div>
         <p className="myhr"></p>
         <div className="z-50 w-full font-medium rounded-md menu">
