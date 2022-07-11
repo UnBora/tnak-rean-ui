@@ -94,3 +94,13 @@ export const changepassword = () => {
     timer: 1500
   })
 };
+// 
+export const registerAlert = () => {
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    iconColor:'#48AD9B',
+    title: 'Register successfully',
+    showConfirmButton: false,
+    timer: 1500
+  })}

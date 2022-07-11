@@ -8,6 +8,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { fetchSelectClass } from "../service/classesService";
 import * as Yup from "yup";
 import { studentRegister } from "../service/authService";
+import { registerAlert } from "./swal/Success";
 
 // import { useState } from "react";
 export default function Register() {
@@ -52,11 +53,11 @@ export default function Register() {
       }
 
       if (r.responseCode === 200) {
-        swal("register successfully", "", "success");
+      
       } else {
         
       }
-    });
+    }).then(registerAlert());
   };
 
   useEffect(() => {
