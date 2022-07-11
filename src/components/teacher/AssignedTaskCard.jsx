@@ -57,7 +57,6 @@ export default function AssignedTaskCard({ data }) {
       <div className="w-full mt-2 text-base font-medium">
         {dataTask.description}
       </div>
-
       <div className="text-xs font-medium">
         <div className="mb-2">
           Point: <span>{dataTask.score}</span>
