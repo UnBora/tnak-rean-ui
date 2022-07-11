@@ -8,9 +8,12 @@ import Notification from "./Notification";
 import AccountDropdown from "./AccountDropdown";
 import { Link, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux/es/exports";
+import { root } from "postcss";
 const NavbarT = ({ userData }) => {
   const  user = useSelector((state) => state?. user?.value);
-  console.log("user",user);
+  console.log("user is ",user);
+  const  users = useSelector((state) => state?. persistedReducer?.value);
+  console.log("users ",users);
   const [openNavbar, setOpenNavbar] = useState(false);
   const current = localStorage.getItem("currentTab");
   const [currentTab, setCurrentTab] = useState(current);
@@ -18,10 +21,6 @@ const NavbarT = ({ userData }) => {
     localStorage.setItem("currentTab", tabName);
     setCurrentTab(tabName);
   };
-  console.log('====================================');
-  console.log("user",user);
-  console.log('====================================');
-
   return (
     <div>
       <nav className="border-b border-mygray ">
@@ -95,7 +94,7 @@ const NavbarT = ({ userData }) => {
                 <div className="avatar online">
                   <div className="rounded-full w-9 ">
                     <img
-                      src={user.img}
+                      src={users.img}
                       alt="profile"
                     />
                   </div>
@@ -106,7 +105,7 @@ const NavbarT = ({ userData }) => {
                 tabindex="0"
                 className="p-1 dropdown-content mt-9 rounded-box "
               >
-                <ProfileCard data={user}/>
+                <ProfileCard data={users}/>
               </div>
             </div>
             {/* ================== */}
@@ -131,7 +130,7 @@ const NavbarT = ({ userData }) => {
                 tabindex="0"
                 className="p-1 mt-8 dropdown-content rounded-box "
               >
-                <AccountDropdown data={user} />
+                <AccountDropdown data={users} />
               </div>
             </div>
           </div>
