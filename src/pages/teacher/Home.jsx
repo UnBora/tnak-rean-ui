@@ -11,6 +11,7 @@ import { fecthAllClassByTeacher, fetchAllClasses } from "../../service/classesSe
 import { fetchScheduleTeacher } from "../../service/scheduleService";
 import { fetchScheduleClassSlice } from "../../slices/schedule/scheduleTeacherSlice";
 import NavbarT from "../../components/NavbarT";
+// import Navbartest from "../../components/Navbartest";
 
 export default function Home() {
   const [date, setDate] = useState(new Date());
@@ -30,7 +31,6 @@ export default function Home() {
       dispatch(fetchScheduleClassSlice(r))
     );   
   }, []);
-
   
   console.log("class:===== ", classes);
   return (
@@ -40,9 +40,7 @@ export default function Home() {
       <div className="mt-6 ">
         <div className="max-w-md space-y-3">
           {/* <div className="p-2 rounded-lg bg-smoke ">
-          
             <h2 className="text-2xl font-medium text-mygreen">School</h2>
-
          <p className="mb-2 myhr"></p>
          <select
            id="weekday"

@@ -19,32 +19,9 @@ export default function FilesCard({data}) {
     });
   }
   return (
-    <div className="flex flex-wrap h-40 p-4 mb-5 mr-8 border border-collapse rounded-md shadow-xl border-bordergray bg-smoke w-[265px] cursor-default">
+    <div className="flex flex-wrap h-40 p-4 mb-5 mr-8 border border-collapse rounded-md shadow-md border-bordergray bg-smoke w-[265px] cursor-default">
       <div className="text-lg font-semibold">{dataCourse.title}</div>
-      <div className="mt-1 ml-auto dropdown">
-        <label tabindex="0" className="cursor-pointer">
-          <FaEllipsisV />
-        </label>
-        <div
-          tabindex="0"
-          class="w-24 text-sm font-medium shadow w-z-20 dropdown-content menu bg-base-100 rounded-box"
-        >
-          <label
-            for="my-modal-edit-file"
-            className="py-2 pl-4 cursor-pointer hover:bg-gray-200 hover:rounded-t-lg"
-          >
-            Edit
-          </label>
-          <label
-            className="py-2 pl-4 text-red-500 border-t cursor-pointer hover:rounded-b-lg hover:bg-gray-200"
-            onClick={() => {
-              deleteFile();
-            }}
-          >
-            Delete
-          </label>
-        </div>
-      </div>
+      
       <div className="mt-2 text-xs font-medium line-clamp-2">
         {dataCourse.description}
       </div>
@@ -63,7 +40,7 @@ export default function FilesCard({data}) {
           >
             <span>{dataCourse.total_comment}</span> comments
           </label>
-          <div tabindex="0" className="mt-2 dropdown-content rounded-box">
+          <div tabindex="0" className="h-40 mt-2 dropdown-content rounded-box scrollbar-thumb-zinc-400 scrollbar-none">
             <ViewComment comment={comment} />
           </div>
         </div>

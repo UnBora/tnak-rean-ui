@@ -10,7 +10,7 @@ export default function ProfileCard() {
     });
   }, []);
   return (
-    <div className="z-50 shadow-xl w-80 card bg-smoke">
+    <div className="z-50 w-80 card ">
       <div className="card-body">
         <p className="-mt-4 text-xl font-medium text-mygreen">Notification</p>
         <p className="myhr"></p>

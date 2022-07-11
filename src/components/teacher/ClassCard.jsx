@@ -28,7 +28,7 @@ export default function ClassCard({ data }) {
             tabindex="0"
             className="w-24 text-sm font-medium shadow w-z-20 dropdown-content menu bg-base-100 rounded-box"
           >
-            <label className="py-2 pl-4 cursor-pointer hover:bg-gray-200 hover:rounded-t-lg">
+            <label className="py-2 pl-4 cursor-pointer hover:bg-gray-200 hover:rounded-t-2xl">
               <label for="my-modal-2" className="cursor-pointer">Edit</label>
             </label>
             <p className="py-2 pl-4 text-red-500 border-t hover:bg-gray-200 hover:rounded-b-lg">
@@ -57,7 +57,7 @@ export default function ClassCard({ data }) {
         />
         <div className="z-20 h-10 mt-auto bg-black md:h-16 bg-opacity-30">
           <div className="flex justify-between px-1 mt-2 md:px-3 md:mt-5 ">
-            <h1 className="text-lg font-medium text-white">
+            <h1 className="text-lg font-medium text-white" id="classname">
               {dataClass.className}
             </h1>
             <div className="flex text-white">

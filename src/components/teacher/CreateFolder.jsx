@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 function CreateFolder() {
+  const [isActive, setIsActive] = useState(1);
   return (
     <div>
       {/* Add new folder */}
@@ -24,25 +25,8 @@ function CreateFolder() {
           </div>
           <div class="w-full">
     </div>
-          {/* dropdown select school */}
-          {/* <div className="flex flex-wrap mb-3 -mx-3"> */}
-          {/* <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0">
-                <p className="font-medium ">School</p>
-                <select
-                  id="school"
-                  type="text"
-                  className="w-full px-2 py-3 text-sm leading-tight text-gray-700 bg-white border rounded-md shadow-md focus:outline-none focus:bg-white focus:ring-1 focus:ring-mygreen"
-                >
-                  <option className="p-6 text-sm">All schools</option>
-                  <option className="p-6 text-sm">KSHRD</option>
-                  <option className="p-6 text-sm">RUPP</option>
-                  <option className="p-6 text-sm">Setec</option>
-                </select>
-              </div> */}
-
-          {/* </div> */}
           {/* dropdown select class */}
-          <div className="w-full mb-6 md:w-full md:mb-0 ">
+          {/* <div className="w-full mb-6 md:w-full md:mb-0 ">
             <p className="font-medium ">Classroom</p>
             <select
               id="class"
@@ -54,7 +38,7 @@ function CreateFolder() {
               <option className="p-6 text-sm">M5</option>
               <option className="p-6 text-sm">BTB</option>
             </select>
-          </div>
+          </div> */}
           <div className="modal-action">
             <label
               for="my-modal-1"

@@ -49,3 +49,24 @@ export const studentRegister = async (student) => {
     console.log(error);
   }
 };
+
+
+export const userUpdateProfile = async (student) => {
+  let data = {
+    name: student.name,
+    username: student.username,
+    gender: student.gender,
+    img: null,
+    email: student.email,
+  };
+
+  console.log('iam update user ',data);
+
+  try {
+    let response = await api.put("/user/update-profile", data);
+    console.log(response);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
