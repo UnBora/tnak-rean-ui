@@ -6,9 +6,12 @@ import EditClass from "./EditClass";
 import { classDelete } from "../swal/Delete";
 import { useSelector } from "react-redux/es/exports";
 import { Link } from "react-router-dom";
+import { deleteClass } from "../../service/classesService";
 export default function ClassCard({ data }) {
-  // delete class alert
-  // ==================
+  function onDeleteClass(classId) {
+    deleteClass(classId)
+    alert(classId)
+  }
   const dataClass = data;
 
   return (
@@ -28,8 +31,10 @@ export default function ClassCard({ data }) {
             <label className="py-2 pl-4 cursor-pointer hover:bg-gray-200 hover:rounded-t-2xl">
               <label for="my-modal-2" className="cursor-pointer">Edit</label>
             </label>
-            <p className="py-2 pl-4 text-red-500 border-t hover:bg-gray-200 hover:rounded-b-2xl">
-              <button onClick={() => classDelete()}>Delete</button>
+            <p className="py-2 pl-4 text-red-500 border-t hover:bg-gray-200 hover:rounded-b-lg">
+              <button onClick={() => {
+                        onDeleteClass(dataClass.id)
+                      }}>Delete</button>
             </p>
           </div>
         </div>

@@ -28,3 +28,24 @@ export const login = async (user) => {
 export const getCurrentUser = () => {
   return JSON.parse(localStorage.getItem("user"));
 };
+
+export const studentRegister = async (student) => {
+  let data = {
+    name: student.name,
+    username: student.userName,
+    email: student.email,
+    classroomId: 1,
+    classId: student.class,
+    password: student.password,
+    gender: student.gender,
+    img: null,
+  };
+
+  try {
+    let response = await api.post("/auth/register", data);
+    console.log(response);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};

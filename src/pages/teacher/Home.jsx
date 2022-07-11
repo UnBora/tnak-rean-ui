@@ -31,8 +31,8 @@ export default function Home() {
       dispatch(fetchScheduleClassSlice(r))
     );   
   }, []);
-
-  console.log("class: ", classes);
+  
+  console.log("class:===== ", classes);
   return (
     <div>
       <NavbarT/>
