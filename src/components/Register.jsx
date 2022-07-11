@@ -14,12 +14,12 @@ export default function Register() {
   const validationSchema = Yup.object().shape({
     name: Yup.string()
       .required("Name is required")
-      .min(6, "Name must be at least 6 characters")
-      .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for Name "),
+      .min(4, "Name must be at least 6 characters")
+      .matches(/^[a-zA-Z0-9 ]+$/, "Only alphabets are allowed for Name "),
     userName: Yup.string()
       .required("Username is required")
       .min(4)
-      .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for Username "),
+      .matches(/^[a-zA-Z0-9 ]+$/, "Only alphabets are allowed for Username "),
     email: Yup.string().required("Email is required").email("Email is invalid"),
     password: Yup.string()
       .min(6, "Password must be at least 6 characters")
@@ -34,6 +34,7 @@ export default function Register() {
     useForm(formOptions);
   const { errors } = formState;
   const [classes, setClass] = useState([]);
+
   const onSubmit = (data) => {
     console.log(data);
     studentRegister(data).then((r) => {
@@ -52,7 +53,7 @@ export default function Register() {
 
       if (r.responseCode === 200) {
         swal("register successfully", "", "success");
-      }else{
+      } else {
         
       }
     });
