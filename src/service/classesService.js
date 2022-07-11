@@ -71,11 +71,11 @@ export const create = async (className, image) => {
 };
 
 // remove class
-export const deleteClass = async (id) => {
+export const deleteClass = async (classId) => {
   try {
     let response = await api.delete("class/delete-class", {
       params: {
-        id:id
+        classId:classId
       },
     });
     return response.data;

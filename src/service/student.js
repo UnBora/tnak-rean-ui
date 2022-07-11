@@ -56,11 +56,11 @@ export const removeStudent = async (user_id, class_id) => {
   try {
     let response = await api.delete(
       "teacher/teacher-remove-student-by-id",
-      data
+      {data}
     );
     return response.data;
   } catch (error) {
-    console.log("deleteStuERR", error);
+    console.log("deleteStu", error);
   }
   console.log("data from service", data);
 };

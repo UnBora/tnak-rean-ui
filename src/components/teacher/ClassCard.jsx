@@ -8,9 +8,9 @@ import { useSelector } from "react-redux/es/exports";
 import { Link } from "react-router-dom";
 import { deleteClass } from "../../service/classesService";
 export default function ClassCard({ data }) {
-  function onDeleteClass(class_id) {
-    deleteClass(class_id)
-    alert(class_id)
+  function onDeleteClass(classId) {
+    deleteClass(classId)
+    alert(classId)
   }
   const dataClass = data;
 
