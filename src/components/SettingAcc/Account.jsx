@@ -1,5 +1,5 @@
 import React from "react";
-import { accounupdate } from "../swal/Success";
+import { accountupdate } from "../swal/Success";
 
 export default function Account() {
   return (
@@ -62,7 +62,7 @@ export default function Account() {
         <button
           type="button"
           class="py-2 text-white bg-mygreen w-20 text-center text-sm font-medium shadow-md rounded-full "
-          onClick={()=>{accounupdate()}}
+          onClick={()=>{accountupdate()}}
         >
           Save
         </button>
