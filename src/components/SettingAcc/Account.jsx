@@ -3,6 +3,7 @@ import { accountupdate } from "../swal/Success";
 import * as Yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { userUpdateProfile } from "../../service/authService";
 
 export default function Account() {
   const validationSchema = Yup.object().shape({
@@ -29,7 +30,7 @@ export default function Account() {
 
 
   const onSubmit = (data) => {
-    console.log(data);
+    userUpdateProfile(data)
   };
 
   return (
@@ -55,7 +56,7 @@ export default function Account() {
               <span className="block mb-2 text-xs font-medium text-slate-700">
                 GENDER
               </span>
-              <select
+              <select {...register("gender")}
                 id="gender"
                 className="block w-full p-2 text-sm bg-white border rounded-md shadow-sm border-slate-300 text-slate-400 focus:ring-mygreen focus:border-mygreen "
               >
