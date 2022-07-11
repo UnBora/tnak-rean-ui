@@ -13,7 +13,7 @@ export default function Navbar() {
     setCurrentTab(tabName);
   };
   return (
-    <nav className="z-50 flex w-full px-20 bg-white border-b border-mygray sm:px-52 ">
+    <nav className="z-50 flex w-full bg-white border-b lg:px-20 border-mygray sm:px-52 ">
       <div className="w-full">
        <div className="flex justify-between"> 
        <div className="">

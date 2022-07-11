@@ -23,17 +23,8 @@ const NavbarT = ({ userData }) => {
   console.log("====================================");
 
   return (
-    <nav className="sticky top-0 z-50 flex w-full px-20 bg-white border-b border-mygray">
-      <div className="justify-between lg:flex navbar-start">
-      <NavLink
-          as={Link}
-          to="/teacher"
-          rel="noopener noreferrer"
-          aria-label="Back to homepage"
-          className="justify-start text-xl normal-case"
-        >
-          <img src={logo} alt="logo" className="scale-75" />
-        </NavLink>
+    <nav className="sticky top-0 z-50 flex w-full bg-white border-b lg:px-20 border-mygray ">
+      <div className="justify-between lg:flex navbar-start"> 
         <div className="dropdown">
           <label tabindex="0" class="btn btn-ghost lg:hidden ">
             <svg
@@ -103,7 +94,8 @@ const NavbarT = ({ userData }) => {
             </button>
           </div>
         </div>
-        {/* <NavLink
+        <div className="hidden w-full lg:flex ">
+        <NavLink
           as={Link}
           to="/teacher"
           rel="noopener noreferrer"
@@ -111,7 +103,7 @@ const NavbarT = ({ userData }) => {
           className="justify-start text-xl normal-case"
         >
           <img src={logo} alt="logo" className="scale-75" />
-        </NavLink> */}
+        </NavLink></div>
       </div>
       <div class="navbar-center hidden lg:flex ">
         <div class="menu menu-horizontal p-0">
@@ -162,7 +154,7 @@ const NavbarT = ({ userData }) => {
           </label>
         </div>
       </div>
-      <div class="navbar-end lg:flex">
+      <div class="navbar-end flex justify-end">
         <div className="items-center flex-shrink-0 space-x-5 lg:flex">
           <div className="dropdown dropdown-left">
             <label tabindex="0" 
