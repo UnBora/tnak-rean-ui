@@ -32,7 +32,7 @@ export const fecthAllClassByTeacher = async () => {
         classroomId: 1,
       },
     });
-    console.log('asdasdasdasd   ',response.data.data);
+    console.log("asdasdasdasd   ", response.data.data);
     return response.data;
   } catch (error) {
     console.log("error", error);
@@ -70,3 +70,17 @@ export const create = async (className, image) => {
   }
 };
 
+// remove class
+export const deleteClass = async (id) => {
+  try {
+    let response = await api.delete("class/delete-class", {
+      params: {
+        id:id
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.log("dataClassERR", error);
+  }
+ 
+};

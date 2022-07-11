@@ -25,7 +25,7 @@ export const classDelete = () => {
 };
 
 // student remove in class
-export const removeStudent = () => {
+export const removeStudentSwal = () => {
   Swal.fire({
     title: "Are you sure?",
     text: "You won't be able to revert this!",

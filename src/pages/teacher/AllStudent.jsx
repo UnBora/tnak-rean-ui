@@ -4,21 +4,28 @@ import { FaUserFriends } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
-import { removeStudent } from "../../components/swal/Delete";
-import { fetchAllstudent } from "../../service/student";
+import { fetchAllstudent, remove, removeStudent } from "../../service/student";
 
 const AllStudent = () => {
   const [allStudent, setAllstudent] = useState([]);
   const { id } = useParams();
+  const [user_id, setUser_id] = useState();
+  const [class_id, setClassId] = useState();
   useEffect(() => {
     fetchAllstudent(id).then((r) => {
       setAllstudent(r.data);
       console.log("all: ", r);
     });
   }, []);
- // POST PUT PATCH DELETE
 
-const [accept, setAccept] = useState("Accept");
+  
+
+  function onRemoveStudent(user_id,class_id) {
+    removeStudent(user_id,class_id);
+    alert(user_id);
+    alert(id)
+  }
+
 
 
 
@@ -77,17 +84,17 @@ const [accept, setAccept] = useState("Accept");
           </thead>
           <tbody>
             {/* <!-- row 1 --> */}
-            {allStudent?.map((item) => {
+            {allStudent?.map((student) => {
               return (
                 <tr className="hover">
-                  <td>{item.name}</td>
-                  <td>{item.email}</td>
-                  <td>{item.gender}</td>
+                  <td>{student.name}</td>
+                  <td>{student.email}</td>
+                  <td>{student.gender}</td>
                   <td className="text-right w-52">
                     <button
                       className="gap-2 text-xs bg-red-500 border-none btn btn-sm hover:bg-red-600"
                       onClick={() => {
-                        
+                        onRemoveStudent(student.user_id,student.class_id)
                       }}
                     >
                       Remove

@@ -32,7 +32,7 @@ export default function Home() {
   }, []);
 
   
-  console.log("class: ", classes);
+  console.log("class:===== ", classes);
   return (
     <div>
       <NavbarT/>
