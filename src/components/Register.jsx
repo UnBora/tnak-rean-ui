@@ -4,8 +4,52 @@ import logo from "../assets/images/logo/TnakRean2.png";
 import swal from "sweetalert";
 // import { useState } from "react";
 export default function Register() {
-  const register = () => {
-    swal("register successfully", "", "success");
+  const validationSchema = Yup.object().shape({
+    name: Yup.string()
+      .required("Name is required")
+      .min(4, "Name must be at least 6 characters")
+      .matches(/^[a-zA-Z0-9 ]+$/, "Only alphabets are allowed for Name "),
+    userName: Yup.string()
+      .required("Username is required")
+      .min(4)
+      .matches(/^[a-zA-Z0-9 ]+$/, "Only alphabets are allowed for Username "),
+    email: Yup.string().required("Email is required").email("Email is invalid"),
+    password: Yup.string()
+      .min(6, "Password must be at least 6 characters")
+      .required("Password is required"),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref("password"), null], "Passwords must match")
+      .required("Confirm Password is required"),
+  });
+
+  const formOptions = { resolver: yupResolver(validationSchema) };
+  const { register, handleSubmit, reset, formState, setError } =
+    useForm(formOptions);
+  const { errors } = formState;
+  const [classes, setClass] = useState([]);
+
+  const onSubmit = (data) => {
+    console.log(data);
+    studentRegister(data).then((r) => {
+      console.log("reponse message: ", r.data);
+      if (r.data?.username === "exist") {
+        setError("userName", {
+          type: "custom",
+          message: r.responseMsg,
+        });
+      } else if (r.data?.email === "exist") {
+        setError("email", {
+          type: "custom",
+          message: r.responseMsg,
+        });
+      }
+
+      if (r.responseCode === 200) {
+        swal("register successfully", "", "success");
+      } else {
+        
+      }
+    });
   };
 
   return (
