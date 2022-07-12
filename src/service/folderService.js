@@ -79,6 +79,7 @@ export const createCourseFolders = async (folder_name) => {
   try {
     let response = await api.post(
       "folder/create-courseWorkFolder",data
+      
     );
     return response.data;
   } catch (error) {
