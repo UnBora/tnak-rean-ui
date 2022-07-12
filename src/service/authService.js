@@ -72,19 +72,36 @@ export const userUpdateProfile = async (student) => {
 };
 
 //change password
-export const changePassword = async (password) => {
-  let data = {
-    old_password: password.oldpassword,
-    new_password: password.newpassword,
-  };
+// export const changePassword = async (password) => {
+//   let data = {
+//     old_password: password.oldpassword,
+//     new_password: password.newpassword,
+//   };
 
-  console.log('iam update password :',data);
+//   console.log('iam update password :',data);
+
+//   try {
+//     let response = await api.post("auth/update-password", data);
+//     console.log(response);
+//     return response.data;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+
+export const changePassword = async (old_password, new_password) => {
+  let data = {
+    old_password:old_password,
+    new_password:new_password,
+  };
+  console.log("before respon data course:", data);
 
   try {
-    let response = await api.post("auth/update-password", data);
+    let response = await api.post("auth/update-password", data).then(alert(response));
     console.log(response);
     return response.data;
+    
   } catch (error) {
-    console.log(error);
+    console.log("err", error);
   }
 };
