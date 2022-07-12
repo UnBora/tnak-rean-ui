@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import {
-    createClassworkFolderInClass,
+  createClassworkFolderInClass,
   createClassworkFolders,
   createCourseFolderInClass,
   createCourseFolders,
@@ -26,17 +26,17 @@ function CreateFolder() {
     useForm(formOptions);
   const { errors } = formState;
   let material;
-    
-  if(window.location.pathname==`/classroom/${id}/classworks`){
-    material=2;
-  }else if(window.location.pathname==`/classroom/${id}/courses`){
-    material=1;
+
+  if (window.location.pathname == `/classroom/${id}/classworks`) {
+    material = 2;
+  } else if (window.location.pathname == `/classroom/${id}/courses`) {
+    material = 1;
   }
   const onSubmit = (data) => {
-    if(material==2 ){
-        createClassworkFolderInClass(data.folderName,id)
-    }else if(material==1){
-        createCourseFolderInClass(data.folderName,id)
+    if (material == 2) {
+      createClassworkFolderInClass(data.folderName, id);
+    } else if (material == 1) {
+      createCourseFolderInClass(data.folderName, id);
     }
   };
 
