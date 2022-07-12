@@ -99,6 +99,7 @@ export const createClassworkFolderInClass = async (folder_name, class_id) => {
       "folder/create-classworkFolder-in-class",
       data
     );
+    console.log("server response",response);
     return response.data;
   } catch (error) {
     console.log("create-classworkFolder", error);

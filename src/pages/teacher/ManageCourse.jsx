@@ -15,7 +15,7 @@ function ManageCourse() {
   const [folder, setFolder] = useState([]);
   const [course, setCourse] = useState([]);
   const { id } = useParams();
-  
+
   useEffect(() => {
     fetchCourseFolder(id, 1).then((r) => {
       setFolder(r.data);
@@ -28,7 +28,7 @@ function ManageCourse() {
 
   return (
     <div>
-    {/* <NavbarT/> */}
+      {/* <NavbarT/> */}
       <div className="flex space-x-2">
         <div className="w-8 h-8 rounded-full bg-mygreen">
           <GiBookCover className="flex m-auto mt-2 text-white align-middle" />
@@ -67,14 +67,20 @@ function ManageCourse() {
           className="p-2 shadow dropdown-content menu rounded-box w-52 bg-smoke"
         >
           <div className="text-lg">
-            <label for="my-modal-folder"  className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded">
-              <BsFolderPlus className="mx-4 mt-1"/>
+            <label
+              for="my-modal-folder"
+              className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded"
+            >
+              <BsFolderPlus className="mx-4 mt-1" />
               Folder
             </label>
           </div>
           <div className="text-lg">
-            <label for="my-modal-upload"  className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded">
-              <MdOutlineHomeWork className="mx-4 mt-1"/>
+            <label
+              for="my-modal-upload"
+              className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded"
+            >
+              <MdOutlineHomeWork className="mx-4 mt-1" />
               Upload File
             </label>
           </div>
