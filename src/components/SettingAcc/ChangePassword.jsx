@@ -1,10 +1,9 @@
 import React from "react";
-import { changepassword } from "../swal/Success";
+import { MyChange, registerAlert } from "../swal/Success";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { useForm } from "react-hook-form";
 import { changePassword } from "../../service/authService";
-
 export default function () {
   const validationSchema = Yup.object().shape({
     oldPassword: Yup.string().required("Old password is required"),
@@ -20,7 +19,19 @@ export default function () {
   const { errors } = formState;
 
   const onSubmit = (data) => {
-    changePassword(data.oldPassword,data.confirmPassword);
+    changePassword(data.oldPassword,data.confirmPassword).then((r)=>{
+      if(r.responseCode===400){
+        alert("Not match!!")
+      }  else{
+        MyChange()
+      }
+    })
+    // if(data.responseCode===400){
+    //   alert("not match")
+    // }else{
+    //   alert("done")
+    // }
+   
   };
   return (
     <div className="h-auto p-5 bg-white border-gray-200 rounded-lg shadow-md w-80 ">

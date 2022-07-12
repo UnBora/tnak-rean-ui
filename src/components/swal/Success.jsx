@@ -104,3 +104,21 @@ export const registerAlert = () => {
     showConfirmButton: false,
     timer: 1500
   })}
+
+  // change done
+  export const MyChange = Swal.mixin({
+    toast: false,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
+  
+  MyChange.fire({
+    iconColor:'#48AD9B',
+    title: 'Changed successfully'
+  })

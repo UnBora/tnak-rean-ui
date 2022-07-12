@@ -72,22 +72,6 @@ export const userUpdateProfile = async (student) => {
 };
 
 //change password
-// export const changePassword = async (password) => {
-//   let data = {
-//     old_password: password.oldpassword,
-//     new_password: password.newpassword,
-//   };
-
-//   console.log('iam update password :',data);
-
-//   try {
-//     let response = await api.post("auth/update-password", data);
-//     console.log(response);
-//     return response.data;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
 
 export const changePassword = async (old_password, new_password) => {
   let data = {
@@ -97,7 +81,31 @@ export const changePassword = async (old_password, new_password) => {
   console.log("before respon data course:", data);
 
   try {
-    let response = await api.post("auth/update-password", data).then(alert(response));
+    let response = await api.post("auth/update-password", data);
+    console.log(response);
+    return response.data;
+    
+  } catch (error) {
+    console.log("err", error);
+  }
+};
+
+// Delete account
+export const deleteAccount = async (password, confirmPassword) => {
+  let data = {
+    password:password,
+    confirmPassword:confirmPassword,
+  };
+  console.log("before respon data :", 
+  
+  data);
+
+  try {
+    let response = await api.post("user/delete-account", {
+      params: {
+        data
+      },
+    });
     console.log(response);
     return response.data;
     
