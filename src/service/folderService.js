@@ -55,7 +55,7 @@ export const fetchallCourseFolder = async () => {
 export const createClassworkFolders = async (folder_name, material_type_id) => {
   let data = {
     folder_name: folder_name,
-    parent_id: 0,
+    parent_id: 1,
     material_type_id: material_type_id,
   };
   console.log("before respon data:", data);
@@ -67,21 +67,22 @@ export const createClassworkFolders = async (folder_name, material_type_id) => {
     console.log("create-classworkFolder", error);
   }
 };
-export const createCourseFolders = async (folder_name, material_type_id) => {
+
+// create all course folder
+export const createCourseFolders = async (folder_name) => {
   let data = {
     folder_name: folder_name,
-    parent_id: 0,
-    material_type_id: material_type_id,
+    parent_id: 1,
   };
   console.log("before respon data course:", data);
 
-  // try {
-  //   let response = await api.post(
-  //     "folder/create-classWorkFolder",
-  //     data
-  //   );
-  //   return response.data;
-  // } catch (error) {
-  //   console.log("create-classworkFolder", error);
-  // }
+  try {
+    let response = await api.post(
+      "folder/create-courseWorkFolder",data
+      
+    );
+    return response.data;
+  } catch (error) {
+    console.log("create-courseFolder", error);
+  }
 };

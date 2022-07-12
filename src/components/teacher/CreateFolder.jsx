@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { createClassworkFolders, createCourseFolders } from "../../service/folderService";
+import { changepassword } from "../swal/Success";
 
 function CreateFolder() {
  
@@ -31,14 +32,10 @@ function CreateFolder() {
 
   const onSubmit = (data) => {
     if(material==2){
-      createClassworkFolders(data,material) 
+      createClassworkFolders(data.folderName,material).then(changepassword())
     }else if(material==1){
-      createCourseFolders(data,material)
+      createCourseFolders(data.folderName)
     }
-   
-    console.log("====================================");
-    console.log(data);
-    console.log("====================================");
   };
 
   return (
