@@ -55,7 +55,7 @@ export const fetchallCourseFolder = async () => {
 export const createClassworkFolders = async (folder_name, material_type_id) => {
   let data = {
     folder_name: folder_name,
-    parent_id: 1,
+    parent_id: 0,
     material_type_id: material_type_id,
   };
   console.log("before respon data:", data);
@@ -72,14 +72,13 @@ export const createClassworkFolders = async (folder_name, material_type_id) => {
 export const createCourseFolders = async (folder_name) => {
   let data = {
     folder_name: folder_name,
-    parent_id: 1,
+    parent_id: 0,
   };
   console.log("before respon data course:", data);
 
   try {
     let response = await api.post(
       "folder/create-courseWorkFolder",data
-      
     );
     return response.data;
   } catch (error) {

@@ -4,10 +4,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { createClassworkFolders, createCourseFolders } from "../../service/folderService";
 import { changepassword } from "../swal/Success";
+import { useParams } from "react-router-dom";
 
 function CreateFolder() {
- 
-  
+ const {id} = useParams()
   const validationSchema = Yup.object().shape({
     folderName: Yup.string()
       .required("Folder Name is required")
@@ -23,16 +23,19 @@ function CreateFolder() {
   const { errors } = formState;
   let material;
   
-  if(window.location.pathname=='/all-classwork'){
+  if(window.location.pathname=='/all-classwork' || window.location.pathname===`/classroom/${id}/classworks`){
     material=2;
   }else if(window.location.pathname=='/all-course'){
     material=1;
   }
+
+
   
 
   const onSubmit = (data) => {
+    console.log(material);
     if(material==2){
-      createClassworkFolders(data.folderName,material).then(changepassword())
+      createClassworkFolders(data.folderName,material)
     }else if(material==1){
       createCourseFolders(data.folderName)
     }

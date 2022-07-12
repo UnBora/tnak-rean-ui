@@ -6,18 +6,17 @@ import { BrowserRouter } from "react-router-dom";
 import { store } from "./store/store";
 import { Provider } from "react-redux";
 import App from "./App";
-import {QueryClientProvider,QueryClient} from "react-query"
-import {ReactQueryDevtools} from "react-query/devtools"
+import { QueryClientProvider, QueryClient } from "react-query";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-const queryClient = new QueryClient({})
+const queryClient = new QueryClient({});
 root.render(
   <QueryClientProvider client={queryClient}>
-    <ReactQueryDevtools initialIsOpen={false} />
-  <BrowserRouter>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </BrowserRouter>
+    <BrowserRouter>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </BrowserRouter>
   </QueryClientProvider>
 );
 
@@ -25,8 +24,3 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
-
-
-
-
-

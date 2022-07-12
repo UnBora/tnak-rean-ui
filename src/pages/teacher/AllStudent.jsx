@@ -20,8 +20,6 @@ const AllStudent = () => {
 
   function onRemoveStudent(user_id,class_id) {
     removeStudent(user_id,class_id);
-    alert(user_id);
-    alert(id)
   }
   
   return (
