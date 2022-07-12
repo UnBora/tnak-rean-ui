@@ -10,7 +10,7 @@ import FolderCard from "../../components/teacher/FolderCard";
 import UploadCourse from "../../components/teacher/UploadCourse";
 import { fetchAllcourse } from "../../service/classMaterial";
 import { fetchCourseFolder } from "../../service/folderService";
-
+import CreateFolderPerClass from "../../components/teacher/CreateFolderPerClass";
 function ManageCourse() {
   const [folder, setFolder] = useState([]);
   const [course, setCourse] = useState([]);
@@ -67,7 +67,7 @@ function ManageCourse() {
           className="p-2 shadow dropdown-content menu rounded-box w-52 bg-smoke"
         >
           <div className="text-lg">
-            <label for="my-modal-1"  className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded">
+            <label for="my-modal-folder"  className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded">
               <BsFolderPlus className="mx-4 mt-1"/>
               Folder
             </label>
@@ -96,7 +96,7 @@ function ManageCourse() {
         })}
       </div>
       {/* folder pop up */}
-      <CreateFolder />
+      <CreateFolderPerClass />
       <UploadCourse />
     </div>
   );

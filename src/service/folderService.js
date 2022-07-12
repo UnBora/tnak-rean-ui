@@ -55,7 +55,7 @@ export const fetchallCourseFolder = async () => {
 export const createClassworkFolders = async (folder_name, material_type_id) => {
   let data = {
     folder_name: folder_name,
-    parent_id: 0,
+    parent_id: null,
     material_type_id: material_type_id,
   };
   console.log("before respon data:", data);
@@ -72,7 +72,7 @@ export const createClassworkFolders = async (folder_name, material_type_id) => {
 export const createCourseFolders = async (folder_name) => {
   let data = {
     folder_name: folder_name,
-    parent_id: 0,
+    parent_id: null,
   };
   console.log("before respon data course:", data);
 
@@ -80,6 +80,49 @@ export const createCourseFolders = async (folder_name) => {
     let response = await api.post(
       "folder/create-courseWorkFolder",data
       
+    );
+    return response.data;
+  } catch (error) {
+    console.log("create-courseFolder", error);
+  }
+};
+
+// create classwork folder in class
+export const createClassworkFolderInClass = async (folder_name,class_id) => {
+  let data = {
+    folder_name: folder_name,
+    parent_id: null,
+    classroom_id:1,
+    class_id:class_id
+  };
+  console.log("before respon data classwork:", data);
+
+  try {
+    let response = await api.post(
+      "folder/create-classworkFolder-in-class",data
+      
+    );
+    return response.data;
+
+  } catch (error) {
+    console.log("create-classworkFolder", error);
+  }
+ ;
+};
+// in folder of course
+export const createCourseFolderInClass = async (folder_name,class_id) => {
+  let data = {
+    folder_name: folder_name,
+    parent_id: null,
+    classroom_id:1,
+    class_id:class_id
+  };
+  console.log("before respon data course:", data);
+
+  try {
+    let response = await api.post(
+      "folder/create-courseFolder-in-class",data
+
     );
     return response.data;
   } catch (error) {

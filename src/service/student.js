@@ -54,10 +54,9 @@ export const removeStudent = async (user_id, class_id) => {
   // );
 
   try {
-    let response = await api.delete(
-      "teacher/teacher-remove-student-by-id",
-      {data}
-    );
+    let response = await api.delete("teacher/teacher-remove-student-by-id", {
+      data,
+    });
     return response.data;
   } catch (error) {
     console.log("deleteStu", error);
