@@ -1,7 +1,46 @@
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as Yup from "yup";
+import { createClassworkFolders, createCourseFolders } from "../../service/folderService";
 
 function CreateFolder() {
-  const [isActive, setIsActive] = useState(1);
+ 
+  
+  const validationSchema = Yup.object().shape({
+    folderName: Yup.string()
+      .required("Folder Name is required")
+      .min(4, "Folder Name must be at least 6 characters")
+      .matches(
+        /^[a-zA-Z0-9 ]+$/,
+        "Folder Name Only alphabets are allowed for Name "
+      ),
+  });
+  const formOptions = { resolver: yupResolver(validationSchema) };
+  const { register, handleSubmit, reset, formState, setError } =
+    useForm(formOptions);
+  const { errors } = formState;
+  let material;
+  
+  if(window.location.pathname=='/all-classwork'){
+    material=2;
+  }else if(window.location.pathname=='/all-course'){
+    material=1;
+  }
+  
+
+  const onSubmit = (data) => {
+    if(material==2){
+      createClassworkFolders(data,material) 
+    }else if(material==1){
+      createCourseFolders(data,material)
+    }
+   
+    console.log("====================================");
+    console.log(data);
+    console.log("====================================");
+  };
+
   return (
     <div>
       {/* Add new folder */}
@@ -17,14 +56,14 @@ function CreateFolder() {
           <h3 className="mb-1 text-lg font-bold">New Folder</h3>
           <div className="col-span-full sm:col-span-3">
             <input
+              {...register("folderName")}
               id="folder"
               type="text"
               placeholder="Enter folder name"
               className="w-full px-4 py-2 mb-4 leading-tight text-gray-700 bg-white border rounded-md shadow-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
             />
           </div>
-          <div class="w-full">
-    </div>
+          <div class="w-full"></div>
           {/* dropdown select class */}
           {/* <div className="w-full mb-6 md:w-full md:mb-0 ">
             <p className="font-medium ">Classroom</p>
@@ -41,6 +80,7 @@ function CreateFolder() {
           </div> */}
           <div className="modal-action">
             <label
+              onClick={handleSubmit(onSubmit)}
               for="my-modal-1"
               className="px-4 border-none rounded-full btn btn-sm bg-mygreen hover:bg-myhovergreen"
             >

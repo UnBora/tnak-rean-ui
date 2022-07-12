@@ -70,3 +70,21 @@ export const userUpdateProfile = async (student) => {
     console.log(error);
   }
 };
+
+//change password
+export const changePassword = async (password) => {
+  let data = {
+    old_password: password.oldpassword,
+    new_password: password.newpassword,
+  };
+
+  console.log('iam update password :',data);
+
+  try {
+    let response = await api.post("auth/update-password", data);
+    console.log(response);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};

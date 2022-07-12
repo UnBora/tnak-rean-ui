@@ -31,8 +31,7 @@ export default function Register() {
   });
 
   const formOptions = { resolver: yupResolver(validationSchema) };
-  const { register, handleSubmit, reset, formState, setError } =
-    useForm(formOptions);
+  const { register, handleSubmit, reset, formState, setError } =useForm(formOptions);
   const { errors } = formState;
   const [classes, setClass] = useState([]);
 

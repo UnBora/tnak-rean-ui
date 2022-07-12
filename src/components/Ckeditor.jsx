@@ -6,7 +6,6 @@ export default function Ckeditor() {
   const log = () => {
     if (editorRef.current) {
       console.log(editorRef.current.getContent());
-      console.log(editorRef.current);
     }
   };
 
