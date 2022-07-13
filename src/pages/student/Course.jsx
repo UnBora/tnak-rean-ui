@@ -33,18 +33,6 @@ export default function Course() {
             <Link to="#">
               <StudentFolder />
             </Link>
-            <StudentFolder />
-            <StudentFolder />
-            <StudentFolder />
-            {/* {folder.map((item,id)=>{
-          <div> {item.Title}
-          <Link to="#">
-          <StudentFolder />
-        </Link>
-          </div>
-        }
-        
-        )} */}
           </div>
           <div className="mt-12">
             <div className="text-xl font-medium ">Files</div>

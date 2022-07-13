@@ -29,7 +29,7 @@ export default function AccountDropdown({data}) {
             />
             </div>
           </div>
-          <span className="mt-2 text-xl font-semibold">{data.name}</span>
+          <span className="mt-2 text-xl font-semibold">{data?.name}</span>
         </div>
         <p className="myhr"></p>
         <div className="z-50 w-full font-medium rounded-md menu">
