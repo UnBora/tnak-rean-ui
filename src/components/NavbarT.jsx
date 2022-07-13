@@ -14,7 +14,6 @@ const NavbarT = ({ userData }) => {
   console.log("user is ",user);
   const  users = useSelector((state) => state?. persistedReducer?.value);
   console.log("users ",users);
-  const [openNavbar, setOpenNavbar] = useState(false);
   const current = localStorage.getItem("currentTab");
   const [currentTab, setCurrentTab] = useState(current);
   const handleSetCurrentTab = (tabName) => {
@@ -57,8 +56,8 @@ const NavbarT = ({ userData }) => {
                 to="/teacher"
                 className={
                   currentTab === "/"
-                    ? "flex items-center font-medium  border-b-2 border-myorange"
-                    : "flex items-center font-medium  mylink"
+                    ? "flex items-center font-medium border-b-2 border-myorange"
+                    : "flex items-center font-medium mylink"
                 }
               >
                 Home
@@ -73,8 +72,8 @@ const NavbarT = ({ userData }) => {
                 to="/all-classwork"
                 className={
                   currentTab === "/classroom"
-                    ? "flex items-center font-medium  border-b-2 border-myorange"
-                    : "flex items-center font-medium  mylink"
+                    ? "flex items-center font-medium border-b-2 border-myorange"
+                    : "flex items-center font-medium mylink"
                 }
               >
                 Classwork
@@ -88,67 +87,93 @@ const NavbarT = ({ userData }) => {
                 to="/all-course"
                 className={
                   currentTab === "/course"
-                    ? "flex items-center font-medium  border-b-2 border-myorange"
-                    : "flex items-center font-medium  mylink"
+                    ? "flex items-center font-medium border-b-2 border-myorange"
+                    : "flex items-center font-medium mylink"
                 }
               >
                 Course
               </NavLink>
             </button>
           </div>
-
-          <div className="items-center flex-shrink-0 hidden space-x-5 lg:flex">
-            {/* Profile */}
-            <div className="dropdown ">
-              <label tabindex="0" className="flex m-1 space-x-4 cursor-pointer">
-                <div className="avatar online">
-                  <div className="rounded-full w-9 ">
-                    <img
-                      src={user?.img}
-                      alt="profile"
-                    />
-                  </div>
+        </div>
+        <div className="hidden w-full lg:flex ">
+        <NavLink
+          as={Link}
+          to="/teacher"
+          rel="noopener noreferrer"
+          aria-label="Back to homepage"
+          className="justify-start text-xl normal-case"
+        >
+          <img src={logo} alt="logo" className="scale-75" />
+        </NavLink>
+        </div>
+      </div>
+      <div class="navbar-center hidden lg:flex ">
+        <div class="menu menu-horizontal p-0">
+          <label className="flex">
+            <NavLink
+              onClick={() => handleSetCurrentTab("/")}
+              rel="noopener noreferrer"
+              as={Link}
+              to="/teacher"
+              className={
+                currentTab === "/"
+                  ? "flex items-center font-medium border-b-4 border-myorange "
+                  : "flex items-center font-medium mylink"
+              }
+            >
+              Home
+            </NavLink>
+          </label>
+          <label className="flex px-9 ">
+            <NavLink
+              onClick={() => handleSetCurrentTab("/classroom")}
+              rel="noopener noreferrer"
+              as={Link}
+              to="/all-classwork"
+              className={
+                currentTab === "/classroom"
+                  ? "flex items-center font-medium border-b-4 border-myorange"
+                  : "flex items-center font-medium mylink"
+              }
+            >
+              Classwork
+            </NavLink>
+          </label>
+          <label className="flex ">
+            <NavLink
+              onClick={() => handleSetCurrentTab("/course")}
+              rel="noopener noreferrer"
+              as={Link}
+              to="/all-course"
+              className={
+                currentTab === "/course"
+                  ? "flex items-center font-medium border-b-4 border-myorange"
+                  : "flex items-center font-medium mylink"
+              }
+            >
+              Course
+            </NavLink>
+          </label>
+        </div>
+      </div>
+      <div class="navbar-end flex justify-end">
+        <div className="items-center flex-shrink-0 space-x-5 lg:flex">
+          <div className="dropdown dropdown-left">
+            <label tabindex="0" 
+            className="flex m-1 cursor-pointer ">
+              <div className="avatar online">
+                <div className="rounded-full w-9 ">
+                  <img src={users.img} alt="profile" />
                 </div>
-                <p className="mt-2 font-medium">{userData?.name}</p>
-              </label>
-              <div
-                tabindex="0"
-                className="p-1 dropdown-content mt-9 rounded-box "
-              >
-                <ProfileCard data={users}/>
-              </div>
-            </div>
-            {/* ================== */}
-
-            <div className="dropdown dropdown-left">
-              <label tabindex="0">
-                <IoMdNotificationsOutline className="text-2xl cursor-pointer" />
-              </label>
-              <div
-                tabindex="0"
-                className="p-1 overflow-y-auto h-80 dropdown-content mt-9 rounded-box scrollbar-thin scrollbar-thumb-zinc-400"
-              >
-                <Notification />
-              </div>
-            </div>
-
-            <div className="dropdown dropdown-left ">
-              <label tabindex="0">
-                <MdOutlineArrowDropDownCircle className="text-2xl cursor-pointer" />
-              </label>
-              <div
-                tabindex="0"
-                className="p-1 mt-8 dropdown-content rounded-box "
-              >
-                <AccountDropdown data={users} />
               </div>
               <p className="mt-2 font-medium">{userData?.name}</p>
-            </div>
+            </label>
             <div
               tabindex="0"
               className="p-1 dropdown-content rounded-box "
             >
-              <ProfileCard data={user} />
+              <ProfileCard data={users} />
             </div>
           </div>
           <div className="dropdown dropdown-left">
@@ -170,7 +195,7 @@ const NavbarT = ({ userData }) => {
               tabindex="0"
               className="p-1 mt-8 border dropdown-content rounded-box bg-smoke"
             >
-              <AccountDropdown data={user} />
+              <AccountDropdown data={users} />
             </div>
           </div>
         </div>
