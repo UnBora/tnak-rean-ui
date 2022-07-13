@@ -16,7 +16,7 @@ export default function StudentAssignedTask({ assignedTask }) {
     });
   }
   return (
-    <div className="flex flex-wrap w-full max-w-sm p-4 border rounded-md shadow-xl mr-7 mb-7 h-52 border-bordergray">
+    <div className="flex flex-wrap w-full max-w-sm p-4 border rounded-md shadow-md mr-7 mb-7 h-52 border-bordergray">
       <div className="w-full">
         <div className="flex text-2xl text-black cursor-default">
           <MdOutlineAssignment />

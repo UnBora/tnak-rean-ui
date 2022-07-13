@@ -41,7 +41,7 @@ export default function ListGradeStudent({ data }) {
           <div className="">
             <NavLink
               className="w-20 px-2 py-1 text-white rounded-full bg-mygreen"
-              to="/viewfile"
+              to="/grade"
             >
               Grade
             </NavLink>

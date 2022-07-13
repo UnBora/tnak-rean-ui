@@ -13,7 +13,6 @@ const StudentNavBar = ({ userData }) => {
   const  user = useSelector((state) => state?. user?.value);
   console.log("user is ",user);
   const  users = useSelector((state) => state?. persistedReducer?.value);
-  const [openNavbar, setOpenNavbar] = useState(false);
   const current = localStorage.getItem("currentTab");
   const [currentTab, setCurrentTab] = useState(current);
   const handleSetCurrentTab = (tabName) => {

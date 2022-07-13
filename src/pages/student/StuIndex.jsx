@@ -6,7 +6,6 @@ import ShowResult from "../../components/student/ShowResult";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchScheduleStudentSlice } from "../../slices/schedule/scheduleStudentSlice";
 import { fetchScheduleStudent } from "../../service/scheduleService";
-import NavbarT from "../../components/NavbarT";
 import { fetchUpCommingWork } from "../../service/student/studentClassWorkService";
 import { getCurrentUser } from "../../service/authService";
 import StudentNavBar from "../../components/StudentNavbar";
@@ -86,16 +85,14 @@ function StuIndex() {
             </div>
           </div>
         </div>
-        <div className="w-full h-full mt-6 ml-3">
+        <div className="w-full h-full ml-5 mt-7 ">
           <div className="pt-1 rounded-lg bg-smoke">
-            <div className="mx-5 my-4 ">
-              <div className="flex justify-between ">
-                <p className="pt-2 mt-2 text-2xl font-semibold">Upcoming</p>
-              </div>
+            <div className="mx-4 my-4 ">
+            <p className="text-3xl font-semibold ">Upcoming</p>
               <p className="mt-2 border-b"></p>
             </div>
 
-            <div className="flex flex-no-wrap flex-wrap sm:flex-wrap md:flex-wrap lg:flex-no-wrap xl:flex-wrap md:justify-center sm:justify-center">
+            <div className="flex flex-wrap mx-4">
               {upComingWork?.map((index) => (
                 <StudentAssignedTask assignedTask={index} />
               ))}

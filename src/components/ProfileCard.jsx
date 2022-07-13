@@ -6,7 +6,7 @@ export default function ProfileCard({ data }) {
      <div className="flex m-auto"> 
      <div className=" avatar online">
            <div className="w-16 m-auto border-2 rounded-full border-mygreen"> 
-           <img
+           <img 
               src={
                 data?.img !== null
                   ? data?.img
@@ -18,7 +18,8 @@ export default function ProfileCard({ data }) {
           </div></div>
         <div className="text-center ">
           <p className="font-semibold">{data?.name}</p>
-          <p className="text-xs">{data?.username}</p>
+          <p className="text-xs">@{data?.username}</p>
+          <p className="my-2 myhr"></p>
         </div>
         <div className="text-xs">
           <p className="font-semibold">Contact</p>

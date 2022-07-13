@@ -45,7 +45,6 @@ function App() {
       <Routes>
         <Route path="/grade" element={<GradeStudentWork/>}></Route>
         <Route path="/" element={<Login />} />
-        {/* <Route path="/register" element={<Register />} /> */}
         <Route path="/about" element={<AboutUs />} />
         {/* On navbar page */}
         <Route path="/teacher" element={<Home />} />
