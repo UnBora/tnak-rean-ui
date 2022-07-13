@@ -4,17 +4,18 @@ import { FiMoreVertical } from "react-icons/fi";
 import { ImUsers } from "react-icons/im";
 import EditClass from "./EditClass";
 import { classDelete } from "../swal/Delete";
-import { useSelector } from "react-redux/es/exports";
+import { useDispatch, useSelector } from "react-redux/es/exports";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux/es/hooks/useDispatch";
-import { deleteClass } from "../../slices/classes/classesSlice";
 import { removeClass } from "../../service/classesService";
-import thunk from "redux-thunk";
+import { Dispatch } from "react";
+import { deleteClass } from "../../slices/classes/classesSlice";
 export default function ClassCard({ data }) {
   const dispatch = useDispatch();
-
-  // dispatch(deleteClass(dataClass.id));
-
+  function onDeleteClass(classId) {
+    // removeClass(classId)
+    dispatch(deleteClass(classId));
+    // alert(classId);
+  }
   const dataClass = data;
 
   return (
@@ -31,13 +32,17 @@ export default function ClassCard({ data }) {
             tabindex="0"
             className="w-24 text-sm font-medium shadow w-z-20 dropdown-content menu bg-base-100 rounded-box"
           >
-            <label className="py-2 pl-4 cursor-pointer hover:bg-gray-200 hover:rounded-t-lg">
+            <label className="py-2 pl-4 cursor-pointer hover:bg-gray-200 hover:rounded-t-2xl">
               <label for="my-modal-2" className="cursor-pointer">
                 Edit
               </label>
             </label>
             <p className="py-2 pl-4 text-red-500 border-t hover:bg-gray-200 hover:rounded-b-lg">
-              <button onClick={() => dispatch(deleteClass(data.id))}>
+              <button
+                onClick={() => {
+                  onDeleteClass(dataClass.id);
+                }}
+              >
                 Delete
               </button>
             </p>
