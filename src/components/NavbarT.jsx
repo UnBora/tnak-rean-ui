@@ -107,7 +107,7 @@ const NavbarT = ({ userData }) => {
       </div>
       <div class="navbar-center hidden lg:flex ">
         <div class="menu menu-horizontal p-0">
-          <label className="flex mylink">
+          <label className="flex">
             <NavLink
               onClick={() => handleSetCurrentTab("/")}
               rel="noopener noreferrer"
@@ -115,8 +115,8 @@ const NavbarT = ({ userData }) => {
               to="/teacher"
               className={
                 currentTab === "/"
-                  ? "flex items-center font-medium  border-b-2 border-myorange"
-                  : "flex items-center font-medium  mylink"
+                  ? "flex items-center font-medium border-b-4 border-myorange "
+                  : "flex items-center font-medium mylink"
               }
             >
               Home
@@ -130,14 +130,14 @@ const NavbarT = ({ userData }) => {
               to="/all-classwork"
               className={
                 currentTab === "/classroom"
-                  ? "flex items-center font-medium  border-b-2 border-myorange"
-                  : "flex items-center font-medium  mylink"
+                  ? "flex items-center font-medium border-b-4 border-myorange"
+                  : "flex items-center font-medium mylink"
               }
             >
               Classwork
             </NavLink>
           </label>
-          <label className="flex mylink">
+          <label className="flex ">
             <NavLink
               onClick={() => handleSetCurrentTab("/course")}
               rel="noopener noreferrer"
@@ -145,8 +145,8 @@ const NavbarT = ({ userData }) => {
               to="/all-course"
               className={
                 currentTab === "/course"
-                  ? "flex items-center font-medium  border-b-2 border-myorange"
-                  : "flex items-center font-medium  mylink"
+                  ? "flex items-center font-medium border-b-4 border-myorange"
+                  : "flex items-center font-medium mylink"
               }
             >
               Course

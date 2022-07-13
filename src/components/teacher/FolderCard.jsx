@@ -15,7 +15,7 @@ export default function FolderCard({ data }) {
         <span className="ml-2 text-sm truncate font-regular">
           {dataFolder.folder_name}
         </span>
-        {/* <div className="ml-auto dropdown">
+        <div className="ml-auto dropdown">
           <label tabindex="0" className="cursor-pointer">
             <FaEllipsisV />
           </label>
@@ -38,7 +38,7 @@ export default function FolderCard({ data }) {
             Delete
           </label>
         </div>
-        </div> */}
+        </div>
       </button>
       <EditFolder />
     </div>
