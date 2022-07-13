@@ -96,7 +96,7 @@ function StuIndex() {
             </div>
 
             <div className="flex flex-no-wrap flex-wrap sm:flex-wrap md:flex-wrap lg:flex-no-wrap xl:flex-wrap md:justify-center sm:justify-center">
-              {upComingWork.map((index) => (
+              {upComingWork?.map((index) => (
                 <StudentAssignedTask assignedTask={index} />
               ))}
             </div>

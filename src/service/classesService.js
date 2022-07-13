@@ -1,6 +1,5 @@
 import axios from "axios";
 import { api } from "../utils/api";
-import { header } from "../utils/header";
 
 // export const fetchAllClasses = async () => {
 //   try {
@@ -46,20 +45,22 @@ export const create = async (className, image) => {
   const config = {
     headers: { "content-type": "multipart/form-data" },
   };
-
+  let data;
+  let re;
   // console.log(formData);
-
-  let re = await api.post("/upload/one", formData, config);
-  console.log(re.data.data.name);
+  if (image !== null) {
+    re = await api.post("/upload/one", formData, config);
+    console.log(re.data.data.name);
+  }
 
   // .then((res) => {
   //   console.log(res + "this is data after api call");
   // })
   // .catch((err) => console.log(err));
 
-  let data = {
+  data = {
     className: className,
-    image: re.data.data.name,
+    image: re?re.data?.data?.name:null,
   };
   // console.log(data);
   try {
@@ -85,16 +86,16 @@ export const fetchSelectClass = async () => {
 };
 
 // remove class
-export const deleteClass = async (classId) => {
+export const removeClass = async (classId) => {
+  console.log(classId);
+
   try {
+    console.log("hello asdasdas ");
     let response = await api.delete("class/delete-class", {
-      params: {
-        classId:classId
-      },
+      params: { classId: classId },
     });
     return response.data;
   } catch (error) {
     console.log("dataClassERR", error);
   }
- 
 };

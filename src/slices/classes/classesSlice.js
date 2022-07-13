@@ -1,3 +1,7 @@
+import swal from "sweetalert";
+import { showLoading } from "../../components/swal/Loading";
+import { removeClass } from "../../service/classesService";
+
 const { createSlice } = require("@reduxjs/toolkit");
 
 const initialState = {
@@ -11,9 +15,12 @@ const classesSlice = createSlice({
     fetchAllClassesSlice: (state, action) => {
       state.value = action.payload;
     },
+    deleteClass(state, action) {
+      removeClass(action.payload);
+      state.value = state.value.filter((item) => item.id !== action.payload);
+    },
   },
 });
-export const { fetchAllClassesSlice } = classesSlice.actions;
-
+export const { fetchAllClassesSlice, deleteClass } = classesSlice.actions;
 
 export default classesSlice.reducer;

@@ -20,14 +20,14 @@ export default function AccountDropdown({data}) {
           <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-1 ">
             <img
               src={
-                data.img !== null
-                  ? data.img
+                data?.img !== null
+                  ? data?.img
                   : "https://www.cmcaindia.org/wp-content/uploads/2015/11/default-profile-picture-gmail-2.png"
               }
               alt="profile"
             />
           </div>
-          <span className="mt-1 font-medium">{data.name}</span>
+          <span className="mt-1 font-medium">{data?.name}</span>
         </div>
         <p className="myhr"></p>
         <div className="z-50 w-full font-medium rounded-md menu">

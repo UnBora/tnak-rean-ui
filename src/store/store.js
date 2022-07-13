@@ -2,8 +2,12 @@ import classesSlice from "../slices/classes/classesSlice";
 import scheduleTeacherSlice from "../slices/schedule/scheduleTeacherSlice";
 import scheduleStudentSlice from "../slices/schedule/scheduleStudentSlice";
 import userSlice from "../slices/users/userSlice";
-const { configureStore } = require("@reduxjs/toolkit");
+import { applyMiddleware, compose } from "redux";
+import thunk from "redux-thunk";
 
+
+
+const { configureStore } = require("@reduxjs/toolkit");
 export const store = configureStore({
   reducer: {
     //class material
@@ -12,4 +16,5 @@ export const store = configureStore({
     scheduleStudent: scheduleStudentSlice,
     user: userSlice,
   },
+  applyMiddleware: thunk,
 });

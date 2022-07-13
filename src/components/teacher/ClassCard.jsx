@@ -6,12 +6,15 @@ import EditClass from "./EditClass";
 import { classDelete } from "../swal/Delete";
 import { useSelector } from "react-redux/es/exports";
 import { Link } from "react-router-dom";
-import { deleteClass } from "../../service/classesService";
+import { useDispatch } from "react-redux/es/hooks/useDispatch";
+import { deleteClass } from "../../slices/classes/classesSlice";
+import { removeClass } from "../../service/classesService";
+import thunk from "redux-thunk";
 export default function ClassCard({ data }) {
-  function onDeleteClass(classId) {
-    deleteClass(classId)
-    alert(classId)
-  }
+  const dispatch = useDispatch();
+
+  // dispatch(deleteClass(dataClass.id));
+
   const dataClass = data;
 
   return (
@@ -29,12 +32,14 @@ export default function ClassCard({ data }) {
             className="w-24 text-sm font-medium shadow w-z-20 dropdown-content menu bg-base-100 rounded-box"
           >
             <label className="py-2 pl-4 cursor-pointer hover:bg-gray-200 hover:rounded-t-lg">
-              <label for="my-modal-2" className="cursor-pointer">Edit</label>
+              <label for="my-modal-2" className="cursor-pointer">
+                Edit
+              </label>
             </label>
             <p className="py-2 pl-4 text-red-500 border-t hover:bg-gray-200 hover:rounded-b-lg">
-              <button onClick={() => {
-                        onDeleteClass(dataClass.id)
-                      }}>Delete</button>
+              <button onClick={() => dispatch(deleteClass(data.id))}>
+                Delete
+              </button>
             </p>
           </div>
         </div>
@@ -50,8 +55,11 @@ export default function ClassCard({ data }) {
         className="w-48 h-32 m-2 shadow-2xl card md:w-72 md:h-48"
       >
         <img
-        
-          src={dataClass.img!==null?dataClass.img:"https://i.pinimg.com/564x/ef/78/48/ef78480671d8a6810281ef6f8ee76d17.jpg"}
+          src={
+            dataClass.img !== null
+              ? dataClass.img
+              : "https://i.pinimg.com/564x/ef/78/48/ef78480671d8a6810281ef6f8ee76d17.jpg"
+          }
           className="absolute z-0 object-cover w-full h-full"
           alt="Class"
         />

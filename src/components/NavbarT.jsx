@@ -95,7 +95,7 @@ const NavbarT = ({ userData }) => {
                 <div className="avatar online">
                   <div className="rounded-full w-9 ">
                     <img
-                      src={user.img}
+                      src={user?.img}
                       alt="profile"
                     />
                   </div>
