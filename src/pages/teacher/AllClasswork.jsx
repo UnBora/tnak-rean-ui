@@ -22,6 +22,7 @@ function AllClasswork() {
   useEffect(() => {
     fetchClassworks().then((r) => {
       setallClasswork(r.data);
+      console.log("all assign task",r.data );
     });
     
     fetchallClassworkFolder().then((r)=>{
@@ -30,6 +31,7 @@ function AllClasswork() {
   }, []);
 
   console.log("all folder",allFolder);
+ 
   return (
     <div>
       <NavbarT />

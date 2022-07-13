@@ -9,15 +9,15 @@ import { yupResolver } from "@hookform/resolvers/yup";
 const AssignClasswork = () => {
   const validationSchema = Yup.object().shape({
     title: Yup.string()
-      .required("Name is required")
+      .required("Title is required")
       .min(4, "Name must be at least 6 characters")
       .matches(/^[a-zA-Z0-9 ]+$/, "Only alphabets are allowed for Name "),
     point: Yup.number()
       .required("point is required")
-      .typeError("you must specify a number"),
+      .typeError("You must specify a number"),
     deadline: Yup.date()
       .min(new Date(), "Deadline must be later than today")
-      .typeError("you must specify deadline"),
+      .typeError("You must specify deadline"),
     link: Yup.string().matches(
       /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
       "Enter correct url!"
@@ -77,13 +77,24 @@ const AssignClasswork = () => {
                     type="text"
                     placeholder="Title"
                   />
-                  <div className="invalid-feedback">
+                  <div className="ml-4 text-sm invalid-feedback text-myred">
                     {errors.title?.message}
                   </div>
                   <div className="invalid-feedback">{errors.name?.message}</div>
                 </div>
               </div>
-
+              <div className="flex flex-wrap mb-6 -mx-3">
+                <div className="w-full px-3">
+                  <p className="font-medium">Description</p>
+                  <input
+                    {...register("title")}
+                    className="block w-full px-4 py-3 mt-1 mb-3 leading-tight text-gray-700 border rounded shadow-md appearance-none focus:outline-none focus:ring-1 focus:ring-mygreen"
+                    id="Description"
+                    type="text"
+                    placeholder="Description"
+                  />
+                </div>
+              </div>
               <div className="flex flex-wrap mb-6 -mx-3">
                 {/* <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0 ">
                   <p className="font-medium ">School</p>
@@ -122,10 +133,10 @@ const AssignClasswork = () => {
                     type="number"
                     placeholder="Point"
                   />
-                  <div className="invalid-feedback">
+                  <div className="ml-4 text-sm invalid-feedback text-myred">
                     {errors.point?.message}
                   </div>
-                  <div className="invalid-feedback">{errors.name?.message}</div>
+                  <div className="ml-4 text-sm invalid-feedback text-myred">{errors.name?.message}</div>
                 </div>
                 <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0">
                   <p className="font-medium ">Deadline</p>
@@ -135,7 +146,7 @@ const AssignClasswork = () => {
                     id="userdate"
                     type="datetime-local"
                   />
-                  <div className="invalid-feedback">
+                  <div className="ml-4 text-sm invalid-feedback text-myred">
                     {errors.deadline?.message}
                   </div>
                 </div>

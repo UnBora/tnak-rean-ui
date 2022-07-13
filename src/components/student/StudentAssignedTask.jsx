@@ -22,11 +22,11 @@ export default function StudentAssignedTask({ assignedTask }) {
           <MdOutlineAssignment />
           <span className="ml-2 text-lg font-medium">{dataTask?.title}</span>
         </div>
-        <div className="mt-2 text-base font-medium">
-          <p className="max-w-[22rem] truncate text-black">
-            {dataTask?.description}
-          </p>
-        </div>
+        <div className="w-full">
+      <div className="max-w-[22rem] truncate mt-2 text-base font-medium block">
+        {dataTask?.description}
+      </div>
+      </div>
         <div className="text-xs font-medium">
           <div className="mb-2">
             Point: <span>{dataTask?.score}</span>
@@ -59,14 +59,6 @@ export default function StudentAssignedTask({ assignedTask }) {
               <StudentComment comment={comment} />
             </div>
           </div>
-          {/* <div className="mt-2 ml-40 text-sm underline font-regular dropdown dropdown-right">
-          <label tabindex="0" className="underline dropdown dropdown-right">
-            <span>2</span> comments
-          </label>
-          <div tabindex="0" className="mt-2 dropdown-content rounded-box">
-            <StudentComment comment={comment}/>
-          </div>
-        </div> */}
         </div>
       </div>
     </div>

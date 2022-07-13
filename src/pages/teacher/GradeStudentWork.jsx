@@ -2,12 +2,15 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { IoChevronBackCircle } from "react-icons/io5";
 import Ckeditor from "../../components/Ckeditor";
+import NavbarT from "../../components/NavbarT";
 // import Ckeditor from "../../components/Ckeditor";
 // import { Textarea } from "@material-tailwind/react";
 
-export default function ViewFilesT() {
+export default function GradeStudentWork() {
   return (
-    <div className="px-32 pb-40 mb-40 bg-white ">
+    <div>
+      <NavbarT/>
+      <div className="px-32 pb-40 mt-10 mb-40 bg-white">
       <div className="flex text-lg">
         <div className="p-1 text-mygreen">
           <IoChevronBackCircle />
@@ -16,7 +19,7 @@ export default function ViewFilesT() {
       </div>
       <div className="mt-3 text-3xl text-black">Phnom Penh Classroom</div>
       <div className="text-xl font-light text-gray-600">Homework 001</div>
-      <div className="mt-7">
+      <div className="mb-8 mt-7">
         <p className="text-2xl text-center text-black">Answer Sheet</p>
         <p className="m-auto mt-2 w-36 myhr"></p>
       </div>
@@ -24,7 +27,7 @@ export default function ViewFilesT() {
         <Textarea className="h-[300px] mt-9 focus:border-mygreen "></Textarea>
       </div> */}
       <Ckeditor/>
-      <div className="">
+      <div className="mt-8">
         <div className="flex">
           <label
             for="score"
@@ -41,6 +44,7 @@ export default function ViewFilesT() {
         </div>
         <button className="px-3 py-1 rounded-full bg-mygreen">Send</button>
       </div>
+    </div>
     </div>
   );
 }
