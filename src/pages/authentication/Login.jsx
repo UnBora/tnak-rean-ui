@@ -15,6 +15,9 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   let navigate = useNavigate();
+
+  const user = useSelector((state) => {console.log("Here are the value of the state : ",state)} );
+  
   let signin = (e) => {
     e.preventDefault();
     let user = {
@@ -24,7 +27,9 @@ export default function Login() {
 
     login(user)
       .then((u) => {
+        
         console.log(u);
+        
         if (u.role[0] === "Teacher") {
           console.log(u.role[0]);
           console.log(
@@ -34,13 +39,14 @@ export default function Login() {
         } else if (u.role[0] === "Student") {
           navigate("/student", { replace: true });
         }
+        
         try {
           dispatch(getUserSlice(u));
+
         } catch (error) {
           console.log(error);
         }
-        // localStorage.setItem("user", JSON.stringify(u));
-        console.log('userrrrrrrrrrrrrrrrrrrrrrrrrrrrrr ',u);
+        
       })
       .then(showLoading);
     // try {

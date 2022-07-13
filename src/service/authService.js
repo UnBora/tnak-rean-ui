@@ -18,7 +18,10 @@ export const login = async (user) => {
       console.log(response.data);
       cryptoEncrypt(response.data.token, "Phanith");
     }
-    console.log(response.data);
+    console.log("Response Data: ", response.data);
+    let temp = JSON.stringify(response.data)
+    localStorage.setItem("user", temp);
+        console.log('userrrrrrrrrrrrrrrrrrrrrrrrrrrrrr ',temp);
     return response.data;
   } catch (error) {
     console.log(error);

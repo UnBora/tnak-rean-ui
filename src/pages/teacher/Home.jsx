@@ -15,7 +15,8 @@ import NavbarT from "../../components/NavbarT";
 
 export default function Home() {
   const [date, setDate] = useState(new Date());
-  const classes = useSelector((state) => state.classes.value);
+    const classes = useSelector((state) => state.classes.value);
+  //const classes = useSelector((state)=> {console.log("Home teacher states : ",state)})
   const [className, setclassName] = useState({});
   const dispatch = useDispatch();
 
