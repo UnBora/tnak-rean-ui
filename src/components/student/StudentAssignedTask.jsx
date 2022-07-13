@@ -9,12 +9,12 @@ export default function StudentAssignedTask({ assignedTask }) {
       <div className="justify-between">
         <div className="flex text-2xl text-black">
           <MdOutlineAssignment />
-          <span className="ml-2 text-lg font-medium">{assignedTask.title}</span>
+          <span className="ml-2 text-lg font-medium">{assignedTask?.title}</span>
         </div>
       </div>
       <div className="mt-2 text-base font-medium">
         <p className="max-w-[22rem] truncate text-black">
-          {assignedTask.description}
+          {assignedTask?.description}
         </p>
       </div>
 
@@ -23,7 +23,7 @@ export default function StudentAssignedTask({ assignedTask }) {
           Point: <span>1/100</span>
         </div>
         <div className="mt-1 text-xs font-regular text-myred ">
-          <p>{assignedTask.deadline}</p>
+          <p>{assignedTask?.deadline}</p>
         </div>
       </div>
       <div className="flex mt-auto">

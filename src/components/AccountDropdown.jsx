@@ -21,8 +21,8 @@ export default function AccountDropdown({data}) {
            <div className="w-12 border-2 rounded-full border-mygreen"> 
            <img
               src={
-                data.img !== null
-                  ? data.img
+                data?.img !== null
+                  ? data?.img
                   : "https://www.cmcaindia.org/wp-content/uploads/2015/11/default-profile-picture-gmail-2.png"
               }
               alt="profile"
