@@ -38,24 +38,6 @@ export default function Home() {
       <div className="mx-100px md:flex">
         <div className="mt-6 ">
           <div className="max-w-md space-y-3">
-            {/* <div className="p-2 rounded-lg bg-smoke ">
-          
-            <h2 className="text-2xl font-medium text-mygreen">School</h2>
-
-         <p className="mb-2 myhr"></p>
-         <select
-           id="weekday"
-           type="text"
-           className="w-full h-8 px-4 py-1 mt-1 leading-tight text-gray-700 bg-white border rounded-md shadow-lg focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
-         >
-           <option className="p-6 text-sm ">KSHRD</option>
-           <option className="p-6 text-sm ">
-             Royal University Phnom Penh
-           </option>
-           <option className="p-6 text-sm ">Setec</option>
-           <option className="p-6 text-sm ">Kimab University</option>
-         </select>
-       </div> */}
             <div className="p-2 rounded-lg bg-smoke">
               <h2 className="text-2xl font-medium text-mygreen">Schedule</h2>
               <p className="mb-2 myhr"></p>
