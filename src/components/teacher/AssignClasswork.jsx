@@ -21,7 +21,7 @@ const AssignClasswork = () => {
           <section className="p-6 ">
             <p className="flex text-2xl font-semibold ">
               <MdOutlineHomeWork className="w-10 h-10 p-2 mr-2 text-white border rounded-full bg-mygreen" />
-              Homework
+              Assign Classwork
             </p>
             <div className="pt-1 myhr"></div>
             <form className="w-full max-w-3xl p-5 m-auto mt-3 bg-white border rounded-lg">
@@ -51,12 +51,12 @@ const AssignClasswork = () => {
                     <option className="p-6 text-md">Setec</option>
                   </select>
                 </div> */}
-                <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0 ">
+                <div className="w-full px-3 mb-6 md:w-full md:mb-0 ">
                   <p className="font-medium ">Classroom</p>
                   <select
                     id="class"
                     type="text"
-                    className="w-full px-4 py-3 leading-tight text-gray-700 bg-white border rounded-md shadow-lg focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
+                    className="w-full px-4 py-3 leading-tight text-gray-700 bg-white border rounded-md shadow-lg focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white multiple"
                   >
                     <option className="p-6 text-md">All classes</option>
                     <option className="p-6 text-md">PP</option>

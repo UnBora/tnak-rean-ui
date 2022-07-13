@@ -84,7 +84,9 @@ export default function CreateClass() {
                             onChange={(e) => imgFilehandler(e)}
                           />
                         </label> */}
-                        <input type="file" className="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-slate-100 file:text-mygreen hover:file:bg-slate-200"/>
+                        <input type="file" className="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-slate-100 file:text-mygreen hover:file:bg-slate-200" 
+                          onChange={(e) => imgFilehandler(e)}
+                        />
                       </div>
                     </div>
                   </div>

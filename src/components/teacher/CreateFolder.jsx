@@ -61,7 +61,7 @@ function CreateFolder() {
           </div>
           <div class="w-full"></div>
           {/* dropdown select class */}
-          {/* <div className="w-full mb-6 md:w-full md:mb-0 ">
+          <div className="w-full mb-6 md:w-full md:mb-0 ">
             <p className="font-medium ">Classroom</p>
             <select
               id="class"
@@ -73,7 +73,7 @@ function CreateFolder() {
               <option className="p-6 text-sm">M5</option>
               <option className="p-6 text-sm">BTB</option>
             </select>
-          </div> */}
+          </div>
           <div className="modal-action">
             <label
               onClick={handleSubmit(onSubmit)}

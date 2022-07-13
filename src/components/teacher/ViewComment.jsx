@@ -18,7 +18,7 @@ export default function ViewComment({ comment }) {
                   ? data.img
                   : "https://www.cmcaindia.org/wp-content/uploads/2015/11/default-profile-picture-gmail-2.png"
               }
-              alt=""
+              alt="stupf"
             />
 
             <div className="ml-2">

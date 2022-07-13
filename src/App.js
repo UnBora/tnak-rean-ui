@@ -78,6 +78,7 @@ function App() {
         <Route path="/stu-course" element={<Course />} />
         <Route path="/files" element={<ViewFiles />} />
       </Routes>
+      
     </div>
   );
 }

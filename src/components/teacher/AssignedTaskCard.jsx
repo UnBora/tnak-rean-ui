@@ -28,7 +28,7 @@ export default function AssignedTaskCard({ data }) {
           <MdOutlineAssignment />
           <span className="ml-2 text-lg font-medium">{dataTask.title}</span>
         </div>
-        {/* <div className="mt-1 ml-auto dropdown">
+        <div className="mt-1 ml-auto dropdown">
           <label tabindex="0" className="cursor-pointer">
             <FaEllipsisV />
           </label>
@@ -52,7 +52,7 @@ export default function AssignedTaskCard({ data }) {
               </label>
             </label>
           </div>
-        </div> */}
+        </div>
       </div>
       <div className="w-full mt-2 text-base font-medium">
         {dataTask.description}

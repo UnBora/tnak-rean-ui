@@ -62,43 +62,55 @@ function AllClasswork() {
           </ul>
         </div> */}
 
-          <div className="dropdown dropdown-right">
+        <div className="dropdown dropdown-right">
+        <label
+          tabindex="0"
+          className="px-5 my-4 ml-1 border-none rounded-full btn btn-sm bg-mygreen hover:bg-myhovergreen"
+        >
+          Create
+        </label>
+        <div
+          tabindex="0"
+          className="p-2 shadow dropdown-content menu rounded-box w-52 bg-smoke"
+        >
+          <div className="text-lg">
             <label
-              tabindex="0"
-              className="px-5 my-4 ml-1 border-none rounded-full btn btn-sm bg-mygreen hover:bg-myhovergreen"
+              for="my-modal-1"
+              className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded"
             >
-              Create
+              <BsFolderPlus className="mx-4 mt-1" />
+              Folder
             </label>
-            <ul
-              tabindex="0"
-              className="p-2 shadow dropdown-content menu rounded-box w-52 bg-smoke"
-            >
-              <li>
-                <label for="my-modal-1">
-                  <BsFolderPlus />
-                  Folder
-                </label>
-              </li>
-              <li>
-                <label for="my-modal-2">
-                  <MdOutlineHomeWork />
-                  Homework
-                </label>
-              </li>
-              <li>
-                <label>
-                  <MdOutlineAssignment />
-                  Assignment
-                </label>
-              </li>
-              <li>
-                <Link to="#">
-                  <MdOutlineQuiz />
-                  Quiz
-                </Link>
-              </li>
-            </ul>
           </div>
+          <div className="text-lg">
+            <label
+              for="my-modal-2"
+              className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded"
+            >
+              <MdOutlineHomeWork className="mx-4 mt-1" />
+              Homework
+            </label>
+          </div>
+          <div className="text-lg">
+            <label
+              for="my-modal-2"
+              className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded"
+            >
+              <MdOutlineAssignment className="mx-4 mt-1" />
+              Assignment
+            </label>
+          </div>
+          <div className="text-lg">
+            <label
+              for="my-modal-2"
+              className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded"
+            >
+              <MdOutlineQuiz className="mx-4 mt-1" />
+              Quiz
+            </label>
+          </div>
+        </div>
+      </div>
           <p className="mt-3 ml-1 text-xl font-semibold">Folder</p>
           <p className="mb-2 border-b"></p>
           <div className="flex flex-wrap">

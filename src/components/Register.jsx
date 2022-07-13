@@ -82,7 +82,7 @@ export default function Register() {
               action=""
               className="flex flex-col max-w-lg mx-auto space-y-2 ng-untouched ng-pristine ng-valid"
             >
-              <div className="flex justify-center">
+              <div className="flex justify-center ">
                 <img
                   src={logo}
                   className="w-12 h-12 bg-gray-200 rounded-full"
@@ -112,7 +112,7 @@ export default function Register() {
                         errors.acceptTerms ? "is-invalid" : ""
                       }`}
                     />
-                    <div className="invalid-feedback">
+                    <div className="ml-4 text-sm invalid-feedback text-myred">
                       {errors.name?.message}
                     </div>
                   </div>
@@ -130,7 +130,7 @@ export default function Register() {
                       placeholder="Enter username"
                       className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen 0 focus:outline-none focus:bg-white"
                     />
-                    <div className="invalid-feedback">
+                    <div className="ml-4 text-sm invalid-feedback text-myred">
                       {errors.userName?.message}
                     </div>
                   </div>
@@ -165,7 +165,7 @@ export default function Register() {
                       placeholder="Enter email"
                       className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
                     />
-                    <div className="invalid-feedback">
+                    <div className="ml-4 text-sm invalid-feedback text-myred">
                       {errors.email?.message}
                     </div>
                   </div>
@@ -215,7 +215,7 @@ export default function Register() {
                       placeholder="Enter password"
                       className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
                     />
-                    <div className="invalid-feedback">
+                    <div className="ml-4 text-sm invalid-feedback text-myred">
                       {errors.password?.message}
                     </div>
                   </div>
@@ -231,7 +231,7 @@ export default function Register() {
                       placeholder="Confirm password"
                       className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
                     />
-                    <div className="invalid-feedback">
+                    <div className="ml-4 text-sm invalid-feedback text-myred">
                       {errors.confirmPassword?.message}
                     </div>
                   </div>
