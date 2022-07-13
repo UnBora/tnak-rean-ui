@@ -23,7 +23,7 @@ export default function () {
       if(r.responseCode===400){
         alert("Not match!!")
       }  else{
-        alert("chnagedd")
+        alert("chnaged")
       }
     })
     // if(data.responseCode===400){
