@@ -14,10 +14,13 @@ import {
 import { fetchScheduleTeacher } from "../../service/scheduleService";
 import { fetchScheduleClassSlice } from "../../slices/schedule/scheduleTeacherSlice";
 import NavbarT from "../../components/NavbarT";
+// import Navbartest from "../../components/Navbartest";
 
 export default function Home() {
   const [date, setDate] = useState(new Date());
-  const classes = useSelector((state) => state.classes.value);
+    const classes = useSelector((state) => state.classes.value);
+  //const classes = useSelector((state)=> {console.log("Home teacher states : ",state)})
+  const [className, setclassName] = useState({});
   const dispatch = useDispatch();
 
   const scheduleTeacher = useSelector((state) => state.scheduleTeacher.value);
@@ -30,7 +33,6 @@ export default function Home() {
       dispatch(fetchScheduleClassSlice(r))
     );
   }, []);
-
   console.log("class:===== ", classes);
   return (
     <div>

@@ -18,23 +18,16 @@ const AllStudent = () => {
     });
   }, []);
 
-  
-
   function onRemoveStudent(user_id,class_id) {
     removeStudent(user_id,class_id);
-    alert(user_id);
-    alert(id)
   }
-
-
-
-
+  
   return (
     <div>
       {/* <NavbarT/> */}
-      <div className="flex space-x-2">
-        <div className="w-8 h-8 rounded-full bg-mygreen">
-          <FaUserFriends className="flex m-auto mt-2 text-white align-middle" />
+      <div className="flex space-x-3">
+        <div className="">
+          <FaUserFriends className="flex w-10 h-10 p-2 text-base text-white align-middle rounded-full bg-mygreen " />
         </div>
         <p className="mb-3 text-2xl font-semibold">All student</p>
       </div>
@@ -72,13 +65,13 @@ const AllStudent = () => {
         </div>
       </div>
       <div className="mt-2 overflow-x-auto shadow-md">
-        <table className="table ">
+        <table className="table w-full">
           {/* <!-- head --> */}
           <thead>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Gender</th>
+            <tr className="">
+              <th className="text-base">Name</th>
+              <th className="text-base">Email</th>
+              <th className="text-base">Gender</th>
               <th></th>
             </tr>
           </thead>
@@ -86,7 +79,7 @@ const AllStudent = () => {
             {/* <!-- row 1 --> */}
             {allStudent?.map((student) => {
               return (
-                <tr className="hover">
+                <tr className="cursor-default hover">
                   <td>{student.name}</td>
                   <td>{student.email}</td>
                   <td>{student.gender}</td>

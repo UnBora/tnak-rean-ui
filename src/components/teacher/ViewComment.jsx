@@ -7,14 +7,18 @@ export default function ViewComment({ comment }) {
   console.log('====================================');
   return (
     <div>
-        <div className="z-50 p-3 bg-white border shadow-md border-mygray w-max card">
+        <div className="z-50 p-3 bg-white border shadow-md border-mygray w-max card scrollbar-thumb-zinc-400 scrollbar-none ">
         {comment?.map((data) => (
           <ul className="flex mb-2">
             <li className="flex">
             <img
               className="flex object-cover rounded-full h-9 w-9 jsutify-left"
-              src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-              alt=""
+              src={
+                data.img !== null
+                  ? data.img
+                  : "https://www.cmcaindia.org/wp-content/uploads/2015/11/default-profile-picture-gmail-2.png"
+              }
+              alt="stupf"
             />
 
             <div className="ml-2">

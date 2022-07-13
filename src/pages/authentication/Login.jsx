@@ -9,12 +9,15 @@ import { cryptoDecrypt, encryptToken } from "../../utils/tokenEnDe";
 import { getUserSlice } from "../../slices/users/userSlice";
 import { showLoading } from "../../components/swal/Loading";
 import Navbar from "../../components/Navbar";
-
+// import Navbartest from "../../components/Navbartest";
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   let navigate = useNavigate();
+
+  const user = useSelector((state) => {console.log("Here are the value of the state : ",state)} );
+  
   let signin = (e) => {
     e.preventDefault();
     let user = {
@@ -24,7 +27,9 @@ export default function Login() {
 
     login(user)
       .then((u) => {
+        
         console.log(u);
+        
         if (u.role[0] === "Teacher") {
           console.log(u.role[0]);
           console.log(
@@ -34,13 +39,14 @@ export default function Login() {
         } else if (u.role[0] === "Student") {
           navigate("/student", { replace: true });
         }
+        
         try {
           dispatch(getUserSlice(u));
+
         } catch (error) {
           console.log(error);
         }
-        // localStorage.setItem("user", JSON.stringify(u));
-        console.log('userrrrrrrrrrrrrrrrrrrrrrrrrrrrrr ',u);
+        
       })
       .then(showLoading);
     // try {
@@ -64,30 +70,29 @@ export default function Login() {
   return (
     <div>
       <Navbar />
+      {/* <Navbartest/> */}
       <div className="grid flex-col mx-auto mt-5 mb-28 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 hero-content lg:flex-row-reverse">
         <div className="col-span-1 md:mx-0 sm:mx-9">
           <div className="text-center lg:text-left sm:mx-auto">
-            <div className="text-3xl font-extrabold lg:text-Welcome md:text-4xl">
-              <p className="text-black lg:mb-14">Welcome to</p>
-              <p className="">
-                <span className="text-mygreen">Tnak</span>
+            <div className="font-extrabold lg:text-[90px] text-5xl">
+              <p className="text-black">Welcome to</p>
+              <span className="text-mygreen">Tnak</span>
                 <span className="text-myorange">Rean</span>
-              </p>
             </div>
-            <div className="pb-6 leading-8 lg:pt-12 md:pt-3 sm:pt-4">
-              <p className="text-black sm:text-md md:text-lg lg:text-Quote">
+            <div className="mt-0 ">
+              <p className="text-lg leading-relaxed text-black lg:mt-7 lg:text-2xl">
                 “Education is the passport to the future, for tomorrow belongs
                 to those who prepare for it today.”
               </p>
-              <p className="mr-auto lg:pt-4 md:pt-2 sm:pt-1 myhr w-28"></p>
+              <p className="w-full sm:mr-auto lg:pt-4 md:pt-2 sm:pt-1 myhr md:m-auto lg:ml-auto "></p>
             </div>
           </div>
         </div>
-        <div className="col-span-1 ">
-          <div className="flex flex-shrink-0 w-full max-w-md mx-auto shadow-xl card bg-smoke">
+        <div className="col-span-1 mt-0 sm:mt-3">
+          <div className="flex flex-shrink-0 w-full max-w-md mx-auto shadow-lg card bg-smoke">
             <div className="flex flex-col max-w-md p-6 rounded-sm shadow-sm sm:p-10 ">
               <div className="object-cover mt-0 mb-8 text-center text-black rounded-md xl:col-span-3">
-                <p className="flex my-3 font-semibold lg:text-4xl md:text-2xl sm:text-xl">
+                <p className="flex my-3 text-3xl font-semibold">
                   Login
                 </p>
                 <p className="flex pt-1 lg:text-md md:text-base sm:text-sm">

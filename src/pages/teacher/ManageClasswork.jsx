@@ -7,13 +7,12 @@ import {
   MdOutlineAssignment,
   MdOutlineQuiz,
 } from "react-icons/md";
-import CreateFolder from "../../components/teacher/CreateFolder";
 import AssignClasswork from "../../components/teacher/AssignClasswork";
 import FolderCard from "../../components/teacher/FolderCard";
 import AssignedTaskCard from "../../components/teacher/AssignedTaskCard";
 import { fetchAllclasswork } from "../../service/classMaterial";
 import { fetchClassworkFolder } from "../../service/folderService";
-
+import CreateFolderPerClass from "../../components/teacher/CreateFolderPerClass";
 function ManageClasswork() {
   const [folder, setFolder] = useState([]);
   const [classwork, setClasswork] = useState([]);
@@ -26,7 +25,6 @@ function ManageClasswork() {
       setClasswork(r.data);
       console.log("classwork", r);
     });
-
   }, []);
   return (
     <div className="">
@@ -69,26 +67,38 @@ function ManageClasswork() {
           className="p-2 shadow dropdown-content menu rounded-box w-52 bg-smoke"
         >
           <div className="text-lg">
-            <label for="my-modal-1" className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded">
-              <BsFolderPlus className="mx-4 mt-1"/>
+            <label
+              for="my-modal-folder"
+              className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded"
+            >
+              <BsFolderPlus className="mx-4 mt-1" />
               Folder
             </label>
           </div>
           <div className="text-lg">
-            <label for="my-modal-2" className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded">
-              <MdOutlineHomeWork className="mx-4 mt-1"/>
+            <label
+              for="my-modal-2"
+              className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded"
+            >
+              <MdOutlineHomeWork className="mx-4 mt-1" />
               Homework
             </label>
           </div>
           <div className="text-lg">
-            <label for="my-modal-2" className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded">
-              <MdOutlineAssignment className="mx-4 mt-1"/>
+            <label
+              for="my-modal-2"
+              className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded"
+            >
+              <MdOutlineAssignment className="mx-4 mt-1" />
               Assignment
             </label>
           </div>
           <div className="text-lg">
-            <label for="my-modal-2" className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded">
-              <MdOutlineQuiz className="mx-4 mt-1"/>
+            <label
+              for="my-modal-2"
+              className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded"
+            >
+              <MdOutlineQuiz className="mx-4 mt-1" />
               Quiz
             </label>
           </div>
@@ -110,7 +120,7 @@ function ManageClasswork() {
         })}
       </div>
       {/* pop up */}
-      <CreateFolder />
+      <CreateFolderPerClass />
       <AssignClasswork />
     </div>
   );

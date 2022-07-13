@@ -1,16 +1,11 @@
 import React from "react";
 import { IoMdAddCircleOutline } from "react-icons/io";
+import { useParams } from "react-router-dom";
 import { classedited } from "../swal/Success";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 // import { useParams } from "react-router-dom";
 
-const EditClass = () => {
-  // const classes = useSelector((state) => state?.classes?.value);
-  // const { id } = useParams();
-  // const classFilter = classes?.data?.filter((e) => {
-  //   console.log(e.classId);
-  //   return e.classId == id;
-  // });
+export default function EditClass({ data }) {
   return (
     <div>
       <input type="checkbox" id="my-modal-2" className="modal-toggle" />
@@ -36,7 +31,8 @@ const EditClass = () => {
                       <input
                         id="classname"
                         type="text"
-                        placeholder="Edit class name"
+                        
+                        placeholder="Enter new class name"
                         className="w-full px-4 py-2 mt-1 leading-tight bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:mygreen focus:outline-none focus:bg-white"
                       />
                     </div>
@@ -70,14 +66,6 @@ const EditClass = () => {
                           <input type="file" className="hidden" />
                         </label>
                       </div>
-
-                      {/* <label
-                        for="my-modal-6"
-                        className="flex mt-2 space-x-1 cursor-pointer row text-md"
-                      >
-                        <IoMdAddCircleOutline className="mt-1 " />
-                        Add School
-                      </label> */}
                     </div>
                   </div>
                 </div>
@@ -136,4 +124,4 @@ const EditClass = () => {
   );
 };
 
-export default EditClass;
+// export default EditClass;

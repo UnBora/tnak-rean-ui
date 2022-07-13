@@ -65,7 +65,7 @@ export default function ClassCard({ data }) {
         />
         <div className="z-20 h-10 mt-auto bg-black md:h-16 bg-opacity-30">
           <div className="flex justify-between px-1 mt-2 md:px-3 md:mt-5 ">
-            <h1 className="text-lg font-medium text-white">
+            <h1 className="text-lg font-medium text-white" id="classname">
               {dataClass.className}
             </h1>
             <div className="flex text-white">

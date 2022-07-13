@@ -62,13 +62,14 @@ export const StudentRequest = () => {
                                 ? index.img
                                 : "https://www.cmcaindia.org/wp-content/uploads/2015/11/default-profile-picture-gmail-2.png"
                             }
+                            alt="pf"
                           />
                         </div>
                       </div>
                     </label>
                     <div
                       tabindex="0"
-                      className="p-1 dropdown-content mt-9 rounded-box "
+                      className="p-1 dropdown-content mt-9 rounded-box bg-slate-300"
                     >
                       <div className="z-50 shadow-xl card w-60 bg-smoke">
                         <div className="card-body">

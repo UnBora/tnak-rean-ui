@@ -3,11 +3,15 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import {
+  createClassworkFolderInClass,
   createClassworkFolders,
+  createCourseFolderInClass,
   createCourseFolders,
 } from "../../service/folderService";
+import { useParams } from "react-router-dom";
 
 function CreateFolder() {
+  const { id } = useParams();
   const validationSchema = Yup.object().shape({
     folderName: Yup.string()
       .required("Folder Name is required")
@@ -23,28 +27,27 @@ function CreateFolder() {
   const { errors } = formState;
   let material;
 
-  if (window.location.pathname == "/all-classwork") {
+  if (window.location.pathname == `/classroom/${id}/classworks`) {
     material = 2;
-  } else if (window.location.pathname == "/all-course") {
+  } else if (window.location.pathname == `/classroom/${id}/courses`) {
     material = 1;
   }
-
   const onSubmit = (data) => {
     if (material == 2) {
-      createClassworkFolders(data.folderName, material);
+      createClassworkFolderInClass(data.folderName, id);
     } else if (material == 1) {
-      createCourseFolders(data.folderName);
+      createCourseFolderInClass(data.folderName, id);
     }
   };
 
   return (
     <div>
       {/* Add new folder */}
-      <input type="checkbox" id="my-modal-1" className="modal-toggle" />
+      <input type="checkbox" id="my-modal-folder" className="modal-toggle" />
       <div className="modal modal-bottom sm:modal-middle">
         <div className="relative max-w-sm p-6 rounded-md bg-smoke">
           <label
-            for="my-modal-1"
+            for="my-modal-folder"
             className="absolute btn btn-xs btn-circle right-2 top-2"
           >
             ✕
@@ -61,7 +64,7 @@ function CreateFolder() {
           </div>
           <div class="w-full"></div>
           {/* dropdown select class */}
-          <div className="w-full mb-6 md:w-full md:mb-0 ">
+          {/* <div className="w-full mb-6 md:w-full md:mb-0 ">
             <p className="font-medium ">Classroom</p>
             <select
               id="class"
@@ -73,11 +76,11 @@ function CreateFolder() {
               <option className="p-6 text-sm">M5</option>
               <option className="p-6 text-sm">BTB</option>
             </select>
-          </div>
+          </div> */}
           <div className="modal-action">
             <label
               onClick={handleSubmit(onSubmit)}
-              for="my-modal-1"
+              for="my-modal-folder"
               className="px-4 border-none rounded-full btn btn-sm bg-mygreen hover:bg-myhovergreen"
             >
               Create

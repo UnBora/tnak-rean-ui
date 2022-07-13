@@ -22,7 +22,7 @@ export default function AssignedTaskCard({ data }) {
   }
 
   return (
-    <div className="flex flex-wrap max-w-sm p-4 border rounded-md shadow-xl mr-7 mb-7 h-52 border-bordergray">
+    <div className="flex flex-wrap max-w-sm p-4 border rounded-md shadow-md mr-7 mb-7 h-52 border-bordergray">
       <div className="flex w-full ">
         <div className="flex text-2xl cursor-default">
           <MdOutlineAssignment />
@@ -57,7 +57,6 @@ export default function AssignedTaskCard({ data }) {
       <div className="w-full mt-2 text-base font-medium">
         {dataTask.description}
       </div>
-
       <div className="text-xs font-medium">
         <div className="mb-2">
           Point: <span>{dataTask.score}</span>
