@@ -92,18 +92,11 @@ export const changePassword = async (old_password, new_password) => {
 
 // Delete account
 export const deleteAccount = async (password, confirmPassword) => {
-  let data = {
-    password:password,
-    confirmPassword:confirmPassword,
-  };
-  console.log("before respon data :", 
-  
-  data);
-
   try {
-    let response = await api.post("user/delete-account", {
+    let response = await api.delete("user/delete-account", {
       params: {
-        data
+        password:password,
+        confirmPassword:confirmPassword,
       },
     });
     console.log(response);
