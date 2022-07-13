@@ -54,7 +54,7 @@ export default function AssignedTaskCard({ data }) {
           </div>
         </div>
       </div>
-      <div className="w-full mt-2 text-base font-medium">
+      <div className="max-w-[22rem] truncate mt-2 text-base font-medium">
         {dataTask.description}
       </div>
       <div className="text-xs font-medium">
@@ -63,7 +63,7 @@ export default function AssignedTaskCard({ data }) {
         </div>
         <div className="mt-1 text-xs font-regular text-myred ">
           <p>
-            <span>Due</span> <span>{dataTask.deadline}</span>
+            <span>Due: </span> <span>{dataTask.deadline}</span>
           </p>
         </div>
       </div>
