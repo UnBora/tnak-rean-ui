@@ -16,7 +16,7 @@ export default function ManageClass() {
   const classes = useSelector((state) => state?.classes?.value);
 
   console.log("class: ", classes);
-  const classFilter = classes?.data?.filter((e) => {
+  const classFilter = classes?.filter((e) => {
     console.log(e.id);
     return e.id == id;
   });
