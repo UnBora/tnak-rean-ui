@@ -38,10 +38,11 @@ const AssignClasswork = () => {
     useForm(formOptions);
   const { errors } = formState;
   const [link, setLink] = useState("");
-  const [file, setfile] = useState("");
+  const [file, setfile] = useState();
   const filehandler = (e) => {
     if (e.target.files.length !== 0) {
       setfile(e.target.files[0]);
+      console.log("i am file ", file);
     }
   };
 

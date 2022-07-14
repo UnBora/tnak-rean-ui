@@ -11,7 +11,7 @@ export default function StudentFolder({data}) {
           <FaFolderMinus />
         </div>
         <span className="ml-2 text-sm truncate font-regular">
-          {dataFolder.folder_name}
+          {dataFolder?.folder_name}
         </span>
       </button>
     </div>

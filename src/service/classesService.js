@@ -9,7 +9,6 @@ import { api } from "../utils/api";
 //     console.log("error", error);
 //   }
 // };
-
 const classes = {
   classname: "SW2",
   image: "images",
@@ -50,6 +49,7 @@ export const create = async (className, image) => {
   if (image !== null) {
     re = await api.post("/upload/one", formData, config);
     console.log(re.data.data.name);
+    
   }
 
   // .then((res) => {

@@ -62,37 +62,30 @@ export const assigntask = async (task, file) => {
     const config = {
       headers: { "content-type": "multipart/form-data" },
     };
-
     let re;
-    if (formData.append("file", file) !== undefined) {
+    if (file !== undefined) {
+      console.log("asdasda file ", file);
       re = await api.post("/upload/one", formData, config);
+      console.log(re.data.data);
     }
     const listfile = [re ? re.data?.data?.name : null];
-    // let data = JSON.stringify({
-    //   file: listfile,
-    //   link: task.link ? task.link : null,
-    // });
-
-    let data = JSON.stringify({ file: ["string"], link: "string" });
+    let data = JSON.stringify({ file: listfile, link: task?.link });
     console.log("fiasldasdl ", file);
     console.log("data task: ", task);
-    console.log("data nhom", data);
+    console.log("data nhom", parseInt(task?.class));
     let response;
     if (task.class !== "-1" && task.class !== "0") {
       response = await api.post(
         "submittableWork/create-homework-in-class",
         data,
         {
-          headers: {
-            "Content-Type": "application/json",
-          },
           params: {
-            title: task.title,
-            description: task.description,
+            title: task?.title,
+            description: task?.description,
             deadline: "2022-07-13 15:45:33.275669",
-            class_id: 1,
+            class_id: parseInt(task?.class),
             classroom_id: 1,
-            score: task.score,
+            score: parseFloat(task?.score),
           },
         }
       );
