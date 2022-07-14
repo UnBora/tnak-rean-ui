@@ -1,5 +1,8 @@
 import { MdDescription } from "react-icons/md";
 import { api } from "../utils/api";
+import { format } from 'date-fns'
+
+const pattern = 'yyyy-MM-dd HH:mm:ss';
 
 // Manageclasswork  (PER CLASS)
 export const fetchAllclasswork = async (classroom_id, class_id) => {
@@ -74,6 +77,7 @@ export const assigntask = async (task, file) => {
     console.log("data task: ", task);
     console.log("data nhom", parseInt(task?.class));
     let response;
+    console.log('date',format(task.deadline,pattern))
     if (task.class !== "-1" && task.class !== "0") {
       response = await api.post(
         "submittableWork/create-homework-in-class",
@@ -82,7 +86,7 @@ export const assigntask = async (task, file) => {
           params: {
             title: task?.title,
             description: task?.description,
-            deadline: "2022-07-13 15:45:33.275669",
+            deadline: format(task.deadline,pattern),
             class_id: parseInt(task?.class),
             classroom_id: 1,
             score: parseFloat(task?.score),
