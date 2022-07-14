@@ -45,13 +45,16 @@ function App() {
   return (
     <div>
       <Routes>
+        <Route path="/grade" element={<GradeStudentWork/>}></Route>
         <Route path="/" element={<Login />} />
+        {/* <Route path="/register" element={<Register />} /> */}
         <Route path="/about" element={<AboutUs />} />
         {/* On navbar page */}
         <Route path="/teacher" element={<Home />} />
         <Route path="/all-classwork" element={<AllClasswork />}/>
         <Route path="/all-classwork/:folderId" element={<FolderItems/>} />
-        <Route path="/grade" element={<GradeStudentWork/>}></Route>
+        <Route path="/all-course" element={<AllCourse />} />
+        <Route path="/all-course/:folderCourseId" element={<FolderCourse />} />
         {/* Per class */}
         <Route path="/classroom/:id" element={<ManageClass />}>
           <Route path="students" element={<AllStudent />}></Route>
