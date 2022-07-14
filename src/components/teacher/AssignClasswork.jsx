@@ -5,24 +5,32 @@ import * as Yup from "yup";
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { assigntask } from "../../service/classMaterial";
+import { fetchSelectClass } from "../../service/classesService";
 
 const AssignClasswork = () => {
   const validationSchema = Yup.object().shape({
     title: Yup.string()
       .required("Name is required")
-      .min(4, "Name must be at least 6 characters")
+      .min(4, "Name must be at least 4 characters")
       .matches(/^[a-zA-Z0-9 ]+$/, "Only alphabets are allowed for Name "),
-    point: Yup.number()
-      .required("point is required")
-      .typeError("you must specify a number"),
+    score: Yup.number()
+      .nullable()
+      .transform((curr, orig) => (orig === "" ? null : curr)),
+    // .required("point is required")
+    // .typeError("you must specify a number"),
     deadline: Yup.date()
-      .min(new Date(), "Deadline must be later than today")
-      .typeError("you must specify deadline"),
-    link: Yup.string().matches(
-      /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
-      "Enter correct url!"
-    ),
-    file: Yup.mixed().required("File is required"),
+      .nullable()
+      .transform((curr, orig) => (orig === "" ? null : curr))
+      .min(new Date(), "Deadline must be later than today"),
+    // .typeError("you must specify deadline"),
+    link: Yup.string()
+      .matches(
+        /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
+        "Enter correct url!"
+      )
+      .nullable()
+      .transform((curr, orig) => (orig === "" ? null : curr)),
   });
   // const [file,s]
   const formOptions = { resolver: yupResolver(validationSchema) };
@@ -31,21 +39,26 @@ const AssignClasswork = () => {
   const { errors } = formState;
   const [link, setLink] = useState("");
   const [file, setfile] = useState("");
+  const filehandler = (e) => {
+    if (e.target.files.length !== 0) {
+      setfile(e.target.files[0]);
+    }
+  };
 
   const onSubmit = (data) => {
-    if (!data.deadline) {
-      setError("deadline", {
-        type: "custom",
-        message: "Deadline is required",
-      });
-    }
-    console.log("testing");
-    console.log(data);
-  };
+    // if (!data.deadline) {
+    //   setError("deadline", {
+    //     type: "custom",
+    //     message: "Deadline is required",
+    //   });
+    // }
 
-  const addLink = (data) => {
-    console.log(data);
+    assigntask(data, file);
   };
+  const [classes, setClass] = useState([]);
+  useEffect(() => {
+    fetchSelectClass().then((r) => setClass(r.data));
+  }, []);
 
   return (
     <div>
@@ -101,14 +114,22 @@ const AssignClasswork = () => {
                 <div className="w-full px-3 mb-6 md:w-full md:mb-0 ">
                   <p className="font-medium ">Classroom</p>
                   <select
+                    {...register("class")}
                     id="class"
                     type="text"
                     className="w-full px-4 py-3 leading-tight text-gray-700 bg-white border rounded-md shadow-lg focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white multiple"
                   >
-                    <option className="p-6 text-md">All classes</option>
-                    <option className="p-6 text-md">PP</option>
-                    <option className="p-6 text-md">M5</option>
-                    <option className="p-6 text-md">BTB</option>
+                    <option value={-1} className="p-6 text-md">
+                      None
+                    </option>
+                    <option value={0} className="p-6 text-md">
+                      All Class
+                    </option>
+                    {classes?.map((index) => (
+                      <option value={index.id} className="p-6 text-md">
+                        {index.className}
+                      </option>
+                    ))}
                   </select>
                 </div>
               </div>
@@ -116,7 +137,7 @@ const AssignClasswork = () => {
                 <div className="w-full px-3 md:w-1/2">
                   <p className="font-medium ">Point</p>
                   <input
-                    {...register("point")}
+                    {...register("score")}
                     className="block w-full px-4 py-3 mb-3 text-gray-700 border rounded shadow-lg appearance-none focus:outline-none focus:ring-1 focus:ring-mygreen"
                     id="point"
                     type="number"
@@ -155,10 +176,7 @@ const AssignClasswork = () => {
                     <input
                       type="file"
                       className="hidden"
-                      {...register("file")}
-                      onChange={(e) =>
-                        console.log(('i am file ',e.target.files[0]))
-                      }
+                      onChange={(e) => filehandler(e)}
                     />
                   </label>
                 </div>
@@ -219,7 +237,7 @@ const AssignClasswork = () => {
                   <div className="mt-3 player-wrapper">
                     <ReactPlayer
                       className="react-player"
-                      url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
+                      url="https://reactjsexample.com/tag/loading/"
                       width="100%"
                       height="100%"
                     />

@@ -42,20 +42,19 @@ function App() {
   return (
     <div>
       <Routes>
-      <Route path="/grade" element={<ListGradeStudent/>}></Route>
-      <Route path="/" element={<Login/>}/>
+        <Route path="/grade" element={<ListGradeStudent />}></Route>
+        <Route path="/" element={<Login />} />
         {/* <Route path="/register" element={<Register />} /> */}
         <Route path="/about" element={<AboutUs />} />
         {/* On navbar page */}
-        <Route path="/teacher" element={<Home/>} />
+        <Route path="/teacher" element={<Home />} />
         <Route path="/all-classwork" element={<AllClasswork />} />
         <Route path="/all-course" element={<AllCourse />} />
         {/* Per class */}
         <Route path="/classroom/:id" element={<ManageClass />}>
           <Route path="students" element={<AllStudent />}></Route>
           <Route path="requests" element={<StudentRequest />}></Route>
-          <Route path="classworks" element={<ManageClasswork />}>
-          </Route>
+          <Route path="classworks" element={<ManageClasswork />}></Route>
           <Route path="courses" element={<ManageCourse />}></Route>
           <Route path="results" element={<ResultList />}></Route>
         </Route>
@@ -78,7 +77,6 @@ function App() {
         <Route path="/stu-course" element={<Course />} />
         <Route path="/files" element={<ViewFiles />} />
       </Routes>
-      
     </div>
   );
 }

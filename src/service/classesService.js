@@ -41,7 +41,6 @@ export const fecthAllClassByTeacher = async () => {
 export const create = async (className, image) => {
   let formData = new FormData();
   formData.append("file", image);
-  const file = image;
   const config = {
     headers: { "content-type": "multipart/form-data" },
   };
