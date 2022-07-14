@@ -77,7 +77,9 @@ export const assigntask = async (task, file) => {
     console.log("data task: ", task);
     console.log("data nhom", parseInt(task?.class));
     let response;
-    console.log('date',format(task.deadline,pattern))
+    console.log('date',format(task.deadline,pattern)
+    
+    )
     if (task.class !== "-1" && task.class !== "0") {
       response = await api.post(
         "submittableWork/create-homework-in-class",
