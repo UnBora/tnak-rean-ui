@@ -1,69 +1,65 @@
 import React, { useState } from "react";
 import StudentComment from "./StudentComment";
 import { MdOutlineAssignment } from "react-icons/md";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { fetchAllCommentByClassMaterial } from "../../service/commentService";
 
 export default function StudentAssignedTask({ assignedTask }) {
   const [comment, setComment] = useState([]);
-  // const dataTask = assignedTask;
+  const dataTask = assignedTask;
   function onHandleComment(classMaterialId) {
     fetchAllCommentByClassMaterial(classMaterialId).then((r) => {
-      console.log('====================================');
-      console.log(r.data);
-      console.log('====================================');
-      setComment(r.data);
+      console.log("View comment",r);
     });
   }
+
   return (
-    <div className="flex flex-wrap w-full max-w-sm p-4 border rounded-md shadow-xl mr-7 mb-7 h-52 border-bordergray">
-     <div className="w-full">
-     <div className="flex text-2xl text-black cursor-default">
+    <div className="flex flex-wrap max-w-sm p-4 border rounded-md shadow-md mr-7 mb-7 h-52 border-bordergray">
+      <div className="flex w-full">
+        <div className="flex text-2xl cursor-default ">
           <MdOutlineAssignment />
-          <span className="ml-2 text-lg font-medium">{assignedTask?.title}</span>
+          <span className="ml-2 text-lg font-medium">{dataTask?.title}</span>
         </div>
-      <div className="mt-2 text-base font-medium">
-        <p className="max-w-[22rem] truncate text-black">
-          {assignedTask?.description}
-        </p>
       </div>
-      <div className="text-xs font-medium">
+      <div className="w-full">
+      <div className="max-w-[22rem] truncate mt-2 text-base font-medium block">
+        {dataTask?.description}
+      </div>
+      </div>
+      <div className="text-xs font-medium ">
         <div className="mb-2">
-          Point: <span>{assignedTask?.score}</span>
+          Point: <span>{dataTask?.score}</span>
         </div>
         <div className="mt-1 text-xs font-regular text-myred ">
-          <p> <span>Due: </span> <span>{assignedTask?.deadline}</span></p>
+          <p>
+            <span>Due: </span> <span>{dataTask?.deadline}</span>
+          </p>
         </div>
       </div>
       <div className="flex mt-auto">
-        <NavLink
-          to="/work-submit"
+        <Link
+        to="/student"
+          // to={{ pathname: `/classroom/${data.class_id}/classworks/${data.material_id}/list`}}
           type="link"
           className="px-4 py-1 text-base text-center text-white shadow-md bg-mygreen font-regular rounded-xl h-max"
         >
           View
-        </NavLink>
+        </Link>
         <div
           className="mt-2 ml-40 text-sm underline font-regular dropdown dropdown-right"
-          onClick={()=>onHandleComment(assignedTask.material_id)}
+          onClick={()=>onHandleComment(dataTask?.material_id)}
         >
-          <label tabindex="0" className="underline dropdown dropdown-right hover:cursor-pointer">
-            <span>{assignedTask.total_comment}</span> comments
+          <label 
+          tabindex="0" 
+          className="underline dropdown dropdown-right hover:cursor-pointer"
+          >
+            <span>{dataTask?.total_comments}</span> comments
           </label>
           <div tabindex="0" className="mt-2 dropdown-content rounded-box">
             <StudentComment comment={comment} />
           </div>
         </div>
-        {/* <div className="mt-2 ml-40 text-sm underline font-regular dropdown dropdown-right">
-          <label tabindex="0" className="underline dropdown dropdown-right">
-            <span>2</span> comments
-          </label>
-          <div tabindex="0" className="mt-2 dropdown-content rounded-box">
-            <StudentComment comment={comment}/>
-          </div>
-        </div> */}
       </div>
-     </div>
     </div>
   );
 }

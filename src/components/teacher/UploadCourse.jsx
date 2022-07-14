@@ -38,7 +38,7 @@ function UploadCourse() {
             </div>
 
             <div className="flex flex-wrap mb-3 -mx-3">
-              <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0">
+              {/* <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0">
                 <p className="font-medium ">School</p>
                 <select
                   id="school"
@@ -50,8 +50,8 @@ function UploadCourse() {
                   <option className="p-6 text-md">RUPP</option>
                   <option className="p-6 text-md">Setec</option>
                 </select>
-              </div>
-              <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0">
+              </div> */}
+              <div className="w-full px-3 mb-6 md:w-full md:mb-0">
               <p className="font-medium ">Classroom</p>
               <select
                 id="class"
@@ -103,7 +103,6 @@ function UploadCourse() {
                   />
                 </div>
                 <div className="flex justify-end mt-2">
-                  {" "}
                   <label
                     className="px-5 mt-3 ml-1 border-none rounded-full btn btn-sm bg-mygreen hover:bg-myhovergreen"
                   
