@@ -1,8 +1,8 @@
 import { MdDescription } from "react-icons/md";
 import { api } from "../utils/api";
-import { format } from 'date-fns'
+import { format } from "date-fns";
 
-const pattern = 'yyyy-MM-dd HH:mm:ss';
+const pattern = "yyyy-MM-dd HH:mm:ss";
 
 // Manageclasswork  (PER CLASS)
 export const fetchAllclasswork = async (classroom_id, class_id) => {
@@ -75,11 +75,9 @@ export const assigntask = async (task, file) => {
     let data = JSON.stringify({ file: listfile, link: task?.link });
     console.log("fiasldasdl ", file);
     console.log("data task: ", task);
-    console.log("data nhom", parseInt(task?.class));
+    console.log("data nhom", task?.class);
     let response;
-    console.log('date',format(task.deadline,pattern)
-    
-    )
+    console.log("date", format(task.deadline, pattern));
     if (task.class !== "-1" && task.class !== "0") {
       response = await api.post(
         "submittableWork/create-homework-in-class",
@@ -88,15 +86,22 @@ export const assigntask = async (task, file) => {
           params: {
             title: task?.title,
             description: task?.description,
-            deadline: format(task.deadline,pattern),
+            deadline: format(task.deadline, pattern),
             class_id: parseInt(task?.class),
             classroom_id: 1,
             score: parseFloat(task?.score),
           },
         }
       );
+    } else if (task.class === "-1") {
+      response = await api.post("submittableWork/create-homework", {
+        data: {
+          title: task?.title,
+          description: task?.description,
+          data,
+        },
+      });
     }
-    console.log(response?.data);
     return response?.data;
   } catch (error) {
     console.log("error", error);
