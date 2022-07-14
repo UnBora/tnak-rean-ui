@@ -20,15 +20,15 @@ function ManageClasswork() {
   useEffect(() => {
     fetchClassworkFolder(id, 1).then((r) => {
       setFolder(r.data);
+      console.log("folder of teacher" , r.data);
     });
     fetchAllclasswork(1, id).then((r) => {
       setClasswork(r.data);
-      console.log("classwork", r);
+      console.log("classwork of teacher", r.data);
     });
   }, []);
   return (
     <div className="">
-      {/* <NavbarT /> */}
       <div className="flex space-x-2">
         <div className="w-8 h-8 rounded-full bg-mygreen">
           <MdWork className="flex m-auto mt-2 text-white align-middle" />

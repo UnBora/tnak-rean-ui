@@ -1,17 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { VscNotebook } from "react-icons/vsc";
 import StudentFolder from "../../components/student/StudentFolder";
 import StudentAssignedTask from "../../components/student/StudentAssignedTask";
 import StudentNavBar from "../../components/StudentNavbar";
+import { fetchAllClassworkStu } from "../../service/classMaterial";
+import { fetchClassworkFolderStu } from "../../service/folderService";
+import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-export default function Classwork() {
+export default function Classwork({data}) {
+  // const scheduleStudent = useSelector((state) => state.scheduleStudent.value);
+  const [classwork, setClasswork] = useState([]);
+  const [folder, setFolder] = useState([]);
+  const { id } = useParams();
+  console.log(classwork);
+  useEffect(() => {
+    fetchClassworkFolderStu(2).then((r) => {
+      setFolder(r.data);
+      console.log("folder of classwork",r.data);
+    });
+    fetchAllClassworkStu().then((r) => {
+      setClasswork(r.data);
+      console.log("classwork of student", r.data);
+    });
+  }, []);
+
   return (
     <div>
       <StudentNavBar />
       <div className="mt-8 mb-40 lg:mx-32 sm:mx-5 md:mx-12">
-        <p className="mt-5 font-semibold lg:text-2xl sm:text-medium md:text-base">
-          Phnom Penh Classroom
-        </p>
+        <p className="mt-5 font-semibold lg:text-2xl">Class</p>
         <p className="w-16 mt-1 myhr"></p>
         <div className="mx-8 mt-9">
           <div className="flex">
@@ -28,10 +46,9 @@ export default function Classwork() {
           <p className="mb-4 border-b"></p>
           <div className="flex flex-wrap col-span-12">
             {/* card */}
-            <StudentFolder />
-            <StudentFolder />
-            <StudentFolder />
-            <StudentFolder />
+            {folder?.map((index) => {
+          return <StudentFolder key={index.id} data={index} />;
+        })}
           </div>
 
           {/* Assigned task */}
@@ -40,10 +57,9 @@ export default function Classwork() {
             <p className="mb-4 border-b"></p>
             <div className="flex flex-wrap">
               {/* card  */}
-              <StudentAssignedTask />
-              <StudentAssignedTask />
-              <StudentAssignedTask />
-              <StudentAssignedTask />
+              {classwork?.map((index) => {
+                return <StudentAssignedTask key={index.id} data={index} />;
+              })}
             </div>
           </div>
         </div>

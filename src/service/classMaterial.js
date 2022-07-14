@@ -1,7 +1,7 @@
 import { MdDescription } from "react-icons/md";
 import { api } from "../utils/api";
 
-// Manageclasswork
+// Manageclasswork  (PER CLASS)
 export const fetchAllclasswork = async (classroom_id, class_id) => {
   try {
     let response = await api.get("submittableWork/get-by-classId-classroomId", {
@@ -16,7 +16,7 @@ export const fetchAllclasswork = async (classroom_id, class_id) => {
   }
 };
 
-// ManageCourse
+// ManageCourse (PER CLASS)
 export const fetchAllcourse = async (classroom_id, class_id) => {
   try {
     let response = await api.get(
@@ -34,7 +34,7 @@ export const fetchAllcourse = async (classroom_id, class_id) => {
   }
 };
 
-//All classwork
+//All classwork (OUTSITE)
 export const fetchClassworks = async () => {
   try {
     let response = await api.get("submittableWork/get-by-teacherUserId");
@@ -44,7 +44,7 @@ export const fetchClassworks = async () => {
   }
 };
 
-//All course File
+//All course File (OUTSITE)
 export const fetchCourseFile = async () => {
   try {
     let response = await api.get("classMaterial/get-by-teacherId");
@@ -98,7 +98,29 @@ export const assigntask = async (task, file) => {
     // );
     // console.log(response.data);
     // return response.data;
+// get ALL CLASSWORK by folder id (OUTSITE)
+export const fetchClassworkInFolder = async (folderId) => {
+  try {
+    let response = await api.get(
+      "submittableWork/get-classwork-by-folderId-with-teacherId",
+      {
+        params: {
+          folderId: folderId,
+        },
+      }
+    );  
+    return response.data;
   } catch (error) {
     console.log("error", error);
   }
 };
+
+export const fetchAllClassworkStu = async () => {
+  try {
+    let response = await api.get("submittableWork/get-classwork-by-studentId");
+    return response.data;
+  } catch (error) {
+    console.log("error", error);
+  }
+};
+// get ALL COURSE by folder id (OUTSITE)

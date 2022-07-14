@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import AboutUs from "./pages/AboutUs";
 import ManageClass from "./pages/teacher/ManageClass";
 import FormSubmit from "./pages/student/FormSubmit";
-import ViewWorkForSub from "./pages/student/ViewWorkForSub";
+// import ViewWorkForSub from "./pages/student/ViewWorkForSub";
 import DeactivateAccount from "./components/settingacc/DeactivateAccount";
 import DeleteAccount from "./components/settingacc/DeleteAccount";
 import ChangePassword from "./components/settingacc/ChangePassword";
@@ -26,6 +26,10 @@ import { useEffect, useState } from "react";
 import Login from "./pages/authentication/Login";
 import { getCurrentUser } from "./service/authService";
 import ListGradeStudent from "./pages/teacher/ListGradeStudent";
+import FolderItems from "./pages/teacher/FolderItems";
+import FolderCourse from "./pages/teacher/FolderCourse";
+import GradeStudentWork from "./pages/teacher/GradeStudentWork";
+import SubmitAssignTask from "./pages/student/SubmitAssignTask";
 
 function App() {
   const user = getCurrentUser;
@@ -42,19 +46,26 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path="/grade" element={<ListGradeStudent />}></Route>
         <Route path="/" element={<Login />} />
-        {/* <Route path="/register" element={<Register />} /> */}
         <Route path="/about" element={<AboutUs />} />
         {/* On navbar page */}
         <Route path="/teacher" element={<Home />} />
-        <Route path="/all-classwork" element={<AllClasswork />} />
-        <Route path="/all-course" element={<AllCourse />} />
+        <Route path="/all-classwork" element={<AllClasswork />}/>
+        <Route path="/all-classwork/:folderId" element={<FolderItems/>} />
+        <Route path="/grade" element={<GradeStudentWork/>}></Route>
+        <Route path="/all-course" element={<AllCourse/>}></Route>
         {/* Per class */}
         <Route path="/classroom/:id" element={<ManageClass />}>
           <Route path="students" element={<AllStudent />}></Route>
           <Route path="requests" element={<StudentRequest />}></Route>
-          <Route path="classworks" element={<ManageClasswork />}></Route>
+          <Route path="classworks" element={<ManageClasswork />}>
+          </Route>
+          <Route
+            path="classworks/:materialId/list"
+            element={<ListGradeStudent />}
+          >
+          </Route>
+          {/* <Route path="grade" element={<GradeStudentWork />}></Route> */}
           <Route path="courses" element={<ManageCourse />}></Route>
           <Route path="results" element={<ResultList />}></Route>
         </Route>
@@ -72,7 +83,7 @@ function App() {
         {/* Student side */}
         <Route path="/student" element={<StuIndex />} />
         <Route path="/formsubmit" element={<FormSubmit />} />
-        <Route path="/work-submit" element={<ViewWorkForSub />} />
+        <Route path="/submit/:id" element={<SubmitAssignTask />} />
         <Route path="/stu-classwork" element={<Classwork />} />
         <Route path="/stu-course" element={<Course />} />
         <Route path="/files" element={<ViewFiles />} />

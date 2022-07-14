@@ -6,8 +6,7 @@ import StudentFolder from "../../components/student/StudentFolder";
 import StudentNavBar from "../../components/StudentNavbar";
 
 export default function Course() {
-  const [folder, setFolder] = useState([{ Title: "folder" }]);
-
+  const [folder, setFolder] = useState([]);
   return (
     <div>
       <StudentNavBar />

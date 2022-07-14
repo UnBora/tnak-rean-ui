@@ -90,13 +90,24 @@ const AssignClasswork = () => {
                     type="text"
                     placeholder="Title"
                   />
-                  <div className="invalid-feedback">
+                  <div className="ml-4 text-sm invalid-feedback text-myred">
                     {errors.title?.message}
                   </div>
                   <div className="invalid-feedback">{errors.name?.message}</div>
                 </div>
               </div>
-
+              <div className="flex flex-wrap mb-6 -mx-3">
+                <div className="w-full px-3">
+                  <p className="font-medium">Description</p>
+                  <input
+                    {...register("title")}
+                    className="block w-full px-4 py-3 mt-1 mb-3 leading-tight text-gray-700 border rounded shadow-md appearance-none focus:outline-none focus:ring-1 focus:ring-mygreen"
+                    id="Description"
+                    type="text"
+                    placeholder="Description"
+                  />
+                </div>
+              </div>
               <div className="flex flex-wrap mb-6 -mx-3">
                 {/* <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0 ">
                   <p className="font-medium ">School</p>
@@ -143,10 +154,10 @@ const AssignClasswork = () => {
                     type="number"
                     placeholder="Point"
                   />
-                  <div className="invalid-feedback">
+                  <div className="ml-4 text-sm invalid-feedback text-myred">
                     {errors.point?.message}
                   </div>
-                  <div className="invalid-feedback">{errors.name?.message}</div>
+                  <div className="ml-4 text-sm invalid-feedback text-myred">{errors.name?.message}</div>
                 </div>
                 <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0">
                   <p className="font-medium ">Deadline</p>
@@ -156,7 +167,7 @@ const AssignClasswork = () => {
                     id="userdate"
                     type="datetime-local"
                   />
-                  <div className="invalid-feedback">
+                  <div className="ml-4 text-sm invalid-feedback text-myred">
                     {errors.deadline?.message}
                   </div>
                 </div>
