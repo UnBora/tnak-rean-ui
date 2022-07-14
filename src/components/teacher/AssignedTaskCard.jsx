@@ -15,10 +15,11 @@ export default function AssignedTaskCard({ data }) {
 
   function onHandleComment(classMaterialId) {
     fetchAllCommentByClassMaterial(classMaterialId).then((r) => {
-      console.log('View Comment ');
-      console.log(r.data);
+      console.log('View Comment ', r.data);
+      setComment(r.data);
     });
   }
+  console.log('teacher assigntask',dataTask);
 
   return (
     <div className="flex flex-wrap max-w-sm p-4 border rounded-md shadow-md mr-7 mb-7 h-52 border-bordergray">

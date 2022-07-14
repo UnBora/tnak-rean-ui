@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../../App.css";
 import Calendar from "react-calendar";
-import StudentAssignedTask from "../../components/student/StudentAssignedTask";
 import ShowResult from "../../components/student/ShowResult";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchScheduleStudentSlice } from "../../slices/schedule/scheduleStudentSlice";
@@ -9,6 +8,7 @@ import { fetchScheduleStudent } from "../../service/scheduleService";
 import { fetchUpCommingWork } from "../../service/student/studentClassWorkService";
 import { getCurrentUser } from "../../service/authService";
 import StudentNavBar from "../../components/StudentNavbar";
+import StudentUpcomingTask from "../../components/student/StudentUpcomingTask";
 
 function StuIndex() {
   const [date, setDate] = useState(new Date());
@@ -28,7 +28,7 @@ function StuIndex() {
   return (
     <div>
       <StudentNavBar/>
-      <div className="mb-40  mx-100px md:flex">
+      <div className="mb-40 mx-100px md:flex">
         <div className="mt-6 ">
           <div className="max-w-md space-y-3">
             <div className="p-2 rounded-lg bg-smoke h-52">
@@ -97,7 +97,7 @@ function StuIndex() {
 
             <div className="flex flex-wrap mx-4">
               {upComingWork?.map((index) => (
-                <StudentAssignedTask assignedTask={index} />
+                <StudentUpcomingTask assignedTask={index} />
               ))}
             </div>
             <ShowResult />

@@ -70,5 +70,12 @@ export const fetchClassworkInFolder = async (folderId) => {
   }
 };
 
-
+export const fetchAllClassworkStu = async () => {
+  try {
+    let response = await api.get("submittableWork/get-classwork-by-studentId");
+    return response.data;
+  } catch (error) {
+    console.log("error", error);
+  }
+};
 // get ALL COURSE by folder id (OUTSITE)

@@ -1,19 +1,18 @@
 import React from "react";
+import { useSelector } from "react-redux/es/exports";
 
 export default function StudentComment({comment}) {
-  // console.log("Student view comment",comment);
-  // console.log(comment);
-
+  const  users = useSelector((state) => state?. persistedReducer?.value);
   return (
     <div className="z-50 p-3 bg-white border shadow-md border-mygray w-max card">
-     {comment?.map((assignedTask) => (
+     {comment?.map((data) => (
           <ul className="flex mb-2">
             <li className="flex">
             <img
               className="flex object-cover rounded-full h-9 w-9 jsutify-left"
               src={
-                assignedTask.img !== null
-                  ? assignedTask.img
+                data.img !== null
+                  ? data.img
                   : "https://www.cmcaindia.org/wp-content/uploads/2015/11/default-profile-picture-gmail-2.png"
               }
               alt="stupf"
@@ -21,19 +20,20 @@ export default function StudentComment({comment}) {
 
             <div className="ml-2">
               <div className="flex">
-                <p className="font-medium">{assignedTask.name}</p>
-                <p className="mt-1 ml-3 text-xs">{assignedTask.comment_date.toString().substring(0, 16)}</p>
+                <p className="font-medium">{data.name}</p>
+                <p className="mt-1 ml-3 text-xs">{data.comment_date.toString().substring(0, 16)}</p>
               </div>
-              <label className="block text-sm">{assignedTask.comment}</label>
-            </div></li>
+              <label className="block text-sm">{data.comment}</label>
+            </div>
+            </li>
           </ul>
        
       ))}
       <div className="flex">
         <img
           className="flex object-cover rounded-full h-9 w-9 jsutify-left"
-          src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-          alt=""
+          src={users.img}
+          alt="stupf"
         />
         <div class="flex justify-start items-center relative ml-2">
           <input
