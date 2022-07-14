@@ -6,8 +6,10 @@ import StudentNavBar from "../../components/StudentNavbar";
 import { fetchAllClassworkStu } from "../../service/classMaterial";
 import { fetchClassworkFolderStu } from "../../service/folderService";
 import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-export default function Classwork() {
+export default function Classwork({data}) {
+  // const scheduleStudent = useSelector((state) => state.scheduleStudent.value);
   const [classwork, setClasswork] = useState([]);
   const [folder, setFolder] = useState([]);
   const { id } = useParams();
@@ -22,12 +24,12 @@ export default function Classwork() {
       console.log("classwork of student", r.data);
     });
   }, []);
-  
+
   return (
     <div>
       <StudentNavBar />
       <div className="mt-8 mb-40 lg:mx-32 sm:mx-5 md:mx-12">
-        <p className="mt-5 font-semibold lg:text-2xl">Phnom Penh Classroom</p>
+        <p className="mt-5 font-semibold lg:text-2xl">Class</p>
         <p className="w-16 mt-1 myhr"></p>
         <div className="mx-8 mt-9">
           <div className="flex">

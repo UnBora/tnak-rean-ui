@@ -1,12 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, NavLink } from "react-router-dom";
 import { IoChevronBackCircle } from "react-icons/io5";
 import { MdOutlineAssignment } from "react-icons/md";
 import StudentComment from "../../components/student/StudentComment";
 import { submit } from "../../components/swal/Success";
 import StudentNavBar from "../../components/StudentNavbar";
+import { fetchAllClassworkStu } from "../../service/classMaterial";
+import { data } from 'autoprefixer';
 
-export default function SubmitAssignTask() {
+export default function SubmitAssignTask({date}) {
+  const [classwork, setClasswork] = useState([]);
+  useEffect(() => {
+    fetchAllClassworkStu().then((r) => {
+      setClasswork(r.data);
+      console.log("classwork of student", r.data);
+    });
+  }, []);
+
   return (
     <div>
     <StudentNavBar/>
@@ -28,20 +38,19 @@ export default function SubmitAssignTask() {
                 <MdOutlineAssignment />
               </label>
               <label className="ml-3 font-medium lg:text-2xl">
-                Java Assignment
+                {data.title}
               </label>
               <label className="mt-2 ml-auto text-sm text-myred">
-                Due 30 June 2022
+                Due {data.deadline}
               </label>
             </div>
             <p className="ml-12 font-bold text-myorange lg:text-md">
-              100 point
+              {data.score}
             </p>
             <div className="grid grid-cols-3 mt-5 ml-12">
               <div className="col-span-2">
                 <p>
-                  Hello every one, I'm Kimhab from PP class boyloysloy no Smoke
-                  Zinzin
+                  {data.description}
                 </p>
                 <div className="p-2 mt-8 bg-white border border-gray-400 border-solid rounded-md shadow-md">
                   <p className="ml-3">Assignment.docs</p>
@@ -53,7 +62,7 @@ export default function SubmitAssignTask() {
                     tabindex="0"
                     className="underline dropdown dropdown-right"
                   >
-                    <span>2</span> comments
+                    <span>{data.total_comment}</span> comments
                   </label>
                   <div
                     tabindex="0"

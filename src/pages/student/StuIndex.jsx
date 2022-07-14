@@ -9,6 +9,7 @@ import { fetchUpCommingWork } from "../../service/student/studentClassWorkServic
 import { getCurrentUser } from "../../service/authService";
 import StudentNavBar from "../../components/StudentNavbar";
 import StudentUpcomingTask from "../../components/student/StudentUpcomingTask";
+import { data } from "autoprefixer";
 
 function StuIndex() {
   const [date, setDate] = useState(new Date());
@@ -25,6 +26,7 @@ function StuIndex() {
       setUpComingWork(r.data);
     });
   }, []);
+
   return (
     <div>
       <StudentNavBar/>

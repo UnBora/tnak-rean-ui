@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import AboutUs from "./pages/AboutUs";
 import ManageClass from "./pages/teacher/ManageClass";
 import FormSubmit from "./pages/student/FormSubmit";
-import ViewWorkForSub from "./pages/student/ViewWorkForSub";
+// import ViewWorkForSub from "./pages/student/ViewWorkForSub";
 import DeactivateAccount from "./components/settingacc/DeactivateAccount";
 import DeleteAccount from "./components/settingacc/DeleteAccount";
 import ChangePassword from "./components/settingacc/ChangePassword";
@@ -53,6 +53,7 @@ function App() {
         <Route path="/all-classwork" element={<AllClasswork />}/>
         <Route path="/all-classwork/:folderId" element={<FolderItems/>} />
         <Route path="/grade" element={<GradeStudentWork/>}></Route>
+        <Route path="/all-course" element={<AllCourse/>}></Route>
         {/* Per class */}
         <Route path="/classroom/:id" element={<ManageClass />}>
           <Route path="students" element={<AllStudent />}></Route>
