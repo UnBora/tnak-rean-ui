@@ -100,7 +100,7 @@ const AssignClasswork = () => {
                 <div className="w-full px-3">
                   <p className="font-medium">Description</p>
                   <input
-                    {...register("title")}
+                    {...register("description")}
                     className="block w-full px-4 py-3 mt-1 mb-3 leading-tight text-gray-700 border rounded shadow-md appearance-none focus:outline-none focus:ring-1 focus:ring-mygreen"
                     id="Description"
                     type="text"
@@ -157,7 +157,9 @@ const AssignClasswork = () => {
                   <div className="ml-4 text-sm invalid-feedback text-myred">
                     {errors.point?.message}
                   </div>
-                  <div className="ml-4 text-sm invalid-feedback text-myred">{errors.name?.message}</div>
+                  <div className="ml-4 text-sm invalid-feedback text-myred">
+                    {errors.name?.message}
+                  </div>
                 </div>
                 <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0">
                   <p className="font-medium ">Deadline</p>
