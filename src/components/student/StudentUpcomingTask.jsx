@@ -41,8 +41,8 @@ export default function StudentUpcomingTask({ assignedTask }) {
       </div>
       <div className="flex mt-auto">
         <Link
-        to="/student"
-          // to={{ pathname: `/classroom/${data.class_id}/classworks/${data.material_id}/list`}}
+        // to="/work-submit"
+          to={{ pathname: `/submit/${assignedTask.material_id}`}}
           type="link"
           className="px-4 py-1 text-base text-center text-white shadow-md bg-mygreen font-regular rounded-xl h-max"
         >

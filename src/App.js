@@ -29,6 +29,7 @@ import ListGradeStudent from "./pages/teacher/ListGradeStudent";
 import FolderItems from "./pages/teacher/FolderItems";
 import FolderCourse from "./pages/teacher/FolderCourse";
 import GradeStudentWork from "./pages/teacher/GradeStudentWork";
+import SubmitAssignTask from "./pages/student/SubmitAssignTask";
 
 function App() {
   const user = getCurrentUser;
@@ -81,7 +82,7 @@ function App() {
         {/* Student side */}
         <Route path="/student" element={<StuIndex />} />
         <Route path="/formsubmit" element={<FormSubmit />} />
-        <Route path="/work-submit" element={<ViewWorkForSub />} />
+        <Route path="/submit/:id" element={<SubmitAssignTask />} />
         <Route path="/stu-classwork" element={<Classwork />} />
         <Route path="/stu-course" element={<Course />} />
         <Route path="/files" element={<ViewFiles />} />

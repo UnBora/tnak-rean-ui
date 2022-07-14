@@ -9,12 +9,12 @@ export default function StudentAssignedTask({ data }) {
   const dataTask = data;
   function onHandleComment(classMaterialId) {
     fetchAllCommentByClassMaterial(classMaterialId).then((r) => {
-      console.log("View comment",r.data);
-      setComment(r.data)
+      console.log("View comment", r.data);
+      setComment(r.data);
     });
   }
 
-  console.log('stu assigntask',data);
+  console.log("stu assigntask", data);
 
   return (
     <div className="flex flex-wrap max-w-sm p-4 border rounded-md shadow-md mr-7 mb-7 h-52 border-bordergray">
@@ -25,9 +25,9 @@ export default function StudentAssignedTask({ data }) {
         </div>
       </div>
       <div className="w-full">
-      <div className="max-w-[22rem] truncate mt-2 text-base font-medium block">
-        {dataTask?.description}
-      </div>
+        <div className="max-w-[22rem] truncate mt-2 text-base font-medium block">
+          {dataTask?.description}
+        </div>
       </div>
       <div className="text-xs font-medium ">
         <div className="mb-2">
@@ -41,7 +41,7 @@ export default function StudentAssignedTask({ data }) {
       </div>
       <div className="flex mt-auto">
         <Link
-        to="/work-submit"
+          to={{ pathname: `/submit/${data.class_material_id}` }}
           // to={{ pathname: `/classroom/${data.class_id}/classworks/${data.material_id}/list`}}
           type="link"
           className="px-4 py-1 text-base text-center text-white shadow-md bg-mygreen font-regular rounded-xl h-max"
@@ -50,11 +50,11 @@ export default function StudentAssignedTask({ data }) {
         </Link>
         <div
           className="mt-2 ml-40 text-sm underline font-regular dropdown dropdown-right"
-          onClick={()=>onHandleComment(dataTask?.class_material_id)}
+          onClick={() => onHandleComment(dataTask?.class_material_id)}
         >
-          <label 
-          tabindex="0" 
-          className="underline dropdown dropdown-right hover:cursor-pointer"
+          <label
+            tabindex="0"
+            className="underline dropdown dropdown-right hover:cursor-pointer"
           >
             <span>{dataTask?.total_comment}</span> comments
           </label>

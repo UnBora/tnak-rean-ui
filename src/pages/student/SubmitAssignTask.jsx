@@ -1,28 +1,28 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react'
+import { Link, NavLink } from "react-router-dom";
 import { IoChevronBackCircle } from "react-icons/io5";
 import { MdOutlineAssignment } from "react-icons/md";
 import StudentComment from "../../components/student/StudentComment";
 import { submit } from "../../components/swal/Success";
 import StudentNavBar from "../../components/StudentNavbar";
 
-export default function ViewWorkForSub() {
+export default function SubmitAssignTask() {
   return (
     <div>
-      <StudentNavBar />
-      <div className="mt-10 mb-40 lg:mx-32 sm:mx-5 md:mx-12">
-        <div className="flex">
-          <Link to="/stu-classwork" className="text-AboutIcon text-mygreen">
-            <IoChevronBackCircle />
-          </Link>
-          <Link className="ml-2 font-medium">Back</Link>
+    <StudentNavBar/>
+    <div className='mt-10 mb-40 lg:mx-32 sm:mx-5 md:mx-12'>
+        <div className='flex'>
+            <Link to="/stu-classwork" className='text-AboutIcon text-mygreen'><IoChevronBackCircle /></Link>
+            {/* <NavLink className="ml-2 font-medium">Back</NavLink> */}
         </div>
-        <p className="mt-5 font-semibold lg:text-2xl sm:text-medium md:text-base">
+      <div>
+      <p className="mt-5 font-semibold lg:text-2xl sm:text-medium md:text-base">
           Phnom Penh Classroom
         </p>
-        <p className="w-16 mt-1 myhr"></p>
-        <div className="grid gap-3 lg:mx-10 lg:grid-cols-5 mt-9 sm:grid-cols-1 sm:mx-0 md:mx-0 md:grid-cols-5 ">
-          <div className="col-span-3 p-5 pb-10 border-gray-200 rounded-lg shadow-md bg-smoke">
+        <p className="w-20 mt-1 myhr"></p>
+      </div>
+      <div className='grid gap-3 lg:mx-10 lg:grid-cols-5 mt-9 sm:grid-cols-1 sm:mx-0 md:mx-0 md:grid-cols-5 '>
+      <div className="col-span-3 p-5 pb-10 border-gray-200 rounded-lg shadow-md bg-smoke">
             <div className="flex">
               <label className="p-2 text-white rounded-full bg-mygreen lg:text-AccountIcon ">
                 <MdOutlineAssignment />
@@ -65,7 +65,6 @@ export default function ViewWorkForSub() {
               </div>
             </div>
           </div>
-          {/* card for submit */}
           <div className="col-span-2 p-5 ml-2 rounded-lg shadow-md h-max bg-smoke">
             <label className="text-lg">Your work</label>
             <div className="justify-center px-2 py-3 mt-3 text-center border-2 border-dotted rounded-md border-mygreen">
@@ -103,8 +102,8 @@ export default function ViewWorkForSub() {
               Do it with form
             </Link>
           </div>
-        </div>
       </div>
     </div>
-  );
+    </div>
+  )
 }
