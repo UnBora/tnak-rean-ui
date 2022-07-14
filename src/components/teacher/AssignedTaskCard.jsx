@@ -33,16 +33,16 @@ export default function AssignedTaskCard({ data }) {
           </label>
           <div
             tabindex="0"
-            class="w-24 text-sm font-medium shadow w-z-20 dropdown-content menu bg-base-100 rounded-box"
+            className="w-24 text-sm font-medium rounded-lg shadow w-z-20 dropdown-content menu bg-base-100"
           >
             <label className="py-2 pl-4 hover:bg-gray-200 hover:rounded-t-lg">
               <label for="my-modal-2" className="cursor-pointer">
                 Edit
               </label>
             </label>
-            <label className="py-2 pl-4 hover:bg-gray-200 hover:rounded-t-lg">
+            <label className="py-2 pl-4 border-t hover:bg-gray-200">
               <label for="my-modal-2" className="cursor-pointer">
-                Share to folder
+                Share
               </label>
             </label>
             <label className="py-2 pl-4 text-red-500 border-t hover:rounded-b-lg hover:bg-gray-200">
