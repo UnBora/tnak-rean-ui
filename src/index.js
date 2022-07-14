@@ -33,7 +33,6 @@ root.render(
 
 
   <QueryClientProvider client={queryClient}>
-    <ReactQueryDevtools initialIsOpen={false} />
   <BrowserRouter>
     <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>

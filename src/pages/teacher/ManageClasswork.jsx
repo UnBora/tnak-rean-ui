@@ -13,6 +13,7 @@ import AssignedTaskCard from "../../components/teacher/AssignedTaskCard";
 import { fetchAllclasswork } from "../../service/classMaterial";
 import { fetchClassworkFolder } from "../../service/folderService";
 import CreateFolderPerClass from "../../components/teacher/CreateFolderPerClass";
+import NavbarT from "../../components/NavbarT";
 function ManageClasswork() {
   const [folder, setFolder] = useState([]);
   const [classwork, setClasswork] = useState([]);
@@ -28,7 +29,7 @@ function ManageClasswork() {
   }, []);
   return (
     <div className="">
-      {/* <NavbarT /> */}
+      <NavbarT />
       <div className="flex space-x-2">
         <div className="w-8 h-8 rounded-full bg-mygreen">
           <MdWork className="flex m-auto mt-2 text-white align-middle" />

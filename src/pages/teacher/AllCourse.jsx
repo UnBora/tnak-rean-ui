@@ -84,6 +84,7 @@ function AllCourse() {
         <p className="mt-3 ml-1 text-xl font-semibold">Folder</p>
         <p className="mb-2 border-b"></p>
         <div className="flex flex-wrap">
+      
         {allFolder?.map((index) => {
           return <FolderCard key={index.id} data={index} />;
         })}

@@ -105,7 +105,7 @@ export const registerAlert = () => {
     timer: 1500
   })}
 
-  // // change done
+  // change done
   // export const MyChange = Swal.mixin({
   //   toast: false,
   //   position: 'top-end',
