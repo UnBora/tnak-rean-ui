@@ -86,13 +86,17 @@ function AllCourse() {
         <div className="flex flex-wrap">
       
         {allFolder?.map((index) => {
-          return <FolderCard key={index.id} data={index} />;
+          return (
+          <Link to={{pathname:`/all-course/${index.folder_id}`}}> <FolderCard key={index.id} data={index} /></Link>
+         
+          )
         })}
         </div>
 
         <p className="ml-1 text-xl font-semibold mt-9">Document</p>
         <p className="mb-4 border-b"></p>
         <div className="flex flex-wrap">
+          
         {allCourse?.map((index) => {
           return <FilesCard key={index.id} data={index} />;
         })}

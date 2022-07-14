@@ -1,34 +1,26 @@
-import React, { useEffect, useState } from "react";
-import { MdWork } from "react-icons/md";
-import { Link, useParams } from "react-router-dom";
-import { BsFolderPlus } from "react-icons/bs";
-import {
-  MdOutlineHomeWork,
-  MdOutlineAssignment,
-  MdOutlineQuiz,
-} from "react-icons/md";
-import AssignClasswork from "../../components/teacher/AssignClasswork";
-import FolderCard from "../../components/teacher/FolderCard";
-import AssignedTaskCard from "../../components/teacher/AssignedTaskCard";
-import { fetchAllclasswork } from "../../service/classMaterial";
-import { fetchClassworkFolder } from "../../service/folderService";
-import CreateFolderPerClass from "../../components/teacher/CreateFolderPerClass";
-import NavbarT from "../../components/NavbarT";
-function ManageClasswork() {
-  const [folder, setFolder] = useState([]);
-  const [classwork, setClasswork] = useState([]);
-  const { id } = useParams();
-  useEffect(() => {
-    fetchClassworkFolder(id, 1).then((r) => {
-      setFolder(r.data);
-    });
-    fetchAllclasswork(1, id).then((r) => {
-      setClasswork(r.data);
-      console.log("classwork of teacher", r);
-    });
-  }, []);
+import React, { useEffect, useState } from 'react'
+import { MdOutlineAssignment, MdOutlineHomeWork, MdOutlineQuiz, MdWork } from 'react-icons/md';
+import { Link, useParams } from 'react-router-dom';
+import NavbarT from '../../components/NavbarT'
+import AssignClasswork from '../../components/teacher/AssignClasswork';
+import AssignedTaskCard from '../../components/teacher/AssignedTaskCard';
+import FolderCard from '../../components/teacher/FolderCard';
+import { fetchClassworkInFolderInClass } from '../../service/classMaterial';
+
+function ManageCLassworkInFolder() {
+    const {id} = useParams();
+    const {fid} = useParams();
+    const [classwork, setClasswork] = useState([]);
+    useEffect(() => {
+      fetchClassworkInFolderInClass(id, 1,fid).then((r) => {
+          setClasswork(r.data);
+        });
+      }, []);
+      console.log(classwork)
   return (
-    <div className="">
+    <div>
+        <NavbarT/>
+        <div className="mt-10 mx-100px">
 
       <div className="flex space-x-2">
         <div className="w-8 h-8 rounded-full bg-mygreen">
@@ -69,15 +61,6 @@ function ManageClasswork() {
         >
           <div className="text-lg">
             <label
-              for="my-modal-folder"
-              className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded"
-            >
-              <BsFolderPlus className="mx-4 mt-1" />
-              Folder
-            </label>
-          </div>
-          <div className="text-lg">
-            <label
               for="my-modal-2"
               className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded"
             >
@@ -105,19 +88,6 @@ function ManageClasswork() {
           </div>
         </div>
       </div>
-      <p className="mt-3 ml-1 text-xl font-semibold">Folder</p>
-      <p className="mb-2 border-b"></p>
-      <div className="flex flex-wrap">
-        {folder?.map((index) => {
-          return (
-            // /classroom/:id/classworks/:F-id
-            <Link  to={{pathname:`/classroom/${id}/classworks/${index.folder_id}`}}>
-             <FolderCard key={index.id} data={index} />
-            </Link>
-           
-          );
-        })}
-      </div>
 
       <p className="ml-1​​ mt-12 text-xl font-semibold">Assigned task</p>
       <p className="mb-4 border-b"></p>
@@ -127,10 +97,10 @@ function ManageClasswork() {
         })}
       </div>
       {/* pop up */}
-      <CreateFolderPerClass />
       <AssignClasswork />
     </div>
-  );
+    </div>
+  )
 }
 
-export default ManageClasswork;
+export default ManageCLassworkInFolder

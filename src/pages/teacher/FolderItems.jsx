@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { BsFolderPlus } from 'react-icons/bs';
 import { MdOutlineAssignment, MdOutlineHomeWork, MdOutlineQuiz, MdWork } from 'react-icons/md';
 import { useParams } from 'react-router-dom';
+import NavbarT from '../../components/NavbarT';
 import AssignClasswork from '../../components/teacher/AssignClasswork';
 import AssignedTaskCard from '../../components/teacher/AssignedTaskCard';
 import { fetchClassworkInFolder } from '../../service/classMaterial';
@@ -17,8 +18,10 @@ const FolderItem = () => {
 
   console.log(classwork)
   return (
-    <div className="">
-    {/* <NavbarT /> */}
+    <div>
+    <NavbarT />
+    <div className="mt-10 mx-100px">
+    
     <div className="flex space-x-2">
       <div className="w-8 h-8 rounded-full bg-mygreen">
         <MdWork className="flex m-auto mt-2 text-white align-middle" />
@@ -103,6 +106,7 @@ const FolderItem = () => {
     </div>
     {/* pop up */}
     <AssignClasswork />
+  </div>
   </div>
   );
 }

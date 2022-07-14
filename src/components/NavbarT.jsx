@@ -50,7 +50,7 @@ const NavbarT = ({ userData }) => {
           >
             <button className="py-3 ml-3">
               <NavLink
-                onClick={() => handleSetCurrentTab("/")}
+                onClick={() => handleSetCurrentTab("/teacher")}
                 rel="noopener noreferrer"
                 as={Link}
                 to="/teacher"
