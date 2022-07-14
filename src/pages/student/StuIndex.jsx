@@ -17,8 +17,11 @@ function StuIndex() {
   const [upComingWork, setUpComingWork] = useState([]);
   const dispatch = useDispatch();
   useEffect(() => {
-    fetchScheduleStudent(1).then((r) => dispatch(fetchScheduleStudentSlice(r)));
+    fetchScheduleStudent(1).then((r) => dispatch(fetchScheduleStudentSlice(r)
+    ));
+    
     fetchUpCommingWork(user.id, 1).then((r) => {
+      console.log("work",r);
       setUpComingWork(r.data);
     });
   }, []);

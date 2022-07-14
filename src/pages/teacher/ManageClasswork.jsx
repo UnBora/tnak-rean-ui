@@ -23,7 +23,7 @@ function ManageClasswork() {
     });
     fetchAllclasswork(1, id).then((r) => {
       setClasswork(r.data);
-      console.log("classwork", r);
+      console.log("classwork of teacher", r);
     });
   }, []);
   return (

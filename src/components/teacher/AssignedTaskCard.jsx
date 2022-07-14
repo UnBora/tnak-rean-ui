@@ -15,17 +15,15 @@ export default function AssignedTaskCard({ data }) {
 
   function onHandleComment(classMaterialId) {
     fetchAllCommentByClassMaterial(classMaterialId).then((r) => {
-      console.log('====================================');
+      console.log('View Comment ');
       console.log(r.data);
-      console.log('====================================');
-      setComment(r.data);
     });
   }
 
   return (
     <div className="flex flex-wrap max-w-sm p-4 border rounded-md shadow-md mr-7 mb-7 h-52 border-bordergray">
       <div className="flex w-full">
-        <div className="flex text-2xl cursor-default">
+        <div className="flex text-2xl cursor-default ">
           <MdOutlineAssignment />
           <span className="ml-2 text-lg font-medium">{dataTask.title}</span>
         </div>
@@ -40,6 +38,11 @@ export default function AssignedTaskCard({ data }) {
             <label className="py-2 pl-4 hover:bg-gray-200 hover:rounded-t-lg">
               <label for="my-modal-2" className="cursor-pointer">
                 Edit
+              </label>
+            </label>
+            <label className="py-2 pl-4 hover:bg-gray-200 hover:rounded-t-lg">
+              <label for="my-modal-2" className="cursor-pointer">
+                Share to folder
               </label>
             </label>
             <label className="py-2 pl-4 text-red-500 border-t hover:rounded-b-lg hover:bg-gray-200">
