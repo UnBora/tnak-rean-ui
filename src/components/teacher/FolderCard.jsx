@@ -1,15 +1,24 @@
 import React from "react";
 import { FaEllipsisV, FaFolderMinus } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchallClassworkFolder, removeFolder } from "../../service/folderService";
-import { useDispatch } from "react-redux/es/exports";
+import {
+  fetchallClassworkFolder,
+  removeFolder,
+} from "../../service/folderService";
+import { deleteFolder } from "../swal/Delete";
 import EditFolder from "./EditFolder";
 import { fetchAllfolderSlice } from "../../slices/folders/folderSlice";
 
 export default function FolderCard({ data, link, onDelete }) {
   const dataFolder = data;
-  const dispatch = useDispatch();  
 
+  const dispatch = useDispatch();
+  const folder = useSelector((state) => state.folder.value);
+  function onDeleteFolder(id) {
+    // removeFolder(id).then(dispatch(fetchallClassworkFolder(folder)))
+    dispatch(deleteFolder(id));
+  }
   return (
     <div className="flex mt-3 mr-4">
       <div className="flex p-2 border border-collapse rounded-md shadow-md cursor-pointer h-max border-bordergray w-60">

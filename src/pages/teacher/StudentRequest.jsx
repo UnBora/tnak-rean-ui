@@ -46,7 +46,7 @@ export const StudentRequest = () => {
         <p className="mb-3 text-2xl font-semibold">Student request</p>
       </div>
       {isFetched &&
-        dataList.length > 0 &&
+        dataList?.length > 0 &&
         dataList?.map((index) => {
           return (
             <div key={index.user_id}>
