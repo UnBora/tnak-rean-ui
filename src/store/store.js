@@ -16,6 +16,7 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
+import resultSlice from "../slices/result/resultSlice";
 
 const { configureStore } = require("@reduxjs/toolkit");
 const persistConfig = {
@@ -35,6 +36,7 @@ export const store = configureStore({
     scheduleTeacher: scheduleTeacherSlice,
     scheduleStudent: scheduleStudentSlice,
     user: userSlice,
+    result:resultSlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

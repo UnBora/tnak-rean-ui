@@ -148,7 +148,7 @@ export default function ManageClass() {
                     }}   
                   as={Link}
                   to={{
-                    pathname: `/classroom/${id}/results`,
+                    pathname: `/classroom/${id}/results/${id}`,
                   }}
                   className={({ isActive }) =>
                       [

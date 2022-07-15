@@ -72,7 +72,9 @@ function App() {
           </Route>
           {/* <Route path="grade" element={<GradeStudentWork />}></Route> */}
           <Route path="courses" element={<ManageCourse />}></Route>
-          <Route path="results" element={<ResultList />}></Route>
+          {/* <Route path="results" element={<ResultList />}></Route> */}
+          <Route path="results/:resultId" element={<ResultList />}></Route>
+          {/* <Route path=""></> */}
         </Route>
         <Route path="classroom/:id/classworks/:fid" element={<ManageCLassworkInFolder />}></Route>
         <Route path="classroom/:id/courses/:fcid" element={<ManageCourseInFolder/>}></Route>
