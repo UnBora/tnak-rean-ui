@@ -2,51 +2,67 @@ import React from "react";
 import logo from "../assets/images/logo/TnakRean.png";
 import "../App.css";
 import { Link, NavLink } from "react-router-dom";
+import Register from "./Register";
+import { useState } from "react";
 
 export default function Navbar() {
-
+  const current = localStorage.getItem("currentTab");
+  const [currentTab, setCurrentTab] = useState(current);
+  const handleSetCurrentTab = (tabName) => {
+    localStorage.setItem("currentTab", tabName);
+    setCurrentTab(tabName);
+  };
   return (
-    <div>
-      <header className="border-b border-mygray">
-        <div className="justify-center h-mynav mx-100px md:flex md:justify-between">
-          <a
-            rel="noopener noreferrer"
-            aria-label="Back to homepage"
-            className=""
-          >
-            <img src={logo} alt="" className="scale-75 " />
-          </a>
-          <ul className="flex items-stretch font-semibold space-x-25px text-mygreen ">
-            <li className="flex">
+    <nav className="z-50 flex w-full bg-white border-b lg:px-20 border-mygray sm:px-52 ">
+      <div className="w-full">
+       <div className="flex justify-between"> 
+       <div className="">
+          <img src={logo} alt="logo" className="scale-75 " />
+        </div>
+      
+        <div className="flex items-stretch font-semibold space-x-25px text-mygreen ">
+            <label className="flex">
               <NavLink
+                onClick={() => handleSetCurrentTab("/")}
                 rel="noopener noreferrer"
                 as={Link}
-                to="/login"
-                className="flex items-center mylink"
+                to="/"
+                className={
+                  currentTab === "/"
+                    ? "flex items-center font-bold  border-b-2 border-myorange"
+                    : "flex items-center font-bold  mylink"
+                }
               >
-                Home
+                Login
               </NavLink>
-            </li>
+            </label>
+            <div className="flex">
+              <label
+                forhtmlFor="my-modal-3"
+                className="flex items-center font-bold cursor-pointer mylink"
+              >
+                Register
+              </label>
+            </div>
             <li className="flex">
               <NavLink
+                onClick={() => handleSetCurrentTab("/about")}
                 rel="noopener noreferrer"
                 as={Link}
                 to="/about"
-                className="flex items-center mylink"
+                className={
+                  currentTab === "/about"
+                    ? "flex items-center font-bold  border-b-2 border-myorange"
+                    : "flex items-center font-bold  mylink"
+                }
               >
                 About
               </NavLink>
             </li>
-            <li className="flex">
-           
-                <label for="my-modal-3"  className="flex items-center cursor-pointer mylink">Register</label>
-           
-            </li>
-          </ul>
+          </div>
         </div>
-      </header>
-
-      {/* {isShowingRegister ? <Register /> : "this is false"}  old popup*/}
-    </div>
+        <Register />
+      </div>
+    </nav>
   );
 }

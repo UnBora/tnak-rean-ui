@@ -1,9 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import AboutUs from "./pages/AboutUs";
-import Register from "./components/Register";
 import ManageClass from "./pages/teacher/ManageClass";
 import FormSubmit from "./pages/student/FormSubmit";
-import ViewWorkForSub from "./pages/student/ViewWorkForSub";
+// import ViewWorkForSub from "./pages/student/ViewWorkForSub";
 import DeactivateAccount from "./components/SettingAcc/DeactivateAccount";
 import DeleteAccount from "./components/SettingAcc/DeleteAccount";
 import ChangePassword from "./components/SettingAcc/ChangePassword";
@@ -11,9 +10,7 @@ import Account from "./components/SettingAcc/Account";
 import Classwork from "./pages/student/Classwork";
 import Course from "./pages/student/Course";
 import ViewFiles from "./pages/student/ViewFiles";
-import Login from "./pages/Login";
 import AccountSetting from "./pages/AccountSetting";
-import NavbarT from "./components/NavbarT";
 import AllStudent from "./pages/teacher/AllStudent";
 import Home from "./pages/teacher/Home";
 import ResultList from "./pages/teacher/ResultList";
@@ -24,37 +21,67 @@ import AllClasswork from "./pages/teacher/AllClasswork";
 import AllCourse from "./pages/teacher/AllCourse";
 import StuIndex from "./pages/student/StuIndex";
 import ViewFilesT from "./pages/teacher/ViewFilesT";
-import runOneSignal from "./onesignal";
 import OneSignal from "react-onesignal";
-
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import Login from "./pages/authentication/Login";
+import { getCurrentUser } from "./service/authService";
+import ListGradeStudent from "./pages/teacher/ListGradeStudent";
+import FolderItems from "./pages/teacher/FolderItems";
+import FolderCourse from "./pages/teacher/FolderCourse";
+import GradeStudentWork from "./pages/teacher/GradeStudentWork";
+import ManageCLassworkInFolder from "./pages/teacher/ManageCLassworkInFolder";
+import ManageCourseInFolder from "./pages/teacher/ManageCourseInFolder";
+import SubmitAssignTask from "./pages/student/SubmitAssignTask";
+import Pendding from "./pages/student/Pendding";
+import About from "./pages/About";
 
 function App() {
+  const user = getCurrentUser;
   useEffect(() => {
-    runOneSignal();
-  });
-  OneSignal.setExternalUserId(1);
+    window.OneSignal = window.OneSignal || [];
+    OneSignal.init({
+      appId: "1557ea45-8f4a-473d-ad64-dff9355214ec",
+      setInitialized: true,
+      allowLocalhostAsSecureOrigin: true,
+    });
+    OneSignal.showSlidedownPrompt();
+  }, []);
+
   return (
     <div>
-      <NavbarT />
       <Routes>
+        <Route path="/grade" element={<GradeStudentWork/>}></Route>
         <Route path="/" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        {/* <Route path="/register" element={<Register />} /> */}
         <Route path="/about" element={<AboutUs />} />
         {/* On navbar page */}
         <Route path="/teacher" element={<Home />} />
-        <Route path="/all-classwork" element={<AllClasswork />} />
+        <Route path="/all-classwork" element={<AllClasswork />}/>
+        <Route path="/all-classwork/:folderId" element={<FolderItems/>} />
         <Route path="/all-course" element={<AllCourse />} />
+        <Route path="/all-course/:folderCourseId" element={<FolderCourse />} />
+        <Route path="/grade" element={<GradeStudentWork/>}></Route>
         {/* Per class */}
-        <Route path="/classroom" element={<ManageClass />}>
+        <Route path="/classroom/:id" element={<ManageClass />}>
           <Route path="students" element={<AllStudent />}></Route>
           <Route path="requests" element={<StudentRequest />}></Route>
           <Route path="classworks" element={<ManageClasswork />}></Route>
+      
+          <Route
+            path="classworks/:materialId/list"
+            element={<ListGradeStudent />}
+          >
+          </Route>
+          {/* <Route path="grade" element={<GradeStudentWork />}></Route> */}
           <Route path="courses" element={<ManageCourse />}></Route>
-          <Route path="results" element={<ResultList />}></Route>
+          {/* <Route path="results" element={<ResultList />}></Route> */}
+          <Route path="results/:resultId" element={<ResultList />}></Route>
+          {/* <Route path=""></> */}
         </Route>
+        <Route path="classroom/:id/classworks/:fid" element={<ManageCLassworkInFolder />}></Route>
+        <Route path="classroom/:id/courses/:fcid" element={<ManageCourseInFolder/>}></Route>
         <Route path="/viewfile" element={<ViewFilesT />} />
-
+        {/* Account setting */}
         <Route path="/setting" element={<AccountSetting />}>
           <Route path="account" element={<Account />}></Route>
           <Route path="change-password" element={<ChangePassword />}></Route>
@@ -64,9 +91,11 @@ function App() {
           ></Route>
           <Route path="delete-account" element={<DeleteAccount />}></Route>
         </Route>
-        <Route path="/stu-index" element={<StuIndex />} />
+        {/* Student side */}
+        <Route path="/pendding" element={<Pendding/>}/>
+        <Route path="/student" element={<StuIndex />} />
         <Route path="/formsubmit" element={<FormSubmit />} />
-        <Route path="/work-submit" element={<ViewWorkForSub />} />
+        <Route path="/submit/:id" element={<SubmitAssignTask />} />
         <Route path="/stu-classwork" element={<Classwork />} />
         <Route path="/stu-course" element={<Course />} />
         <Route path="/files" element={<ViewFiles />} />

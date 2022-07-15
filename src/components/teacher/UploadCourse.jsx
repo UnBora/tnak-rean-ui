@@ -1,6 +1,7 @@
 import React from "react";
 import { MdOutlineAddLink, MdOutlineHomeWork } from "react-icons/md";
 import ReactPlayer from "react-player";
+import { upload } from "../swal/Success";
 import AddLink from "./AddLink";
 
 function UploadCourse() {
@@ -11,24 +12,24 @@ function UploadCourse() {
       <div className="flex-shrink-0 w-screen h-screen overflow-y-scroll shadow-xl card bg-smoke ">
         <label
           for="my-modal-upload"
-          className="absolute z-10 btn btn-sm btn-circle right-3 top-3"
+          className="absolute z-10 mt-2 btn btn-sm btn-circle right-3 top-3"
         >
           ✕
         </label>
 
         {/* Assign card */}
         <section className="p-6 ">
-          <p className="flex text-2xl font-semibold ">
+          <p className="flex text-2xl font-semibold">
             <MdOutlineHomeWork className="w-10 h-10 p-2 mr-2 text-white border rounded-full bg-mygreen" />
             Upload File
           </p>
           <div className="pt-1 myhr"></div>
           <form className="w-full max-w-3xl p-5 m-auto mt-3 bg-white border rounded-lg">
-            <div className="flex flex-wrap mb-6 -mx-3">
+            <div className="flex flex-wrap mb-3 -mx-3">
               <div className="w-full px-3">
                 <p className="font-medium">Title</p>
                 <input
-                  className="block w-full px-4 py-3 mt-3 mb-3 leading-tight text-gray-700 border rounded shadow-md appearance-none focus:outline-none focus:ring-1 focus:ring-mygreen"
+                  className="block w-full px-4 py-3 mt-1 mb-3 leading-tight text-gray-700 border rounded shadow-md appearance-none focus:outline-none focus:ring-1 focus:ring-mygreen"
                   id="grid-password"
                   type="text"
                   placeholder="Tittle"
@@ -36,26 +37,26 @@ function UploadCourse() {
               </div>
             </div>
 
-            <div className="flex flex-wrap mb-6 -mx-3">
-              <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0 ">
+            <div className="flex flex-wrap mb-3 -mx-3">
+              {/* <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0">
                 <p className="font-medium ">School</p>
                 <select
                   id="school"
                   type="text"
-                  className="w-full px-4 py-3 leading-tight text-gray-700 bg-white border rounded-md shadow-lg focus:outline-mygreen focus:bg-white focus:ring-1 focus:ring-mygreen"
+                  className="w-full px-4 py-3 leading-tight text-gray-700 bg-white border rounded-md shadow-lg focus:outline-none focus:bg-white focus:ring-1 focus:ring-mygreen"
                 >
-                  <option className="p-6 text-md">All School</option>
+                  <option className="p-6 text-md">All schools</option>
                   <option className="p-6 text-md">KSHRD</option>
                   <option className="p-6 text-md">RUPP</option>
                   <option className="p-6 text-md">Setec</option>
                 </select>
-              </div>
-              <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0 ">
+              </div> */}
+              <div className="w-full px-3 mb-6 md:w-full md:mb-0">
               <p className="font-medium ">Classroom</p>
               <select
                 id="class"
                 type="text"
-                className="w-full px-4 py-3 leading-tight text-gray-700 bg-white border rounded-md shadow-md focus:ring-1 focus:ring-mygreen "
+                className="w-full px-4 py-3 leading-tight text-gray-700 bg-white border rounded-md shadow-md focus:ring-1 focus:ring-mygreen focus:outline-none"
               >
                 <option className="p-6 text-md">All classes</option>
                 <option className="p-6 text-md">PP</option>
@@ -102,7 +103,6 @@ function UploadCourse() {
                   />
                 </div>
                 <div className="flex justify-end mt-2">
-                  {" "}
                   <label
                     className="px-5 mt-3 ml-1 border-none rounded-full btn btn-sm bg-mygreen hover:bg-myhovergreen"
                   

@@ -8,14 +8,15 @@ export default function Index() {
       password:password,
       
     }
-    Login(user).then(()=>{console.log();})
+    // Login(user).then(()=>{console.log();})
   }
+  // not use this page
   return (
     <section className="flex justify-between my-5 mx-100px">
       <div className="grid gap-6 text-right lg:grid-cols-2 ">
         <div className=" sm:px-12 md:px-14">
           <div className="font-extrabold text-Welcome">
-            <h1>Welcome to</h1>
+            <h1>Welcome tos</h1>
             <h1>
               <span className=" text-Welcome text-mygreen">Tnak</span>
               <span className=" text-Welcome text-myorange">Rean</span>
@@ -25,7 +26,7 @@ export default function Index() {
           <div className="pb-6 border-b-4 text-Quote pt-14 border-myorange">
             <p>
               “Education is the passport to the future,for tomorrow belongs to
-              those who prepare for it today ”
+              those who prepare for it today”
             </p>
           </div>
         </div>
@@ -34,7 +35,7 @@ export default function Index() {
         <div className="flex flex-col max-w-md p-6 rounded-md shadow-lg sm:p-10 bg-smoke">
           <div className="object-cover mb-8 text-center rounded-md xl:col-span-3 ">
             <h1 className="flex my-3 text-4xl font-semibold">Login</h1>
-            <p className="flex text-md dark:text-gray-400">
+            <p className="flex text-md">
               Don't have an account? Register
             </p>
           </div>
@@ -51,7 +52,7 @@ export default function Index() {
                   name="email"
                   id="email"
                   placeholder="Username or Email"
-                  className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
+                  className="w-full px-3 py-2 border rounded-md focus:ring-1 focus:ring-mygreen"
                 />
               </div>
               <div className="pb-2">
@@ -61,13 +62,13 @@ export default function Index() {
                   name="password"
                   id="password"
                   placeholder="*****"
-                  className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
+                  className="w-full px-3 py-2 border rounded-md"
                 />
               </div>
               <a
                 rel="noopener noreferrer"
                 href="#"
-                className="text-md hover:underline dark:text-gray-400"
+                className="text-md hover:underline "
               >
                 Forgot password
               </a>

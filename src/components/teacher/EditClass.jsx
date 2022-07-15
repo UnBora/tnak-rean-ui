@@ -1,10 +1,22 @@
 import React from "react";
 import { IoMdAddCircleOutline } from "react-icons/io";
+import { useParams } from "react-router-dom";
 import { classedited } from "../swal/Success";
+import { useSelector } from "react-redux";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as Yup from "yup";
+import { editClass } from "../../service/classesService";
+import {dataClass} from "../../components/teacher/ClassCard"
+// import { useParams } from "react-router-dom";
 
-const EditClass = () => {
+export default function EditClass({ data }) {
+  
+  
   return (
+    
     <div>
+      
       <input type="checkbox" id="my-modal-2" className="modal-toggle" />
       <div className="modal ">
         <div className="flex-shrink-0 shadow-xl card bg-smoke ">
@@ -22,23 +34,24 @@ const EditClass = () => {
                   {/* Name class */}
                   <div className="col-span-full">
                     <div className="col-span-full sm:col-span-3">
-                      <label for="classname" className="text-sm font-medium">
-                        Class name <span className="text-red-600 ">*</span>
+                      <label for="classname" className="text-lg font-medium">
+                        Edit Class name <span className="text-red-600 ">*</span>
                       </label>
                       <input
+                        
                         id="classname"
                         type="text"
-                        placeholder="PP Classroom"
-                        className="w-full px-4 py-2 mt-1 leading-tight bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:mygreen dark:border-gray-700 focus:outline-none focus:bg-white"
+                        placeholder="Enter new class name"
+                        className="w-full px-4 py-2 mt-1 leading-tight bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:mygreen focus:outline-none focus:bg-white"
                       />
                     </div>
                   </div>
                   {/* School */}
                   <div className="col-span-full ">
-                    <label for="school" className="text-sm font-medium">
+                    {/* <label for="school" className="text-sm font-medium">
                       School <span className="text-red-600 ">*</span>
-                    </label>
-                    <select
+                    </label> */}
+                    {/* <select
                       id="school"
                       type="text"
                       className="w-full px-4 py-2 mt-1 leading-tight bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
@@ -46,7 +59,7 @@ const EditClass = () => {
                       <option className="p-6 text-md">Royal University</option>
                       <option className="p-6 text-md ">KSHRD</option>
                       <option className="p-6 text-md ">NUM</option>
-                    </select>
+                    </select> */}
                     <div className="flex justify-between mt-5">
                       <div>
                         <label className="flex flex-col items-center px-5 tracking-wide uppercase border rounded-lg shadow-lg cursor-pointer border-myorange">
@@ -62,14 +75,6 @@ const EditClass = () => {
                           <input type="file" className="hidden" />
                         </label>
                       </div>
-
-                      <label
-                        for="my-modal-6"
-                        className="flex mt-2 space-x-1 cursor-pointer row text-md"
-                      >
-                        <IoMdAddCircleOutline className="mt-1 " />
-                        Add School
-                      </label>
                     </div>
                   </div>
                 </div>
@@ -110,14 +115,15 @@ const EditClass = () => {
               id="school"
               type="text"
               placeholder="Enter school name"
-              className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen dark:border-gray-700 focus:outline-none focus:bg-white"
+              className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
             />
           </div>
           <div className="modal-action">
             <label
               for="my-modal-6"
               className="px-4 border-none rounded-full btn btn-sm bg-mygreen hover:bg-myhovergreen"
-            >
+              
+              >
               Add
             </label>
           </div>
@@ -128,4 +134,4 @@ const EditClass = () => {
   );
 };
 
-export default EditClass;
+// export default EditClass;

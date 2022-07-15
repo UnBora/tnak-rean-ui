@@ -1,14 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
+import { useEffect } from "react";
 import { FaUserFriends } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
-import { removeStudent } from "../../components/swal/Delete";
+import { useParams } from "react-router-dom";
+import { useQuery } from "react-query";
+import { fetchAllstudent, remove, removeStudent } from "../../service/student";
 
 const AllStudent = () => {
+  const [allStudent, setAllstudent] = useState([]);
+  const { id } = useParams();
+  const [user_id, setUser_id] = useState();
+  const [class_id, setClassId] = useState();
+  useEffect(() => {
+    fetchAllstudent(id).then((r) => {
+      setAllstudent(r.data);
+      console.log("all: ", r);
+    });
+  }, []);
+
+  function onRemoveStudent(user_id,class_id) {
+    removeStudent(user_id,class_id);
+  }
+  
   return (
     <div>
-      <div className="flex space-x-2">
-        <div className="w-8 h-8 rounded-full bg-mygreen">
-          <FaUserFriends className="flex m-auto mt-2 text-white align-middle" />
+      {/* <NavbarT/> */}
+      <div className="flex space-x-3">
+        <div className="">
+          <FaUserFriends className="flex w-10 h-10 p-2 text-base text-white align-middle rounded-full bg-mygreen " />
         </div>
         <p className="mb-3 text-2xl font-semibold">All student</p>
       </div>
@@ -46,57 +65,38 @@ const AllStudent = () => {
         </div>
       </div>
       <div className="mt-2 overflow-x-auto shadow-md">
-        <table className="table ">
+        <table className="table w-full">
           {/* <!-- head --> */}
           <thead>
-            <tr>
-              <th></th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Gender</th>
+            <tr className="">
+              <th className="text-base">Name</th>
+              <th className="text-base">Email</th>
+              <th className="text-base">Gender</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
             {/* <!-- row 1 --> */}
-            <tr className="hover">
-              <th>1</th>
-              <td>Chea Phanit</td>
-              <td>chanthaamengg@gmail.com</td>
-              <td>Male</td>
-              <td className="text-right w-52">
-                <button className="gap-2 text-xs bg-red-500 border-none btn btn-sm hover:bg-red-600" onClick={()=>{removeStudent()}}>
-                  Remove
-                  <MdDelete />
-                </button>
-              </td>
-            </tr>
-            {/* <!-- row 2 --> */}
-            <tr className="hover">
-              <th>2</th>
-              <td>Hart Hagerty</td>
-              <td>Desktop Support Technician</td>
-              <td>Purple</td>
-              <td className="text-right w-52 ">
-                <button className="gap-2 text-xs bg-red-500 border-none btn btn-sm hover:bg-red-600" onClick={()=>{removeStudent()}}>
-                  Remove
-                  <MdDelete />
-                </button>
-              </td>
-            </tr>
-            {/* <!-- row 3 --> */}
-            <tr className="hover">
-              <th>3</th>
-              <td>Brice Swyre</td>
-              <td>Tax Accountant</td>
-              <td>Red</td>
-              <td className="text-right w-52 ">
-                <button className="gap-2 text-xs bg-red-500 border-none btn btn-sm hover:bg-red-600" onClick={()=>{removeStudent()}}>
-                  Remove
-                  <MdDelete />
-                </button>
-              </td>
-            </tr>
+            {allStudent?.map((student) => {
+              return (
+                <tr className="cursor-default hover">
+                  <td>{student.name}</td>
+                  <td>{student.email}</td>
+                  <td>{student.gender}</td>
+                  <td className="text-right w-52">
+                    <button
+                      className="gap-2 text-xs bg-red-500 border-none btn btn-sm hover:bg-red-600"
+                      onClick={() => {
+                        onRemoveStudent(student.user_id,student.class_id)
+                      }}
+                    >
+                      Remove
+                      <MdDelete />
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>

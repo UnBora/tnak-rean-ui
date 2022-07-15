@@ -72,3 +72,53 @@ export const submit= () => {
 };
 
 
+//general setting
+export const accountupdate = () => {
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    iconColor:'#48AD9B',
+    title: 'Your account have been updated successfully',
+    showConfirmButton: false,
+    timer: 1500
+  })
+};
+ // ChangePassword
+export const changepassword = () => {
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    iconColor:'#48AD9B',
+    title: 'Your password have been changed successfully',
+    showConfirmButton: false,
+    timer: 1500
+  })
+};
+// 
+export const registerAlert = () => {
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    iconColor:'#48AD9B',
+    title: 'Register successfully',
+    showConfirmButton: false,
+    timer: 1500
+  })}
+
+  // change done
+  // export const MyChange = Swal.mixin({
+  //   toast: false,
+  //   position: 'top-end',
+  //   showConfirmButton: false,
+  //   timer: 3000,
+  //   timerProgressBar: true,
+  //   didOpen: (toast) => {
+  //     toast.addEventListener('mouseenter', Swal.stopTimer)
+  //     toast.addEventListener('mouseleave', Swal.resumeTimer)
+  //   }
+  // })
+  
+  // MyChange.fire({
+  //   iconColor:'#48AD9B',
+  //   title: 'Changed successfully'
+  // })

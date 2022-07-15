@@ -1,10 +1,19 @@
 import OneSignal from "react-onesignal";
-<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>;
+
 export default async function runOneSignal() {
+  <script
+    src="https://cdn.onesignal.com/sdks/OneSignalSDK.js"
+    async=""
+  ></script>;
+  window.OneSignal = window.OneSignal || [];
   await OneSignal.init({
-    appId: "d619bf9c-14b7-4ed3-98cd-a1f7a4256156",
-    allowLocalhostAsSecureOrigin: true,
+    appId: "1557ea45-8f4a-473d-ad64-dff9355214ec",
     setInitialized: true,
+    safari_web_id: "web.onesignal.auto.39e347a3-7290-467c-af89-3542a6fc2365",
+    allowLocalhostAsSecureOrigin: true,
+    notifyButton: {
+      enable: true,
+    },
   });
   OneSignal.showSlidedownPrompt();
 }

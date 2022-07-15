@@ -23,9 +23,9 @@ export const classDelete = () => {
     }
   });
 };
- 
+
 // student remove in class
-export const removeStudent = () =>{
+export const removeStudentSwal = () => {
   Swal.fire({
     title: "Are you sure?",
     text: "You won't be able to revert this!",
@@ -49,7 +49,7 @@ export const removeStudent = () =>{
 }
 
 // decline student
-export const declineStu = () =>{
+export const declineStu = () => {
   Swal.fire({
     title: "Are you sure?",
     text: "You won't be able to revert this!",
@@ -73,7 +73,7 @@ export const declineStu = () =>{
 }
 
 //folder
-export const deleteFolder= () => {
+export const deleteFolder = () => {
   Swal.fire({
     position: 'center',
     icon: 'success',
@@ -85,7 +85,7 @@ export const deleteFolder= () => {
 };
 
 //taskwork
-export const deleteClasswork= () => {
+export const deleteClasswork = () => {
   Swal.fire({
     position: 'center',
     icon: 'success',
@@ -95,3 +95,47 @@ export const deleteClasswork= () => {
     timer: 1500
   })
 };
+
+// Delate Account
+export const deleteaccount = () => {
+
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    iconColor: "#48AD9B",
+    title: 'Your account have been deleted successfully',
+    title: 'File have been deleted',
+    showConfirmButton: false,
+    timer: 1500
+  })
+};
+
+//DeactiveAccount
+export const deactivateaccount = () => {
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    iconColor: "#48AD9B",
+    title: 'Your deactivate account have been deleted successfully',
+    showConfirmButton: false,
+    timer: 1500
+  })
+};
+//file document
+export const deleteFile = () => {
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    iconColor: "#48AD9B",
+    title: 'File have been deleted',
+    showConfirmButton: false,
+    timer: 1500
+  })
+};
+
+
+
+
+
+
+

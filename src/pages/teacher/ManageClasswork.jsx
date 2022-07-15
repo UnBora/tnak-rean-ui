@@ -1,21 +1,46 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MdWork } from "react-icons/md";
-import { Link } from "react-router-dom";
-import AssignedTask from "../../components/teacher/AssignedTask";
-import Folders from "../../components/teacher/Folders";
+import { Link, useParams } from "react-router-dom";
 import { BsFolderPlus } from "react-icons/bs";
 import {
   MdOutlineHomeWork,
   MdOutlineAssignment,
   MdOutlineQuiz,
-  MdOutlineAddLink,
 } from "react-icons/md";
-import CreateFolder from "../../components/CreateFolder";
-import ReactPlayer from "react-player";
 import AssignClasswork from "../../components/teacher/AssignClasswork";
-import EditFolder from "../../components/teacher/EditFolder";
+import FolderCard from "../../components/teacher/FolderCard";
+import AssignedTaskCard from "../../components/teacher/AssignedTaskCard";
+import { fetchAllclasswork } from "../../service/classMaterial";
+import { fetchClassworkFolder, removeFolder } from "../../service/folderService";
+import CreateFolderPerClass from "../../components/teacher/CreateFolderPerClass";
+import folderClassworkSlice, { fetchAllfolderClassworkSlice } from "../../slices/folders/folderClassworkSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 function ManageClasswork() {
+  const allFolder = useSelector((state) => state.folderClasswrok.value);
+  const dispatch=useDispatch();
+  const [folder, setFolder] = useState([]);
+  const [classwork, setClasswork] = useState([]);
+  const { id } = useParams();
+  useEffect(() => {
+    fetchClassworkFolder(id, 1).then((r) => {
+      dispatch(fetchAllfolderClassworkSlice(r.data))
+      console.log("folder of teacher", r.data);
+    });
+    fetchAllclasswork(1, id).then((r) => {
+      setClasswork(r.data);
+      console.log("classwork of teacher", r.data);
+    });
+ 
+  }, []);
+  function onDeleteFolder(id) {
+    removeFolder(id).then((r) => {
+      fetchClassworkFolder(id, 1).then((r) => {
+        dispatch(fetchAllfolderClassworkSlice(r.data));
+        console.log(r.data);
+      });
+    });
+  }
   return (
     <div className="">
       <div className="flex space-x-2">
@@ -51,61 +76,75 @@ function ManageClasswork() {
         >
           Create
         </label>
-        <ul
+        <div
           tabindex="0"
           className="p-2 shadow dropdown-content menu rounded-box w-52 bg-smoke"
         >
-          <li>
-            <label for="my-modal-1">
-              <BsFolderPlus />
+          <div className="text-lg">
+            <label
+              for="my-modal-folder"
+              className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded"
+            >
+              <BsFolderPlus className="mx-4 mt-1" />
               Folder
             </label>
-          </li>
-          <li>
-            <label for="my-modal-2">
-              <MdOutlineHomeWork />
+          </div>
+          <div className="text-lg">
+            <label
+              for="my-modal-2"
+              className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded"
+            >
+              <MdOutlineHomeWork className="mx-4 mt-1" />
               Homework
             </label>
-          </li>
-          <li>
-            <label>
-              <MdOutlineAssignment />
+          </div>
+          <div className="text-lg">
+            <label
+              for="my-modal-2"
+              className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded"
+            >
+              <MdOutlineAssignment className="mx-4 mt-1" />
               Assignment
             </label>
-          </li>
-          <li>
-            <Link to="#">
-              <MdOutlineQuiz />
+          </div>
+          <div className="text-lg">
+            <label
+              for="my-modal-2"
+              className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded"
+            >
+              <MdOutlineQuiz className="mx-4 mt-1" />
               Quiz
-            </Link>
-          </li>
-        </ul>
+            </label>
+          </div>
+        </div>
       </div>
       <p className="mt-3 ml-1 text-xl font-semibold">Folder</p>
       <p className="mb-2 border-b"></p>
       <div className="flex flex-wrap">
-        <Link to="#">
-          <Folders />
-        </Link>
-        <Link to="#">
-          <Folders />
-        </Link>
-        <Link to="#">
-          <Folders />
-        </Link>
+        {allFolder?.map((index) => {
+          return (
+            // /classroom/:id/classworks/:F-id
+
+            <FolderCard
+              key={index.id}
+              data={index}
+              link={`/classroom/${id}/classworks/${index.folder_id}`}
+              onDelete={onDeleteFolder}
+            />
+          );
+        })}
       </div>
 
       <p className="ml-1​​ mt-12 text-xl font-semibold">Assigned task</p>
       <p className="mb-4 border-b"></p>
       <div className="flex flex-wrap">
-        <AssignedTask />
-        <AssignedTask />
-        <AssignedTask />
+        {classwork?.map((index) => {
+          return <AssignedTaskCard key={index.id} data={index} />;
+        })}
       </div>
       {/* pop up */}
-      <CreateFolder />
-      <AssignClasswork/>
-  
+      <CreateFolderPerClass />
+      <AssignClasswork />
     </div>
   );
 }

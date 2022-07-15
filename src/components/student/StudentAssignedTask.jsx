@@ -1,45 +1,65 @@
-import React from "react";
+import React, { useState } from "react";
 import StudentComment from "./StudentComment";
 import { MdOutlineAssignment } from "react-icons/md";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink, useParams } from "react-router-dom";
+import { fetchAllCommentByClassMaterialDetail } from "../../service/commentService";
 
-export default function StudentAssignedTask() {
+export default function StudentAssignedTask({ data }) {
+  const [comment, setComment] = useState([]);
+  const dataTask = data;
+  const { id } = useParams();
+  function onHandleComment(classMaterialDetailId) {
+    fetchAllCommentByClassMaterialDetail(classMaterialDetailId).then((r) => {
+      console.log("View comment", r.data);
+      setComment(r.data);
+    });
+  }
+
+  console.log("stu assigntask", data);
+
   return (
-    <div className="flex flex-wrap max-w-sm p-4 border rounded-md shadow-xl mr-7 mb-7 h-52 border-bordergray">
-      <div className="justify-between">
-        <div className="flex text-2xl">
+    <div className="flex flex-wrap max-w-sm p-4 border rounded-md shadow-md mr-7 mb-7 h-52 border-bordergray">
+      <div className="flex w-full">
+        <div className="flex text-2xl cursor-default ">
           <MdOutlineAssignment />
-          <span className="ml-2 text-lg font-medium">JAVA assignment 1</span>
+          <span className="ml-2 text-lg font-medium">{dataTask?.title}</span>
         </div>
-        
       </div>
-      <div className="mt-2 text-base font-medium">
-        <p className="max-w-[22rem] truncate">
-          Create firt project Java Using Intellij hii am Kimhab form
-          ppclassdffdf what do you wanthjtyjughfthyfgfhgfg lfgrfhdturtfhgfhggfh
-        </p>
+      <div className="w-full">
+        <div className="max-w-[22rem] truncate mt-2 text-base font-medium block">
+          {dataTask?.description}
+        </div>
       </div>
-
-      <div className="text-xs font-medium">
-        <div className="mb-2">Point: <span>1/100</span></div>
+      <div className="text-xs font-medium ">
+        <div className="mb-2">
+          Point: <span>{dataTask?.score}</span>
+        </div>
         <div className="mt-1 text-xs font-regular text-myred ">
-          <p>Due 31 june 2022 13:00</p>
+          <p>
+            <span>Due: </span> <span>{dataTask?.deadline}</span>
+          </p>
         </div>
       </div>
       <div className="flex mt-auto">
-        <NavLink
-          to="/work-submit"
+        <Link
+          to={{ pathname: `/submit/${data.class_materials_detail_id}` }}
           type="link"
           className="px-4 py-1 text-base text-center text-white shadow-md bg-mygreen font-regular rounded-xl h-max"
         >
           View
-        </NavLink>
-        <div className="mt-2 ml-40 text-sm underline font-regular dropdown dropdown-right">
-          <label tabindex="0" className="underline dropdown dropdown-right">
-            <span>2</span> comments
+        </Link>
+        <div
+          className="mt-2 ml-40 text-sm underline font-regular dropdown dropdown-right"
+          onClick={() => onHandleComment(dataTask?.class_materials_detail_id)}
+        >
+          <label
+            tabindex="0"
+            className="underline dropdown dropdown-right hover:cursor-pointer"
+          >
+            <span>{dataTask?.total_comment}</span> comments
           </label>
           <div tabindex="0" className="mt-2 dropdown-content rounded-box">
-            <StudentComment />
+            <StudentComment comment={comment} />
           </div>
         </div>
       </div>
