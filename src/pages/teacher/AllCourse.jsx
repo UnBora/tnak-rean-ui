@@ -111,7 +111,7 @@ function AllCourse() {
                 key={index.id}
                 data={index}
                 link={`/all-course/${index.folder_id}`}
-             
+                onDelete={onDeleteFolder}
               />
             );
           })}
