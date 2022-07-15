@@ -3,6 +3,7 @@ import { MyChange } from "../components/swal/Success";
 import { api } from "../utils/api";
 import { cryptoEncrypt } from "../utils/tokenEnDe";
 
+
 export const signUp = async (user) => {
   try {
     let response = await api.post("/register", user);
@@ -21,9 +22,9 @@ export const login = async (user) => {
       cryptoEncrypt(response.data.token, "Phanith");
     }
     console.log("Response Data: ", response.data);
-    let temp = JSON.stringify(response.data)
+    let temp = JSON.stringify(response.data);
     localStorage.setItem("user", temp);
-        console.log('userrrrrrrrrrrrrrrrrrrrrrrrrrrrrr ',temp);
+    console.log("userrrrrrrrrrrrrrrrrrrrrrrrrrrrrr ", temp);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -55,7 +56,6 @@ export const studentRegister = async (student) => {
   }
 };
 
-
 export const userUpdateProfile = async (student) => {
   let data = {
     name: student.name,
@@ -65,7 +65,7 @@ export const userUpdateProfile = async (student) => {
     email: student.email,
   };
 
-  console.log('iam update user ',data);
+  console.log("iam update user ", data);
 
   try {
     let response = await api.put("/user/update-profile", data);
@@ -80,8 +80,8 @@ export const userUpdateProfile = async (student) => {
 
 export const changePassword = async (old_password, new_password) => {
   let data = {
-    old_password:old_password,
-    new_password:new_password,
+    old_password: old_password,
+    new_password: new_password,
   };
   console.log("before respon data course:", data);
 
@@ -89,7 +89,6 @@ export const changePassword = async (old_password, new_password) => {
     let response = await api.post("auth/update-password", data);
     console.log(response);
     return response.data;
-    
   } catch (error) {
     console.log("err", error);
   }
@@ -100,13 +99,12 @@ export const deleteAccount = async (password, confirmPassword) => {
   try {
     let response = await api.delete("user/delete-account", {
       params: {
-        password:password,
-        confirmPassword:confirmPassword,
+        password: password,
+        confirmPassword: confirmPassword,
       },
     });
     console.log(response);
     return response.data;
-    
   } catch (error) {
     console.log("err", error);
   }

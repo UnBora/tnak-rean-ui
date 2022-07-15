@@ -90,7 +90,11 @@ function ManageCourse() {
       <p className="mb-2 border-b"></p>
       <div className="flex flex-wrap">
         {folder?.map((index) => {
-          return <FolderCard key={index.id} data={index} />;
+          return (
+            <Link to={{pathname:`/classroom/${id}/courses/${index.folder_id}`}}>
+              <FolderCard key={index.id} data={index} />
+            </Link>
+          );
         })}
       </div>
 

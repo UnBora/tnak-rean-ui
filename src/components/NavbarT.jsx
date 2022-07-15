@@ -9,6 +9,7 @@ import AccountDropdown from "./AccountDropdown";
 import { Link, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux/es/exports";
 import { root } from "postcss";
+import OneSignal from "react-onesignal";
 const NavbarT = ({ userData }) => {
   const  user = useSelector((state) => state?. user?.value);
   console.log("user is ",user);
@@ -23,7 +24,7 @@ const NavbarT = ({ userData }) => {
   console.log("====================================");
   console.log("user", user);
   console.log("====================================");
-
+  OneSignal.setExternalUserId(users.id);
   return (
     <nav className="sticky top-0 z-50 flex w-full bg-white border-b lg:px-20 border-mygray ">
       <div className="justify-between lg:flex navbar-start"> 
@@ -50,7 +51,7 @@ const NavbarT = ({ userData }) => {
           >
             <button className="py-3 ml-3">
               <NavLink
-                onClick={() => handleSetCurrentTab("/")}
+                onClick={() => handleSetCurrentTab("/teacher")}
                 rel="noopener noreferrer"
                 as={Link}
                 to="/teacher"

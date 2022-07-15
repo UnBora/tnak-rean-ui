@@ -38,7 +38,7 @@ export default function Navbar() {
             </label>
             <div className="flex">
               <label
-                for="my-modal-3"
+                forhtmlFor="my-modal-3"
                 className="flex items-center font-bold cursor-pointer mylink"
               >
                 Register

@@ -30,7 +30,7 @@ export default function Final() {
           New password has been created.
         </div>
         <a className="mt-10">
-          <label for="my-modal-4" className="h-10 px-5 transition-colors duration-150 border border-gray-300 rounded-lg text-mygreen focus:shadow-outline hover:bg-mygreen hover:text-green-100">
+          <label htmlFor="my-modal-4" className="h-10 px-5 transition-colors duration-150 border border-gray-300 rounded-lg text-mygreen focus:shadow-outline hover:bg-mygreen hover:text-green-100">
             Close
           </label>
         </a>

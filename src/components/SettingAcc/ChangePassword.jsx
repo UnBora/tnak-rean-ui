@@ -55,7 +55,7 @@ export default function () {
         </div>
         <div className="mt-4">
           <label
-            for="password"
+            htmlFor="password"
             className="block mb-2 text-xs font-medium text-white-900 "
           >
             NEW PASSWORD
@@ -73,7 +73,7 @@ export default function () {
         </div>
         <div className="mt-4">
           <label
-            for="password"
+            htmlFor="password"
             class="block mb-2 text-xs font-medium text-gray-900 "
           >
             COMFIRM NEW PASSWORD

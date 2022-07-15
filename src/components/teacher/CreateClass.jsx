@@ -27,6 +27,7 @@ export default function CreateClass() {
   const handleCreateClass = (e) => {
     console.log(e.target);
     create(className, imgUrl).then(createClass());
+    fecthAllClassByTeacher().then((r) => dispatch(fetchAllClassesSlice(r.data)));
   };
 
   return (
