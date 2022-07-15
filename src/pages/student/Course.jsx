@@ -1,12 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BiBookBookmark } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import StudentFiles from "../../components/student/StudentFiles";
 import StudentFolder from "../../components/student/StudentFolder";
 import StudentNavBar from "../../components/StudentNavbar";
+import { fetchAllCourseFileStu } from "../../service/classMaterial";
+import { fetchClassworkFolderStu } from "../../service/folderService";
 
 export default function Course() {
   const [folder, setFolder] = useState([]);
+  const [file, setFile] = useState([]);
+  useEffect(() => {
+    fetchClassworkFolderStu(1).then((r) => {
+      setFolder(r.data);
+      console.log("folder of course",r.data);
+    });
+    fetchAllCourseFileStu().then((r) => {
+      setFile(r.data);
+    });
+  }, []);
   return (
     <div>
       <StudentNavBar />
@@ -26,11 +38,13 @@ export default function Course() {
             <p className="mb-4 border-b"></p>
           </div>
           <p className="mt-8 text-xl font-medium">Folders</p>
-          <p className="mb-3 border-b"></p>
+          <p className="mb-4 border-b"></p>
           <div className="flex flex-wrap col-span-12">
             {/* card */}
-            <Link to="#">
-              <StudentFolder />
+            <Link to="#" className="flex flex-wrap col-span-12">
+            {folder?.map((index) => {
+          return <StudentFolder key={index.id} data={index} />;
+        })}
             </Link>
           </div>
           <div className="mt-12">
@@ -38,7 +52,9 @@ export default function Course() {
             <p className="mb-4 border-b"></p>
             <div className="flex flex-wrap">
               {/* card  */}
-              <StudentFiles />
+              {file?.map((index) => {
+          return <StudentFiles key={index.id} data={index} />;
+        })}
             </div>
           </div>
         </div>

@@ -20,10 +20,10 @@ export default function StudentComment({comment}) {
 
             <div className="ml-2">
               <div className="flex">
-                <p className="font-medium">{data.name}</p>
-                <p className="mt-1 ml-3 text-xs">{data.comment_date.toString().substring(0, 16)}</p>
+                <p className="font-medium">{data?.name}</p>
+                <p className="mt-1 ml-3 text-xs">{data?.comment_date.toString().substring(0, 16)}</p>
               </div>
-              <label className="block text-sm">{data.comment}</label>
+              <label className="block text-sm">{data?.comment}</label>
             </div>
             </li>
           </ul>

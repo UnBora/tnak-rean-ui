@@ -151,6 +151,15 @@ export const fetchCourseInFolder = async (folder_id) => {
   }
 };
 
+export const fetchAllCourseFileStu = async () => {
+  try {
+    let response = await api.get("classMaterial/get-course-by-studentId");
+    return response.data;
+  } catch (error) {
+    console.log("error", error);
+  }
+};
+
 // get ALL CLASSWORK by folder id (Per class)
 export const fetchClassworkInFolderInClass = async (class_id,classroom_id,folderId) => {
   try {
@@ -199,4 +208,4 @@ export const fetchCourseInFolderInClass = async (folder_id,class_id,classroom_id
     console.log("error", error);
   }
   
-};
+}

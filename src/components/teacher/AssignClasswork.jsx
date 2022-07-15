@@ -121,27 +121,15 @@ const AssignClasswork = () => {
                 </div>
               </div>
               <div className="flex flex-wrap mb-6 -mx-3">
-                {/* <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0 ">
-                  <p className="font-medium ">School</p>
-                  <select
-                    id="school"
-                    type="text"
-                    className="w-full px-4 py-3 leading-tight text-gray-700 bg-white border rounded-md shadow-lg focus:outline-none focus:bg-white focus:ring-1 focus:ring-mygreen"
-                  >
-                    <option className="p-6 text-md">All schools</option>
-                    <option className="p-6 text-md">KSHRD</option>
-                    <option className="p-6 text-md">RUPP</option>
-                    <option className="p-6 text-md">Setec</option>
-                  </select>
-                </div> */}
                 <div className="w-full px-3 mb-6 md:w-full md:mb-0 ">
                   <p className="font-medium ">Classroom</p>
                   <select
                     {...register("class")}
                     onChange={handleChange}
+                  multiple
                     id="class"
                     type="text"
-                    className="w-full px-4 py-3 leading-tight text-gray-700 bg-white border rounded-md shadow-lg focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white multiple"
+                    className="w-full h-20 px-4 py-3 text-gray-700 bg-white border rounded-md shadow-lg focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
                   >
                     <option value={-1} className="p-6 text-md">
                       None
@@ -204,6 +192,7 @@ const AssignClasswork = () => {
                       type="file"
                       className="hidden"
                       onChange={(e) => filehandler(e)}
+                      {...register("file")}
                     />
                   </label>
                 </div>
