@@ -121,25 +121,11 @@ function AllClasswork() {
           <div className="flex flex-wrap">
             {allFolder?.map((index) => {
               return (
-                // /classroom/${dataClass.id}/students
-                // <Link to={{pathname:`/all-classwork/${index.folder_id}`}} >
-                //   <FolderCard key={index.id} data={index} />
-                // </Link>
-                <div className="flex mt-3 mr-4 ">
-                  <div className="flex p-2 border border-collapse rounded-md shadow-md cursor-pointer h-max border-bordergray w-60">
-                    <Link
-                      to={{ pathname: `/all-classwork/${index.folder_id}` }}
-                    >
-                      <div className="ml-2 text-sm truncate font-regular">
-                        <FaFolderMinus />
-
-                        <span className="ml-2 text-sm truncate font-regular">
-                          {index.folder_name}
-                        </span>
-                      </div>
-                    </Link>
-                  </div>
-                </div>
+                <FolderCard
+                  key={index.id}
+                  data={index}
+                  link={`/all-classwork/${index.folder_id}`}
+                />
               );
             })}
           </div>

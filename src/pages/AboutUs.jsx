@@ -18,7 +18,7 @@ export default function AboutUs() {
   return (
     <div>
       <Navbar/>
-      <div className=" bg-smoke">
+      <div className="">
         <div className="grid grid-cols-4 mx-32 mt-10 bg-white border rounded-lg shadow-md card p-11">
           <div className="col-span-3 ml-6 font-medium text-center lg:text-lg ">
             <p className="text-2xl font-semibold text-center uppercase lg:text-4xl">
@@ -47,102 +47,28 @@ export default function AboutUs() {
         </div>
         <div className="px-8 mt-4">
           <div className="px-1 py-10 ">
-            <p className="text-2xl font-semibold text-center uppercase text-black-900 lg:text-4xl">
-              meet our team
-            </p>
-            <p className="w-20 mx-auto mt-2 myhr"></p>
+          <div className="mt-10 space-y-6 mx-100px">
+        <p className="font-medium text-mygreen">WHO WE ARE</p>
+        <p className="text-5xl font">Meet Our Team</p>
+        <p>
+        <div className="flex mt-10 ">
+              <div className="text-lg text-mygreen ">Tnak</div>
+              <div className="text-lg text-myorange">Rean</div>
+              <div className="text-lg ">
+                is website that created by Korea Software HRD Center in 2022.
+              </div>
+              <hr/>
+              
+            </div>
+            <div className="flex mx-auto text-lg "> The best option and it useful for teachers an students in many
+                institutes.</div>
+        </p>
+        <p className="w-20 mt-2 myhr"></p>
+      </div>
+            
             <div className="flex justify-center mt-14">
               <div className="flex flex-row flex-wrap justify-center text-center ">
-              <div className="flex bg-purple-300 mx-44">
-              <div className="items-center p-3 transition-colors duration-200 transform bg-white shadow-md cursor-pointer basis-[30%] rounded-xl">
-                  <img
-                    className="flex object-cover w-48 h-48 m-auto rounded-full ring-4 ring-myorange "
-                    src={phanith}
-                    alt="Phanith"
-                  />
-                  <p className="w-20 mx-auto mt-5 myhr"></p>
-                  <h1 className="pt-2 mt-2 text-2xl font-semibold uppercase">
-                    chea phanith
-                  </h1>
-
-                  <p className="mx-2 mt-2 text-myorange text-md">
-                    "Do what is right not what is easy."
-                  </p>
-                  <div className="flex justify-center mt-5">
-                    <a
-                      href="https://www.linkedin.com/in/chea-phanith-963b421a5/"
-                      className="mr-3 text-gray-800 hover:text-gray-500 group-hover:text-white"
-                      aria-label="`Linkedin`"
-                    >
-                      <div className="text-AboutIcon">
-                        <AiFillLinkedin />
-                      </div>
-                    </a>
-                    <a
-                      href="https://gitlab.com/cheaphanith"
-                      class="text-gray-800 hover:text-gray-500  group-hover:text-white mr-3"
-                      aria-label="`Gitlab`"
-                    >
-                      <div className="text-AboutIcon">
-                        <AiFillGitlab href="mailto: abc@example.com" />
-                      </div>
-                    </a>
-                    <a
-                      href="mailto:https://gitlab.com/cheaphanith"
-                      className="mr-3 text-gray-800 hover:text-gray-500 group-hover:text-white"
-                      aria-label="`Gmail`"
-                    >
-                      <div className="text-AboutIcon">
-                        <AiFillGoogleCircle />
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div className="items-center p-3 transition-colors duration-200 transform bg-white shadow-md cursor-pointer basis-[30%] rounded-xl">
-                  <img
-                    className="flex object-cover w-48 h-48 m-auto rounded-full ring-4 ring-myorange "
-                    src={phanith}
-                    alt="Phanith"
-                  />
-                  <p className="w-20 mx-auto mt-5 myhr"></p>
-                  <h1 className="pt-2 mt-2 text-2xl font-semibold uppercase">
-                    chea phanith
-                  </h1>
-
-                  <p className="mx-2 mt-2 text-myorange text-md">
-                    "Do what is right not what is easy."
-                  </p>
-                  <div className="flex justify-center mt-5">
-                    <a
-                      href="https://www.linkedin.com/in/chea-phanith-963b421a5/"
-                      className="mr-3 text-gray-800 hover:text-gray-500 group-hover:text-white"
-                      aria-label="`Linkedin`"
-                    >
-                      <div className="text-AboutIcon">
-                        <AiFillLinkedin />
-                      </div>
-                    </a>
-                    <a
-                      href="https://gitlab.com/cheaphanith"
-                      class="text-gray-800 hover:text-gray-500  group-hover:text-white mr-3"
-                      aria-label="`Gitlab`"
-                    >
-                      <div className="text-AboutIcon">
-                        <AiFillGitlab href="mailto: abc@example.com" />
-                      </div>
-                    </a>
-                    <a
-                      href="mailto:https://gitlab.com/cheaphanith"
-                      className="mr-3 text-gray-800 hover:text-gray-500 group-hover:text-white"
-                      aria-label="`Gmail`"
-                    >
-                      <div className="text-AboutIcon">
-                        <AiFillGoogleCircle />
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
+       
                 {/* first card phanit*/}
                 <div className="items-center p-3 transition-colors duration-200 transform bg-white shadow-md cursor-pointer basis-[30%] rounded-xl">
                   <img

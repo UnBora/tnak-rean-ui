@@ -9,6 +9,7 @@ import { fetchSelectClass } from "../service/classesService";
 import * as Yup from "yup";
 import { studentRegister } from "../service/authService";
 import { registerAlert } from "./swal/Success";
+import { Link } from "react-router-dom";
 
 // import { useState } from "react";
 export default function Register() {
@@ -56,7 +57,7 @@ export default function Register() {
       } else {
         
       }
-    }).then(registerAlert());
+    }).then(registerAlert()).then("/pendding");
   };
 
   useEffect(() => {

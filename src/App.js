@@ -32,6 +32,8 @@ import GradeStudentWork from "./pages/teacher/GradeStudentWork";
 import ManageCLassworkInFolder from "./pages/teacher/ManageCLassworkInFolder";
 import ManageCourseInFolder from "./pages/teacher/ManageCourseInFolder";
 import SubmitAssignTask from "./pages/student/SubmitAssignTask";
+import Pendding from "./pages/student/Pendding";
+import About from "./pages/About";
 
 function App() {
   const user = getCurrentUser;
@@ -88,6 +90,7 @@ function App() {
           <Route path="delete-account" element={<DeleteAccount />}></Route>
         </Route>
         {/* Student side */}
+        <Route path="/pendding" element={<Pendding/>}/>
         <Route path="/student" element={<StuIndex />} />
         <Route path="/formsubmit" element={<FormSubmit />} />
         <Route path="/submit/:id" element={<SubmitAssignTask />} />
