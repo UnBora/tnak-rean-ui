@@ -1,11 +1,18 @@
 import React from "react";
 import { FaEllipsisV, FaFolderMinus } from "react-icons/fa";
-import { deleteFolder } from "../swal/Delete";
+import { useDispatch } from "react-redux/es/exports";
 import EditFolder from "./EditFolder";
 
 //use
 export default function FolderCard({ data }) {
+  const dispatch = useDispatch();
+  function deleteFolder(folderId) {
+    
+     dispatch(deleteFolder(folderId));
+    
+  }
   const dataFolder = data;
+  
   return (
     <div className="flex mt-3 mr-4">
       <button className="flex p-2 border border-collapse rounded-md shadow-md cursor-pointer h-max border-bordergray w-60">
@@ -32,7 +39,7 @@ export default function FolderCard({ data }) {
           <label
             className="py-2 pl-4 text-red-500 border-t cursor-pointer hover:rounded-b-lg hover:bg-gray-200"
             onClick={() => {
-              deleteFolder();
+              deleteFolder(dataFolder.id);
             }}
           >
             Delete
@@ -42,5 +49,6 @@ export default function FolderCard({ data }) {
       </button>
       <EditFolder />
     </div>
+    
   );
 }

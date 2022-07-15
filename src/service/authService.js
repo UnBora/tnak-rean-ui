@@ -21,9 +21,9 @@ export const login = async (user) => {
       cryptoEncrypt(response.data.token, "Phanith");
     }
     console.log("Response Data: ", response.data);
-    let temp = JSON.stringify(response.data)
+    let temp = JSON.stringify(response.data);
     localStorage.setItem("user", temp);
-        console.log('userrrrrrrrrrrrrrrrrrrrrrrrrrrrrr ',temp);
+    console.log("userrrrrrrrrrrrrrrrrrrrrrrrrrrrrr ", temp);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -55,21 +55,17 @@ export const studentRegister = async (student) => {
   }
 };
 
-
 export const userUpdateProfile = async (student) => {
   let data = {
     name: student.name,
     username: student.username,
     gender: student.gender,
-    img: null,
     email: student.email,
   };
-
-  console.log('iam update user ',data);
-
+  console.log("i am update user ", data);
   try {
-    let response = await api.put("/user/update-profile", data);
-    console.log(response);
+    let response = await api.put(`/user/update-profile`, data);
+    console.log('response data',response);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -80,8 +76,8 @@ export const userUpdateProfile = async (student) => {
 
 export const changePassword = async (old_password, new_password) => {
   let data = {
-    old_password:old_password,
-    new_password:new_password,
+    old_password: old_password,
+    new_password: new_password,
   };
   console.log("before respon data course:", data);
 
@@ -89,7 +85,6 @@ export const changePassword = async (old_password, new_password) => {
     let response = await api.post("auth/update-password", data);
     console.log(response);
     return response.data;
-    
   } catch (error) {
     console.log("err", error);
   }
@@ -98,15 +93,36 @@ export const changePassword = async (old_password, new_password) => {
 // Delete account
 export const deleteAccount = async (password, confirmPassword) => {
   try {
-    let response = await api.delete("user/delete-account", {
+    let response = await api.delete(`user/delete-account`, {
       params: {
-        password:password,
-        confirmPassword:confirmPassword,
+        password: password,
+        confirmPassword: confirmPassword,
       },
     });
     console.log(response);
+    return response.api;
+  } catch (error) {
+    console.log("err", error);
+  }
+};
+
+// Deactivate Account 
+export const deactiveAccount = async (password, confirmPassword) => {
+  try {
+    let response = await api.put(`/user/deactivate-account?password=${password}&confirmPassword=${confirmPassword}`);
+    console.log(response);
     return response.data;
-    
+  } catch (error) {
+    console.log("err", error);
+  }
+};
+
+// Activate Account 
+export const activeAccount = async (password, confirmPassword) => {
+  try {
+    let response = await api.put(`/user/activate-account?password=${password}&passwordConfirm=${confirmPassword}`);
+    console.log(response);
+    return response;
   } catch (error) {
     console.log("err", error);
   }
