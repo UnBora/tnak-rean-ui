@@ -73,6 +73,7 @@ export const fetchClassworkInFolder = async (folderId) => {
 export const fetchAllClassworkStu = async () => {
   try {
     let response = await api.get("submittableWork/get-classwork-by-studentId");
+    console.log("service", response.data);
     return response.data;
   } catch (error) {
     console.log("error", error);

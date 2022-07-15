@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import StudentComment from "./StudentComment";
 import { MdOutlineAssignment } from "react-icons/md";
 import { Link, NavLink } from "react-router-dom";
-import { fetchAllCommentByClassMaterial } from "../../service/commentService";
+import { fetchAllCommentByClassMaterialDetail } from "../../service/commentService";
 
 export default function StudentUpcomingTask({ assignedTask }) {
   const [comment, setComment] = useState([]);
   const dataTask = assignedTask;
-  function onHandleComment(classMaterialId) {
-    console.log(classMaterialId);
+  function onHandleComment(classMaterialDetailId) {
+    console.log(classMaterialDetailId);
     console.log('ass task',assignedTask);
-    fetchAllCommentByClassMaterial(classMaterialId).then((r) => {
-      console.log(classMaterialId);
+    fetchAllCommentByClassMaterialDetail(classMaterialDetailId).then((r) => {
+      console.log(classMaterialDetailId);
       setComment(r.data)
     });
   }
@@ -41,7 +41,7 @@ export default function StudentUpcomingTask({ assignedTask }) {
       </div>
       <div className="flex mt-auto">
         <Link
-          to={{ pathname: `/submit/${assignedTask.material_id}`}}
+          to={{ pathname: `/submit/${assignedTask.class_materials_detail_id}`}}
           type="link"
           className="px-4 py-1 text-base text-center text-white shadow-md bg-mygreen font-regular rounded-xl h-max"
         >
@@ -49,13 +49,13 @@ export default function StudentUpcomingTask({ assignedTask }) {
         </Link>
         <div
           className="mt-2 ml-40 text-sm underline font-regular dropdown dropdown-right"
-          onClick={()=>onHandleComment(dataTask?.material_id)}
+          onClick={()=>onHandleComment(dataTask?.class_materials_detail_id)}
         >
           <label 
           tabindex="0" 
           className="underline dropdown dropdown-right hover:cursor-pointer"
           >
-            <span>{dataTask?.total_comments}</span> comments
+            <span>{dataTask?.total_comment}</span> comments
           </label>
           <div tabindex="0" className="mt-2 dropdown-content rounded-box">
             <StudentComment comment={comment} />

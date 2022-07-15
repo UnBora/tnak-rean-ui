@@ -6,23 +6,26 @@ import StudentNavBar from "../../components/StudentNavbar";
 import { fetchAllClassworkStu } from "../../service/classMaterial";
 import { fetchClassworkFolderStu } from "../../service/folderService";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchAllClassworkStuSlice } from "../../slices/assignedwork/assignedWorkSlice";
 
-export default function Classwork({data}) {
+export default function Classwork() {
   // const scheduleStudent = useSelector((state) => state.scheduleStudent.value);
   const [classwork, setClasswork] = useState([]);
   const [folder, setFolder] = useState([]);
   const { id } = useParams();
-  console.log(classwork);
+  const dispatch = useDispatch();
+  const assignedWork = useSelector((state) => state.assignedWork.value);
+  console.log("Classwork in classwork",classwork);
   useEffect(() => {
-    fetchClassworkFolderStu(2).then((r) => {
+    fetchClassworkFolderStu(3).then((r) => {
       setFolder(r.data);
       console.log("folder of classwork",r.data);
     });
-    fetchAllClassworkStu().then((r) => {
-      setClasswork(r.data);
-      console.log("classwork of student", r.data);
-    });
+    fetchAllClassworkStu().then((r) => dispatch(fetchAllClassworkStuSlice(r.data)),
+    // setClasswork(r)
+    );
+    console.log();
   }, []);
 
   return (
@@ -57,7 +60,7 @@ export default function Classwork({data}) {
             <p className="mb-4 border-b"></p>
             <div className="flex flex-wrap">
               {/* card  */}
-              {classwork?.map((index) => {
+              {assignedWork?.map((index) => {
                 return <StudentAssignedTask key={index.id} data={index} />;
               })}
             </div>
