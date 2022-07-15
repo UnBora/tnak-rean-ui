@@ -17,6 +17,9 @@ import {
   REGISTER,
 } from "redux-persist";
 import folderSlice from "../slices/folders/folderSlice";
+import folderCourseSlice from "../slices/folders/folderCourseSlice";
+import folderCoursePerClassSlice, { fetchAllfolderCourseClassSlice } from "../slices/folders/folderCoursePerClassSlice";
+import folderClassworkSlice from "../slices/folders/folderClassworkSlice";
 
 const { configureStore } = require("@reduxjs/toolkit");
 const persistConfig = {
@@ -37,6 +40,9 @@ export const store = configureStore({
     scheduleStudent: scheduleStudentSlice,
     user: userSlice,
     folder: folderSlice,
+    folderCourse:folderCourseSlice,
+    folderCourseInClass:folderCoursePerClassSlice,
+    folderClasswrok:folderClassworkSlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

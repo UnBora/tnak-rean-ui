@@ -8,24 +8,45 @@ import FilesCard from "../../components/teacher/FilesCard";
 import Folders from "../../components/teacher/FolderCard";
 import UploadCourse from "../../components/teacher/UploadCourse";
 import { useEffect } from "react";
-import { fecthCourseFolderByTeacher, fetchallCourseFolder } from "../../service/folderService";
+import {
+  fecthCourseFolderByTeacher,
+  fetchallCourseFolder,
+  removeFolder,
+} from "../../service/folderService";
 import { useDispatch, useSelector } from "react-redux";
 import NavbarT from "../../components/NavbarT";
 import FolderCard from "../../components/teacher/FolderCard";
 import { fetchCourseFile } from "../../service/classMaterial";
+import { fetchAllfolderSlice } from "../../slices/folders/folderSlice";
+import { fetchAllfolderCourseSlice } from "../../slices/folders/folderCourseSlice";
 
 function AllCourse() {
-  const [allCourse,setallCourse] = useState([]);
-  const [allFolder,setallFolder]=useState([]);
+  const [allCourse, setallCourse] = useState([]);
+  const dispatch = useDispatch();
+  const allFolder = useSelector((state) => state.folderCourse.value);
   useEffect(() => {
     fetchCourseFile().then((r) => {
       setallCourse(r.data);
     });
-    
-    fetchallCourseFolder().then((r)=>{
-      setallFolder(r.data);
-    });
+
+    // fetchallCourseFolder().then((r)=>{
+    //   setallFolder(r.data);
+    // });
+    fetchallCourseFolder().then((r) =>
+      dispatch(fetchAllfolderCourseSlice(r.data))
+    );
   }, []);
+  console.log("Folder", allFolder);
+
+  function onDeleteFolder(id) {
+    removeFolder(id).then((r) => {
+      fetchallCourseFolder().then((r) => {
+        dispatch(fetchAllfolderCourseSlice(r.data));
+        console.log(r.data);
+      });
+    });
+  }
+
   return (
     <div>
       <NavbarT />
@@ -84,22 +105,24 @@ function AllCourse() {
         <p className="mt-3 ml-1 text-xl font-semibold">Folder</p>
         <p className="mb-2 border-b"></p>
         <div className="flex flex-wrap">
-      
-        {allFolder?.map((index) => {
-          return (
-           <FolderCard key={index.id} data={index} link={`/all-course/${index.folder_id}`} />
-         
-          )
-        })}
+          {allFolder?.map((index) => {
+            return (
+              <FolderCard
+                key={index.id}
+                data={index}
+                link={`/all-course/${index.folder_id}`}
+             
+              />
+            );
+          })}
         </div>
 
         <p className="ml-1 text-xl font-semibold mt-9">Document</p>
         <p className="mb-4 border-b"></p>
         <div className="flex flex-wrap">
-          
-        {allCourse?.map((index) => {
-          return <FilesCard key={index.id} data={index} />;
-        })}
+          {allCourse?.map((index) => {
+            return <FilesCard key={index.id} data={index} />;
+          })}
         </div>
         {/* folder pop up */}
         <CreateFolder />
