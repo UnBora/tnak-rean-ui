@@ -182,7 +182,7 @@ export default function Login() {
                       className="w-full px-3 py-2 border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none"
                     // onChange={(e) => setUsername(e.target.value)}
                     />
-                    <div className="ml-4 text-sm invalid-feedback text-myred">
+                    <div className="ml-4 text-sm invalid-feedback text-myred ">
                       {errors.username?.message}
                     </div>
                   </div>
@@ -193,7 +193,7 @@ export default function Login() {
                       placeholder={"Password"}
                       className="w-full px-3 py-2 border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none"
                     />
-                    <div className="ml-4 text-sm invalid-feedback text-myred">
+                    <div className="ml-4 text-sm invalid-feedback text-myred mb-3">
                       {errors.password?.message}
                     </div>
                   </div>
