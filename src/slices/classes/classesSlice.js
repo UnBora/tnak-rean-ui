@@ -22,6 +22,7 @@ const classesSlice = createSlice({
     createClass(state, action) {
       createClass(action.payload);
       state.value = state.value.filter((item) => item.id !== action.payload);
+      
     },
   },
 });
