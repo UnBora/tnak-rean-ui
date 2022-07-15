@@ -104,6 +104,7 @@ export const assigntask = async (task, file) => {
     } else if (task.class === "0") {
       
     }
+    console.log(response?.data);
     return response?.data;
   } catch (error) {
     console.log("error", error);

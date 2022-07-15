@@ -18,16 +18,27 @@ import EditFolder from "../../components/teacher/EditFolder";
 import { FaEllipsisV, FaFolderMinus } from "react-icons/fa";
 import { deleteFolder } from "../../components/swal/Delete";
 import { useDispatch } from "react-redux";
+import { fetchSelectClass } from "../../service/classesService";
+import { fetchSelectClassSlice } from "../../slices/classes/selectClass";
+import { classWork, classWorkType } from "../../slices/assignedwork/assignedWorkSlice";
 function AllClasswork() {
   const [allClasswork, setallClasswork] = useState([]);
   const [allFolder, setallFolder] = useState([]);
+  const [classes, setClasses] = useState([]);
+
   const dispatch = useDispatch();
+
   useEffect(() => {
     fetchClassworks().then((r) => {
       setallClasswork(r.data);
       console.log("all assign task", r.data);
     });
-
+    fetchSelectClass().then((r) => {
+      dispatch(fetchSelectClassSlice(r.data))
+      console.log("====================================");
+      console.log(r.data);
+      console.log("====================================");
+    });
     fetchallClassworkFolder().then((r) => {
       setallFolder(r.data);
     });
@@ -36,11 +47,17 @@ function AllClasswork() {
   console.log("all folder", allFolder);
   console.log("all folder", allFolder);
 
-  const [createType, setCreateType] = useState("");
+  const [createType, setCreateType] = useState("default value");
 
-  console.log('====================================');
+  console.log("====================================");
   console.log(createType);
-  console.log('====================================');
+  console.log("====================================");
+
+  const handleCreateType = (createTypeString) => {
+    console.log(createTypeString);
+    setCreateType(createTypeString);
+    dispatch(classWorkType(createTypeString));
+  };
 
   return (
     <div>
@@ -98,7 +115,7 @@ function AllClasswork() {
                 <label
                   for="my-modal-2"
                   className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded"
-                onClick= {()=>setCreateType("homework")}
+                  onClick={() => setCreateType("homework")}
                 >
                   <MdOutlineHomeWork className="mx-4 mt-1" />
                   Homework
@@ -108,7 +125,7 @@ function AllClasswork() {
                 <label
                   for="my-modal-2"
                   className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded"
-                  onClick= {()=>setCreateType("assignment")}
+                  onClick={() => setCreateType("assignment")}
                 >
                   <MdOutlineAssignment className="mx-4 mt-1" />
                   Assignment
@@ -118,7 +135,7 @@ function AllClasswork() {
                 <label
                   for="my-modal-2"
                   className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded"
-                  onClick= {()=>setCreateType("quiz")}
+                  onClick={() => setCreateType("quiz")}
                 >
                   <MdOutlineQuiz className="mx-4 mt-1" />
                   Quiz
@@ -149,7 +166,7 @@ function AllClasswork() {
           </div>
           {/* pop up */}
           <CreateFolder />
-          <AssignClasswork createType={createType}/>
+          {<AssignClasswork createType={createType} classes={classes} />}
         </div>
       </div>
     </div>

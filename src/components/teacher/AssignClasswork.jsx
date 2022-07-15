@@ -7,8 +7,17 @@ import { useEffect } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { assigntask } from "../../service/classMaterial";
 import { fetchSelectClass } from "../../service/classesService";
+import { useSelect } from "@material-tailwind/react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchSelectClassSlice } from "../../slices/classes/selectClass";
 
-const AssignClasswork = ({ createType }) => {
+
+const AssignClasswork = ({ createType }, { classes }) => {
+  const dispatch = useDispatch();
+  const allSelectClass = useSelector((state) => state.allSelectClass?.value);
+
+  console.log('helloooooooooo',allSelectClass);
+
   const validationSchema = Yup.object().shape({
     title: Yup.string()
       .required("Name is required")
@@ -32,6 +41,11 @@ const AssignClasswork = ({ createType }) => {
       .nullable()
       .transform((curr, orig) => (orig === "" ? null : curr)),
   });
+
+  console.log("====================================");
+  console.log("create type in the component", createType, classes);
+  console.log("====================================");
+
   // const [file,s]
   const formOptions = { resolver: yupResolver(validationSchema) };
   const { register, handleSubmit, reset, formState, setError } =
@@ -48,7 +62,12 @@ const AssignClasswork = ({ createType }) => {
     }
   };
 
+const [cl,setCl] = useState();
+  
   const handleChange = (e) => {
+    fetchSelectClass().then((r) => {
+     setCl(r.data);
+    });
     console.log(isDisabled);
     if (e.target.value === "-1" || e.target.value === "0") {
       setIsDisabled(true);
@@ -64,19 +83,25 @@ const AssignClasswork = ({ createType }) => {
     //     message: "Deadline is required",
     //   });
     // }
-
+    console.log("====================================");
+    console.log("asdasdasdsada ", createType);
+    console.log("====================================");
     if (createType === "homework") {
       assigntask(data, file);
     } else if (createType === "assignment") {
-
+      console.log('====================================');
+      console.log('assignment');
+      assigntask(data, file);
+      console.log('====================================');
     } else if (createType === "quiz") {
-      
+      console.log('====================================');
+      console.log('quiz');
+      assigntask(data, file);
+      console.log('====================================');
     }
   };
-  const [classes, setClass] = useState([]);
-  useEffect(() => {
-    fetchSelectClass().then((r) => setClass(r.data));
-  }, []);
+
+  console.log("classessssssssssssssssssssssssssss", createType);
 
   return (
     <div>
@@ -142,9 +167,10 @@ const AssignClasswork = ({ createType }) => {
                     <option value={0} className="p-6 text-md">
                       All Class
                     </option>
-                    {classes?.map((index) => (
-                      <option value={index.id} className="p-6 text-md">
-                        {index.className}
+                    {cl?.map((index) => (
+                      console.log('cl',index),
+                      <option value={index?.id} className="p-6 text-md">
+                        {index?.className}
                       </option>
                     ))}
                   </select>

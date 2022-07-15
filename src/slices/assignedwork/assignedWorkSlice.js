@@ -10,8 +10,10 @@ const assignedWorkSlice = createSlice({
   reducers: {
     fetchAllClassworkStuSlice: (state, action) => {
       state.value = action.payload;
+    },classWorkType: (state, action) => {
+      state.value = action.payload;
     },
   },
 });
-export const { fetchAllClassworkStuSlice } = assignedWorkSlice.actions;
+export const { fetchAllClassworkStuSlice,classWorkType } = assignedWorkSlice.actions;
 export default assignedWorkSlice.reducer;
