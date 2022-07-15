@@ -19,14 +19,12 @@ const classesSlice = createSlice({
       removeClass(action.payload);
       state.value = state.value.filter((item) => item.id !== action.payload);
     },
-    createClass(state, action) {
-      createClass(action.payload);
-      state.value = state.value.filter((item) => item.id !== action.payload);
-      
+     createNewClass(state, action) {
+      // createClass(action.payload);
+      state.value = [...state.value, action.payload];
     },
   },
 });
-export const { fetchAllClassesSlice, deleteClass, createClass } =
-  classesSlice.actions;
+export const { fetchAllClassesSlice, deleteClass,createNewClass } = classesSlice.actions;
 
 export default classesSlice.reducer;
