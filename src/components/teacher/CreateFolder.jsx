@@ -12,6 +12,7 @@ function CreateFolder() {
     folderName: Yup.string()
       .required("Folder Name is required")
       .min(4, "Folder Name must be at least 6 characters")
+      .max(15)
       .matches(
         /^[a-zA-Z0-9 ]+$/,
         "Folder Name Only alphabets are allowed for Name "

@@ -13,39 +13,39 @@ import AssignClasswork from "../../components/teacher/AssignClasswork";
 import FolderCard from "../../components/teacher/FolderCard";
 import NavbarT from "../../components/NavbarT";
 import { fetchClassworks } from "../../service/classMaterial";
-import { fetchallClassworkFolder } from "../../service/folderService";
+import { fetchallClassworkFolder, removeFolder } from "../../service/folderService";
 import EditFolder from "../../components/teacher/EditFolder";
 import { FaEllipsisV, FaFolderMinus } from "react-icons/fa";
 import { deleteFolder } from "../../components/swal/Delete";
-import { useDispatch } from "react-redux";
-import { fetchSelectClass } from "../../service/classesService";
-import { fetchSelectClassSlice } from "../../slices/classes/selectClass";
-import { classWork, classWorkType } from "../../slices/assignedwork/assignedWorkSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchAllfolderSlice } from "../../slices/folders/folderSlice";
 function AllClasswork() {
   const [allClasswork, setallClasswork] = useState([]);
-  const [allFolder, setallFolder] = useState([]);
-  const [classes, setClasses] = useState([]);
-
+  // const [allFolder, setallFolder] = useState([]);
   const dispatch = useDispatch();
-
+  const allFolder = useSelector((state) => state.folder.value);
   useEffect(() => {
     fetchClassworks().then((r) => {
       setallClasswork(r.data);
       console.log("all assign task", r.data);
     });
-    fetchSelectClass().then((r) => {
-      dispatch(fetchSelectClassSlice(r.data))
-      console.log("====================================");
-      console.log(r.data);
-      console.log("====================================");
-    });
-    fetchallClassworkFolder().then((r) => {
-      setallFolder(r.data);
-    });
-  }, []);
 
-  console.log("all folder", allFolder);
-  console.log("all folder", allFolder);
+    fetchallClassworkFolder().then((r)=>dispatch(fetchAllfolderSlice(r.data)));
+    
+  }, []);
+  function onDeleteFolder(id) {
+    removeFolder(id).then((r) => {
+      fetchallClassworkFolder()
+        .then((r) => {
+           dispatch(fetchAllfolderSlice(r.data));
+          console.log(r.data);
+        })
+    });
+  }
+
+
+
+  
 
   const [createType, setCreateType] = useState("default value");
 
@@ -58,6 +58,9 @@ function AllClasswork() {
     setCreateType(createTypeString);
     dispatch(classWorkType(createTypeString));
   };
+  console.log('====================================');
+  console.log(allFolder);
+  console.log('====================================');
 
   return (
     <div>
@@ -149,6 +152,7 @@ function AllClasswork() {
             {allFolder?.map((index) => {
               return (
                 <FolderCard
+                onDelete={onDeleteFolder}
                   key={index.id}
                   data={index}
                   link={`/all-classwork/${index.folder_id}`}

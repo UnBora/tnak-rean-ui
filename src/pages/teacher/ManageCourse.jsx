@@ -9,22 +9,35 @@ import FilesCard from "../../components/teacher/FilesCard";
 import FolderCard from "../../components/teacher/FolderCard";
 import UploadCourse from "../../components/teacher/UploadCourse";
 import { fetchAllcourse } from "../../service/classMaterial";
-import { fetchCourseFolder } from "../../service/folderService";
+import { fetchCourseFolder, removeFolder } from "../../service/folderService";
 import CreateFolderPerClass from "../../components/teacher/CreateFolderPerClass";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchAllfolderCourseClassSlice } from "../../slices/folders/folderCoursePerClassSlice";
 function ManageCourse() {
   const [folder, setFolder] = useState([]);
   const [course, setCourse] = useState([]);
   const { id } = useParams();
+  const allFolder = useSelector((state) => state.folderCourseInClass.value);
+  // const allFolder = useSelector((state) => state.folderCourseInClass);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetchCourseFolder(id, 1).then((r) => {
-      setFolder(r.data);
+      console.log("course", r.data);
+      dispatch(fetchAllfolderCourseClassSlice(r.data));
     });
     fetchAllcourse(1, id).then((r) => {
       setCourse(r.data);
-      console.log("course", r);
     });
   }, []);
+  function onDeleteFolder(id) {
+    removeFolder(id).then((r) => {
+      fetchCourseFolder(id, 1).then((r) => {
+        dispatch(fetchAllfolderCourseClassSlice(r.data));
+        console.log(r.data);
+      });
+    });
+  }
 
   return (
     <div>
@@ -89,11 +102,14 @@ function ManageCourse() {
       <p className="mt-3 ml-1 text-xl font-semibold">Folder</p>
       <p className="mb-2 border-b"></p>
       <div className="flex flex-wrap">
-        {folder?.map((index) => {
+        {allFolder?.map((index) => {
           return (
-            <Link to={{pathname:`/classroom/${id}/courses/${index.folder_id}`}}>
-              <FolderCard key={index.id} data={index} />
-            </Link>
+            <FolderCard
+              key={index.id}
+              data={index}
+              link={`/classroom/${id}/courses/${index.folder_id}`}
+              onDelete={onDeleteFolder}
+            />
           );
         })}
       </div>

@@ -28,7 +28,7 @@ export default function Home() {
 
   useEffect(() => {
     fecthAllClassByTeacher().then((r) => dispatch(fetchAllClassesSlice(r.data)));
-  
+
     fetchScheduleTeacher(1, 1).then((r) =>
       dispatch(fetchScheduleClassSlice(r))
     );

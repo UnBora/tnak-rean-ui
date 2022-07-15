@@ -11,22 +11,36 @@ import AssignClasswork from "../../components/teacher/AssignClasswork";
 import FolderCard from "../../components/teacher/FolderCard";
 import AssignedTaskCard from "../../components/teacher/AssignedTaskCard";
 import { fetchAllclasswork } from "../../service/classMaterial";
-import { fetchClassworkFolder } from "../../service/folderService";
+import { fetchClassworkFolder, removeFolder } from "../../service/folderService";
 import CreateFolderPerClass from "../../components/teacher/CreateFolderPerClass";
+import folderClassworkSlice, { fetchAllfolderClassworkSlice } from "../../slices/folders/folderClassworkSlice";
+import { useDispatch, useSelector } from "react-redux";
+
 function ManageClasswork() {
+  const allFolder = useSelector((state) => state.folderClasswrok.value);
+  const dispatch=useDispatch();
   const [folder, setFolder] = useState([]);
   const [classwork, setClasswork] = useState([]);
   const { id } = useParams();
   useEffect(() => {
     fetchClassworkFolder(id, 1).then((r) => {
-      setFolder(r.data);
-      console.log("folder of teacher" , r.data);
+      dispatch(fetchAllfolderClassworkSlice(r.data))
+      console.log("folder of teacher", r.data);
     });
     fetchAllclasswork(1, id).then((r) => {
       setClasswork(r.data);
       console.log("classwork of teacher", r.data);
     });
+ 
   }, []);
+  function onDeleteFolder(id) {
+    removeFolder(id).then((r) => {
+      fetchClassworkFolder(id, 1).then((r) => {
+        dispatch(fetchAllfolderClassworkSlice(r.data));
+        console.log(r.data);
+      });
+    });
+  }
   return (
     <div className="">
       <div className="flex space-x-2">
@@ -107,13 +121,16 @@ function ManageClasswork() {
       <p className="mt-3 ml-1 text-xl font-semibold">Folder</p>
       <p className="mb-2 border-b"></p>
       <div className="flex flex-wrap">
-        {folder?.map((index) => {
+        {allFolder?.map((index) => {
           return (
             // /classroom/:id/classworks/:F-id
-            <Link  to={{pathname:`/classroom/${id}/classworks/${index.folder_id}`}}>
-             <FolderCard key={index.id} data={index} />
-            </Link>
-           
+
+            <FolderCard
+              key={index.id}
+              data={index}
+              link={`/classroom/${id}/classworks/${index.folder_id}`}
+              onDelete={onDeleteFolder}
+            />
           );
         })}
       </div>
