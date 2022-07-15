@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { fetchAllCommentByClassMaterial } from '../../service/commentService';
+import { fetchAllCommentByClassMaterialDetail } from '../../service/commentService';
 import StudentComment from './StudentComment'
 
-export default function StudentFiles({data}) {
+export default function StudentFiles({ data }) {
   const [comment, setComment] = useState([]);
-  function onHandleComment(classMaterialId) {
-    fetchAllCommentByClassMaterial(classMaterialId).then((r) => {
+  function onHandleComment(classMaterialDetailId) {
+    fetchAllCommentByClassMaterialDetail(classMaterialDetailId).then((r) => {
       console.log('====================================');
       console.log(r.data);
       console.log('====================================');
@@ -16,9 +16,11 @@ export default function StudentFiles({data}) {
   const dataFile = data;
   return (
     <div className="flex flex-wrap h-40 p-4 mb-5 mr-8 border border-collapse rounded-md shadow-md border-bordergray bg-smoke w-[265px] cursor-default">
+      <div>
       <div className="text-lg font-semibold">{dataFile?.title}</div>
-      <div className="mt-2 text-xs font-medium line-clamp-2">
-        {dataFile?.description}
+        <div className="mt-2 text-xs font-medium line-clamp-2">
+          {dataFile?.description}
+        </div>
       </div>
       <div className="flex mt-4">
         <NavLink
@@ -28,8 +30,8 @@ export default function StudentFiles({data}) {
         >
           View
         </NavLink>
-        <div className="mt-2 ml-auto text-sm underline font-regular dropdown dropdown-right" 
-        onClick={()=>onHandleComment(data.class_materials_detail_id)}>
+        <div className="mt-2 ml-auto text-sm underline font-regular dropdown dropdown-right"
+          onClick={() => onHandleComment(data.class_materials_detail_id)}>
           <label
             tabindex="0"
             className="ml-16 underline cursor-pointer dropdown dropdown-right"

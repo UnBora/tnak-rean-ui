@@ -1,27 +1,48 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { BsFileEarmarkBarGraph } from "react-icons/bs";
 import { MdOutlinePublic } from "react-icons/md";
 import NavbarT from "../../components/NavbarT";
 import { posted } from "../../components/swal/Success";
 import { fetchResult } from "../../service/submittedWorkService";
-import { fetchAllclasswork } from "../../service/classMaterial";
+import { fetchAllclasswork, fetchAllClassworkHasResult } from "../../service/classMaterial";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchAllResultSlice } from "../../slices/result/resultSlice";
 
 const ResultList = () => {
   const [classwork, setClasswork] = useState([]);
-  const [result, setResult] = useState([]);
-  const { id } = useParams();
+  // const [result, setResult] = useState([]);
+  const dispatch = useDispatch();
+  const { id, resultId } = useParams();
+
+  const navigate = useNavigate()
+
+
   useEffect(() => {
-    fetchResult(id, 1).then((r) => {
-      setResult(r.data);
-      console.log("allre: ", r);
-    });
-    fetchAllclasswork(1, id).then((r) => {
-      setClasswork(r.data);
+    fetchResult(1, resultId).then((r) => {
+      // setResult(r.data);
+
+      console.log(r.data);
+      dispatch(fetchAllResultSlice(r.data))
+
+      console.log("result: ", r);
     });
   }, [id]);
-  
+
+  useEffect(() => {
+    fetchAllClassworkHasResult(id).then((r) => {
+      setClasswork(r.data);
+      console.log(classwork);
+    });
+  }, [id]);
+
+
+  const result = useSelector(state => state.result.value)
+
+
+
   console.log(classwork)
+  console.log(result)
 
   return (
     <div className="">
@@ -39,20 +60,26 @@ const ResultList = () => {
       <select
         className="w-1/4 px-4 py-2 mt-5 text-lg font-medium leading-tight border rounded-md shadow-md border-mygreen focus:ring-mygreen focus:outline-none focus:bg-white focus:border-mygreen"
         onChange={(e) => {
-          console.log(e.target);
+          console.log(e.target.value);
           fetchResult(id, e.target.value).then((r) => {
-            setResult(r.data);
-          });
+            dispatch(fetchAllResultSlice(r.data))
+            // setResult(r.data);
+          }
+
+          ); 
+          console.log(e.target.value)
+          
+          navigate(`/classroom/${id}/results/${e.target.value}`)
         }}
       >
-        {/* <option disabled selected>
+        <option disabled selected>
           Classwork
-        </option> */}
+        </option>
         {classwork?.map((dataTask) => {
-          return <option value={dataTask.material_id}> {dataTask.title}</option>;
+          return <option value={dataTask.class_material_id}> <span>{dataTask.title}</span></option>;
         })}
       </select>
-      <div className="mt-5 overflow-x-auto shadow-md ">
+      <div className="mt-5 overflow-x-auto shadow-md">
         <table className="table w-full">
           {/* <!-- head --> */}
           <thead>

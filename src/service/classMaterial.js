@@ -226,3 +226,16 @@ export const fetchCourseInFolderInClass = async (folder_id,class_id,classroom_id
   }
   
 }
+
+export const fetchAllClassworkHasResult = async (class_id) => {
+  try {
+    let response = await api.get("submittableWork/get-classwork-has-result-by-classId", {
+      params: {
+        class_id: class_id,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.log("error", error);
+  }
+};

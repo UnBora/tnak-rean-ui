@@ -2,6 +2,7 @@ import React from "react";
 // import moment from 'react-moment';
 
 export default function ViewComment({ comment }) {
+  console.log("comment");
   return (
     <div>
         <div className="z-50 p-3 bg-white border shadow-md border-mygray w-max card scrollbar-thumb-zinc-400 scrollbar-none ">

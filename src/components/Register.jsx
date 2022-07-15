@@ -181,8 +181,8 @@ export default function Register() {
                       className="w-full px-4 py-2 mt-1 leading-tight text-gray-700 bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
                     >
                       <option className="p-6 text-md">KSHRD</option>
-                      <option className="p-6 text-md">RUPP</option>
-                      <option className="p-6 text-md">Setec</option>
+                      {/* <option className="p-6 text-md">RUPP</option>
+                      <option className="p-6 text-md">Setec</option> */}
                     </select>
                   </div>
                   {/* Classroom */}
