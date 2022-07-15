@@ -49,8 +49,8 @@ const AssignClasswork = () => {
   };
 
   const handleChange = (e) => {
-    console.log(e.target.value);
-    if (e.target.value === -1 || e.target.value === 0) {
+    console.log(isDisabled);
+    if (e.target.value === "-1" || e.target.value ==="0") {
       setIsDisabled(true);
     } else {
       setIsDisabled(false);
@@ -125,8 +125,7 @@ const AssignClasswork = () => {
                   <p className="font-medium ">Classroom</p>
                   <select
                     {...register("class")}
-                    onChange={handleChange}
-                  multiple
+                    onClick={handleChange}
                     id="class"
                     type="text"
                     className="w-full h-20 px-4 py-3 text-gray-700 bg-white border rounded-md shadow-lg focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
@@ -150,6 +149,7 @@ const AssignClasswork = () => {
                   <p className="font-medium ">Point</p>
                   <input
                     {...register("score")}
+                    disabled={isDisabled}
                     className="block w-full px-4 py-3 mb-3 text-gray-700 border rounded shadow-lg appearance-none focus:outline-none focus:ring-1 focus:ring-mygreen"
                     id="point"
                     type="number"
@@ -166,7 +166,7 @@ const AssignClasswork = () => {
                   <p className="font-medium ">Deadline</p>
                   <input
                     {...register("deadline")}
-                    // disabled={isDisabled}
+                    disabled={isDisabled}
                     className="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 border rounded shadow-md appearance-none focus:outline-none focus:ring-1 focus:ring-mygreen"
                     id="userdate"
                     type="datetime-local"
