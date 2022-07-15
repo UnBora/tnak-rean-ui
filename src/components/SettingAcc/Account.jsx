@@ -4,8 +4,11 @@ import * as Yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { userUpdateProfile } from "../../service/authService";
+import { useSelector } from "react-redux";
 
 export default function Account() {
+  const  users = useSelector((state) => state?. persistedReducer?.value);
+  console.log("datauser",users);
   const validationSchema = Yup.object().shape({
     name: Yup.string()
       // .transform((currentValue, originalValue) => {
@@ -28,7 +31,6 @@ export default function Account() {
     useForm(formOptions);
   const { errors } = formState;
 
-
   const onSubmit = (data) => {
     userUpdateProfile(data)
   };
@@ -47,7 +49,7 @@ export default function Account() {
               type="name"
               name="name"
               className="block w-64 px-3 py-2 mt-1 bg-white border rounded-md shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-mygreen focus:ring-mygreen sm:text-sm focus:ring-1"
-              placeholder="Dayan"
+              placeholder={users?.name}
             />
             <div className="invalid-feedback">{errors.name?.message}</div>
           </label>
@@ -60,7 +62,7 @@ export default function Account() {
                 id="gender"
                 className="block w-full p-2 text-sm bg-white border rounded-md shadow-sm border-slate-300 text-slate-400 focus:ring-mygreen focus:border-mygreen "
               >
-                <option>Male</option>
+                <option>{users?.gender}</option>
                 <option>Female</option>
               </select>
             </label>
@@ -74,7 +76,7 @@ export default function Account() {
               type="email"
               name="email"
               className="block w-64 px-3 py-2 mt-1 bg-white border rounded-md shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-mygreen focus:ring-mygreen sm:text-sm focus:ring-1"
-              placeholder="dayan@gmail.com"
+              placeholder={users?.email}
             />
             <div className="invalid-feedback">{errors.email?.message}</div>
           </label>
@@ -87,38 +89,16 @@ export default function Account() {
               type="username"
               name="username"
               className="block w-64 px-3 py-2 mt-1 bg-white border rounded-md shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-mygreen focus:ring-mygreen sm:text-sm focus:ring-1"
-              placeholder="@dayan"
+              placeholder={users?.username}
             />
             <div className="invalid-feedback">{errors.username?.message}</div>
           </label>
         </div>
-        <label className="block mt-4">
-          <span className="block mb-2 text-xs font-medium text-slate-700">
-            EMAIL
-          </span>
-          <input
-            type="email"
-            name="email"
-            className="block w-64 px-3 py-2 mt-1 bg-white border rounded-md shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-mygreen focus:ring-mygreen sm:text-sm focus:ring-1"
-            placeholder="dayan@gmail.com"
-          />
-        </label>
-        <label className="block mt-4 ml-2">
-          <span className="block mb-2 text-xs font-medium text-slate-700">
-            USERNAME
-          </span>
-          <input
-            type="username"
-            name="username"
-            className="block w-64 px-3 py-2 mt-1 bg-white border rounded-md shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-mygreen focus:ring-mygreen sm:text-sm focus:ring-1"
-            placeholder="@dayan"
-          />
-        </label>
         <div class="mt-5 mb-3">
         <button
           type="button"
           class="py-2 text-white bg-mygreen w-20 text-center text-sm font-medium shadow-md rounded-full "
-          onClick={()=>{accountupdate()}}
+          onClick={handleSubmit(onSubmit)}
         >
           Save
         </button>

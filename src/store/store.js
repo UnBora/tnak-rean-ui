@@ -17,6 +17,7 @@ import {
   REGISTER,
 } from "redux-persist";
 import folderSlice from "../slices/folders/folderSlice";
+import assignedWorkSlice from "../slices/assignedwork/assignedWorkSlice";
 
 const { configureStore } = require("@reduxjs/toolkit");
 const persistConfig = {
@@ -37,6 +38,7 @@ export const store = configureStore({
     scheduleStudent: scheduleStudentSlice,
     user: userSlice,
     folder: folderSlice,
+    assignedWork:assignedWorkSlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import StudentComment from "./StudentComment";
 import { MdOutlineAssignment } from "react-icons/md";
-import { Link, NavLink } from "react-router-dom";
-import { fetchAllCommentByClassMaterial } from "../../service/commentService";
+import { Link, NavLink, useParams } from "react-router-dom";
+import { fetchAllCommentByClassMaterialDetail } from "../../service/commentService";
 
 export default function StudentAssignedTask({ data }) {
   const [comment, setComment] = useState([]);
   const dataTask = data;
-  function onHandleComment(classMaterialId) {
-    fetchAllCommentByClassMaterial(classMaterialId).then((r) => {
+  const { id } = useParams();
+  function onHandleComment(classMaterialDetailId) {
+    fetchAllCommentByClassMaterialDetail(classMaterialDetailId).then((r) => {
       console.log("View comment", r.data);
       setComment(r.data);
     });
@@ -41,8 +42,7 @@ export default function StudentAssignedTask({ data }) {
       </div>
       <div className="flex mt-auto">
         <Link
-          to={{ pathname: `/submit/${data.class_material_id}` }}
-          // to={{ pathname: `/classroom/${data.class_id}/classworks/${data.material_id}/list`}}
+          to={{ pathname: `/submit/${data.class_materials_detail_id}` }}
           type="link"
           className="px-4 py-1 text-base text-center text-white shadow-md bg-mygreen font-regular rounded-xl h-max"
         >
@@ -50,7 +50,7 @@ export default function StudentAssignedTask({ data }) {
         </Link>
         <div
           className="mt-2 ml-40 text-sm underline font-regular dropdown dropdown-right"
-          onClick={() => onHandleComment(dataTask?.class_material_id)}
+          onClick={() => onHandleComment(dataTask?.class_materials_detail_id)}
         >
           <label
             tabindex="0"

@@ -94,7 +94,7 @@ export default function ManageClass() {
                       type="button"
                       className="w-6 h-6 text-xs text-white bg-red-500 rounded-full"
                     >
-                      <span className="p-1">{studentRequest?.length}</span>
+                      <span className="p-1">{studentRequest?.total_request}</span>
                     </button>
                   </span>
                 </NavLink>

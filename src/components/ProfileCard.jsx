@@ -15,7 +15,8 @@ export default function ProfileCard({ data }) {
               alt="profile"
             />
             </div>
-          </div></div>
+          </div>
+          </div>
         <div className="text-center ">
           <p className="font-semibold">{data?.name}</p>
           <p className="text-xs">@{data?.username}</p>

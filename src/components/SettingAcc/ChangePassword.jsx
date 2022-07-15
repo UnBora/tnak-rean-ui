@@ -83,7 +83,7 @@ export default function () {
             type="password"
             name="confirmPassword"
             className="block w-64 px-3 py-2 mt-1 bg-white border rounded-md shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-mygreen focus:ring-mygreen sm:text-sm focus:ring-1"
-
+            placeholder="••••••••"
             // required
           />
           <div className="invalid-feedback">

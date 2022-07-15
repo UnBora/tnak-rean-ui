@@ -97,5 +97,6 @@ export default function FolderCard({ data, link }) {
 
       <EditFolder />
     </div>
+    
   );
 }

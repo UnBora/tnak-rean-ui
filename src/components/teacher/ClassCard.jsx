@@ -33,7 +33,13 @@ export default function ClassCard({ data }) {
             className="w-24 text-sm font-medium shadow w-z-20 dropdown-content menu bg-base-100 rounded-box"
           >
             <label className="py-2 pl-4 cursor-pointer hover:bg-gray-200 hover:rounded-t-2xl">
-              <label for="my-modal-2" className="cursor-pointer">
+              <label for="my-modal-2" onclick={() =>{ 
+              
+              }} 
+              className="cursor-pointer"
+              
+              >
+                
                 Edit
               </label>
             </label>

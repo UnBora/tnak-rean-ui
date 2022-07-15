@@ -3,11 +3,20 @@ import { IoMdAddCircleOutline } from "react-icons/io";
 import { useParams } from "react-router-dom";
 import { classedited } from "../swal/Success";
 import { useSelector } from "react-redux";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as Yup from "yup";
+import { editClass } from "../../service/classesService";
+import {dataClass} from "../../components/teacher/ClassCard"
 // import { useParams } from "react-router-dom";
 
 export default function EditClass({ data }) {
+  
+  
   return (
+    
     <div>
+      
       <input type="checkbox" id="my-modal-2" className="modal-toggle" />
       <div className="modal ">
         <div className="flex-shrink-0 shadow-xl card bg-smoke ">
@@ -29,9 +38,9 @@ export default function EditClass({ data }) {
                         Edit Class name <span className="text-red-600 ">*</span>
                       </label>
                       <input
+                        
                         id="classname"
                         type="text"
-                        
                         placeholder="Enter new class name"
                         className="w-full px-4 py-2 mt-1 leading-tight bg-white border rounded-md focus:ring-1 focus:ring-mygreen focus:mygreen focus:outline-none focus:bg-white"
                       />
@@ -113,7 +122,8 @@ export default function EditClass({ data }) {
             <label
               for="my-modal-6"
               className="px-4 border-none rounded-full btn btn-sm bg-mygreen hover:bg-myhovergreen"
-            >
+              
+              >
               Add
             </label>
           </div>

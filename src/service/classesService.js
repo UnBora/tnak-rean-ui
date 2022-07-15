@@ -98,3 +98,20 @@ export const removeClass = async (classId) => {
     console.log("dataClassERR", error);
   }
 };
+
+
+export const editClass = async (id, className, image) => {
+  try {
+    let response = await api.delete(`/class/update-class`, {
+      params: {
+        id: id,
+        className: className,
+        image: image,
+      },
+    });
+    console.log(response);
+    return response.api;
+  } catch (error) {
+    console.log("err", error);
+  }
+};

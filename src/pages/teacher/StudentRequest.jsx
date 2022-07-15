@@ -46,7 +46,7 @@ export const StudentRequest = () => {
         <p className="mb-3 text-2xl font-semibold">Student request</p>
       </div>
       {isFetched &&
-        dataList?.length > 0 &&
+        dataList.total_request > 0 &&
         dataList?.map((index) => {
           return (
             <div key={index.user_id}>
@@ -69,7 +69,7 @@ export const StudentRequest = () => {
                     </label>
                     <div
                       tabindex="0"
-                      className="p-1 dropdown-content mt-9 rounded-box bg-slate-300"
+                      className="p-1 dropdown-content mt-9 rounded-box "
                     >
                       <div className="z-50 shadow-xl card w-60 bg-smoke">
                         <div className="card-body">
@@ -80,25 +80,26 @@ export const StudentRequest = () => {
                                   index.img !== null
                                     ? index.img
                                     : "https://www.cmcaindia.org/wp-content/uploads/2015/11/default-profile-picture-gmail-2.png"
-                                }
+                                }alt="pf"
                               />
                             </div>
                           </div>
                           <div className="text-center ">
-                            <p className="font-semibold">{index.name}</p>
-                            <p className="text-xs">@Dayan_konbarang</p>
+                            <p className="font-semibold">{index?.name}</p>
+                            <p className="text-xs">@{index?.username}</p>
+                            {/* <p className="my-2 myhr"></p> */}
                           </div>
                           <div className="text-xs">
                             <p className="font-semibold">Contact</p>
-                            <p>Male</p>
-                            <p>danyan@gmail.com</p>
+                            <p>{index?.gender}</p>
+                            <p>{index?.email}</p>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                   <p className="font-medium">{index.name}</p>
-                  <span>request to join</span>{" "}
+                  <span>request to join</span>
                   <span>{index.class_name} classroom</span>
                 </div>
                 <div className="flex-none">

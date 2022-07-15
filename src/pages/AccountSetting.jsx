@@ -4,18 +4,33 @@ import { RiLockPasswordLine } from "react-icons/ri";
 import { BiTrashAlt } from "react-icons/bi";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import NavbarT from "../components/NavbarT";
+import { useSelector } from "react-redux";
+import StudentNavBar from "../components/StudentNavbar";
 
-export default function AccountSetting({ userData }) {
+export default function AccountSetting({data}) {
+  const role = useSelector((state) => state.persistedReducer.value.role[0]);
+  // const  user = useSelector((state) => state?. user?.value);
+  const  users = useSelector((state) => state?. persistedReducer?.value);
+  console.log(role);
+  console.log("userdata",users);
+  console.log(data);
   const [isActive, setIsActive] = useState(1);
   return (
     <div>
-    <NavbarT/>
+      {role === "Teacher" ? (
+        <NavbarT />
+      ) : role === "Student" ? (
+        <StudentNavBar />
+      ) : (
+        <h1>asd</h1>
+      )}
+
       <div class="mx-36 mt-9 mb-40">
         <div class="">
-          <div className="font-semibold lg:text-3xl md:text-xl sm:text-base">
+          <div className="text-3xl font-semibold ">
             Account Setting
           </div>
-          <div className="mt-3 font-light lg:text-xl md:text-sm sm:text-xs">
+          <div className="mt-1 text-xl font-light ">
             Change your profile and account setting
           </div>
         </div>
@@ -25,11 +40,15 @@ export default function AccountSetting({ userData }) {
             <div className="flex">
               <img
                 className="flex object-cover w-20 h-20 rounded-full jsutify-left"
-                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-                alt=""
+                src={
+                  users?.img !== null
+                  ? users?.img
+                  : "https://www.cmcaindia.org/wp-content/uploads/2015/11/default-profile-picture-gmail-2.png"
+              }
+              alt="profile"
               />
               <div className="mt-3 ml-5 ">
-                <p className="text-2xl font-medium">Dayan</p>
+                <p className="text-2xl font-medium">{users?.name}</p>
                 <label class="block"></label>
 
                 <div className="flex text-sm text-gray-600">

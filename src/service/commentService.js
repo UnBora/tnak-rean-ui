@@ -87,3 +87,18 @@ export const fetchAllCommentByClassMaterial=async(material_id)=>{
         console.log("error",error)
     }
 }
+
+export const fetchAllCommentByClassMaterialDetail=async(material_detail_id)=>{
+    try{
+        let response = await api.get("comment/get-by-materialDetailId",
+        {
+            params: {
+                material_detail_id:material_detail_id
+            },
+          });
+        return response.data;
+
+    }catch(error){
+        console.log("error",error)
+    }
+}

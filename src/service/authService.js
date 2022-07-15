@@ -61,15 +61,14 @@ export const userUpdateProfile = async (student) => {
     name: student.name,
     username: student.username,
     gender: student.gender,
-    img: null,
     email: student.email,
   };
 
   console.log("iam update user ", data);
 
   try {
-    let response = await api.put("/user/update-profile", data);
-    console.log(response);
+    let response = await api.put(`/user/update-profile`, data);
+    console.log('response data',response);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -97,7 +96,7 @@ export const changePassword = async (old_password, new_password) => {
 // Delete account
 export const deleteAccount = async (password, confirmPassword) => {
   try {
-    let response = await api.delete("user/delete-account", {
+    let response = await api.delete(`user/delete-account`, {
       params: {
         password: password,
         confirmPassword: confirmPassword,
@@ -105,6 +104,28 @@ export const deleteAccount = async (password, confirmPassword) => {
     });
     console.log(response);
     return response.data;
+  } catch (error) {
+    console.log("err", error);
+  }
+};
+
+// Deactivate Account 
+export const deactiveAccount = async (password, confirmPassword) => {
+  try {
+    let response = await api.put(`/user/deactivate-account?password=${password}&confirmPassword=${confirmPassword}`);
+    console.log(response);
+    return response.data;
+  } catch (error) {
+    console.log("err", error);
+  }
+};
+
+// Activate Account 
+export const activeAccount = async (password, confirmPassword) => {
+  try {
+    let response = await api.put(`/user/activate-account?password=${password}&passwordConfirm=${confirmPassword}`);
+    console.log(response);
+    return response;
   } catch (error) {
     console.log("err", error);
   }
