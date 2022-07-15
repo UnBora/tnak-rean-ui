@@ -9,7 +9,6 @@ import { api } from "../utils/api";
 //     console.log("error", error);
 //   }
 // };
-
 const classes = {
   classname: "SW2",
   image: "images",
@@ -41,7 +40,6 @@ export const fecthAllClassByTeacher = async () => {
 export const create = async (className, image) => {
   let formData = new FormData();
   formData.append("file", image);
-  const file = image;
   const config = {
     headers: { "content-type": "multipart/form-data" },
   };
@@ -51,6 +49,7 @@ export const create = async (className, image) => {
   if (image !== null) {
     re = await api.post("/upload/one", formData, config);
     console.log(re.data.data.name);
+    
   }
 
   // .then((res) => {

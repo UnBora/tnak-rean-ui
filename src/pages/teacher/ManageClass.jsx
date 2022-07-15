@@ -18,7 +18,7 @@ export default function ManageClass() {
   console.log("class: ", classes);
   const classFilter = classes?.filter((e) => {
     console.log(e.id);
-    return e.id == id;
+    return e.id === id;
   });
   
   // console.log("the classname is : ", classFilter[0]?.className);

@@ -2,11 +2,11 @@ import { Routes, Route } from "react-router-dom";
 import AboutUs from "./pages/AboutUs";
 import ManageClass from "./pages/teacher/ManageClass";
 import FormSubmit from "./pages/student/FormSubmit";
-import ViewWorkForSub from "./pages/student/ViewWorkForSub";
-import DeactivateAccount from "./components/settingacc/DeactivateAccount";
-import DeleteAccount from "./components/settingacc/DeleteAccount";
-import ChangePassword from "./components/settingacc/ChangePassword";
-import Account from "./components/settingacc/Account";
+// import ViewWorkForSub from "./pages/student/ViewWorkForSub";
+import DeactivateAccount from "./components/SettingAcc/DeactivateAccount";
+import DeleteAccount from "./components/SettingAcc/DeleteAccount";
+import ChangePassword from "./components/SettingAcc/ChangePassword";
+import Account from "./components/SettingAcc/Account";
 import Classwork from "./pages/student/Classwork";
 import Course from "./pages/student/Course";
 import ViewFiles from "./pages/student/ViewFiles";
@@ -31,6 +31,7 @@ import FolderCourse from "./pages/teacher/FolderCourse";
 import GradeStudentWork from "./pages/teacher/GradeStudentWork";
 import ManageCLassworkInFolder from "./pages/teacher/ManageCLassworkInFolder";
 import ManageCourseInFolder from "./pages/teacher/ManageCourseInFolder";
+import SubmitAssignTask from "./pages/student/SubmitAssignTask";
 
 function App() {
   const user = getCurrentUser;
@@ -57,6 +58,7 @@ function App() {
         <Route path="/all-classwork/:folderId" element={<FolderItems/>} />
         <Route path="/all-course" element={<AllCourse />} />
         <Route path="/all-course/:folderCourseId" element={<FolderCourse />} />
+        <Route path="/grade" element={<GradeStudentWork/>}></Route>
         {/* Per class */}
         <Route path="/classroom/:id" element={<ManageClass />}>
           <Route path="students" element={<AllStudent />}></Route>
@@ -88,7 +90,7 @@ function App() {
         {/* Student side */}
         <Route path="/student" element={<StuIndex />} />
         <Route path="/formsubmit" element={<FormSubmit />} />
-        <Route path="/work-submit" element={<ViewWorkForSub />} />
+        <Route path="/submit/:id" element={<SubmitAssignTask />} />
         <Route path="/stu-classwork" element={<Classwork />} />
         <Route path="/stu-course" element={<Course />} />
         <Route path="/files" element={<ViewFiles />} />

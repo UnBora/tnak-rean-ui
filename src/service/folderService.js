@@ -158,5 +158,17 @@ export const removeStudent = async (id) => {
   } catch (error) {
     console.log("deleteERRR", error);
   }
-  console.log("data from service", data);
-};
+  console.log("data from service", data);}
+//folder classwork student
+export const fetchClassworkFolderStu = async (material_type_id) => {
+  try {
+    let response = await api.get("folder/get-folders-by-studentId", {
+      params: {
+        material_type_id: material_type_id,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.log("error", error);
+  }
+}
