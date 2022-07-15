@@ -19,32 +19,7 @@ export default function AboutUs() {
     <div>
       <Navbar/>
       <div className="">
-        <div className="grid grid-cols-4 mx-32 mt-10 bg-white border rounded-lg shadow-md card p-11">
-          <div className="col-span-3 ml-6 font-medium text-center lg:text-lg ">
-            <p className="text-2xl font-semibold text-center uppercase lg:text-4xl">
-              About US
-            </p>
-            <p className="w-20 mx-auto mt-2 myhr"></p>
-            <div className="flex mt-10 ">
-              <div className="text-lg text-mygreen ">Tnak</div>
-              <div className="text-lg text-myorange">Rean</div>
-              <div className="text-lg ">
-                is website that created by Korea Software HRD Center in 2022.
-              </div>
-              <hr/>
-              
-            </div>
-            <div className="flex mx-auto text-lg "> The best option and it useful for teachers an students in many
-                institutes.</div>
-          </div>
-          <div className="col-span-1">
-            <img
-              className="flex object-cover m-auto rounded-full lg:w-40 lg:h-40 ring-4 ring-mygreen "
-              src={TnakRean}
-              alt="TnakRean logo"
-            />
-          </div>
-        </div>
+
         <div className="px-8 mt-4">
           <div className="px-1 py-10 ">
           <div className="mt-10 space-y-6 mx-100px">
@@ -124,7 +99,7 @@ export default function AboutUs() {
                   />
                   <p className="w-20 mx-auto mt-5 myhr"></p>
                   <h1 className="pt-2 mt-2 text-2xl font-semibold uppercase">
-                    chea phanith
+                    Sok Sinuon
                   </h1>
 
                   <p className="mx-2 mt-2 text-myorange text-md">
