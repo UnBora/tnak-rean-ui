@@ -122,3 +122,41 @@ export const createCourseFolderInClass = async (folder_name, class_id) => {
     console.log("create-courseFolder", error);
   }
 };
+
+//edit_folder_name
+export const editFolderName = async (id, folder_name) => {
+  let data = {
+    id: id,
+    folder_name: folder_name,
+  };
+  console.log("folder name update from before res:", data);
+
+  try {
+    let response = await api.put("folder/edit-folder", data);
+    return response.data;
+  } catch (error) {
+    console.log("ERR", error);
+  }
+};
+
+// delete_folder
+
+export const removeStudent = async (id) => {
+  let data = {
+    id:id
+  };
+  console.log("before respon data:", data);
+  // let response = await api.delete(
+  //   "teacher/teacher-remove-student-by-id",data
+  // );
+
+  try {
+    let response = await api.delete("folder/delete-by-FolderId", {
+      data,
+    });
+    return response.data;
+  } catch (error) {
+    console.log("deleteERRR", error);
+  }
+  console.log("data from service", data);
+};

@@ -14,6 +14,9 @@ import FolderCard from "../../components/teacher/FolderCard";
 import NavbarT from "../../components/NavbarT";
 import { fetchClassworks } from "../../service/classMaterial";
 import { fetchallClassworkFolder } from "../../service/folderService";
+import EditFolder from "../../components/teacher/EditFolder";
+import { FaEllipsisV, FaFolderMinus } from "react-icons/fa";
+import { deleteFolder } from "../../components/swal/Delete";
 
 function AllClasswork() {
   const [allClasswork, setallClasswork] = useState([]);
@@ -21,7 +24,7 @@ function AllClasswork() {
   useEffect(() => {
     fetchClassworks().then((r) => {
       setallClasswork(r.data);
-      console.log("all assign task",r.data );
+      console.log("all assign task", r.data);
     });
 
     fetchallClassworkFolder().then((r) => {
@@ -30,6 +33,8 @@ function AllClasswork() {
   }, []);
 
   console.log("all folder", allFolder);
+  console.log("all folder", allFolder);
+
   return (
     <div>
       <NavbarT />
@@ -117,9 +122,24 @@ function AllClasswork() {
             {allFolder?.map((index) => {
               return (
                 // /classroom/${dataClass.id}/students
-                <Link to={{pathname:`/all-classwork/${index.folder_id}`}} >
-                  <FolderCard key={index.id} data={index} />
-                </Link>
+                // <Link to={{pathname:`/all-classwork/${index.folder_id}`}} >
+                //   <FolderCard key={index.id} data={index} />
+                // </Link>
+                <div className="flex mt-3 mr-4 ">
+                  <div className="flex p-2 border border-collapse rounded-md shadow-md cursor-pointer h-max border-bordergray w-60">
+                    <Link
+                      to={{ pathname: `/all-classwork/${index.folder_id}` }}
+                    >
+                      <div className="ml-2 text-sm truncate font-regular">
+                        <FaFolderMinus />
+
+                        <span className="ml-2 text-sm truncate font-regular">
+                          {index.folder_name}
+                        </span>
+                      </div>
+                    </Link>
+                  </div>
+                </div>
               );
             })}
           </div>
