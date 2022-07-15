@@ -35,8 +35,9 @@ export default function ProfileCard() {
                   </div>
                 </div>
                 <div>
-                  <span className="font-bold">{index.sender_name}</span>
-                  {/* <span>{index.sender_name}to join Phnom Penh classroom</span> */}
+                  <span className="text-[#48ad9b]">{index.content}</span>
+                  <br/>
+                  <span>{index.received_date}</span>
                 </div>
               </div>
             </div>
