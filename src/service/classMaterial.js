@@ -59,6 +59,7 @@ export const fetchCourseFile = async () => {
 
 //assigntask
 export const assigntask = async (task, file) => {
+ console.log('task assad: ' , task); 
   try {
     let formData = new FormData();
     formData.append("file", file);
@@ -78,33 +79,47 @@ export const assigntask = async (task, file) => {
     console.log("data nhom", task?.class);
     let response;
     console.log("date", format(task.deadline, pattern));
-    if (task.class !== "-1" && task.class !== "0") {
-      response = await api.post(
-        "submittableWork/create-homework-in-class",
-        data,
-        {
-          params: {
-            title: task?.title,
-            description: task?.description,
-            deadline: format(task.deadline, pattern),
-            class_id: parseInt(task?.class),
-            classroom_id: 1,
-            score: parseFloat(task?.score),
-          },
-        }
-      );
-    } else if (task.class === "-1") {
-      response = await api.post("submittableWork/create-homework", {
-        data,
+    // if (task.class !== "-1" && task.class !== "0") {
+    //   response = await api.post(
+    //     "submittableWork/create-homework-in-class",
+    //     data,
+    //     {
+    //       params: {
+    //         title: task?.title,
+    //         description: task?.description,
+    //         deadline: format(task.deadline, pattern),
+    //         class_id: parseInt(task?.class),
+    //         classroom_id: 1,
+    //         score: parseFloat(task?.score),
+    //       },
+    //     }
+    //   );
+    // } else if (task.class === "-1") {
+    //   response = await api.post("submittableWork/create-homework", {
+    //     data,
+    //     params: {
+    //       title: task?.title,
+    //       description: task?.description,
+    //     },
+    //   });
+    // } else if (task.class === "0") {
+      
+    // }
+    response = await api.post(
+      "submittableWork/create-homework-in-class",
+      data,
+      {
         params: {
           title: task?.title,
           description: task?.description,
+          deadline: format(task.deadline, pattern),
+          class_id: parseInt(task?.class),
+          classroom_id: 1,
+          score: parseFloat(task?.score),
         },
-      });
-    } else if (task.class === "0") {
-      
-    }
-    console.log(response?.data);
+      }
+    );
+    console.log('asdasdasd tiest ',response?.data);
     return response?.data;
   } catch (error) {
     console.log("error", error);

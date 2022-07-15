@@ -11,12 +11,11 @@ import { useSelect } from "@material-tailwind/react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchSelectClassSlice } from "../../slices/classes/selectClass";
 
-
 const AssignClasswork = ({ createType }, { classes }) => {
   const dispatch = useDispatch();
   const allSelectClass = useSelector((state) => state.allSelectClass?.value);
 
-  console.log('helloooooooooo',allSelectClass);
+  console.log("helloooooooooo", allSelectClass);
 
   const validationSchema = Yup.object().shape({
     title: Yup.string()
@@ -62,11 +61,11 @@ const AssignClasswork = ({ createType }, { classes }) => {
     }
   };
 
-const [cl,setCl] = useState();
-  
+  const [cl, setCl] = useState();
+
   const handleChange = (e) => {
     fetchSelectClass().then((r) => {
-     setCl(r.data);
+      setCl(r.data);
     });
     console.log(isDisabled);
     if (e.target.value === "-1" || e.target.value === "0") {
@@ -83,22 +82,23 @@ const [cl,setCl] = useState();
     //     message: "Deadline is required",
     //   });
     // }
-    console.log("====================================");
-    console.log("asdasdasdsada ", createType);
-    console.log("====================================");
-    if (createType === "homework") {
-      assigntask(data, file);
-    } else if (createType === "assignment") {
-      console.log('====================================');
-      console.log('assignment');
-      assigntask(data, file);
-      console.log('====================================');
-    } else if (createType === "quiz") {
-      console.log('====================================');
-      console.log('quiz');
-      assigntask(data, file);
-      console.log('====================================');
-    }
+    // console.log("====================================");
+    // console.log("asdasdasdsada ", createType);
+    // console.log("====================================");
+    // if (createType === "homework") {
+    //   assigntask(data, file);
+    // } else if (createType === "assignment") {
+    //   console.log('====================================');
+    //   console.log('assignment');
+    //   assigntask(data, file);
+    //   console.log('====================================');
+    // } else if (createType === "quiz") {
+    //   console.log('====================================');
+    //   console.log('quiz');
+    //   assigntask(data, file);
+    //   console.log('====================================');
+    // }
+    assigntask(data, file);
   };
 
   console.log("classessssssssssssssssssssssssssss", createType);
@@ -161,18 +161,22 @@ const [cl,setCl] = useState();
                     type="text"
                     className="w-full h-20 px-4 py-3 text-gray-700 bg-white border rounded-md shadow-lg focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
                   >
-                    <option value={-1} className="p-6 text-md">
+                    {/* <option value={-1} className="p-6 text-md">
                       None
                     </option>
                     <option value={0} className="p-6 text-md">
                       All Class
-                    </option>
-                    {cl?.map((index) => (
-                      console.log('cl',index),
-                      <option value={index?.id} className="p-6 text-md">
-                        {index?.className}
-                      </option>
-                    ))}
+                    </option> */}
+                    {cl?.map(
+                      (index) => (
+                        console.log("cl", index),
+                        (
+                          <option value={index?.id} className="p-6 text-md">
+                            {index?.className}
+                          </option>
+                        )
+                      )
+                    )}
                   </select>
                 </div>
               </div>
