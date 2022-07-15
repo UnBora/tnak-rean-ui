@@ -4,12 +4,24 @@ import { RiLockPasswordLine } from "react-icons/ri";
 import { BiTrashAlt } from "react-icons/bi";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import NavbarT from "../components/NavbarT";
+import { useSelector } from "react-redux";
+import StudentNavBar from "../components/StudentNavbar";
 
 export default function AccountSetting({ userData }) {
+  const role = useSelector((state) => state.persistedReducer.value.role[0]);
+  console.log(role);
+
   const [isActive, setIsActive] = useState(1);
   return (
     <div>
-    <NavbarT/>
+      {role === "Teacher" ? (
+        <NavbarT />
+      ) : role === "Student" ? (
+        <StudentNavBar />
+      ) : (
+        <h1>asd</h1>
+      )}
+
       <div class="mx-36 mt-9 mb-40">
         <div class="">
           <div className="font-semibold lg:text-3xl md:text-xl sm:text-base">
