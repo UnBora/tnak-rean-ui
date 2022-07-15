@@ -7,6 +7,7 @@ import { deleteClasswork } from "../swal/Delete";
 import AssignClasswork from "./AssignClasswork";
 import { useState } from "react";
 import ViewComment from "./ViewComment";
+import ShareTask from "./ShareTask";
 
 export default function AssignedTaskCard({ data }) {
   const dataTask = data;
@@ -42,7 +43,7 @@ export default function AssignedTaskCard({ data }) {
               </label>
             </label>
             <label className="py-2 pl-4 border-t hover:bg-gray-200">
-              <label for="my-modal-2" className="cursor-pointer">
+              <label for="my-modal-pop" className="cursor-pointer">
                 Share
               </label>
             </label>
@@ -98,6 +99,7 @@ export default function AssignedTaskCard({ data }) {
         </div>
       </div>
       <AssignClasswork />
+      <ShareTask/>
     </div>
   );
 }

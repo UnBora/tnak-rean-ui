@@ -87,7 +87,7 @@ function AllCourse() {
       
         {allFolder?.map((index) => {
           return (
-          <Link to={{pathname:`/all-course/${index.folder_id}`}}> <FolderCard key={index.id} data={index} /></Link>
+           <FolderCard key={index.id} data={index} link={`/all-course/${index.folder_id}`} />
          
           )
         })}

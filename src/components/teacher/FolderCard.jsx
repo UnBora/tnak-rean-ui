@@ -1,6 +1,7 @@
 import React from "react";
 import { FaEllipsisV, FaFolderMinus } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { removeFolder } from "../../service/folderService";
 import { deleteFolder } from "../swal/Delete";
 import EditFolder from "./EditFolder";
 
@@ -50,6 +51,10 @@ import EditFolder from "./EditFolder";
 
 export default function FolderCard({ data, link }) {
   const dataFolder = data;
+
+  function onDeleteFolder(id) {
+    removeFolder(id);
+  } 
   return (
     <div className="flex mt-3 mr-4">
       <div className="flex p-2 border border-collapse rounded-md shadow-md cursor-pointer h-max border-bordergray w-60">
@@ -78,7 +83,7 @@ export default function FolderCard({ data, link }) {
             <label
               className="py-2 pl-4 text-red-500 border-t cursor-pointer hover:rounded-b-lg hover:bg-gray-200"
               onClick={() => {
-                deleteFolder();
+                onDeleteFolder(dataFolder.folder_id)
               }}
             >
               Delete

@@ -10,7 +10,7 @@ export default function AccountDropdown({data}) {
     () => navigate("/", { replace: true }),
     [navigate],
     localStorage.removeItem("user"),
-    localStorage.setItem("currentTab", "/")
+    localStorage.setItem("currentTab", "/teacher")
   );
 
   return (

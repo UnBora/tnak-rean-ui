@@ -99,7 +99,7 @@ export const createClassworkFolderInClass = async (folder_name, class_id) => {
       "folder/create-classworkFolder-in-class",
       data
     );
-    console.log("server response",response);
+    console.log("server response", response);
     return response.data;
   } catch (error) {
     console.log("create-classworkFolder", error);
@@ -139,28 +139,7 @@ export const editFolderName = async (id, folder_name) => {
   }
 };
 
-// delete_folder
 
-export const removeStudent = async (id) => {
-  let data = {
-    id:id
-  };
-  console.log("before respon data:", data);
-  // let response = await api.delete(
-  //   "teacher/teacher-remove-student-by-id",data
-  // );
-
-  try {
-    let response = await api.delete("folder/delete-by-FolderId", {
-      data,
-    });
-    return response.data;
-  } catch (error) {
-    console.log("deleteERRR", error);
-  }
-  console.log("data from service", data);}
-//folder classwork student
-//folder classwork course student
 export const fetchClassworkFolderStu = async (material_type_id) => {
   try {
     let response = await api.get("folder/get-folders-by-studentId", {
@@ -172,6 +151,22 @@ export const fetchClassworkFolderStu = async (material_type_id) => {
   } catch (error) {
     console.log("error", error);
   }
-}
+};
 
 
+// delete_folder
+
+export const removeFolder = async (id) => {
+  try {
+    let response = await api.delete("folder/delete-by-FolderId",
+    {
+      params: {
+        id:id
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.log("deleteERRR", error);
+  }
+  console.log("data from service");
+};

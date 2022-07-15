@@ -70,6 +70,7 @@ module.exports = {
     require("daisyui"),
     require('@tailwindcss/line-clamp'),
     require('tailwind-scrollbar'),
+    require('flowbite/plugin')
   ],
   daisyui: {
     styled: true,

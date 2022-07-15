@@ -17,10 +17,11 @@ import { fetchallClassworkFolder } from "../../service/folderService";
 import EditFolder from "../../components/teacher/EditFolder";
 import { FaEllipsisV, FaFolderMinus } from "react-icons/fa";
 import { deleteFolder } from "../../components/swal/Delete";
-
+import { useDispatch } from "react-redux";
 function AllClasswork() {
   const [allClasswork, setallClasswork] = useState([]);
   const [allFolder, setallFolder] = useState([]);
+  const dispatch = useDispatch();
   useEffect(() => {
     fetchClassworks().then((r) => {
       setallClasswork(r.data);
@@ -34,6 +35,12 @@ function AllClasswork() {
 
   console.log("all folder", allFolder);
   console.log("all folder", allFolder);
+
+  const [createType, setCreateType] = useState("");
+
+  console.log('====================================');
+  console.log(createType);
+  console.log('====================================');
 
   return (
     <div>
@@ -91,6 +98,7 @@ function AllClasswork() {
                 <label
                   for="my-modal-2"
                   className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded"
+                onClick= {()=>setCreateType("homework")}
                 >
                   <MdOutlineHomeWork className="mx-4 mt-1" />
                   Homework
@@ -100,6 +108,7 @@ function AllClasswork() {
                 <label
                   for="my-modal-2"
                   className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded"
+                  onClick= {()=>setCreateType("assignment")}
                 >
                   <MdOutlineAssignment className="mx-4 mt-1" />
                   Assignment
@@ -109,6 +118,7 @@ function AllClasswork() {
                 <label
                   for="my-modal-2"
                   className="flex py-2 cursor-pointer hover:bg-gray-300 hover:rounded"
+                  onClick= {()=>setCreateType("quiz")}
                 >
                   <MdOutlineQuiz className="mx-4 mt-1" />
                   Quiz
@@ -139,7 +149,7 @@ function AllClasswork() {
           </div>
           {/* pop up */}
           <CreateFolder />
-          <AssignClasswork />
+          <AssignClasswork createType={createType}/>
         </div>
       </div>
     </div>

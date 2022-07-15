@@ -11,9 +11,12 @@ const folderSlice = createSlice({
     fetchAllfolderSlice: (state, action) => {
       state.value = action.payload;
     },
+    removeFolderSlice:(state,action)=>{
+      state.value=action.payload;
+    }
   },
 });
-export const { fetchAllfolderSlice } = folderSlice.actions;
+export const { fetchAllfolderSlice,removeFolderSlice } = folderSlice.actions;
 
 
 export default folderSlice.reducer;

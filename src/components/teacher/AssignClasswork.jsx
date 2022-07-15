@@ -8,7 +8,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { assigntask } from "../../service/classMaterial";
 import { fetchSelectClass } from "../../service/classesService";
 
-const AssignClasswork = () => {
+const AssignClasswork = ({ createType }) => {
   const validationSchema = Yup.object().shape({
     title: Yup.string()
       .required("Name is required")
@@ -50,7 +50,7 @@ const AssignClasswork = () => {
 
   const handleChange = (e) => {
     console.log(isDisabled);
-    if (e.target.value === "-1" || e.target.value ==="0") {
+    if (e.target.value === "-1" || e.target.value === "0") {
       setIsDisabled(true);
     } else {
       setIsDisabled(false);
@@ -65,7 +65,13 @@ const AssignClasswork = () => {
     //   });
     // }
 
-    assigntask(data, file);
+    if (createType === "homework") {
+      assigntask(data, file);
+    } else if (createType === "assignment") {
+
+    } else if (createType === "quiz") {
+      
+    }
   };
   const [classes, setClass] = useState([]);
   useEffect(() => {

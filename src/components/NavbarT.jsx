@@ -16,8 +16,11 @@ const NavbarT = ({ userData }) => {
   const  users = useSelector((state) => state?. persistedReducer?.value);
   console.log("users ",users);
   const current = localStorage.getItem("currentTab");
+
+  
   const [currentTab, setCurrentTab] = useState(current);
   const handleSetCurrentTab = (tabName) => {
+    localStorage.removeItem("currentTab")
     localStorage.setItem("currentTab", tabName);
     setCurrentTab(tabName);
   };
@@ -56,7 +59,7 @@ const NavbarT = ({ userData }) => {
                 as={Link}
                 to="/teacher"
                 className={
-                  currentTab === "/"
+                  currentTab === "/teacher"
                     ? "flex items-center font-medium border-b-2 border-myorange"
                     : "flex items-center font-medium mylink"
                 }
@@ -113,12 +116,12 @@ const NavbarT = ({ userData }) => {
         <div class="menu menu-horizontal p-0">
           <label className="flex">
             <NavLink
-              onClick={() => handleSetCurrentTab("/")}
+              onClick={() => handleSetCurrentTab("/teacher")}
               rel="noopener noreferrer"
               as={Link}
               to="/teacher"
               className={
-                currentTab === "/"
+                currentTab === "/teacher"
                   ? "flex items-center font-medium border-b-4 border-myorange "
                   : "flex items-center font-medium mylink"
               }
