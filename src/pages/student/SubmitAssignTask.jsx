@@ -43,7 +43,7 @@ export default function SubmitAssignTask() {
           {/* <NavLink className="ml-2 font-medium">Back</NavLink> */}
         </div>
         <div>
-          <p className="mt-5 font-semibold lg:text-2xl sm:text-medium md:text-base">
+          <p className="mt-5 text-2xl font-semibold sm:text-medium md:text-base">
             Phnom Penh Classroom
           </p>
           <p className="w-20 mt-1 myhr"></p>
@@ -54,15 +54,15 @@ export default function SubmitAssignTask() {
                 <label className="p-2 text-white rounded-full bg-mygreen lg:text-AccountIcon ">
                   <MdOutlineAssignment />
                 </label>
-                <label className="ml-3 font-medium lg:text-2xl">
+                <label className="ml-3 text-2xl font-bold ">
                   {dataTask.title}
                 </label>
                 <label className="mt-2 ml-auto text-sm text-myred">
                   Due {dataTask?.deadline}
                 </label>
               </div>
-              <p className="ml-12 font-bold text-myorange lg:text-md">
-                {dataTask?.score}
+              <p className="ml-12 font-semibold text-myorange lg:text-md">
+                {dataTask?.score} Point
               </p>
               <div className="grid grid-cols-3 mt-5 ml-12">
                 <div className="col-span-2">

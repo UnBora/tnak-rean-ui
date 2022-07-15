@@ -12,7 +12,7 @@ export default function AccountDropdown({data}) {
     localStorage.removeItem("user"),
     localStorage.setItem("currentTab", "/")
   );
-
+  
   return (
     <div className="z-50 card w-72">
       <div className="card-body">
