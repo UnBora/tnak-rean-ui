@@ -15,13 +15,13 @@ export default function ManageClass() {
   const { id } = useParams();
   const classes = useSelector((state) => state?.classes?.value);
 
-  console.log("class: ", classes);
+  // console.log("class test: ", classes);
   const classFilter = classes?.filter((e) => {
-    console.log(e.id);
+    console.log("testtt",e.id);
     return e.id === id;
   });
   
-  // console.log("the classname is : ", classFilter[0]?.className);
+  console.log("the classname is : ", classFilter[0]?.className);
 
   useEffect(() => {
     fetchStudentRequest(1, id).then((r) => {
@@ -94,7 +94,7 @@ export default function ManageClass() {
                       type="button"
                       className="w-6 h-6 text-xs text-white bg-red-500 rounded-full"
                     >
-                      <span className="p-1">{studentRequest?.length}</span>
+                      <span className="p-1">{studentRequest?.total_request}</span>
                     </button>
                   </span>
                 </NavLink>
