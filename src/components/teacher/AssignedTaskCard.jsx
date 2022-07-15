@@ -2,7 +2,7 @@ import React from "react";
 import { FaEllipsisV } from "react-icons/fa";
 import { MdOutlineAssignment } from "react-icons/md";
 import { Link } from "react-router-dom";
-import { fetchAllCommentByClassMaterial } from "../../service/commentService";
+import { fetchAllCommentByClassMaterial, fetchAllCommentByClassMaterialDetail } from "../../service/commentService";
 import { deleteClasswork } from "../swal/Delete";
 import AssignClasswork from "./AssignClasswork";
 import { useState } from "react";
@@ -13,8 +13,8 @@ export default function AssignedTaskCard({ data }) {
   const [comment, setComment] = useState([]);
   // const dataClass = data;
 
-  function onHandleComment(classMaterialId) {
-    fetchAllCommentByClassMaterial(classMaterialId).then((r) => {
+  function onHandleComment(classMaterialDetailId) {
+    fetchAllCommentByClassMaterialDetail(classMaterialDetailId).then((r) => {
       console.log('View Comment ', r.data);
       setComment(r.data);
     });
@@ -22,7 +22,7 @@ export default function AssignedTaskCard({ data }) {
   console.log('teacher assigntask',dataTask);
 
   return (
-    <div className="flex flex-wrap max-w-sm p-4 border rounded-md shadow-md mr-7 mb-7 h-52 border-bordergray">
+    <div className="flex flex-wrap max-w-sm p-4 border rounded-md shadow-md mr-7 mb-7 h-52 border-bordergray ">
       <div className="flex w-full">
         <div className="flex text-2xl cursor-default ">
           <MdOutlineAssignment />
@@ -84,7 +84,7 @@ export default function AssignedTaskCard({ data }) {
         </Link>
         <div
           className="mt-2 ml-40 text-sm underline font-regular dropdown dropdown-right"
-          onClick={()=>onHandleComment(data.material_id)}
+          onClick={()=>onHandleComment(data.class_materials_detail_id)}
         >
           <label 
           tabindex="0" 
@@ -92,7 +92,7 @@ export default function AssignedTaskCard({ data }) {
           >
             <span>{dataTask.total_comment}</span> comments
           </label>
-          <div tabindex="0" className="mt-2 dropdown-content rounded-box">
+          <div tabindex="0" className="mt-2 dropdown-content rounded-box scrollbar-thumb-zinc-400 scrollbar-none">
             <ViewComment comment={comment} />
           </div>
         </div>

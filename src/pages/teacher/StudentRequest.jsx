@@ -10,7 +10,6 @@ import { useQuery, useMutation, useQueryClient } from "react-query";
 import { useMemo } from "react";
 export const StudentRequest = () => {
   const { id } = useParams();
-
   const queryClient = useQueryClient();
   // GET
   const {
@@ -46,7 +45,7 @@ export const StudentRequest = () => {
         <p className="mb-3 text-2xl font-semibold">Student request</p>
       </div>
       {isFetched &&
-        dataList.total_request > 0 &&
+        dataList.length > 0 &&
         dataList?.map((index) => {
           return (
             <div key={index.user_id}>

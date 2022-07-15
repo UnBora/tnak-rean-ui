@@ -9,6 +9,10 @@ import { cryptoDecrypt, encryptToken } from "../../utils/tokenEnDe";
 import { getUserSlice } from "../../slices/users/userSlice";
 import { showLoading } from "../../components/swal/Loading";
 import Navbar from "../../components/Navbar";
+import OneSignal from "react-onesignal"
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as Yup from "yup";
+import { useForm } from "react-hook-form";
 
 // import Navbartest from "../../components/Navbartest";
 export default function Login() {
@@ -17,44 +21,105 @@ export default function Login() {
   const dispatch = useDispatch();
   let navigate = useNavigate();
 
-  const user = useSelector((state) => {
-    console.log("Here are the value of the state : ", state);
+  const validationSchema = Yup.object().shape({
+    username: Yup.string().required("user is required"),
+    password: Yup.string().required("password is required"),
   });
+  const formOptions = { resolver: yupResolver(validationSchema) };
+  const { register, handleSubmit, reset, formState, setError } = useForm({
+    formOptions,
+  });
+  const { errors } = formState;
 
-  let signin = (e) => {
-    e.preventDefault();
-    let user = {
-      username: username,
-      password: password,
-    };
-
-    login(user)
-      .then((u) => {
-     
-        // OneSignal.setExternalUserId(u.id);
+  const onSubmit = (data) => {
+    
+    login(data).then((u) => {console.log('data', u);
+      dispatch(getUserSlice(u));
+      if (u?.id !== undefined) {
+        console.log(
+          'asdasdas aaSDAsD ;Q:We:qw:E d'
+        );
+        OneSignal.setExternalUserId(u?.id);
+        dispatch(getUserSlice(u));
         if (u.role[0] === "Teacher") {
-          console.log(u.role[0]);
+          console.log(u?.role[0]);
           console.log(
             "decryp: " + cryptoDecrypt(localStorage.getItem("token"), "Phanith")
           );
           navigate("/teacher", { replace: true });
-        } else if (u.role[0] === "Student") {
+        } else if (u?.role[0] === "Student") {
           navigate("/student", { replace: true });
         }
-
-        try {
-          dispatch(getUserSlice(u));
-        } catch (error) {
-          console.log(error);
-        }
-      })
+      }else{
+        setError("password", {
+              type: "custom",
+              message: "please check your password or username",
+            });
+      }
+      // if (u?.status === 403) {
+      //   setError("userName", {
+      //     type: "custom",
+      //     message: "please check your password or username",
+      //   });
+      // } else if (u?.status !== 500 && u?.id !== null) {
+      //   OneSignal.setExternalUserId(u?.id);
+      //   if (u.role[0] === "Teacher") {
+      //     console.log(u.role[0]);
+      //     console.log(
+      //       "decryp: " + cryptoDecrypt(localStorage.getItem("token"), "Phanith")
+      //     );
+      //     navigate("/teacher", { replace: true });
+      //   } else if (u.role[0] === "Student") {
+      //     navigate("/student", { replace: true });
+      //   }
+      // }
+    }).then((u) => {
+      try {
+        
+      } catch (error) {
+        console.log(error);
+      }
+    })
       .then(showLoading);
-    // try {
-    //   dispatch(getUserSlice(u));
-    // } catch (error) {
-    //   console.log(error);
-    // }
-  };
+  }
+
+  const user = useSelector((state) => {
+    console.log("Here are the value of the state : ", state);
+  });
+
+  // let signin = (e) => {
+  //   e.preventDefault();
+  //   let user = {
+  //     username: username,
+  //     password: password,
+  //   };
+
+  // login(user)
+  //   .then((u) => {
+  //     // OneSignal.setExternalUserId(u.id);
+  //     if (u.role[0] === "Teacher") {
+  //       console.log(u.role[0]);
+  //       console.log(
+  //         "decryp: " + cryptoDecrypt(localStorage.getItem("token"), "Phanith")
+  //       );
+  //       navigate("/teacher", { replace: true });
+  //     } else if (u.role[0] === "Student") {
+  //       navigate("/student", { replace: true });
+  //     }
+
+  //     try {
+  //       dispatch(getUserSlice(u));
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   })
+  //   .then(showLoading);
+  // try {
+  //   dispatch(getUserSlice(u));
+  // } catch (error) {
+  //   console.log(error);
+  // }
+  // };
 
   // useEffect(() => {
   //   const user = getCurrentUser;
@@ -110,23 +175,27 @@ export default function Login() {
               >
                 <div className="space-y-4">
                   <div>
-                    <input
-                      name="email"
-                      type="email"
+                    <input {...register("username")} autoFocus
+                      type="text"
                       id="username"
                       placeholder="Username or Email"
                       className="w-full px-3 py-2 border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none"
-                      onChange={(e) => setUsername(e.target.value)}
+                    // onChange={(e) => setUsername(e.target.value)}
                     />
+                    <div className="ml-4 text-sm invalid-feedback text-myred">
+                      {errors.username?.message}
+                    </div>
                   </div>
                   <div className="pb-2">
-                    <input
+                    <input {...register("password")}
                       type="password"
                       id="password"
                       placeholder={"Password"}
                       className="w-full px-3 py-2 border rounded-md focus:ring-1 focus:ring-mygreen focus:outline-none"
-                      onChange={(e) => setPassword(e.target.value)}
                     />
+                    <div className="ml-4 text-sm invalid-feedback text-myred">
+                      {errors.password?.message}
+                    </div>
                   </div>
                   <label
                     for="my-modal-4"
@@ -139,7 +208,7 @@ export default function Login() {
                   <button
                     type="submit"
                     className="w-full px-8 py-2 space-x-2 font-semibold text-white rounded-full text-md bg-mygreen"
-                    onClick={signin}
+                    onClick={handleSubmit(onSubmit)}
                   >
                     Login
                   </button>
