@@ -39,10 +39,21 @@ const AssignClasswork = () => {
   const { errors } = formState;
   const [link, setLink] = useState("");
   const [file, setfile] = useState();
+  const [isDisabled, setIsDisabled] = useState(true);
+
   const filehandler = (e) => {
     if (e.target.files.length !== 0) {
       setfile(e.target.files[0]);
       console.log("i am file ", file);
+    }
+  };
+
+  const handleChange = (e) => {
+    console.log(e.target.value);
+    if (e.target.value === -1 || e.target.value === 0) {
+      setIsDisabled(true);
+    } else {
+      setIsDisabled(false);
     }
   };
 
@@ -127,6 +138,7 @@ const AssignClasswork = () => {
                   <p className="font-medium ">Classroom</p>
                   <select
                     {...register("class")}
+                    onChange={handleChange}
                     id="class"
                     type="text"
                     className="w-full px-4 py-3 leading-tight text-gray-700 bg-white border rounded-md shadow-lg focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white multiple"
@@ -166,6 +178,7 @@ const AssignClasswork = () => {
                   <p className="font-medium ">Deadline</p>
                   <input
                     {...register("deadline")}
+                    // disabled={isDisabled}
                     className="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 border rounded shadow-md appearance-none focus:outline-none focus:ring-1 focus:ring-mygreen"
                     id="userdate"
                     type="datetime-local"

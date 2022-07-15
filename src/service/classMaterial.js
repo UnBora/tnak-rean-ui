@@ -95,12 +95,14 @@ export const assigntask = async (task, file) => {
       );
     } else if (task.class === "-1") {
       response = await api.post("submittableWork/create-homework", {
-        data: {
+        data,
+        params: {
           title: task?.title,
           description: task?.description,
-          data,
         },
       });
+    } else if (task.class === "0") {
+      
     }
     return response?.data;
   } catch (error) {
