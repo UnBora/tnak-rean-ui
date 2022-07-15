@@ -19,11 +19,13 @@ import { FaEllipsisV, FaFolderMinus } from "react-icons/fa";
 import { deleteFolder } from "../../components/swal/Delete";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllfolderSlice } from "../../slices/folders/folderSlice";
+import { classWorkType } from "../../slices/assignedwork/assignedWorkSlice";
 function AllClasswork() {
   const [allClasswork, setallClasswork] = useState([]);
   // const [allFolder, setallFolder] = useState([]);
   const dispatch = useDispatch();
   const allFolder = useSelector((state) => state.folder.value);
+  const [classes, setClasses] = useState([]);
   useEffect(() => {
     fetchClassworks().then((r) => {
       setallClasswork(r.data);
@@ -43,9 +45,6 @@ function AllClasswork() {
     });
   }
 
-
-
-  
 
   const [createType, setCreateType] = useState("default value");
 
