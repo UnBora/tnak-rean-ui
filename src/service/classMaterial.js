@@ -78,4 +78,13 @@ export const fetchAllClassworkStu = async () => {
     console.log("error", error);
   }
 };
-// get ALL COURSE by folder id (OUTSITE)
+
+export const fetchAllCourseFileStu = async () => {
+  try {
+    let response = await api.get("classMaterial/get-course-by-studentId");
+    return response.data;
+  } catch (error) {
+    console.log("error", error);
+  }
+};
+

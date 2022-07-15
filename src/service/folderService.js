@@ -123,7 +123,7 @@ export const createCourseFolderInClass = async (folder_name, class_id) => {
   }
 };
 
-//folder classwork student
+//folder classwork course student
 export const fetchClassworkFolderStu = async (material_type_id) => {
   try {
     let response = await api.get("folder/get-folders-by-studentId", {
@@ -136,3 +136,4 @@ export const fetchClassworkFolderStu = async (material_type_id) => {
     console.log("error", error);
   }
 };
+

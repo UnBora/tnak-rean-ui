@@ -96,30 +96,21 @@ const AssignClasswork = () => {
                 </div>
               </div>
               <div className="flex flex-wrap mb-6 -mx-3">
-                {/* <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0 ">
-                  <p className="font-medium ">School</p>
-                  <select
-                    id="school"
-                    type="text"
-                    className="w-full px-4 py-3 leading-tight text-gray-700 bg-white border rounded-md shadow-lg focus:outline-none focus:bg-white focus:ring-1 focus:ring-mygreen"
-                  >
-                    <option className="p-6 text-md">All schools</option>
-                    <option className="p-6 text-md">KSHRD</option>
-                    <option className="p-6 text-md">RUPP</option>
-                    <option className="p-6 text-md">Setec</option>
-                  </select>
-                </div> */}
                 <div className="w-full px-3 mb-6 md:w-full md:mb-0 ">
                   <p className="font-medium ">Classroom</p>
                   <select
+                  multiple
                     id="class"
                     type="text"
-                    className="w-full px-4 py-3 leading-tight text-gray-700 bg-white border rounded-md shadow-lg focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white multiple"
+                    className="w-full h-20 px-4 py-3 text-gray-700 bg-white border rounded-md shadow-lg focus:ring-1 focus:ring-mygreen focus:outline-none focus:bg-white"
                   >
-                    <option className="p-6 text-md">All classes</option>
-                    <option className="p-6 text-md">PP</option>
-                    <option className="p-6 text-md">M5</option>
-                    <option className="p-6 text-md">BTB</option>
+                    <option className="p-1 text-md">All classes</option>
+                    <option className="p-1 text-md">PP</option>
+                    <option className="p-1 text-md">M5</option>
+                    <option className="p-1 text-md">BTB</option>
+                    <option className="p-1 text-md">PP</option>
+                    <option className="p-1 text-md">M5</option>
+                    <option className="p-1 text-md">BTB</option>
                   </select>
                 </div>
               </div>
@@ -136,7 +127,9 @@ const AssignClasswork = () => {
                   <div className="ml-4 text-sm invalid-feedback text-myred">
                     {errors.point?.message}
                   </div>
-                  <div className="ml-4 text-sm invalid-feedback text-myred">{errors.name?.message}</div>
+                  <div className="ml-4 text-sm invalid-feedback text-myred">
+                    {errors.name?.message}
+                  </div>
                 </div>
                 <div className="w-full px-3 mb-6 md:w-1/2 md:mb-0">
                   <p className="font-medium ">Deadline</p>
@@ -168,7 +161,7 @@ const AssignClasswork = () => {
                       className="hidden"
                       {...register("file")}
                       onChange={(e) =>
-                        console.log(('i am file ',e.target.files[0]))
+                        console.log(("i am file ", e.target.files[0]))
                       }
                     />
                   </label>
